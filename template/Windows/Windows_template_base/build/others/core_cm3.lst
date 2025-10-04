@@ -1,0 +1,474 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"core_cm3.c"
+  14              		.text
+  15              		.section	.text.__get_PSP,"ax",%progbits
+  16              		.align	1
+  17              		.global	__get_PSP
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	__get_PSP:
+  23              		@ Naked Function: prologue and epilogue provided by programmer.
+  24              		@ args = 0, pretend = 0, frame = 0
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26              		.syntax unified
+  27              	@ 447 "../Core/core_cm3.c" 1
+  28 0000 EFF30980 		MRS r0, psp
+  29 0004 0046     		MOV r0, r0 
+  30 0006 7047     		BX  lr     
+  31              		
+  32              	@ 0 "" 2
+  33              		.thumb
+  34              		.syntax unified
+  36              		.section	.text.__set_PSP,"ax",%progbits
+  37              		.align	1
+  38              		.global	__set_PSP
+  39              		.syntax unified
+  40              		.thumb
+  41              		.thumb_func
+  43              	__set_PSP:
+  44              		@ Naked Function: prologue and epilogue provided by programmer.
+  45              		@ args = 0, pretend = 0, frame = 0
+  46              		@ frame_needed = 0, uses_anonymous_args = 0
+  47              		.syntax unified
+  48              	@ 464 "../Core/core_cm3.c" 1
+  49 0000 80F30988 		MSR psp, r0
+  50 0004 7047     		BX  lr     
+  51              		
+  52              	@ 0 "" 2
+  53              		.thumb
+  54              		.syntax unified
+  56              		.section	.text.__get_MSP,"ax",%progbits
+  57              		.align	1
+  58              		.global	__get_MSP
+  59              		.syntax unified
+  60              		.thumb
+  61              		.thumb_func
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s 			page 2
+
+
+  63              	__get_MSP:
+  64              		@ Naked Function: prologue and epilogue provided by programmer.
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67              		.syntax unified
+  68              	@ 481 "../Core/core_cm3.c" 1
+  69 0000 EFF30880 		MRS r0, msp
+  70 0004 0046     		MOV r0, r0 
+  71 0006 7047     		BX  lr     
+  72              		
+  73              	@ 0 "" 2
+  74              		.thumb
+  75              		.syntax unified
+  77              		.section	.text.__set_MSP,"ax",%progbits
+  78              		.align	1
+  79              		.global	__set_MSP
+  80              		.syntax unified
+  81              		.thumb
+  82              		.thumb_func
+  84              	__set_MSP:
+  85              		@ Naked Function: prologue and epilogue provided by programmer.
+  86              		@ args = 0, pretend = 0, frame = 0
+  87              		@ frame_needed = 0, uses_anonymous_args = 0
+  88              		.syntax unified
+  89              	@ 498 "../Core/core_cm3.c" 1
+  90 0000 80F30888 		MSR msp, r0
+  91 0004 7047     		BX  lr     
+  92              		
+  93              	@ 0 "" 2
+  94              		.thumb
+  95              		.syntax unified
+  97              		.section	.text.__get_BASEPRI,"ax",%progbits
+  98              		.align	1
+  99              		.global	__get_BASEPRI
+ 100              		.syntax unified
+ 101              		.thumb
+ 102              		.thumb_func
+ 104              	__get_BASEPRI:
+ 105              		@ args = 0, pretend = 0, frame = 0
+ 106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107              		@ link register save eliminated.
+ 108              		.syntax unified
+ 109              	@ 513 "../Core/core_cm3.c" 1
+ 110 0000 EFF31280 		MRS r0, basepri_max
+ 111              	@ 0 "" 2
+ 112              		.thumb
+ 113              		.syntax unified
+ 114 0004 7047     		bx	lr
+ 116              		.section	.text.__set_BASEPRI,"ax",%progbits
+ 117              		.align	1
+ 118              		.global	__set_BASEPRI
+ 119              		.syntax unified
+ 120              		.thumb
+ 121              		.thumb_func
+ 123              	__set_BASEPRI:
+ 124              		@ args = 0, pretend = 0, frame = 0
+ 125              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s 			page 3
+
+
+ 126              		@ link register save eliminated.
+ 127              		.syntax unified
+ 128              	@ 526 "../Core/core_cm3.c" 1
+ 129 0000 80F31188 		MSR basepri, r0
+ 130              	@ 0 "" 2
+ 131              		.thumb
+ 132              		.syntax unified
+ 133 0004 7047     		bx	lr
+ 135              		.section	.text.__get_PRIMASK,"ax",%progbits
+ 136              		.align	1
+ 137              		.global	__get_PRIMASK
+ 138              		.syntax unified
+ 139              		.thumb
+ 140              		.thumb_func
+ 142              	__get_PRIMASK:
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145              		@ link register save eliminated.
+ 146              		.syntax unified
+ 147              	@ 540 "../Core/core_cm3.c" 1
+ 148 0000 EFF31080 		MRS r0, primask
+ 149              	@ 0 "" 2
+ 150              		.thumb
+ 151              		.syntax unified
+ 152 0004 7047     		bx	lr
+ 154              		.section	.text.__set_PRIMASK,"ax",%progbits
+ 155              		.align	1
+ 156              		.global	__set_PRIMASK
+ 157              		.syntax unified
+ 158              		.thumb
+ 159              		.thumb_func
+ 161              	__set_PRIMASK:
+ 162              		@ args = 0, pretend = 0, frame = 0
+ 163              		@ frame_needed = 0, uses_anonymous_args = 0
+ 164              		@ link register save eliminated.
+ 165              		.syntax unified
+ 166              	@ 553 "../Core/core_cm3.c" 1
+ 167 0000 80F31088 		MSR primask, r0
+ 168              	@ 0 "" 2
+ 169              		.thumb
+ 170              		.syntax unified
+ 171 0004 7047     		bx	lr
+ 173              		.section	.text.__get_FAULTMASK,"ax",%progbits
+ 174              		.align	1
+ 175              		.global	__get_FAULTMASK
+ 176              		.syntax unified
+ 177              		.thumb
+ 178              		.thumb_func
+ 180              	__get_FAULTMASK:
+ 181              		@ args = 0, pretend = 0, frame = 0
+ 182              		@ frame_needed = 0, uses_anonymous_args = 0
+ 183              		@ link register save eliminated.
+ 184              		.syntax unified
+ 185              	@ 567 "../Core/core_cm3.c" 1
+ 186 0000 EFF31380 		MRS r0, faultmask
+ 187              	@ 0 "" 2
+ 188              		.thumb
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s 			page 4
+
+
+ 189              		.syntax unified
+ 190 0004 7047     		bx	lr
+ 192              		.section	.text.__set_FAULTMASK,"ax",%progbits
+ 193              		.align	1
+ 194              		.global	__set_FAULTMASK
+ 195              		.syntax unified
+ 196              		.thumb
+ 197              		.thumb_func
+ 199              	__set_FAULTMASK:
+ 200              		@ args = 0, pretend = 0, frame = 0
+ 201              		@ frame_needed = 0, uses_anonymous_args = 0
+ 202              		@ link register save eliminated.
+ 203              		.syntax unified
+ 204              	@ 580 "../Core/core_cm3.c" 1
+ 205 0000 80F31388 		MSR faultmask, r0
+ 206              	@ 0 "" 2
+ 207              		.thumb
+ 208              		.syntax unified
+ 209 0004 7047     		bx	lr
+ 211              		.section	.text.__get_CONTROL,"ax",%progbits
+ 212              		.align	1
+ 213              		.global	__get_CONTROL
+ 214              		.syntax unified
+ 215              		.thumb
+ 216              		.thumb_func
+ 218              	__get_CONTROL:
+ 219              		@ args = 0, pretend = 0, frame = 0
+ 220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 221              		@ link register save eliminated.
+ 222              		.syntax unified
+ 223              	@ 594 "../Core/core_cm3.c" 1
+ 224 0000 EFF31480 		MRS r0, control
+ 225              	@ 0 "" 2
+ 226              		.thumb
+ 227              		.syntax unified
+ 228 0004 7047     		bx	lr
+ 230              		.section	.text.__set_CONTROL,"ax",%progbits
+ 231              		.align	1
+ 232              		.global	__set_CONTROL
+ 233              		.syntax unified
+ 234              		.thumb
+ 235              		.thumb_func
+ 237              	__set_CONTROL:
+ 238              		@ args = 0, pretend = 0, frame = 0
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240              		@ link register save eliminated.
+ 241              		.syntax unified
+ 242              	@ 607 "../Core/core_cm3.c" 1
+ 243 0000 80F31488 		MSR control, r0
+ 244              	@ 0 "" 2
+ 245              		.thumb
+ 246              		.syntax unified
+ 247 0004 7047     		bx	lr
+ 249              		.section	.text.__REV,"ax",%progbits
+ 250              		.align	1
+ 251              		.global	__REV
+ 252              		.syntax unified
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s 			page 5
+
+
+ 253              		.thumb
+ 254              		.thumb_func
+ 256              	__REV:
+ 257              		@ args = 0, pretend = 0, frame = 0
+ 258              		@ frame_needed = 0, uses_anonymous_args = 0
+ 259              		@ link register save eliminated.
+ 260              		.syntax unified
+ 261              	@ 623 "../Core/core_cm3.c" 1
+ 262 0000 00BA     		rev r0, r0
+ 263              	@ 0 "" 2
+ 264              		.thumb
+ 265              		.syntax unified
+ 266 0002 7047     		bx	lr
+ 268              		.section	.text.__REV16,"ax",%progbits
+ 269              		.align	1
+ 270              		.global	__REV16
+ 271              		.syntax unified
+ 272              		.thumb
+ 273              		.thumb_func
+ 275              	__REV16:
+ 276              		@ args = 0, pretend = 0, frame = 0
+ 277              		@ frame_needed = 0, uses_anonymous_args = 0
+ 278              		@ link register save eliminated.
+ 279              		.syntax unified
+ 280              	@ 639 "../Core/core_cm3.c" 1
+ 281 0000 40BA     		rev16 r0, r0
+ 282              	@ 0 "" 2
+ 283              		.thumb
+ 284              		.syntax unified
+ 285 0002 7047     		bx	lr
+ 287              		.section	.text.__REVSH,"ax",%progbits
+ 288              		.align	1
+ 289              		.global	__REVSH
+ 290              		.syntax unified
+ 291              		.thumb
+ 292              		.thumb_func
+ 294              	__REVSH:
+ 295              		@ args = 0, pretend = 0, frame = 0
+ 296              		@ frame_needed = 0, uses_anonymous_args = 0
+ 297              		@ link register save eliminated.
+ 298              		.syntax unified
+ 299              	@ 655 "../Core/core_cm3.c" 1
+ 300 0000 C0BA     		revsh r0, r0
+ 301              	@ 0 "" 2
+ 302              		.thumb
+ 303              		.syntax unified
+ 304 0002 7047     		bx	lr
+ 306              		.section	.text.__RBIT,"ax",%progbits
+ 307              		.align	1
+ 308              		.global	__RBIT
+ 309              		.syntax unified
+ 310              		.thumb
+ 311              		.thumb_func
+ 313              	__RBIT:
+ 314              		@ args = 0, pretend = 0, frame = 0
+ 315              		@ frame_needed = 0, uses_anonymous_args = 0
+ 316              		@ link register save eliminated.
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s 			page 6
+
+
+ 317              		.syntax unified
+ 318              	@ 671 "../Core/core_cm3.c" 1
+ 319 0000 90FAA0F0 		rbit r0, r0
+ 320              	@ 0 "" 2
+ 321              		.thumb
+ 322              		.syntax unified
+ 323 0004 7047     		bx	lr
+ 325              		.section	.text.__LDREXB,"ax",%progbits
+ 326              		.align	1
+ 327              		.global	__LDREXB
+ 328              		.syntax unified
+ 329              		.thumb
+ 330              		.thumb_func
+ 332              	__LDREXB:
+ 333              		@ args = 0, pretend = 0, frame = 0
+ 334              		@ frame_needed = 0, uses_anonymous_args = 0
+ 335              		@ link register save eliminated.
+ 336              		.syntax unified
+ 337              	@ 687 "../Core/core_cm3.c" 1
+ 338 0000 D0E84F0F 		ldrexb r0, [r0]
+ 339              	@ 0 "" 2
+ 340              		.thumb
+ 341              		.syntax unified
+ 342 0004 C0B2     		uxtb	r0, r0
+ 343 0006 7047     		bx	lr
+ 345              		.section	.text.__LDREXH,"ax",%progbits
+ 346              		.align	1
+ 347              		.global	__LDREXH
+ 348              		.syntax unified
+ 349              		.thumb
+ 350              		.thumb_func
+ 352              	__LDREXH:
+ 353              		@ args = 0, pretend = 0, frame = 0
+ 354              		@ frame_needed = 0, uses_anonymous_args = 0
+ 355              		@ link register save eliminated.
+ 356              		.syntax unified
+ 357              	@ 703 "../Core/core_cm3.c" 1
+ 358 0000 D0E85F0F 		ldrexh r0, [r0]
+ 359              	@ 0 "" 2
+ 360              		.thumb
+ 361              		.syntax unified
+ 362 0004 80B2     		uxth	r0, r0
+ 363 0006 7047     		bx	lr
+ 365              		.section	.text.__LDREXW,"ax",%progbits
+ 366              		.align	1
+ 367              		.global	__LDREXW
+ 368              		.syntax unified
+ 369              		.thumb
+ 370              		.thumb_func
+ 372              	__LDREXW:
+ 373              		@ args = 0, pretend = 0, frame = 0
+ 374              		@ frame_needed = 0, uses_anonymous_args = 0
+ 375              		@ link register save eliminated.
+ 376              		.syntax unified
+ 377              	@ 719 "../Core/core_cm3.c" 1
+ 378 0000 50E8000F 		ldrex r0, [r0]
+ 379              	@ 0 "" 2
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s 			page 7
+
+
+ 380              		.thumb
+ 381              		.syntax unified
+ 382 0004 7047     		bx	lr
+ 384              		.section	.text.__STREXB,"ax",%progbits
+ 385              		.align	1
+ 386              		.global	__STREXB
+ 387              		.syntax unified
+ 388              		.thumb
+ 389              		.thumb_func
+ 391              	__STREXB:
+ 392              		@ args = 0, pretend = 0, frame = 0
+ 393              		@ frame_needed = 0, uses_anonymous_args = 0
+ 394              		@ link register save eliminated.
+ 395              		.syntax unified
+ 396              	@ 736 "../Core/core_cm3.c" 1
+ 397 0000 C1E8430F 		strexb r3, r0, [r1]
+ 398              	@ 0 "" 2
+ 399              		.thumb
+ 400              		.syntax unified
+ 401 0004 1846     		mov	r0, r3
+ 402 0006 7047     		bx	lr
+ 404              		.section	.text.__STREXH,"ax",%progbits
+ 405              		.align	1
+ 406              		.global	__STREXH
+ 407              		.syntax unified
+ 408              		.thumb
+ 409              		.thumb_func
+ 411              	__STREXH:
+ 412              		@ args = 0, pretend = 0, frame = 0
+ 413              		@ frame_needed = 0, uses_anonymous_args = 0
+ 414              		@ link register save eliminated.
+ 415              		.syntax unified
+ 416              	@ 753 "../Core/core_cm3.c" 1
+ 417 0000 C1E8530F 		strexh r3, r0, [r1]
+ 418              	@ 0 "" 2
+ 419              		.thumb
+ 420              		.syntax unified
+ 421 0004 1846     		mov	r0, r3
+ 422 0006 7047     		bx	lr
+ 424              		.section	.text.__STREXW,"ax",%progbits
+ 425              		.align	1
+ 426              		.global	__STREXW
+ 427              		.syntax unified
+ 428              		.thumb
+ 429              		.thumb_func
+ 431              	__STREXW:
+ 432              		@ args = 0, pretend = 0, frame = 0
+ 433              		@ frame_needed = 0, uses_anonymous_args = 0
+ 434              		@ link register save eliminated.
+ 435              		.syntax unified
+ 436              	@ 770 "../Core/core_cm3.c" 1
+ 437 0000 41E80000 		strex r0, r0, [r1]
+ 438              	@ 0 "" 2
+ 439              		.thumb
+ 440              		.syntax unified
+ 441 0004 7047     		bx	lr
+ 443              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s 			page 8
+
+
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 core_cm3.c
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:16     .text.__get_PSP:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:22     .text.__get_PSP:00000000 __get_PSP
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:37     .text.__set_PSP:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:43     .text.__set_PSP:00000000 __set_PSP
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:57     .text.__get_MSP:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:63     .text.__get_MSP:00000000 __get_MSP
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:78     .text.__set_MSP:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:84     .text.__set_MSP:00000000 __set_MSP
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:98     .text.__get_BASEPRI:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:104    .text.__get_BASEPRI:00000000 __get_BASEPRI
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:117    .text.__set_BASEPRI:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:123    .text.__set_BASEPRI:00000000 __set_BASEPRI
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:136    .text.__get_PRIMASK:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:142    .text.__get_PRIMASK:00000000 __get_PRIMASK
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:155    .text.__set_PRIMASK:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:161    .text.__set_PRIMASK:00000000 __set_PRIMASK
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:174    .text.__get_FAULTMASK:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:180    .text.__get_FAULTMASK:00000000 __get_FAULTMASK
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:193    .text.__set_FAULTMASK:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:199    .text.__set_FAULTMASK:00000000 __set_FAULTMASK
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:212    .text.__get_CONTROL:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:218    .text.__get_CONTROL:00000000 __get_CONTROL
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:231    .text.__set_CONTROL:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:237    .text.__set_CONTROL:00000000 __set_CONTROL
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:250    .text.__REV:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:256    .text.__REV:00000000 __REV
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:269    .text.__REV16:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:275    .text.__REV16:00000000 __REV16
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:288    .text.__REVSH:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:294    .text.__REVSH:00000000 __REVSH
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:307    .text.__RBIT:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:313    .text.__RBIT:00000000 __RBIT
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:326    .text.__LDREXB:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:332    .text.__LDREXB:00000000 __LDREXB
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:346    .text.__LDREXH:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:352    .text.__LDREXH:00000000 __LDREXH
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:366    .text.__LDREXW:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:372    .text.__LDREXW:00000000 __LDREXW
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:385    .text.__STREXB:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:391    .text.__STREXB:00000000 __STREXB
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:405    .text.__STREXH:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:411    .text.__STREXH:00000000 __STREXH
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:425    .text.__STREXW:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmuz9Cm.s:431    .text.__STREXW:00000000 __STREXW
+
+NO UNDEFINED SYMBOLS

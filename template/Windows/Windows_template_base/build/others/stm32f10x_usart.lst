@@ -1,0 +1,880 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f10x_usart.c"
+  14              		.text
+  15              		.section	.text.USART_DeInit,"ax",%progbits
+  16              		.align	1
+  17              		.global	USART_DeInit
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	USART_DeInit:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 08B5     		push	{r3, lr}
+  26 0002 234B     		ldr	r3, .L13
+  27 0004 9842     		cmp	r0, r3
+  28 0006 0CD0     		beq	.L8
+  29 0008 224B     		ldr	r3, .L13+4
+  30 000a 9842     		cmp	r0, r3
+  31 000c 14D0     		beq	.L9
+  32 000e 224B     		ldr	r3, .L13+8
+  33 0010 9842     		cmp	r0, r3
+  34 0012 1CD0     		beq	.L10
+  35 0014 214B     		ldr	r3, .L13+12
+  36 0016 9842     		cmp	r0, r3
+  37 0018 24D0     		beq	.L11
+  38 001a 214B     		ldr	r3, .L13+16
+  39 001c 9842     		cmp	r0, r3
+  40 001e 2CD0     		beq	.L12
+  41              	.L1:
+  42 0020 08BD     		pop	{r3, pc}
+  43              	.L8:
+  44 0022 0121     		movs	r1, #1
+  45 0024 4FF48040 		mov	r0, #16384
+  46 0028 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  47 002c 0021     		movs	r1, #0
+  48 002e 4FF48040 		mov	r0, #16384
+  49 0032 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  50 0036 F3E7     		b	.L1
+  51              	.L9:
+  52 0038 0121     		movs	r1, #1
+  53 003a 4FF40030 		mov	r0, #131072
+  54 003e FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  55 0042 0021     		movs	r1, #0
+  56 0044 4FF40030 		mov	r0, #131072
+  57 0048 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  58 004c E8E7     		b	.L1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 2
+
+
+  59              	.L10:
+  60 004e 0121     		movs	r1, #1
+  61 0050 4FF48020 		mov	r0, #262144
+  62 0054 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  63 0058 0021     		movs	r1, #0
+  64 005a 4FF48020 		mov	r0, #262144
+  65 005e FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  66 0062 DDE7     		b	.L1
+  67              	.L11:
+  68 0064 0121     		movs	r1, #1
+  69 0066 4FF40020 		mov	r0, #524288
+  70 006a FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  71 006e 0021     		movs	r1, #0
+  72 0070 4FF40020 		mov	r0, #524288
+  73 0074 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  74 0078 D2E7     		b	.L1
+  75              	.L12:
+  76 007a 0121     		movs	r1, #1
+  77 007c 4FF48010 		mov	r0, #1048576
+  78 0080 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  79 0084 0021     		movs	r1, #0
+  80 0086 4FF48010 		mov	r0, #1048576
+  81 008a FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  82 008e C7E7     		b	.L1
+  83              	.L14:
+  84              		.align	2
+  85              	.L13:
+  86 0090 00380140 		.word	1073821696
+  87 0094 00440040 		.word	1073759232
+  88 0098 00480040 		.word	1073760256
+  89 009c 004C0040 		.word	1073761280
+  90 00a0 00500040 		.word	1073762304
+  92              		.section	.text.USART_Init,"ax",%progbits
+  93              		.align	1
+  94              		.global	USART_Init
+  95              		.syntax unified
+  96              		.thumb
+  97              		.thumb_func
+  99              	USART_Init:
+ 100              		@ args = 0, pretend = 0, frame = 24
+ 101              		@ frame_needed = 0, uses_anonymous_args = 0
+ 102 0000 30B5     		push	{r4, r5, lr}
+ 103 0002 87B0     		sub	sp, sp, #28
+ 104 0004 0446     		mov	r4, r0
+ 105 0006 0D46     		mov	r5, r1
+ 106 0008 038A     		ldrh	r3, [r0, #16]
+ 107 000a 9BB2     		uxth	r3, r3
+ 108 000c CA88     		ldrh	r2, [r1, #6]
+ 109 000e 23F44053 		bic	r3, r3, #12288
+ 110 0012 1343     		orrs	r3, r3, r2
+ 111 0014 0382     		strh	r3, [r0, #16]	@ movhi
+ 112 0016 8389     		ldrh	r3, [r0, #12]
+ 113 0018 9BB2     		uxth	r3, r3
+ 114 001a 8988     		ldrh	r1, [r1, #4]
+ 115 001c 2889     		ldrh	r0, [r5, #8]
+ 116 001e 6A89     		ldrh	r2, [r5, #10]
+ 117 0020 0143     		orrs	r1, r1, r0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 3
+
+
+ 118 0022 0A43     		orrs	r2, r2, r1
+ 119 0024 23F4B053 		bic	r3, r3, #5632
+ 120 0028 23F00C03 		bic	r3, r3, #12
+ 121 002c 1343     		orrs	r3, r3, r2
+ 122 002e A381     		strh	r3, [r4, #12]	@ movhi
+ 123 0030 A38A     		ldrh	r3, [r4, #20]
+ 124 0032 9BB2     		uxth	r3, r3
+ 125 0034 AA89     		ldrh	r2, [r5, #12]
+ 126 0036 23F44073 		bic	r3, r3, #768
+ 127 003a 1343     		orrs	r3, r3, r2
+ 128 003c A382     		strh	r3, [r4, #20]	@ movhi
+ 129 003e 01A8     		add	r0, sp, #4
+ 130 0040 FFF7FEFF 		bl	RCC_GetClocksFreq
+ 131 0044 1D4B     		ldr	r3, .L26
+ 132 0046 9C42     		cmp	r4, r3
+ 133 0048 24D0     		beq	.L23
+ 134 004a 039B     		ldr	r3, [sp, #12]
+ 135              	.L17:
+ 136 004c A289     		ldrh	r2, [r4, #12]
+ 137 004e 12F4004F 		tst	r2, #32768
+ 138 0052 21D1     		bne	.L24
+ 139 0054 03EB8303 		add	r3, r3, r3, lsl #2
+ 140 0058 03EB8303 		add	r3, r3, r3, lsl #2
+ 141 005c 2A68     		ldr	r2, [r5]
+ 142 005e 9200     		lsls	r2, r2, #2
+ 143 0060 B3FBF2F3 		udiv	r3, r3, r2
+ 144              	.L19:
+ 145 0064 164A     		ldr	r2, .L26+4
+ 146 0066 A2FB0312 		umull	r1, r2, r2, r3
+ 147 006a 5209     		lsrs	r2, r2, #5
+ 148 006c 1101     		lsls	r1, r2, #4
+ 149 006e 6420     		movs	r0, #100
+ 150 0070 02FB1033 		mls	r3, r2, r0, r3
+ 151 0074 A289     		ldrh	r2, [r4, #12]
+ 152 0076 12F4004F 		tst	r2, #32768
+ 153 007a 16D1     		bne	.L25
+ 154 007c 1B01     		lsls	r3, r3, #4
+ 155 007e 3233     		adds	r3, r3, #50
+ 156 0080 0F4A     		ldr	r2, .L26+4
+ 157 0082 A2FB0323 		umull	r2, r3, r2, r3
+ 158 0086 C3F34313 		ubfx	r3, r3, #5, #4
+ 159 008a 0B43     		orrs	r3, r3, r1
+ 160              	.L21:
+ 161 008c 9BB2     		uxth	r3, r3
+ 162 008e 2381     		strh	r3, [r4, #8]	@ movhi
+ 163 0090 07B0     		add	sp, sp, #28
+ 164              		@ sp needed
+ 165 0092 30BD     		pop	{r4, r5, pc}
+ 166              	.L23:
+ 167 0094 049B     		ldr	r3, [sp, #16]
+ 168 0096 D9E7     		b	.L17
+ 169              	.L24:
+ 170 0098 03EB8303 		add	r3, r3, r3, lsl #2
+ 171 009c 03EB8303 		add	r3, r3, r3, lsl #2
+ 172 00a0 2A68     		ldr	r2, [r5]
+ 173 00a2 5200     		lsls	r2, r2, #1
+ 174 00a4 B3FBF2F3 		udiv	r3, r3, r2
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 4
+
+
+ 175 00a8 DCE7     		b	.L19
+ 176              	.L25:
+ 177 00aa DB00     		lsls	r3, r3, #3
+ 178 00ac 3233     		adds	r3, r3, #50
+ 179 00ae 044A     		ldr	r2, .L26+4
+ 180 00b0 A2FB0323 		umull	r2, r3, r2, r3
+ 181 00b4 C3F34213 		ubfx	r3, r3, #5, #3
+ 182 00b8 0B43     		orrs	r3, r3, r1
+ 183 00ba E7E7     		b	.L21
+ 184              	.L27:
+ 185              		.align	2
+ 186              	.L26:
+ 187 00bc 00380140 		.word	1073821696
+ 188 00c0 1F85EB51 		.word	1374389535
+ 190              		.section	.text.USART_StructInit,"ax",%progbits
+ 191              		.align	1
+ 192              		.global	USART_StructInit
+ 193              		.syntax unified
+ 194              		.thumb
+ 195              		.thumb_func
+ 197              	USART_StructInit:
+ 198              		@ args = 0, pretend = 0, frame = 0
+ 199              		@ frame_needed = 0, uses_anonymous_args = 0
+ 200              		@ link register save eliminated.
+ 201 0000 4FF41653 		mov	r3, #9600
+ 202 0004 0360     		str	r3, [r0]
+ 203 0006 0023     		movs	r3, #0
+ 204 0008 8380     		strh	r3, [r0, #4]	@ movhi
+ 205 000a C380     		strh	r3, [r0, #6]	@ movhi
+ 206 000c 0381     		strh	r3, [r0, #8]	@ movhi
+ 207 000e 0C22     		movs	r2, #12
+ 208 0010 4281     		strh	r2, [r0, #10]	@ movhi
+ 209 0012 8381     		strh	r3, [r0, #12]	@ movhi
+ 210 0014 7047     		bx	lr
+ 212              		.section	.text.USART_ClockInit,"ax",%progbits
+ 213              		.align	1
+ 214              		.global	USART_ClockInit
+ 215              		.syntax unified
+ 216              		.thumb
+ 217              		.thumb_func
+ 219              	USART_ClockInit:
+ 220              		@ args = 0, pretend = 0, frame = 0
+ 221              		@ frame_needed = 0, uses_anonymous_args = 0
+ 222 0000 10B5     		push	{r4, lr}
+ 223 0002 028A     		ldrh	r2, [r0, #16]
+ 224 0004 92B2     		uxth	r2, r2
+ 225 0006 B1F800E0 		ldrh	lr, [r1]
+ 226 000a 4C88     		ldrh	r4, [r1, #2]
+ 227 000c B1F804C0 		ldrh	ip, [r1, #4]
+ 228 0010 CB88     		ldrh	r3, [r1, #6]
+ 229 0012 4EEA0401 		orr	r1, lr, r4
+ 230 0016 4CEA0101 		orr	r1, ip, r1
+ 231 001a 0B43     		orrs	r3, r3, r1
+ 232 001c 22F47062 		bic	r2, r2, #3840
+ 233 0020 1343     		orrs	r3, r3, r2
+ 234 0022 0382     		strh	r3, [r0, #16]	@ movhi
+ 235 0024 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 5
+
+
+ 237              		.section	.text.USART_ClockStructInit,"ax",%progbits
+ 238              		.align	1
+ 239              		.global	USART_ClockStructInit
+ 240              		.syntax unified
+ 241              		.thumb
+ 242              		.thumb_func
+ 244              	USART_ClockStructInit:
+ 245              		@ args = 0, pretend = 0, frame = 0
+ 246              		@ frame_needed = 0, uses_anonymous_args = 0
+ 247              		@ link register save eliminated.
+ 248 0000 0023     		movs	r3, #0
+ 249 0002 0380     		strh	r3, [r0]	@ movhi
+ 250 0004 4380     		strh	r3, [r0, #2]	@ movhi
+ 251 0006 8380     		strh	r3, [r0, #4]	@ movhi
+ 252 0008 C380     		strh	r3, [r0, #6]	@ movhi
+ 253 000a 7047     		bx	lr
+ 255              		.section	.text.USART_Cmd,"ax",%progbits
+ 256              		.align	1
+ 257              		.global	USART_Cmd
+ 258              		.syntax unified
+ 259              		.thumb
+ 260              		.thumb_func
+ 262              	USART_Cmd:
+ 263              		@ args = 0, pretend = 0, frame = 0
+ 264              		@ frame_needed = 0, uses_anonymous_args = 0
+ 265              		@ link register save eliminated.
+ 266 0000 29B1     		cbz	r1, .L33
+ 267 0002 8389     		ldrh	r3, [r0, #12]
+ 268 0004 9BB2     		uxth	r3, r3
+ 269 0006 43F40053 		orr	r3, r3, #8192
+ 270 000a 8381     		strh	r3, [r0, #12]	@ movhi
+ 271 000c 7047     		bx	lr
+ 272              	.L33:
+ 273 000e 8389     		ldrh	r3, [r0, #12]
+ 274 0010 9BB2     		uxth	r3, r3
+ 275 0012 23F40053 		bic	r3, r3, #8192
+ 276 0016 9BB2     		uxth	r3, r3
+ 277 0018 8381     		strh	r3, [r0, #12]	@ movhi
+ 278 001a 7047     		bx	lr
+ 280              		.section	.text.USART_ITConfig,"ax",%progbits
+ 281              		.align	1
+ 282              		.global	USART_ITConfig
+ 283              		.syntax unified
+ 284              		.thumb
+ 285              		.thumb_func
+ 287              	USART_ITConfig:
+ 288              		@ args = 0, pretend = 0, frame = 0
+ 289              		@ frame_needed = 0, uses_anonymous_args = 0
+ 290              		@ link register save eliminated.
+ 291 0000 C1F3421C 		ubfx	ip, r1, #5, #3
+ 292 0004 01F01F01 		and	r1, r1, #31
+ 293 0008 0123     		movs	r3, #1
+ 294 000a 8B40     		lsls	r3, r3, r1
+ 295 000c BCF1010F 		cmp	ip, #1
+ 296 0010 08D0     		beq	.L41
+ 297 0012 BCF1020F 		cmp	ip, #2
+ 298 0016 07D0     		beq	.L42
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 6
+
+
+ 299 0018 1430     		adds	r0, r0, #20
+ 300              	.L37:
+ 301 001a 3AB1     		cbz	r2, .L39
+ 302 001c 0268     		ldr	r2, [r0]
+ 303 001e 1343     		orrs	r3, r3, r2
+ 304 0020 0360     		str	r3, [r0]
+ 305 0022 7047     		bx	lr
+ 306              	.L41:
+ 307 0024 0C30     		adds	r0, r0, #12
+ 308 0026 F8E7     		b	.L37
+ 309              	.L42:
+ 310 0028 1030     		adds	r0, r0, #16
+ 311 002a F6E7     		b	.L37
+ 312              	.L39:
+ 313 002c 0268     		ldr	r2, [r0]
+ 314 002e 22EA0303 		bic	r3, r2, r3
+ 315 0032 0360     		str	r3, [r0]
+ 316 0034 7047     		bx	lr
+ 318              		.section	.text.USART_DMACmd,"ax",%progbits
+ 319              		.align	1
+ 320              		.global	USART_DMACmd
+ 321              		.syntax unified
+ 322              		.thumb
+ 323              		.thumb_func
+ 325              	USART_DMACmd:
+ 326              		@ args = 0, pretend = 0, frame = 0
+ 327              		@ frame_needed = 0, uses_anonymous_args = 0
+ 328              		@ link register save eliminated.
+ 329 0000 22B1     		cbz	r2, .L44
+ 330 0002 838A     		ldrh	r3, [r0, #20]
+ 331 0004 9BB2     		uxth	r3, r3
+ 332 0006 0B43     		orrs	r3, r3, r1
+ 333 0008 8382     		strh	r3, [r0, #20]	@ movhi
+ 334 000a 7047     		bx	lr
+ 335              	.L44:
+ 336 000c 838A     		ldrh	r3, [r0, #20]
+ 337 000e C943     		mvns	r1, r1
+ 338 0010 89B2     		uxth	r1, r1
+ 339 0012 1940     		ands	r1, r1, r3
+ 340 0014 8182     		strh	r1, [r0, #20]	@ movhi
+ 341 0016 7047     		bx	lr
+ 343              		.section	.text.USART_SetAddress,"ax",%progbits
+ 344              		.align	1
+ 345              		.global	USART_SetAddress
+ 346              		.syntax unified
+ 347              		.thumb
+ 348              		.thumb_func
+ 350              	USART_SetAddress:
+ 351              		@ args = 0, pretend = 0, frame = 0
+ 352              		@ frame_needed = 0, uses_anonymous_args = 0
+ 353              		@ link register save eliminated.
+ 354 0000 038A     		ldrh	r3, [r0, #16]
+ 355 0002 9BB2     		uxth	r3, r3
+ 356 0004 23F00F03 		bic	r3, r3, #15
+ 357 0008 9BB2     		uxth	r3, r3
+ 358 000a 0382     		strh	r3, [r0, #16]	@ movhi
+ 359 000c 038A     		ldrh	r3, [r0, #16]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 7
+
+
+ 360 000e 9BB2     		uxth	r3, r3
+ 361 0010 1943     		orrs	r1, r1, r3
+ 362 0012 0182     		strh	r1, [r0, #16]	@ movhi
+ 363 0014 7047     		bx	lr
+ 365              		.section	.text.USART_WakeUpConfig,"ax",%progbits
+ 366              		.align	1
+ 367              		.global	USART_WakeUpConfig
+ 368              		.syntax unified
+ 369              		.thumb
+ 370              		.thumb_func
+ 372              	USART_WakeUpConfig:
+ 373              		@ args = 0, pretend = 0, frame = 0
+ 374              		@ frame_needed = 0, uses_anonymous_args = 0
+ 375              		@ link register save eliminated.
+ 376 0000 8389     		ldrh	r3, [r0, #12]
+ 377 0002 9BB2     		uxth	r3, r3
+ 378 0004 23F40063 		bic	r3, r3, #2048
+ 379 0008 9BB2     		uxth	r3, r3
+ 380 000a 8381     		strh	r3, [r0, #12]	@ movhi
+ 381 000c 8389     		ldrh	r3, [r0, #12]
+ 382 000e 9BB2     		uxth	r3, r3
+ 383 0010 0B43     		orrs	r3, r3, r1
+ 384 0012 8381     		strh	r3, [r0, #12]	@ movhi
+ 385 0014 7047     		bx	lr
+ 387              		.section	.text.USART_ReceiverWakeUpCmd,"ax",%progbits
+ 388              		.align	1
+ 389              		.global	USART_ReceiverWakeUpCmd
+ 390              		.syntax unified
+ 391              		.thumb
+ 392              		.thumb_func
+ 394              	USART_ReceiverWakeUpCmd:
+ 395              		@ args = 0, pretend = 0, frame = 0
+ 396              		@ frame_needed = 0, uses_anonymous_args = 0
+ 397              		@ link register save eliminated.
+ 398 0000 29B1     		cbz	r1, .L49
+ 399 0002 8389     		ldrh	r3, [r0, #12]
+ 400 0004 9BB2     		uxth	r3, r3
+ 401 0006 43F00203 		orr	r3, r3, #2
+ 402 000a 8381     		strh	r3, [r0, #12]	@ movhi
+ 403 000c 7047     		bx	lr
+ 404              	.L49:
+ 405 000e 8389     		ldrh	r3, [r0, #12]
+ 406 0010 9BB2     		uxth	r3, r3
+ 407 0012 23F00203 		bic	r3, r3, #2
+ 408 0016 9BB2     		uxth	r3, r3
+ 409 0018 8381     		strh	r3, [r0, #12]	@ movhi
+ 410 001a 7047     		bx	lr
+ 412              		.section	.text.USART_LINBreakDetectLengthConfig,"ax",%progbits
+ 413              		.align	1
+ 414              		.global	USART_LINBreakDetectLengthConfig
+ 415              		.syntax unified
+ 416              		.thumb
+ 417              		.thumb_func
+ 419              	USART_LINBreakDetectLengthConfig:
+ 420              		@ args = 0, pretend = 0, frame = 0
+ 421              		@ frame_needed = 0, uses_anonymous_args = 0
+ 422              		@ link register save eliminated.
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 8
+
+
+ 423 0000 038A     		ldrh	r3, [r0, #16]
+ 424 0002 9BB2     		uxth	r3, r3
+ 425 0004 23F02003 		bic	r3, r3, #32
+ 426 0008 9BB2     		uxth	r3, r3
+ 427 000a 0382     		strh	r3, [r0, #16]	@ movhi
+ 428 000c 038A     		ldrh	r3, [r0, #16]
+ 429 000e 9BB2     		uxth	r3, r3
+ 430 0010 0B43     		orrs	r3, r3, r1
+ 431 0012 0382     		strh	r3, [r0, #16]	@ movhi
+ 432 0014 7047     		bx	lr
+ 434              		.section	.text.USART_LINCmd,"ax",%progbits
+ 435              		.align	1
+ 436              		.global	USART_LINCmd
+ 437              		.syntax unified
+ 438              		.thumb
+ 439              		.thumb_func
+ 441              	USART_LINCmd:
+ 442              		@ args = 0, pretend = 0, frame = 0
+ 443              		@ frame_needed = 0, uses_anonymous_args = 0
+ 444              		@ link register save eliminated.
+ 445 0000 29B1     		cbz	r1, .L53
+ 446 0002 038A     		ldrh	r3, [r0, #16]
+ 447 0004 9BB2     		uxth	r3, r3
+ 448 0006 43F48043 		orr	r3, r3, #16384
+ 449 000a 0382     		strh	r3, [r0, #16]	@ movhi
+ 450 000c 7047     		bx	lr
+ 451              	.L53:
+ 452 000e 038A     		ldrh	r3, [r0, #16]
+ 453 0010 9BB2     		uxth	r3, r3
+ 454 0012 23F48043 		bic	r3, r3, #16384
+ 455 0016 9BB2     		uxth	r3, r3
+ 456 0018 0382     		strh	r3, [r0, #16]	@ movhi
+ 457 001a 7047     		bx	lr
+ 459              		.section	.text.USART_SendData,"ax",%progbits
+ 460              		.align	1
+ 461              		.global	USART_SendData
+ 462              		.syntax unified
+ 463              		.thumb
+ 464              		.thumb_func
+ 466              	USART_SendData:
+ 467              		@ args = 0, pretend = 0, frame = 0
+ 468              		@ frame_needed = 0, uses_anonymous_args = 0
+ 469              		@ link register save eliminated.
+ 470 0000 C1F30801 		ubfx	r1, r1, #0, #9
+ 471 0004 8180     		strh	r1, [r0, #4]	@ movhi
+ 472 0006 7047     		bx	lr
+ 474              		.section	.text.USART_ReceiveData,"ax",%progbits
+ 475              		.align	1
+ 476              		.global	USART_ReceiveData
+ 477              		.syntax unified
+ 478              		.thumb
+ 479              		.thumb_func
+ 481              	USART_ReceiveData:
+ 482              		@ args = 0, pretend = 0, frame = 0
+ 483              		@ frame_needed = 0, uses_anonymous_args = 0
+ 484              		@ link register save eliminated.
+ 485 0000 8088     		ldrh	r0, [r0, #4]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 9
+
+
+ 486 0002 C0F30800 		ubfx	r0, r0, #0, #9
+ 487 0006 7047     		bx	lr
+ 489              		.section	.text.USART_SendBreak,"ax",%progbits
+ 490              		.align	1
+ 491              		.global	USART_SendBreak
+ 492              		.syntax unified
+ 493              		.thumb
+ 494              		.thumb_func
+ 496              	USART_SendBreak:
+ 497              		@ args = 0, pretend = 0, frame = 0
+ 498              		@ frame_needed = 0, uses_anonymous_args = 0
+ 499              		@ link register save eliminated.
+ 500 0000 8389     		ldrh	r3, [r0, #12]
+ 501 0002 9BB2     		uxth	r3, r3
+ 502 0004 43F00103 		orr	r3, r3, #1
+ 503 0008 8381     		strh	r3, [r0, #12]	@ movhi
+ 504 000a 7047     		bx	lr
+ 506              		.section	.text.USART_SetGuardTime,"ax",%progbits
+ 507              		.align	1
+ 508              		.global	USART_SetGuardTime
+ 509              		.syntax unified
+ 510              		.thumb
+ 511              		.thumb_func
+ 513              	USART_SetGuardTime:
+ 514              		@ args = 0, pretend = 0, frame = 0
+ 515              		@ frame_needed = 0, uses_anonymous_args = 0
+ 516              		@ link register save eliminated.
+ 517 0000 038B     		ldrh	r3, [r0, #24]
+ 518 0002 DBB2     		uxtb	r3, r3
+ 519 0004 0383     		strh	r3, [r0, #24]	@ movhi
+ 520 0006 038B     		ldrh	r3, [r0, #24]
+ 521 0008 9BB2     		uxth	r3, r3
+ 522 000a 43EA0123 		orr	r3, r3, r1, lsl #8
+ 523 000e 0383     		strh	r3, [r0, #24]	@ movhi
+ 524 0010 7047     		bx	lr
+ 526              		.section	.text.USART_SetPrescaler,"ax",%progbits
+ 527              		.align	1
+ 528              		.global	USART_SetPrescaler
+ 529              		.syntax unified
+ 530              		.thumb
+ 531              		.thumb_func
+ 533              	USART_SetPrescaler:
+ 534              		@ args = 0, pretend = 0, frame = 0
+ 535              		@ frame_needed = 0, uses_anonymous_args = 0
+ 536              		@ link register save eliminated.
+ 537 0000 038B     		ldrh	r3, [r0, #24]
+ 538 0002 03F47F43 		and	r3, r3, #65280
+ 539 0006 0383     		strh	r3, [r0, #24]	@ movhi
+ 540 0008 038B     		ldrh	r3, [r0, #24]
+ 541 000a 9BB2     		uxth	r3, r3
+ 542 000c 1943     		orrs	r1, r1, r3
+ 543 000e 0183     		strh	r1, [r0, #24]	@ movhi
+ 544 0010 7047     		bx	lr
+ 546              		.section	.text.USART_SmartCardCmd,"ax",%progbits
+ 547              		.align	1
+ 548              		.global	USART_SmartCardCmd
+ 549              		.syntax unified
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 10
+
+
+ 550              		.thumb
+ 551              		.thumb_func
+ 553              	USART_SmartCardCmd:
+ 554              		@ args = 0, pretend = 0, frame = 0
+ 555              		@ frame_needed = 0, uses_anonymous_args = 0
+ 556              		@ link register save eliminated.
+ 557 0000 29B1     		cbz	r1, .L61
+ 558 0002 838A     		ldrh	r3, [r0, #20]
+ 559 0004 9BB2     		uxth	r3, r3
+ 560 0006 43F02003 		orr	r3, r3, #32
+ 561 000a 8382     		strh	r3, [r0, #20]	@ movhi
+ 562 000c 7047     		bx	lr
+ 563              	.L61:
+ 564 000e 838A     		ldrh	r3, [r0, #20]
+ 565 0010 9BB2     		uxth	r3, r3
+ 566 0012 23F02003 		bic	r3, r3, #32
+ 567 0016 9BB2     		uxth	r3, r3
+ 568 0018 8382     		strh	r3, [r0, #20]	@ movhi
+ 569 001a 7047     		bx	lr
+ 571              		.section	.text.USART_SmartCardNACKCmd,"ax",%progbits
+ 572              		.align	1
+ 573              		.global	USART_SmartCardNACKCmd
+ 574              		.syntax unified
+ 575              		.thumb
+ 576              		.thumb_func
+ 578              	USART_SmartCardNACKCmd:
+ 579              		@ args = 0, pretend = 0, frame = 0
+ 580              		@ frame_needed = 0, uses_anonymous_args = 0
+ 581              		@ link register save eliminated.
+ 582 0000 29B1     		cbz	r1, .L64
+ 583 0002 838A     		ldrh	r3, [r0, #20]
+ 584 0004 9BB2     		uxth	r3, r3
+ 585 0006 43F01003 		orr	r3, r3, #16
+ 586 000a 8382     		strh	r3, [r0, #20]	@ movhi
+ 587 000c 7047     		bx	lr
+ 588              	.L64:
+ 589 000e 838A     		ldrh	r3, [r0, #20]
+ 590 0010 9BB2     		uxth	r3, r3
+ 591 0012 23F01003 		bic	r3, r3, #16
+ 592 0016 9BB2     		uxth	r3, r3
+ 593 0018 8382     		strh	r3, [r0, #20]	@ movhi
+ 594 001a 7047     		bx	lr
+ 596              		.section	.text.USART_HalfDuplexCmd,"ax",%progbits
+ 597              		.align	1
+ 598              		.global	USART_HalfDuplexCmd
+ 599              		.syntax unified
+ 600              		.thumb
+ 601              		.thumb_func
+ 603              	USART_HalfDuplexCmd:
+ 604              		@ args = 0, pretend = 0, frame = 0
+ 605              		@ frame_needed = 0, uses_anonymous_args = 0
+ 606              		@ link register save eliminated.
+ 607 0000 29B1     		cbz	r1, .L67
+ 608 0002 838A     		ldrh	r3, [r0, #20]
+ 609 0004 9BB2     		uxth	r3, r3
+ 610 0006 43F00803 		orr	r3, r3, #8
+ 611 000a 8382     		strh	r3, [r0, #20]	@ movhi
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 11
+
+
+ 612 000c 7047     		bx	lr
+ 613              	.L67:
+ 614 000e 838A     		ldrh	r3, [r0, #20]
+ 615 0010 9BB2     		uxth	r3, r3
+ 616 0012 23F00803 		bic	r3, r3, #8
+ 617 0016 9BB2     		uxth	r3, r3
+ 618 0018 8382     		strh	r3, [r0, #20]	@ movhi
+ 619 001a 7047     		bx	lr
+ 621              		.section	.text.USART_OverSampling8Cmd,"ax",%progbits
+ 622              		.align	1
+ 623              		.global	USART_OverSampling8Cmd
+ 624              		.syntax unified
+ 625              		.thumb
+ 626              		.thumb_func
+ 628              	USART_OverSampling8Cmd:
+ 629              		@ args = 0, pretend = 0, frame = 0
+ 630              		@ frame_needed = 0, uses_anonymous_args = 0
+ 631              		@ link register save eliminated.
+ 632 0000 39B1     		cbz	r1, .L70
+ 633 0002 8389     		ldrh	r3, [r0, #12]
+ 634 0004 6FEA4343 		mvn	r3, r3, lsl #17
+ 635 0008 6FEA5343 		mvn	r3, r3, lsr #17
+ 636 000c 9BB2     		uxth	r3, r3
+ 637 000e 8381     		strh	r3, [r0, #12]	@ movhi
+ 638 0010 7047     		bx	lr
+ 639              	.L70:
+ 640 0012 8389     		ldrh	r3, [r0, #12]
+ 641 0014 C3F30E03 		ubfx	r3, r3, #0, #15
+ 642 0018 8381     		strh	r3, [r0, #12]	@ movhi
+ 643 001a 7047     		bx	lr
+ 645              		.section	.text.USART_OneBitMethodCmd,"ax",%progbits
+ 646              		.align	1
+ 647              		.global	USART_OneBitMethodCmd
+ 648              		.syntax unified
+ 649              		.thumb
+ 650              		.thumb_func
+ 652              	USART_OneBitMethodCmd:
+ 653              		@ args = 0, pretend = 0, frame = 0
+ 654              		@ frame_needed = 0, uses_anonymous_args = 0
+ 655              		@ link register save eliminated.
+ 656 0000 29B1     		cbz	r1, .L73
+ 657 0002 838A     		ldrh	r3, [r0, #20]
+ 658 0004 9BB2     		uxth	r3, r3
+ 659 0006 43F40063 		orr	r3, r3, #2048
+ 660 000a 8382     		strh	r3, [r0, #20]	@ movhi
+ 661 000c 7047     		bx	lr
+ 662              	.L73:
+ 663 000e 838A     		ldrh	r3, [r0, #20]
+ 664 0010 9BB2     		uxth	r3, r3
+ 665 0012 23F40063 		bic	r3, r3, #2048
+ 666 0016 9BB2     		uxth	r3, r3
+ 667 0018 8382     		strh	r3, [r0, #20]	@ movhi
+ 668 001a 7047     		bx	lr
+ 670              		.section	.text.USART_IrDAConfig,"ax",%progbits
+ 671              		.align	1
+ 672              		.global	USART_IrDAConfig
+ 673              		.syntax unified
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 12
+
+
+ 674              		.thumb
+ 675              		.thumb_func
+ 677              	USART_IrDAConfig:
+ 678              		@ args = 0, pretend = 0, frame = 0
+ 679              		@ frame_needed = 0, uses_anonymous_args = 0
+ 680              		@ link register save eliminated.
+ 681 0000 838A     		ldrh	r3, [r0, #20]
+ 682 0002 9BB2     		uxth	r3, r3
+ 683 0004 23F00403 		bic	r3, r3, #4
+ 684 0008 9BB2     		uxth	r3, r3
+ 685 000a 8382     		strh	r3, [r0, #20]	@ movhi
+ 686 000c 838A     		ldrh	r3, [r0, #20]
+ 687 000e 9BB2     		uxth	r3, r3
+ 688 0010 0B43     		orrs	r3, r3, r1
+ 689 0012 8382     		strh	r3, [r0, #20]	@ movhi
+ 690 0014 7047     		bx	lr
+ 692              		.section	.text.USART_IrDACmd,"ax",%progbits
+ 693              		.align	1
+ 694              		.global	USART_IrDACmd
+ 695              		.syntax unified
+ 696              		.thumb
+ 697              		.thumb_func
+ 699              	USART_IrDACmd:
+ 700              		@ args = 0, pretend = 0, frame = 0
+ 701              		@ frame_needed = 0, uses_anonymous_args = 0
+ 702              		@ link register save eliminated.
+ 703 0000 29B1     		cbz	r1, .L77
+ 704 0002 838A     		ldrh	r3, [r0, #20]
+ 705 0004 9BB2     		uxth	r3, r3
+ 706 0006 43F00203 		orr	r3, r3, #2
+ 707 000a 8382     		strh	r3, [r0, #20]	@ movhi
+ 708 000c 7047     		bx	lr
+ 709              	.L77:
+ 710 000e 838A     		ldrh	r3, [r0, #20]
+ 711 0010 9BB2     		uxth	r3, r3
+ 712 0012 23F00203 		bic	r3, r3, #2
+ 713 0016 9BB2     		uxth	r3, r3
+ 714 0018 8382     		strh	r3, [r0, #20]	@ movhi
+ 715 001a 7047     		bx	lr
+ 717              		.section	.text.USART_GetFlagStatus,"ax",%progbits
+ 718              		.align	1
+ 719              		.global	USART_GetFlagStatus
+ 720              		.syntax unified
+ 721              		.thumb
+ 722              		.thumb_func
+ 724              	USART_GetFlagStatus:
+ 725              		@ args = 0, pretend = 0, frame = 0
+ 726              		@ frame_needed = 0, uses_anonymous_args = 0
+ 727              		@ link register save eliminated.
+ 728 0000 0388     		ldrh	r3, [r0]
+ 729 0002 1942     		tst	r1, r3
+ 730 0004 01D0     		beq	.L81
+ 731 0006 0120     		movs	r0, #1
+ 732 0008 7047     		bx	lr
+ 733              	.L81:
+ 734 000a 0020     		movs	r0, #0
+ 735 000c 7047     		bx	lr
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 13
+
+
+ 737              		.section	.text.USART_ClearFlag,"ax",%progbits
+ 738              		.align	1
+ 739              		.global	USART_ClearFlag
+ 740              		.syntax unified
+ 741              		.thumb
+ 742              		.thumb_func
+ 744              	USART_ClearFlag:
+ 745              		@ args = 0, pretend = 0, frame = 0
+ 746              		@ frame_needed = 0, uses_anonymous_args = 0
+ 747              		@ link register save eliminated.
+ 748 0000 C943     		mvns	r1, r1
+ 749 0002 89B2     		uxth	r1, r1
+ 750 0004 0180     		strh	r1, [r0]	@ movhi
+ 751 0006 7047     		bx	lr
+ 753              		.section	.text.USART_GetITStatus,"ax",%progbits
+ 754              		.align	1
+ 755              		.global	USART_GetITStatus
+ 756              		.syntax unified
+ 757              		.thumb
+ 758              		.thumb_func
+ 760              	USART_GetITStatus:
+ 761              		@ args = 0, pretend = 0, frame = 0
+ 762              		@ frame_needed = 0, uses_anonymous_args = 0
+ 763              		@ link register save eliminated.
+ 764 0000 C1F34212 		ubfx	r2, r1, #5, #3
+ 765 0004 01F01F0C 		and	ip, r1, #31
+ 766 0008 0123     		movs	r3, #1
+ 767 000a 03FA0CF3 		lsl	r3, r3, ip
+ 768 000e 012A     		cmp	r2, #1
+ 769 0010 0FD0     		beq	.L90
+ 770 0012 022A     		cmp	r2, #2
+ 771 0014 11D0     		beq	.L91
+ 772 0016 828A     		ldrh	r2, [r0, #20]
+ 773 0018 92B2     		uxth	r2, r2
+ 774 001a 1340     		ands	r3, r3, r2
+ 775              	.L85:
+ 776 001c 090A     		lsrs	r1, r1, #8
+ 777 001e 0122     		movs	r2, #1
+ 778 0020 02FA01F1 		lsl	r1, r2, r1
+ 779 0024 0288     		ldrh	r2, [r0]
+ 780 0026 92B2     		uxth	r2, r2
+ 781 0028 0A40     		ands	r2, r2, r1
+ 782 002a 53B1     		cbz	r3, .L88
+ 783 002c 5AB9     		cbnz	r2, .L89
+ 784 002e 0020     		movs	r0, #0
+ 785 0030 7047     		bx	lr
+ 786              	.L90:
+ 787 0032 8289     		ldrh	r2, [r0, #12]
+ 788 0034 92B2     		uxth	r2, r2
+ 789 0036 1340     		ands	r3, r3, r2
+ 790 0038 F0E7     		b	.L85
+ 791              	.L91:
+ 792 003a 028A     		ldrh	r2, [r0, #16]
+ 793 003c 92B2     		uxth	r2, r2
+ 794 003e 1340     		ands	r3, r3, r2
+ 795 0040 ECE7     		b	.L85
+ 796              	.L88:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 14
+
+
+ 797 0042 0020     		movs	r0, #0
+ 798 0044 7047     		bx	lr
+ 799              	.L89:
+ 800 0046 0120     		movs	r0, #1
+ 801 0048 7047     		bx	lr
+ 803              		.section	.text.USART_ClearITPendingBit,"ax",%progbits
+ 804              		.align	1
+ 805              		.global	USART_ClearITPendingBit
+ 806              		.syntax unified
+ 807              		.thumb
+ 808              		.thumb_func
+ 810              	USART_ClearITPendingBit:
+ 811              		@ args = 0, pretend = 0, frame = 0
+ 812              		@ frame_needed = 0, uses_anonymous_args = 0
+ 813              		@ link register save eliminated.
+ 814 0000 090A     		lsrs	r1, r1, #8
+ 815 0002 0123     		movs	r3, #1
+ 816 0004 8B40     		lsls	r3, r3, r1
+ 817 0006 9BB2     		uxth	r3, r3
+ 818 0008 DB43     		mvns	r3, r3
+ 819 000a 9BB2     		uxth	r3, r3
+ 820 000c 0380     		strh	r3, [r0]	@ movhi
+ 821 000e 7047     		bx	lr
+ 823              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f10x_usart.c
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:16     .text.USART_DeInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:22     .text.USART_DeInit:00000000 USART_DeInit
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:86     .text.USART_DeInit:00000090 $d
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:93     .text.USART_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:99     .text.USART_Init:00000000 USART_Init
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:187    .text.USART_Init:000000bc $d
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:191    .text.USART_StructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:197    .text.USART_StructInit:00000000 USART_StructInit
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:213    .text.USART_ClockInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:219    .text.USART_ClockInit:00000000 USART_ClockInit
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:238    .text.USART_ClockStructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:244    .text.USART_ClockStructInit:00000000 USART_ClockStructInit
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:256    .text.USART_Cmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:262    .text.USART_Cmd:00000000 USART_Cmd
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:281    .text.USART_ITConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:287    .text.USART_ITConfig:00000000 USART_ITConfig
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:319    .text.USART_DMACmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:325    .text.USART_DMACmd:00000000 USART_DMACmd
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:344    .text.USART_SetAddress:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:350    .text.USART_SetAddress:00000000 USART_SetAddress
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:366    .text.USART_WakeUpConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:372    .text.USART_WakeUpConfig:00000000 USART_WakeUpConfig
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:388    .text.USART_ReceiverWakeUpCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:394    .text.USART_ReceiverWakeUpCmd:00000000 USART_ReceiverWakeUpCmd
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:413    .text.USART_LINBreakDetectLengthConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:419    .text.USART_LINBreakDetectLengthConfig:00000000 USART_LINBreakDetectLengthConfig
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:435    .text.USART_LINCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:441    .text.USART_LINCmd:00000000 USART_LINCmd
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:460    .text.USART_SendData:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:466    .text.USART_SendData:00000000 USART_SendData
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:475    .text.USART_ReceiveData:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:481    .text.USART_ReceiveData:00000000 USART_ReceiveData
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:490    .text.USART_SendBreak:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:496    .text.USART_SendBreak:00000000 USART_SendBreak
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:507    .text.USART_SetGuardTime:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:513    .text.USART_SetGuardTime:00000000 USART_SetGuardTime
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:527    .text.USART_SetPrescaler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:533    .text.USART_SetPrescaler:00000000 USART_SetPrescaler
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:547    .text.USART_SmartCardCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:553    .text.USART_SmartCardCmd:00000000 USART_SmartCardCmd
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:572    .text.USART_SmartCardNACKCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:578    .text.USART_SmartCardNACKCmd:00000000 USART_SmartCardNACKCmd
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:597    .text.USART_HalfDuplexCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:603    .text.USART_HalfDuplexCmd:00000000 USART_HalfDuplexCmd
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:622    .text.USART_OverSampling8Cmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:628    .text.USART_OverSampling8Cmd:00000000 USART_OverSampling8Cmd
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:646    .text.USART_OneBitMethodCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:652    .text.USART_OneBitMethodCmd:00000000 USART_OneBitMethodCmd
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:671    .text.USART_IrDAConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:677    .text.USART_IrDAConfig:00000000 USART_IrDAConfig
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:693    .text.USART_IrDACmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:699    .text.USART_IrDACmd:00000000 USART_IrDACmd
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:718    .text.USART_GetFlagStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:724    .text.USART_GetFlagStatus:00000000 USART_GetFlagStatus
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:738    .text.USART_ClearFlag:00000000 $t
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s 			page 16
+
+
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:744    .text.USART_ClearFlag:00000000 USART_ClearFlag
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:754    .text.USART_GetITStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:760    .text.USART_GetITStatus:00000000 USART_GetITStatus
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:804    .text.USART_ClearITPendingBit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZ92DTq.s:810    .text.USART_ClearITPendingBit:00000000 USART_ClearITPendingBit
+
+UNDEFINED SYMBOLS
+RCC_APB2PeriphResetCmd
+RCC_APB1PeriphResetCmd
+RCC_GetClocksFreq
