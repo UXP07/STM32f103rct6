@@ -1,0 +1,604 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f10x_gpio.c"
+  14              		.text
+  15              		.section	.text.GPIO_DeInit,"ax",%progbits
+  16              		.align	1
+  17              		.global	GPIO_DeInit
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	GPIO_DeInit:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 08B5     		push	{r3, lr}
+  26 0002 2B4B     		ldr	r3, .L17
+  27 0004 9842     		cmp	r0, r3
+  28 0006 12D0     		beq	.L10
+  29 0008 2A4B     		ldr	r3, .L17+4
+  30 000a 9842     		cmp	r0, r3
+  31 000c 18D0     		beq	.L11
+  32 000e 2A4B     		ldr	r3, .L17+8
+  33 0010 9842     		cmp	r0, r3
+  34 0012 1ED0     		beq	.L12
+  35 0014 294B     		ldr	r3, .L17+12
+  36 0016 9842     		cmp	r0, r3
+  37 0018 24D0     		beq	.L13
+  38 001a 294B     		ldr	r3, .L17+16
+  39 001c 9842     		cmp	r0, r3
+  40 001e 2AD0     		beq	.L14
+  41 0020 284B     		ldr	r3, .L17+20
+  42 0022 9842     		cmp	r0, r3
+  43 0024 30D0     		beq	.L15
+  44 0026 284B     		ldr	r3, .L17+24
+  45 0028 9842     		cmp	r0, r3
+  46 002a 36D0     		beq	.L16
+  47              	.L1:
+  48 002c 08BD     		pop	{r3, pc}
+  49              	.L10:
+  50 002e 0121     		movs	r1, #1
+  51 0030 0420     		movs	r0, #4
+  52 0032 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  53 0036 0021     		movs	r1, #0
+  54 0038 0420     		movs	r0, #4
+  55 003a FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  56 003e F5E7     		b	.L1
+  57              	.L11:
+  58 0040 0121     		movs	r1, #1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 2
+
+
+  59 0042 0820     		movs	r0, #8
+  60 0044 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  61 0048 0021     		movs	r1, #0
+  62 004a 0820     		movs	r0, #8
+  63 004c FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  64 0050 ECE7     		b	.L1
+  65              	.L12:
+  66 0052 0121     		movs	r1, #1
+  67 0054 1020     		movs	r0, #16
+  68 0056 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  69 005a 0021     		movs	r1, #0
+  70 005c 1020     		movs	r0, #16
+  71 005e FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  72 0062 E3E7     		b	.L1
+  73              	.L13:
+  74 0064 0121     		movs	r1, #1
+  75 0066 2020     		movs	r0, #32
+  76 0068 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  77 006c 0021     		movs	r1, #0
+  78 006e 2020     		movs	r0, #32
+  79 0070 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  80 0074 DAE7     		b	.L1
+  81              	.L14:
+  82 0076 0121     		movs	r1, #1
+  83 0078 4020     		movs	r0, #64
+  84 007a FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  85 007e 0021     		movs	r1, #0
+  86 0080 4020     		movs	r0, #64
+  87 0082 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  88 0086 D1E7     		b	.L1
+  89              	.L15:
+  90 0088 0121     		movs	r1, #1
+  91 008a 8020     		movs	r0, #128
+  92 008c FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  93 0090 0021     		movs	r1, #0
+  94 0092 8020     		movs	r0, #128
+  95 0094 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  96 0098 C8E7     		b	.L1
+  97              	.L16:
+  98 009a 0121     		movs	r1, #1
+  99 009c 4FF48070 		mov	r0, #256
+ 100 00a0 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 101 00a4 0021     		movs	r1, #0
+ 102 00a6 4FF48070 		mov	r0, #256
+ 103 00aa FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 104 00ae BDE7     		b	.L1
+ 105              	.L18:
+ 106              		.align	2
+ 107              	.L17:
+ 108 00b0 00080140 		.word	1073809408
+ 109 00b4 000C0140 		.word	1073810432
+ 110 00b8 00100140 		.word	1073811456
+ 111 00bc 00140140 		.word	1073812480
+ 112 00c0 00180140 		.word	1073813504
+ 113 00c4 001C0140 		.word	1073814528
+ 114 00c8 00200140 		.word	1073815552
+ 116              		.section	.text.GPIO_AFIODeInit,"ax",%progbits
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 3
+
+
+ 117              		.align	1
+ 118              		.global	GPIO_AFIODeInit
+ 119              		.syntax unified
+ 120              		.thumb
+ 121              		.thumb_func
+ 123              	GPIO_AFIODeInit:
+ 124              		@ args = 0, pretend = 0, frame = 0
+ 125              		@ frame_needed = 0, uses_anonymous_args = 0
+ 126 0000 08B5     		push	{r3, lr}
+ 127 0002 0121     		movs	r1, #1
+ 128 0004 0846     		mov	r0, r1
+ 129 0006 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 130 000a 0021     		movs	r1, #0
+ 131 000c 0120     		movs	r0, #1
+ 132 000e FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 133 0012 08BD     		pop	{r3, pc}
+ 135              		.section	.text.GPIO_Init,"ax",%progbits
+ 136              		.align	1
+ 137              		.global	GPIO_Init
+ 138              		.syntax unified
+ 139              		.thumb
+ 140              		.thumb_func
+ 142              	GPIO_Init:
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145 0000 30B5     		push	{r4, r5, lr}
+ 146 0002 CB78     		ldrb	r3, [r1, #3]	@ zero_extendqisi2
+ 147 0004 03F00F02 		and	r2, r3, #15
+ 148 0008 9646     		mov	lr, r2
+ 149 000a 13F0100F 		tst	r3, #16
+ 150 000e 03D0     		beq	.L22
+ 151 0010 91F802E0 		ldrb	lr, [r1, #2]	@ zero_extendqisi2
+ 152 0014 4EEA020E 		orr	lr, lr, r2
+ 153              	.L22:
+ 154 0018 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
+ 155 001a FBB1     		cbz	r3, .L23
+ 156 001c 0568     		ldr	r5, [r0]
+ 157 001e 0023     		movs	r3, #0
+ 158 0020 01E0     		b	.L24
+ 159              	.L35:
+ 160 0022 4261     		str	r2, [r0, #20]
+ 161              	.L25:
+ 162 0024 0133     		adds	r3, r3, #1
+ 163              	.L24:
+ 164 0026 072B     		cmp	r3, #7
+ 165 0028 17D8     		bhi	.L34
+ 166 002a 0122     		movs	r2, #1
+ 167 002c 9A40     		lsls	r2, r2, r3
+ 168 002e B1F800C0 		ldrh	ip, [r1]
+ 169 0032 32EA0C0C 		bics	ip, r2, ip
+ 170 0036 F5D1     		bne	.L25
+ 171 0038 9C00     		lsls	r4, r3, #2
+ 172 003a 4FF00F0C 		mov	ip, #15
+ 173 003e 0CFA04FC 		lsl	ip, ip, r4
+ 174 0042 25EA0C05 		bic	r5, r5, ip
+ 175 0046 0EFA04F4 		lsl	r4, lr, r4
+ 176 004a 2543     		orrs	r5, r5, r4
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 4
+
+
+ 177 004c CC78     		ldrb	r4, [r1, #3]	@ zero_extendqisi2
+ 178 004e 282C     		cmp	r4, #40
+ 179 0050 E7D0     		beq	.L35
+ 180 0052 482C     		cmp	r4, #72
+ 181 0054 E6D1     		bne	.L25
+ 182 0056 0261     		str	r2, [r0, #16]
+ 183 0058 E4E7     		b	.L25
+ 184              	.L34:
+ 185 005a 0560     		str	r5, [r0]
+ 186              	.L23:
+ 187 005c 0B88     		ldrh	r3, [r1]
+ 188 005e FF2B     		cmp	r3, #255
+ 189 0060 25D9     		bls	.L21
+ 190 0062 4568     		ldr	r5, [r0, #4]
+ 191 0064 0023     		movs	r3, #0
+ 192 0066 03E0     		b	.L29
+ 193              	.L31:
+ 194 0068 CC78     		ldrb	r4, [r1, #3]	@ zero_extendqisi2
+ 195 006a 482C     		cmp	r4, #72
+ 196 006c 1CD0     		beq	.L36
+ 197              	.L30:
+ 198 006e 0133     		adds	r3, r3, #1
+ 199              	.L29:
+ 200 0070 072B     		cmp	r3, #7
+ 201 0072 1BD8     		bhi	.L37
+ 202 0074 03F1080C 		add	ip, r3, #8
+ 203 0078 0122     		movs	r2, #1
+ 204 007a 02FA0CF2 		lsl	r2, r2, ip
+ 205 007e B1F800C0 		ldrh	ip, [r1]
+ 206 0082 32EA0C0C 		bics	ip, r2, ip
+ 207 0086 F2D1     		bne	.L30
+ 208 0088 9C00     		lsls	r4, r3, #2
+ 209 008a 4FF00F0C 		mov	ip, #15
+ 210 008e 0CFA04FC 		lsl	ip, ip, r4
+ 211 0092 25EA0C0C 		bic	ip, r5, ip
+ 212 0096 0EFA04F4 		lsl	r4, lr, r4
+ 213 009a 44EA0C05 		orr	r5, r4, ip
+ 214 009e CC78     		ldrb	r4, [r1, #3]	@ zero_extendqisi2
+ 215 00a0 282C     		cmp	r4, #40
+ 216 00a2 E1D1     		bne	.L31
+ 217 00a4 4261     		str	r2, [r0, #20]
+ 218 00a6 DFE7     		b	.L31
+ 219              	.L36:
+ 220 00a8 0261     		str	r2, [r0, #16]
+ 221 00aa E0E7     		b	.L30
+ 222              	.L37:
+ 223 00ac 4560     		str	r5, [r0, #4]
+ 224              	.L21:
+ 225 00ae 30BD     		pop	{r4, r5, pc}
+ 227              		.section	.text.GPIO_StructInit,"ax",%progbits
+ 228              		.align	1
+ 229              		.global	GPIO_StructInit
+ 230              		.syntax unified
+ 231              		.thumb
+ 232              		.thumb_func
+ 234              	GPIO_StructInit:
+ 235              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 5
+
+
+ 236              		@ frame_needed = 0, uses_anonymous_args = 0
+ 237              		@ link register save eliminated.
+ 238 0000 4FF6FF73 		movw	r3, #65535
+ 239 0004 0380     		strh	r3, [r0]	@ movhi
+ 240 0006 0223     		movs	r3, #2
+ 241 0008 8370     		strb	r3, [r0, #2]
+ 242 000a 0423     		movs	r3, #4
+ 243 000c C370     		strb	r3, [r0, #3]
+ 244 000e 7047     		bx	lr
+ 246              		.section	.text.GPIO_ReadInputDataBit,"ax",%progbits
+ 247              		.align	1
+ 248              		.global	GPIO_ReadInputDataBit
+ 249              		.syntax unified
+ 250              		.thumb
+ 251              		.thumb_func
+ 253              	GPIO_ReadInputDataBit:
+ 254              		@ args = 0, pretend = 0, frame = 0
+ 255              		@ frame_needed = 0, uses_anonymous_args = 0
+ 256              		@ link register save eliminated.
+ 257 0000 8368     		ldr	r3, [r0, #8]
+ 258 0002 1942     		tst	r1, r3
+ 259 0004 01D0     		beq	.L41
+ 260 0006 0120     		movs	r0, #1
+ 261 0008 7047     		bx	lr
+ 262              	.L41:
+ 263 000a 0020     		movs	r0, #0
+ 264 000c 7047     		bx	lr
+ 266              		.section	.text.GPIO_ReadInputData,"ax",%progbits
+ 267              		.align	1
+ 268              		.global	GPIO_ReadInputData
+ 269              		.syntax unified
+ 270              		.thumb
+ 271              		.thumb_func
+ 273              	GPIO_ReadInputData:
+ 274              		@ args = 0, pretend = 0, frame = 0
+ 275              		@ frame_needed = 0, uses_anonymous_args = 0
+ 276              		@ link register save eliminated.
+ 277 0000 8068     		ldr	r0, [r0, #8]
+ 278 0002 80B2     		uxth	r0, r0
+ 279 0004 7047     		bx	lr
+ 281              		.section	.text.GPIO_ReadOutputDataBit,"ax",%progbits
+ 282              		.align	1
+ 283              		.global	GPIO_ReadOutputDataBit
+ 284              		.syntax unified
+ 285              		.thumb
+ 286              		.thumb_func
+ 288              	GPIO_ReadOutputDataBit:
+ 289              		@ args = 0, pretend = 0, frame = 0
+ 290              		@ frame_needed = 0, uses_anonymous_args = 0
+ 291              		@ link register save eliminated.
+ 292 0000 C368     		ldr	r3, [r0, #12]
+ 293 0002 1942     		tst	r1, r3
+ 294 0004 01D0     		beq	.L45
+ 295 0006 0120     		movs	r0, #1
+ 296 0008 7047     		bx	lr
+ 297              	.L45:
+ 298 000a 0020     		movs	r0, #0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 6
+
+
+ 299 000c 7047     		bx	lr
+ 301              		.section	.text.GPIO_ReadOutputData,"ax",%progbits
+ 302              		.align	1
+ 303              		.global	GPIO_ReadOutputData
+ 304              		.syntax unified
+ 305              		.thumb
+ 306              		.thumb_func
+ 308              	GPIO_ReadOutputData:
+ 309              		@ args = 0, pretend = 0, frame = 0
+ 310              		@ frame_needed = 0, uses_anonymous_args = 0
+ 311              		@ link register save eliminated.
+ 312 0000 C068     		ldr	r0, [r0, #12]
+ 313 0002 80B2     		uxth	r0, r0
+ 314 0004 7047     		bx	lr
+ 316              		.section	.text.GPIO_SetBits,"ax",%progbits
+ 317              		.align	1
+ 318              		.global	GPIO_SetBits
+ 319              		.syntax unified
+ 320              		.thumb
+ 321              		.thumb_func
+ 323              	GPIO_SetBits:
+ 324              		@ args = 0, pretend = 0, frame = 0
+ 325              		@ frame_needed = 0, uses_anonymous_args = 0
+ 326              		@ link register save eliminated.
+ 327 0000 0161     		str	r1, [r0, #16]
+ 328 0002 7047     		bx	lr
+ 330              		.section	.text.GPIO_ResetBits,"ax",%progbits
+ 331              		.align	1
+ 332              		.global	GPIO_ResetBits
+ 333              		.syntax unified
+ 334              		.thumb
+ 335              		.thumb_func
+ 337              	GPIO_ResetBits:
+ 338              		@ args = 0, pretend = 0, frame = 0
+ 339              		@ frame_needed = 0, uses_anonymous_args = 0
+ 340              		@ link register save eliminated.
+ 341 0000 4161     		str	r1, [r0, #20]
+ 342 0002 7047     		bx	lr
+ 344              		.section	.text.GPIO_WriteBit,"ax",%progbits
+ 345              		.align	1
+ 346              		.global	GPIO_WriteBit
+ 347              		.syntax unified
+ 348              		.thumb
+ 349              		.thumb_func
+ 351              	GPIO_WriteBit:
+ 352              		@ args = 0, pretend = 0, frame = 0
+ 353              		@ frame_needed = 0, uses_anonymous_args = 0
+ 354              		@ link register save eliminated.
+ 355 0000 0AB1     		cbz	r2, .L50
+ 356 0002 0161     		str	r1, [r0, #16]
+ 357 0004 7047     		bx	lr
+ 358              	.L50:
+ 359 0006 4161     		str	r1, [r0, #20]
+ 360 0008 7047     		bx	lr
+ 362              		.section	.text.GPIO_Write,"ax",%progbits
+ 363              		.align	1
+ 364              		.global	GPIO_Write
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 7
+
+
+ 365              		.syntax unified
+ 366              		.thumb
+ 367              		.thumb_func
+ 369              	GPIO_Write:
+ 370              		@ args = 0, pretend = 0, frame = 0
+ 371              		@ frame_needed = 0, uses_anonymous_args = 0
+ 372              		@ link register save eliminated.
+ 373 0000 C160     		str	r1, [r0, #12]
+ 374 0002 7047     		bx	lr
+ 376              		.section	.text.GPIO_PinLockConfig,"ax",%progbits
+ 377              		.align	1
+ 378              		.global	GPIO_PinLockConfig
+ 379              		.syntax unified
+ 380              		.thumb
+ 381              		.thumb_func
+ 383              	GPIO_PinLockConfig:
+ 384              		@ args = 0, pretend = 0, frame = 0
+ 385              		@ frame_needed = 0, uses_anonymous_args = 0
+ 386              		@ link register save eliminated.
+ 387 0000 41F48033 		orr	r3, r1, #65536
+ 388 0004 8361     		str	r3, [r0, #24]
+ 389 0006 8161     		str	r1, [r0, #24]
+ 390 0008 8361     		str	r3, [r0, #24]
+ 391 000a 8369     		ldr	r3, [r0, #24]
+ 392 000c 8369     		ldr	r3, [r0, #24]
+ 393 000e 7047     		bx	lr
+ 395              		.section	.text.GPIO_EventOutputConfig,"ax",%progbits
+ 396              		.align	1
+ 397              		.global	GPIO_EventOutputConfig
+ 398              		.syntax unified
+ 399              		.thumb
+ 400              		.thumb_func
+ 402              	GPIO_EventOutputConfig:
+ 403              		@ args = 0, pretend = 0, frame = 0
+ 404              		@ frame_needed = 0, uses_anonymous_args = 0
+ 405              		@ link register save eliminated.
+ 406 0000 054A     		ldr	r2, .L55
+ 407 0002 1368     		ldr	r3, [r2]
+ 408 0004 23F07F03 		bic	r3, r3, #127
+ 409 0008 1B04     		lsls	r3, r3, #16
+ 410 000a 1B0C     		lsrs	r3, r3, #16
+ 411 000c 43EA0013 		orr	r3, r3, r0, lsl #4
+ 412 0010 1943     		orrs	r1, r1, r3
+ 413 0012 1160     		str	r1, [r2]
+ 414 0014 7047     		bx	lr
+ 415              	.L56:
+ 416 0016 00BF     		.align	2
+ 417              	.L55:
+ 418 0018 00000140 		.word	1073807360
+ 420              		.section	.text.GPIO_EventOutputCmd,"ax",%progbits
+ 421              		.align	1
+ 422              		.global	GPIO_EventOutputCmd
+ 423              		.syntax unified
+ 424              		.thumb
+ 425              		.thumb_func
+ 427              	GPIO_EventOutputCmd:
+ 428              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 8
+
+
+ 429              		@ frame_needed = 0, uses_anonymous_args = 0
+ 430              		@ link register save eliminated.
+ 431 0000 014B     		ldr	r3, .L58
+ 432 0002 D861     		str	r0, [r3, #28]
+ 433 0004 7047     		bx	lr
+ 434              	.L59:
+ 435 0006 00BF     		.align	2
+ 436              	.L58:
+ 437 0008 00002042 		.word	1109393408
+ 439              		.section	.text.GPIO_PinRemapConfig,"ax",%progbits
+ 440              		.align	1
+ 441              		.global	GPIO_PinRemapConfig
+ 442              		.syntax unified
+ 443              		.thumb
+ 444              		.thumb_func
+ 446              	GPIO_PinRemapConfig:
+ 447              		@ args = 0, pretend = 0, frame = 0
+ 448              		@ frame_needed = 0, uses_anonymous_args = 0
+ 449              		@ link register save eliminated.
+ 450 0000 30B4     		push	{r4, r5}
+ 451 0002 0028     		cmp	r0, #0
+ 452 0004 15DB     		blt	.L70
+ 453 0006 1C4B     		ldr	r3, .L73
+ 454 0008 5B68     		ldr	r3, [r3, #4]
+ 455              	.L62:
+ 456 000a C0F30344 		ubfx	r4, r0, #16, #4
+ 457 000e 82B2     		uxth	r2, r0
+ 458 0010 00F4401C 		and	ip, r0, #3145728
+ 459 0014 BCF5401F 		cmp	ip, #3145728
+ 460 0018 0ED0     		beq	.L71
+ 461 001a 10F4801F 		tst	r0, #1048576
+ 462 001e 1DD0     		beq	.L65
+ 463 0020 4FF0030C 		mov	ip, #3
+ 464 0024 0CFA04F4 		lsl	r4, ip, r4
+ 465 0028 23EA0403 		bic	r3, r3, r4
+ 466 002c 43F07063 		orr	r3, r3, #251658240
+ 467 0030 09E0     		b	.L64
+ 468              	.L70:
+ 469 0032 114B     		ldr	r3, .L73
+ 470 0034 DB69     		ldr	r3, [r3, #28]
+ 471 0036 E8E7     		b	.L62
+ 472              	.L71:
+ 473 0038 23F07063 		bic	r3, r3, #251658240
+ 474 003c 0E4D     		ldr	r5, .L73
+ 475 003e 6C68     		ldr	r4, [r5, #4]
+ 476 0040 24F07064 		bic	r4, r4, #251658240
+ 477 0044 6C60     		str	r4, [r5, #4]
+ 478              	.L64:
+ 479 0046 19B1     		cbz	r1, .L66
+ 480 0048 410D     		lsrs	r1, r0, #21
+ 481 004a 0901     		lsls	r1, r1, #4
+ 482 004c 8A40     		lsls	r2, r2, r1
+ 483 004e 1343     		orrs	r3, r3, r2
+ 484              	.L66:
+ 485 0050 0028     		cmp	r0, #0
+ 486 0052 0EDB     		blt	.L72
+ 487 0054 084A     		ldr	r2, .L73
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 9
+
+
+ 488 0056 5360     		str	r3, [r2, #4]
+ 489              	.L60:
+ 490 0058 30BC     		pop	{r4, r5}
+ 491 005a 7047     		bx	lr
+ 492              	.L65:
+ 493 005c 4FEA505C 		lsr	ip, r0, #21
+ 494 0060 4FEA0C1C 		lsl	ip, ip, #4
+ 495 0064 02FA0CFC 		lsl	ip, r2, ip
+ 496 0068 23EA0C03 		bic	r3, r3, ip
+ 497 006c 43F07063 		orr	r3, r3, #251658240
+ 498 0070 E9E7     		b	.L64
+ 499              	.L72:
+ 500 0072 014A     		ldr	r2, .L73
+ 501 0074 D361     		str	r3, [r2, #28]
+ 502 0076 EFE7     		b	.L60
+ 503              	.L74:
+ 504              		.align	2
+ 505              	.L73:
+ 506 0078 00000140 		.word	1073807360
+ 508              		.section	.text.GPIO_EXTILineConfig,"ax",%progbits
+ 509              		.align	1
+ 510              		.global	GPIO_EXTILineConfig
+ 511              		.syntax unified
+ 512              		.thumb
+ 513              		.thumb_func
+ 515              	GPIO_EXTILineConfig:
+ 516              		@ args = 0, pretend = 0, frame = 0
+ 517              		@ frame_needed = 0, uses_anonymous_args = 0
+ 518              		@ link register save eliminated.
+ 519 0000 10B4     		push	{r4}
+ 520 0002 01F00302 		and	r2, r1, #3
+ 521 0006 9200     		lsls	r2, r2, #2
+ 522 0008 4FF00F0C 		mov	ip, #15
+ 523 000c 0CFA02FC 		lsl	ip, ip, r2
+ 524 0010 8908     		lsrs	r1, r1, #2
+ 525 0012 084B     		ldr	r3, .L77
+ 526 0014 0231     		adds	r1, r1, #2
+ 527 0016 53F82140 		ldr	r4, [r3, r1, lsl #2]
+ 528 001a 24EA0C04 		bic	r4, r4, ip
+ 529 001e 43F82140 		str	r4, [r3, r1, lsl #2]
+ 530 0022 53F82140 		ldr	r4, [r3, r1, lsl #2]
+ 531 0026 9040     		lsls	r0, r0, r2
+ 532 0028 0443     		orrs	r4, r4, r0
+ 533 002a 43F82140 		str	r4, [r3, r1, lsl #2]
+ 534 002e 10BC     		pop	{r4}
+ 535 0030 7047     		bx	lr
+ 536              	.L78:
+ 537 0032 00BF     		.align	2
+ 538              	.L77:
+ 539 0034 00000140 		.word	1073807360
+ 541              		.section	.text.GPIO_ETH_MediaInterfaceConfig,"ax",%progbits
+ 542              		.align	1
+ 543              		.global	GPIO_ETH_MediaInterfaceConfig
+ 544              		.syntax unified
+ 545              		.thumb
+ 546              		.thumb_func
+ 548              	GPIO_ETH_MediaInterfaceConfig:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 10
+
+
+ 549              		@ args = 0, pretend = 0, frame = 0
+ 550              		@ frame_needed = 0, uses_anonymous_args = 0
+ 551              		@ link register save eliminated.
+ 552 0000 014B     		ldr	r3, .L80
+ 553 0002 C3F8DC00 		str	r0, [r3, #220]
+ 554 0006 7047     		bx	lr
+ 555              	.L81:
+ 556              		.align	2
+ 557              	.L80:
+ 558 0008 00002042 		.word	1109393408
+ 560              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f10x_gpio.c
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:16     .text.GPIO_DeInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:22     .text.GPIO_DeInit:00000000 GPIO_DeInit
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:108    .text.GPIO_DeInit:000000b0 $d
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:117    .text.GPIO_AFIODeInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:123    .text.GPIO_AFIODeInit:00000000 GPIO_AFIODeInit
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:136    .text.GPIO_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:142    .text.GPIO_Init:00000000 GPIO_Init
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:228    .text.GPIO_StructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:234    .text.GPIO_StructInit:00000000 GPIO_StructInit
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:247    .text.GPIO_ReadInputDataBit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:253    .text.GPIO_ReadInputDataBit:00000000 GPIO_ReadInputDataBit
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:267    .text.GPIO_ReadInputData:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:273    .text.GPIO_ReadInputData:00000000 GPIO_ReadInputData
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:282    .text.GPIO_ReadOutputDataBit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:288    .text.GPIO_ReadOutputDataBit:00000000 GPIO_ReadOutputDataBit
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:302    .text.GPIO_ReadOutputData:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:308    .text.GPIO_ReadOutputData:00000000 GPIO_ReadOutputData
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:317    .text.GPIO_SetBits:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:323    .text.GPIO_SetBits:00000000 GPIO_SetBits
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:331    .text.GPIO_ResetBits:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:337    .text.GPIO_ResetBits:00000000 GPIO_ResetBits
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:345    .text.GPIO_WriteBit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:351    .text.GPIO_WriteBit:00000000 GPIO_WriteBit
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:363    .text.GPIO_Write:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:369    .text.GPIO_Write:00000000 GPIO_Write
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:377    .text.GPIO_PinLockConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:383    .text.GPIO_PinLockConfig:00000000 GPIO_PinLockConfig
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:396    .text.GPIO_EventOutputConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:402    .text.GPIO_EventOutputConfig:00000000 GPIO_EventOutputConfig
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:418    .text.GPIO_EventOutputConfig:00000018 $d
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:421    .text.GPIO_EventOutputCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:427    .text.GPIO_EventOutputCmd:00000000 GPIO_EventOutputCmd
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:437    .text.GPIO_EventOutputCmd:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:440    .text.GPIO_PinRemapConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:446    .text.GPIO_PinRemapConfig:00000000 GPIO_PinRemapConfig
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:506    .text.GPIO_PinRemapConfig:00000078 $d
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:509    .text.GPIO_EXTILineConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:515    .text.GPIO_EXTILineConfig:00000000 GPIO_EXTILineConfig
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:539    .text.GPIO_EXTILineConfig:00000034 $d
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:542    .text.GPIO_ETH_MediaInterfaceConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:548    .text.GPIO_ETH_MediaInterfaceConfig:00000000 GPIO_ETH_MediaInterfaceConfig
+C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:558    .text.GPIO_ETH_MediaInterfaceConfig:00000008 $d
+
+UNDEFINED SYMBOLS
+RCC_APB2PeriphResetCmd

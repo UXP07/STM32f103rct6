@@ -1,0 +1,377 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f10x_cec.c"
+  14              		.text
+  15              		.section	.text.CEC_DeInit,"ax",%progbits
+  16              		.align	1
+  17              		.global	CEC_DeInit
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	CEC_DeInit:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 08B5     		push	{r3, lr}
+  26 0002 0121     		movs	r1, #1
+  27 0004 4FF08040 		mov	r0, #1073741824
+  28 0008 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  29 000c 0021     		movs	r1, #0
+  30 000e 4FF08040 		mov	r0, #1073741824
+  31 0012 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  32 0016 08BD     		pop	{r3, pc}
+  34              		.section	.text.CEC_Init,"ax",%progbits
+  35              		.align	1
+  36              		.global	CEC_Init
+  37              		.syntax unified
+  38              		.thumb
+  39              		.thumb_func
+  41              	CEC_Init:
+  42              		@ args = 0, pretend = 0, frame = 0
+  43              		@ frame_needed = 0, uses_anonymous_args = 0
+  44              		@ link register save eliminated.
+  45 0000 0449     		ldr	r1, .L4
+  46 0002 0A68     		ldr	r2, [r1]
+  47 0004 02F0F302 		and	r2, r2, #243
+  48 0008 0388     		ldrh	r3, [r0]
+  49 000a 4088     		ldrh	r0, [r0, #2]
+  50 000c 0343     		orrs	r3, r3, r0
+  51 000e 1343     		orrs	r3, r3, r2
+  52 0010 0B60     		str	r3, [r1]
+  53 0012 7047     		bx	lr
+  54              	.L5:
+  55              		.align	2
+  56              	.L4:
+  57 0014 00780040 		.word	1073772544
+  59              		.section	.text.CEC_Cmd,"ax",%progbits
+  60              		.align	1
+  61              		.global	CEC_Cmd
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s 			page 2
+
+
+  62              		.syntax unified
+  63              		.thumb
+  64              		.thumb_func
+  66              	CEC_Cmd:
+  67              		@ args = 0, pretend = 0, frame = 0
+  68              		@ frame_needed = 0, uses_anonymous_args = 0
+  69              		@ link register save eliminated.
+  70 0000 044B     		ldr	r3, .L9
+  71 0002 1860     		str	r0, [r3]
+  72 0004 20B9     		cbnz	r0, .L6
+  73              	.L8:
+  74 0006 044B     		ldr	r3, .L9+4
+  75 0008 1B68     		ldr	r3, [r3]
+  76 000a 13F0010F 		tst	r3, #1
+  77 000e FAD1     		bne	.L8
+  78              	.L6:
+  79 0010 7047     		bx	lr
+  80              	.L10:
+  81 0012 00BF     		.align	2
+  82              	.L9:
+  83 0014 00000F42 		.word	1108279296
+  84 0018 00780040 		.word	1073772544
+  86              		.section	.text.CEC_ITConfig,"ax",%progbits
+  87              		.align	1
+  88              		.global	CEC_ITConfig
+  89              		.syntax unified
+  90              		.thumb
+  91              		.thumb_func
+  93              	CEC_ITConfig:
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 0, uses_anonymous_args = 0
+  96              		@ link register save eliminated.
+  97 0000 014B     		ldr	r3, .L12
+  98 0002 5860     		str	r0, [r3, #4]
+  99 0004 7047     		bx	lr
+ 100              	.L13:
+ 101 0006 00BF     		.align	2
+ 102              	.L12:
+ 103 0008 00000F42 		.word	1108279296
+ 105              		.section	.text.CEC_OwnAddressConfig,"ax",%progbits
+ 106              		.align	1
+ 107              		.global	CEC_OwnAddressConfig
+ 108              		.syntax unified
+ 109              		.thumb
+ 110              		.thumb_func
+ 112              	CEC_OwnAddressConfig:
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              		@ link register save eliminated.
+ 116 0000 014B     		ldr	r3, .L15
+ 117 0002 5860     		str	r0, [r3, #4]
+ 118 0004 7047     		bx	lr
+ 119              	.L16:
+ 120 0006 00BF     		.align	2
+ 121              	.L15:
+ 122 0008 00780040 		.word	1073772544
+ 124              		.section	.text.CEC_SetPrescaler,"ax",%progbits
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s 			page 3
+
+
+ 125              		.align	1
+ 126              		.global	CEC_SetPrescaler
+ 127              		.syntax unified
+ 128              		.thumb
+ 129              		.thumb_func
+ 131              	CEC_SetPrescaler:
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              		@ link register save eliminated.
+ 135 0000 014B     		ldr	r3, .L18
+ 136 0002 9860     		str	r0, [r3, #8]
+ 137 0004 7047     		bx	lr
+ 138              	.L19:
+ 139 0006 00BF     		.align	2
+ 140              	.L18:
+ 141 0008 00780040 		.word	1073772544
+ 143              		.section	.text.CEC_SendDataByte,"ax",%progbits
+ 144              		.align	1
+ 145              		.global	CEC_SendDataByte
+ 146              		.syntax unified
+ 147              		.thumb
+ 148              		.thumb_func
+ 150              	CEC_SendDataByte:
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153              		@ link register save eliminated.
+ 154 0000 014B     		ldr	r3, .L21
+ 155 0002 5861     		str	r0, [r3, #20]
+ 156 0004 7047     		bx	lr
+ 157              	.L22:
+ 158 0006 00BF     		.align	2
+ 159              	.L21:
+ 160 0008 00780040 		.word	1073772544
+ 162              		.section	.text.CEC_ReceiveDataByte,"ax",%progbits
+ 163              		.align	1
+ 164              		.global	CEC_ReceiveDataByte
+ 165              		.syntax unified
+ 166              		.thumb
+ 167              		.thumb_func
+ 169              	CEC_ReceiveDataByte:
+ 170              		@ args = 0, pretend = 0, frame = 0
+ 171              		@ frame_needed = 0, uses_anonymous_args = 0
+ 172              		@ link register save eliminated.
+ 173 0000 014B     		ldr	r3, .L24
+ 174 0002 9869     		ldr	r0, [r3, #24]
+ 175 0004 C0B2     		uxtb	r0, r0
+ 176 0006 7047     		bx	lr
+ 177              	.L25:
+ 178              		.align	2
+ 179              	.L24:
+ 180 0008 00780040 		.word	1073772544
+ 182              		.section	.text.CEC_StartOfMessage,"ax",%progbits
+ 183              		.align	1
+ 184              		.global	CEC_StartOfMessage
+ 185              		.syntax unified
+ 186              		.thumb
+ 187              		.thumb_func
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s 			page 4
+
+
+ 189              	CEC_StartOfMessage:
+ 190              		@ args = 0, pretend = 0, frame = 0
+ 191              		@ frame_needed = 0, uses_anonymous_args = 0
+ 192              		@ link register save eliminated.
+ 193 0000 024B     		ldr	r3, .L27
+ 194 0002 0122     		movs	r2, #1
+ 195 0004 C3F80022 		str	r2, [r3, #512]
+ 196 0008 7047     		bx	lr
+ 197              	.L28:
+ 198 000a 00BF     		.align	2
+ 199              	.L27:
+ 200 000c 00000F42 		.word	1108279296
+ 202              		.section	.text.CEC_EndOfMessageCmd,"ax",%progbits
+ 203              		.align	1
+ 204              		.global	CEC_EndOfMessageCmd
+ 205              		.syntax unified
+ 206              		.thumb
+ 207              		.thumb_func
+ 209              	CEC_EndOfMessageCmd:
+ 210              		@ args = 0, pretend = 0, frame = 0
+ 211              		@ frame_needed = 0, uses_anonymous_args = 0
+ 212              		@ link register save eliminated.
+ 213 0000 014B     		ldr	r3, .L30
+ 214 0002 C3F80402 		str	r0, [r3, #516]
+ 215 0006 7047     		bx	lr
+ 216              	.L31:
+ 217              		.align	2
+ 218              	.L30:
+ 219 0008 00000F42 		.word	1108279296
+ 221              		.section	.text.CEC_GetFlagStatus,"ax",%progbits
+ 222              		.align	1
+ 223              		.global	CEC_GetFlagStatus
+ 224              		.syntax unified
+ 225              		.thumb
+ 226              		.thumb_func
+ 228              	CEC_GetFlagStatus:
+ 229              		@ args = 0, pretend = 0, frame = 0
+ 230              		@ frame_needed = 0, uses_anonymous_args = 0
+ 231              		@ link register save eliminated.
+ 232 0000 20F07F43 		bic	r3, r0, #-16777216
+ 233 0004 000F     		lsrs	r0, r0, #28
+ 234 0006 06D0     		beq	.L35
+ 235 0008 1B0C     		lsrs	r3, r3, #16
+ 236 000a 054A     		ldr	r2, .L37
+ 237              	.L33:
+ 238 000c 1268     		ldr	r2, [r2]
+ 239 000e 1A42     		tst	r2, r3
+ 240 0010 03D0     		beq	.L36
+ 241 0012 0120     		movs	r0, #1
+ 242 0014 7047     		bx	lr
+ 243              	.L35:
+ 244 0016 034A     		ldr	r2, .L37+4
+ 245 0018 F8E7     		b	.L33
+ 246              	.L36:
+ 247 001a 0020     		movs	r0, #0
+ 248 001c 7047     		bx	lr
+ 249              	.L38:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s 			page 5
+
+
+ 250 001e 00BF     		.align	2
+ 251              	.L37:
+ 252 0020 0C780040 		.word	1073772556
+ 253 0024 10780040 		.word	1073772560
+ 255              		.section	.text.CEC_ClearFlag,"ax",%progbits
+ 256              		.align	1
+ 257              		.global	CEC_ClearFlag
+ 258              		.syntax unified
+ 259              		.thumb
+ 260              		.thumb_func
+ 262              	CEC_ClearFlag:
+ 263              		@ args = 0, pretend = 0, frame = 0
+ 264              		@ frame_needed = 0, uses_anonymous_args = 0
+ 265              		@ link register save eliminated.
+ 266 0000 054B     		ldr	r3, .L40
+ 267 0002 1969     		ldr	r1, [r3, #16]
+ 268 0004 01F00201 		and	r1, r1, #2
+ 269 0008 1A69     		ldr	r2, [r3, #16]
+ 270 000a C043     		mvns	r0, r0
+ 271 000c 20F00300 		bic	r0, r0, #3
+ 272 0010 0843     		orrs	r0, r0, r1
+ 273 0012 0240     		ands	r2, r2, r0
+ 274 0014 1A61     		str	r2, [r3, #16]
+ 275 0016 7047     		bx	lr
+ 276              	.L41:
+ 277              		.align	2
+ 278              	.L40:
+ 279 0018 00780040 		.word	1073772544
+ 281              		.section	.text.CEC_GetITStatus,"ax",%progbits
+ 282              		.align	1
+ 283              		.global	CEC_GetITStatus
+ 284              		.syntax unified
+ 285              		.thumb
+ 286              		.thumb_func
+ 288              	CEC_GetITStatus:
+ 289              		@ args = 0, pretend = 0, frame = 0
+ 290              		@ frame_needed = 0, uses_anonymous_args = 0
+ 291              		@ link register save eliminated.
+ 292 0000 064A     		ldr	r2, .L46
+ 293 0002 1368     		ldr	r3, [r2]
+ 294 0004 03F00203 		and	r3, r3, #2
+ 295 0008 1269     		ldr	r2, [r2, #16]
+ 296 000a 1042     		tst	r0, r2
+ 297 000c 02D0     		beq	.L44
+ 298 000e 1BB9     		cbnz	r3, .L45
+ 299 0010 0020     		movs	r0, #0
+ 300 0012 7047     		bx	lr
+ 301              	.L44:
+ 302 0014 0020     		movs	r0, #0
+ 303 0016 7047     		bx	lr
+ 304              	.L45:
+ 305 0018 0120     		movs	r0, #1
+ 306 001a 7047     		bx	lr
+ 307              	.L47:
+ 308              		.align	2
+ 309              	.L46:
+ 310 001c 00780040 		.word	1073772544
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s 			page 6
+
+
+ 312              		.section	.text.CEC_ClearITPendingBit,"ax",%progbits
+ 313              		.align	1
+ 314              		.global	CEC_ClearITPendingBit
+ 315              		.syntax unified
+ 316              		.thumb
+ 317              		.thumb_func
+ 319              	CEC_ClearITPendingBit:
+ 320              		@ args = 0, pretend = 0, frame = 0
+ 321              		@ frame_needed = 0, uses_anonymous_args = 0
+ 322              		@ link register save eliminated.
+ 323 0000 054B     		ldr	r3, .L49
+ 324 0002 1969     		ldr	r1, [r3, #16]
+ 325 0004 01F00201 		and	r1, r1, #2
+ 326 0008 1A69     		ldr	r2, [r3, #16]
+ 327 000a C043     		mvns	r0, r0
+ 328 000c 20F00300 		bic	r0, r0, #3
+ 329 0010 0843     		orrs	r0, r0, r1
+ 330 0012 0240     		ands	r2, r2, r0
+ 331 0014 1A61     		str	r2, [r3, #16]
+ 332 0016 7047     		bx	lr
+ 333              	.L50:
+ 334              		.align	2
+ 335              	.L49:
+ 336 0018 00780040 		.word	1073772544
+ 338              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f10x_cec.c
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:16     .text.CEC_DeInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:22     .text.CEC_DeInit:00000000 CEC_DeInit
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:35     .text.CEC_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:41     .text.CEC_Init:00000000 CEC_Init
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:57     .text.CEC_Init:00000014 $d
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:60     .text.CEC_Cmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:66     .text.CEC_Cmd:00000000 CEC_Cmd
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:83     .text.CEC_Cmd:00000014 $d
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:87     .text.CEC_ITConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:93     .text.CEC_ITConfig:00000000 CEC_ITConfig
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:103    .text.CEC_ITConfig:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:106    .text.CEC_OwnAddressConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:112    .text.CEC_OwnAddressConfig:00000000 CEC_OwnAddressConfig
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:122    .text.CEC_OwnAddressConfig:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:125    .text.CEC_SetPrescaler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:131    .text.CEC_SetPrescaler:00000000 CEC_SetPrescaler
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:141    .text.CEC_SetPrescaler:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:144    .text.CEC_SendDataByte:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:150    .text.CEC_SendDataByte:00000000 CEC_SendDataByte
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:160    .text.CEC_SendDataByte:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:163    .text.CEC_ReceiveDataByte:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:169    .text.CEC_ReceiveDataByte:00000000 CEC_ReceiveDataByte
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:180    .text.CEC_ReceiveDataByte:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:183    .text.CEC_StartOfMessage:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:189    .text.CEC_StartOfMessage:00000000 CEC_StartOfMessage
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:200    .text.CEC_StartOfMessage:0000000c $d
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:203    .text.CEC_EndOfMessageCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:209    .text.CEC_EndOfMessageCmd:00000000 CEC_EndOfMessageCmd
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:219    .text.CEC_EndOfMessageCmd:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:222    .text.CEC_GetFlagStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:228    .text.CEC_GetFlagStatus:00000000 CEC_GetFlagStatus
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:252    .text.CEC_GetFlagStatus:00000020 $d
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:256    .text.CEC_ClearFlag:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:262    .text.CEC_ClearFlag:00000000 CEC_ClearFlag
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:279    .text.CEC_ClearFlag:00000018 $d
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:282    .text.CEC_GetITStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:288    .text.CEC_GetITStatus:00000000 CEC_GetITStatus
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:310    .text.CEC_GetITStatus:0000001c $d
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:313    .text.CEC_ClearITPendingBit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:319    .text.CEC_ClearITPendingBit:00000000 CEC_ClearITPendingBit
+C:\Users\UXP\AppData\Local\Temp\ccJ5e0jC.s:336    .text.CEC_ClearITPendingBit:00000018 $d
+
+UNDEFINED SYMBOLS
+RCC_APB1PeriphResetCmd

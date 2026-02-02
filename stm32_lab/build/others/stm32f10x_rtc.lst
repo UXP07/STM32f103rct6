@@ -1,0 +1,418 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f10x_rtc.c"
+  14              		.text
+  15              		.section	.text.RTC_ITConfig,"ax",%progbits
+  16              		.align	1
+  17              		.global	RTC_ITConfig
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	RTC_ITConfig:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25              		@ link register save eliminated.
+  26 0000 29B1     		cbz	r1, .L2
+  27 0002 064A     		ldr	r2, .L4
+  28 0004 1388     		ldrh	r3, [r2]
+  29 0006 9BB2     		uxth	r3, r3
+  30 0008 0343     		orrs	r3, r3, r0
+  31 000a 1380     		strh	r3, [r2]	@ movhi
+  32 000c 7047     		bx	lr
+  33              	.L2:
+  34 000e 034B     		ldr	r3, .L4
+  35 0010 1A88     		ldrh	r2, [r3]
+  36 0012 C043     		mvns	r0, r0
+  37 0014 80B2     		uxth	r0, r0
+  38 0016 1040     		ands	r0, r0, r2
+  39 0018 1880     		strh	r0, [r3]	@ movhi
+  40 001a 7047     		bx	lr
+  41              	.L5:
+  42              		.align	2
+  43              	.L4:
+  44 001c 00280040 		.word	1073752064
+  46              		.section	.text.RTC_EnterConfigMode,"ax",%progbits
+  47              		.align	1
+  48              		.global	RTC_EnterConfigMode
+  49              		.syntax unified
+  50              		.thumb
+  51              		.thumb_func
+  53              	RTC_EnterConfigMode:
+  54              		@ args = 0, pretend = 0, frame = 0
+  55              		@ frame_needed = 0, uses_anonymous_args = 0
+  56              		@ link register save eliminated.
+  57 0000 034A     		ldr	r2, .L7
+  58 0002 9388     		ldrh	r3, [r2, #4]
+  59 0004 9BB2     		uxth	r3, r3
+  60 0006 43F01003 		orr	r3, r3, #16
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 2
+
+
+  61 000a 9380     		strh	r3, [r2, #4]	@ movhi
+  62 000c 7047     		bx	lr
+  63              	.L8:
+  64 000e 00BF     		.align	2
+  65              	.L7:
+  66 0010 00280040 		.word	1073752064
+  68              		.section	.text.RTC_ExitConfigMode,"ax",%progbits
+  69              		.align	1
+  70              		.global	RTC_ExitConfigMode
+  71              		.syntax unified
+  72              		.thumb
+  73              		.thumb_func
+  75              	RTC_ExitConfigMode:
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78              		@ link register save eliminated.
+  79 0000 034A     		ldr	r2, .L10
+  80 0002 9388     		ldrh	r3, [r2, #4]
+  81 0004 9BB2     		uxth	r3, r3
+  82 0006 23F01003 		bic	r3, r3, #16
+  83 000a 9BB2     		uxth	r3, r3
+  84 000c 9380     		strh	r3, [r2, #4]	@ movhi
+  85 000e 7047     		bx	lr
+  86              	.L11:
+  87              		.align	2
+  88              	.L10:
+  89 0010 00280040 		.word	1073752064
+  91              		.section	.text.RTC_GetCounter,"ax",%progbits
+  92              		.align	1
+  93              		.global	RTC_GetCounter
+  94              		.syntax unified
+  95              		.thumb
+  96              		.thumb_func
+  98              	RTC_GetCounter:
+  99              		@ args = 0, pretend = 0, frame = 0
+ 100              		@ frame_needed = 0, uses_anonymous_args = 0
+ 101              		@ link register save eliminated.
+ 102 0000 084B     		ldr	r3, .L15
+ 103 0002 1A8B     		ldrh	r2, [r3, #24]
+ 104 0004 92B2     		uxth	r2, r2
+ 105 0006 988B     		ldrh	r0, [r3, #28]
+ 106 0008 80B2     		uxth	r0, r0
+ 107 000a 1B8B     		ldrh	r3, [r3, #24]
+ 108 000c 9BB2     		uxth	r3, r3
+ 109 000e 9A42     		cmp	r2, r3
+ 110 0010 05D0     		beq	.L13
+ 111 0012 044A     		ldr	r2, .L15
+ 112 0014 908B     		ldrh	r0, [r2, #28]
+ 113 0016 80B2     		uxth	r0, r0
+ 114 0018 40EA0340 		orr	r0, r0, r3, lsl #16
+ 115 001c 7047     		bx	lr
+ 116              	.L13:
+ 117 001e 40EA0240 		orr	r0, r0, r2, lsl #16
+ 118 0022 7047     		bx	lr
+ 119              	.L16:
+ 120              		.align	2
+ 121              	.L15:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 3
+
+
+ 122 0024 00280040 		.word	1073752064
+ 124              		.section	.text.RTC_SetCounter,"ax",%progbits
+ 125              		.align	1
+ 126              		.global	RTC_SetCounter
+ 127              		.syntax unified
+ 128              		.thumb
+ 129              		.thumb_func
+ 131              	RTC_SetCounter:
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134 0000 10B5     		push	{r4, lr}
+ 135 0002 0446     		mov	r4, r0
+ 136 0004 FFF7FEFF 		bl	RTC_EnterConfigMode
+ 137 0008 220C     		lsrs	r2, r4, #16
+ 138 000a 034B     		ldr	r3, .L19
+ 139 000c 1A83     		strh	r2, [r3, #24]	@ movhi
+ 140 000e A4B2     		uxth	r4, r4
+ 141 0010 9C83     		strh	r4, [r3, #28]	@ movhi
+ 142 0012 FFF7FEFF 		bl	RTC_ExitConfigMode
+ 143 0016 10BD     		pop	{r4, pc}
+ 144              	.L20:
+ 145              		.align	2
+ 146              	.L19:
+ 147 0018 00280040 		.word	1073752064
+ 149              		.section	.text.RTC_SetPrescaler,"ax",%progbits
+ 150              		.align	1
+ 151              		.global	RTC_SetPrescaler
+ 152              		.syntax unified
+ 153              		.thumb
+ 154              		.thumb_func
+ 156              	RTC_SetPrescaler:
+ 157              		@ args = 0, pretend = 0, frame = 0
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
+ 159 0000 10B5     		push	{r4, lr}
+ 160 0002 0446     		mov	r4, r0
+ 161 0004 FFF7FEFF 		bl	RTC_EnterConfigMode
+ 162 0008 C4F30342 		ubfx	r2, r4, #16, #4
+ 163 000c 034B     		ldr	r3, .L23
+ 164 000e 1A81     		strh	r2, [r3, #8]	@ movhi
+ 165 0010 A4B2     		uxth	r4, r4
+ 166 0012 9C81     		strh	r4, [r3, #12]	@ movhi
+ 167 0014 FFF7FEFF 		bl	RTC_ExitConfigMode
+ 168 0018 10BD     		pop	{r4, pc}
+ 169              	.L24:
+ 170 001a 00BF     		.align	2
+ 171              	.L23:
+ 172 001c 00280040 		.word	1073752064
+ 174              		.section	.text.RTC_SetAlarm,"ax",%progbits
+ 175              		.align	1
+ 176              		.global	RTC_SetAlarm
+ 177              		.syntax unified
+ 178              		.thumb
+ 179              		.thumb_func
+ 181              	RTC_SetAlarm:
+ 182              		@ args = 0, pretend = 0, frame = 0
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 184 0000 10B5     		push	{r4, lr}
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 4
+
+
+ 185 0002 0446     		mov	r4, r0
+ 186 0004 FFF7FEFF 		bl	RTC_EnterConfigMode
+ 187 0008 220C     		lsrs	r2, r4, #16
+ 188 000a 034B     		ldr	r3, .L27
+ 189 000c 1A84     		strh	r2, [r3, #32]	@ movhi
+ 190 000e A4B2     		uxth	r4, r4
+ 191 0010 9C84     		strh	r4, [r3, #36]	@ movhi
+ 192 0012 FFF7FEFF 		bl	RTC_ExitConfigMode
+ 193 0016 10BD     		pop	{r4, pc}
+ 194              	.L28:
+ 195              		.align	2
+ 196              	.L27:
+ 197 0018 00280040 		.word	1073752064
+ 199              		.section	.text.RTC_GetDivider,"ax",%progbits
+ 200              		.align	1
+ 201              		.global	RTC_GetDivider
+ 202              		.syntax unified
+ 203              		.thumb
+ 204              		.thumb_func
+ 206              	RTC_GetDivider:
+ 207              		@ args = 0, pretend = 0, frame = 0
+ 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209              		@ link register save eliminated.
+ 210 0000 044A     		ldr	r2, .L30
+ 211 0002 138A     		ldrh	r3, [r2, #16]
+ 212 0004 1B04     		lsls	r3, r3, #16
+ 213 0006 03F47023 		and	r3, r3, #983040
+ 214 000a 908A     		ldrh	r0, [r2, #20]
+ 215 000c 80B2     		uxth	r0, r0
+ 216 000e 1843     		orrs	r0, r0, r3
+ 217 0010 7047     		bx	lr
+ 218              	.L31:
+ 219 0012 00BF     		.align	2
+ 220              	.L30:
+ 221 0014 00280040 		.word	1073752064
+ 223              		.section	.text.RTC_WaitForLastTask,"ax",%progbits
+ 224              		.align	1
+ 225              		.global	RTC_WaitForLastTask
+ 226              		.syntax unified
+ 227              		.thumb
+ 228              		.thumb_func
+ 230              	RTC_WaitForLastTask:
+ 231              		@ args = 0, pretend = 0, frame = 0
+ 232              		@ frame_needed = 0, uses_anonymous_args = 0
+ 233              		@ link register save eliminated.
+ 234              	.L33:
+ 235 0000 024B     		ldr	r3, .L34
+ 236 0002 9B88     		ldrh	r3, [r3, #4]
+ 237 0004 13F0200F 		tst	r3, #32
+ 238 0008 FAD0     		beq	.L33
+ 239 000a 7047     		bx	lr
+ 240              	.L35:
+ 241              		.align	2
+ 242              	.L34:
+ 243 000c 00280040 		.word	1073752064
+ 245              		.section	.text.RTC_WaitForSynchro,"ax",%progbits
+ 246              		.align	1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 5
+
+
+ 247              		.global	RTC_WaitForSynchro
+ 248              		.syntax unified
+ 249              		.thumb
+ 250              		.thumb_func
+ 252              	RTC_WaitForSynchro:
+ 253              		@ args = 0, pretend = 0, frame = 0
+ 254              		@ frame_needed = 0, uses_anonymous_args = 0
+ 255              		@ link register save eliminated.
+ 256 0000 064A     		ldr	r2, .L38
+ 257 0002 9388     		ldrh	r3, [r2, #4]
+ 258 0004 9BB2     		uxth	r3, r3
+ 259 0006 23F00803 		bic	r3, r3, #8
+ 260 000a 9BB2     		uxth	r3, r3
+ 261 000c 9380     		strh	r3, [r2, #4]	@ movhi
+ 262              	.L37:
+ 263 000e 034B     		ldr	r3, .L38
+ 264 0010 9B88     		ldrh	r3, [r3, #4]
+ 265 0012 13F0080F 		tst	r3, #8
+ 266 0016 FAD0     		beq	.L37
+ 267 0018 7047     		bx	lr
+ 268              	.L39:
+ 269 001a 00BF     		.align	2
+ 270              	.L38:
+ 271 001c 00280040 		.word	1073752064
+ 273              		.section	.text.RTC_GetFlagStatus,"ax",%progbits
+ 274              		.align	1
+ 275              		.global	RTC_GetFlagStatus
+ 276              		.syntax unified
+ 277              		.thumb
+ 278              		.thumb_func
+ 280              	RTC_GetFlagStatus:
+ 281              		@ args = 0, pretend = 0, frame = 0
+ 282              		@ frame_needed = 0, uses_anonymous_args = 0
+ 283              		@ link register save eliminated.
+ 284 0000 034B     		ldr	r3, .L43
+ 285 0002 9B88     		ldrh	r3, [r3, #4]
+ 286 0004 1842     		tst	r0, r3
+ 287 0006 01D0     		beq	.L42
+ 288 0008 0120     		movs	r0, #1
+ 289 000a 7047     		bx	lr
+ 290              	.L42:
+ 291 000c 0020     		movs	r0, #0
+ 292 000e 7047     		bx	lr
+ 293              	.L44:
+ 294              		.align	2
+ 295              	.L43:
+ 296 0010 00280040 		.word	1073752064
+ 298              		.section	.text.RTC_ClearFlag,"ax",%progbits
+ 299              		.align	1
+ 300              		.global	RTC_ClearFlag
+ 301              		.syntax unified
+ 302              		.thumb
+ 303              		.thumb_func
+ 305              	RTC_ClearFlag:
+ 306              		@ args = 0, pretend = 0, frame = 0
+ 307              		@ frame_needed = 0, uses_anonymous_args = 0
+ 308              		@ link register save eliminated.
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 6
+
+
+ 309 0000 034B     		ldr	r3, .L46
+ 310 0002 9A88     		ldrh	r2, [r3, #4]
+ 311 0004 C043     		mvns	r0, r0
+ 312 0006 80B2     		uxth	r0, r0
+ 313 0008 1040     		ands	r0, r0, r2
+ 314 000a 9880     		strh	r0, [r3, #4]	@ movhi
+ 315 000c 7047     		bx	lr
+ 316              	.L47:
+ 317 000e 00BF     		.align	2
+ 318              	.L46:
+ 319 0010 00280040 		.word	1073752064
+ 321              		.section	.text.RTC_GetITStatus,"ax",%progbits
+ 322              		.align	1
+ 323              		.global	RTC_GetITStatus
+ 324              		.syntax unified
+ 325              		.thumb
+ 326              		.thumb_func
+ 328              	RTC_GetITStatus:
+ 329              		@ args = 0, pretend = 0, frame = 0
+ 330              		@ frame_needed = 0, uses_anonymous_args = 0
+ 331              		@ link register save eliminated.
+ 332 0000 064A     		ldr	r2, .L52
+ 333 0002 9188     		ldrh	r1, [r2, #4]
+ 334 0004 C3B2     		uxtb	r3, r0
+ 335 0006 0B40     		ands	r3, r3, r1
+ 336 0008 1288     		ldrh	r2, [r2]
+ 337 000a 1042     		tst	r0, r2
+ 338 000c 02D0     		beq	.L50
+ 339 000e 1BB9     		cbnz	r3, .L51
+ 340 0010 0020     		movs	r0, #0
+ 341 0012 7047     		bx	lr
+ 342              	.L50:
+ 343 0014 0020     		movs	r0, #0
+ 344 0016 7047     		bx	lr
+ 345              	.L51:
+ 346 0018 0120     		movs	r0, #1
+ 347 001a 7047     		bx	lr
+ 348              	.L53:
+ 349              		.align	2
+ 350              	.L52:
+ 351 001c 00280040 		.word	1073752064
+ 353              		.section	.text.RTC_ClearITPendingBit,"ax",%progbits
+ 354              		.align	1
+ 355              		.global	RTC_ClearITPendingBit
+ 356              		.syntax unified
+ 357              		.thumb
+ 358              		.thumb_func
+ 360              	RTC_ClearITPendingBit:
+ 361              		@ args = 0, pretend = 0, frame = 0
+ 362              		@ frame_needed = 0, uses_anonymous_args = 0
+ 363              		@ link register save eliminated.
+ 364 0000 034B     		ldr	r3, .L55
+ 365 0002 9A88     		ldrh	r2, [r3, #4]
+ 366 0004 C043     		mvns	r0, r0
+ 367 0006 80B2     		uxth	r0, r0
+ 368 0008 1040     		ands	r0, r0, r2
+ 369 000a 9880     		strh	r0, [r3, #4]	@ movhi
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 7
+
+
+ 370 000c 7047     		bx	lr
+ 371              	.L56:
+ 372 000e 00BF     		.align	2
+ 373              	.L55:
+ 374 0010 00280040 		.word	1073752064
+ 376              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f10x_rtc.c
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:16     .text.RTC_ITConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:22     .text.RTC_ITConfig:00000000 RTC_ITConfig
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:44     .text.RTC_ITConfig:0000001c $d
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:47     .text.RTC_EnterConfigMode:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:53     .text.RTC_EnterConfigMode:00000000 RTC_EnterConfigMode
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:66     .text.RTC_EnterConfigMode:00000010 $d
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:69     .text.RTC_ExitConfigMode:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:75     .text.RTC_ExitConfigMode:00000000 RTC_ExitConfigMode
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:89     .text.RTC_ExitConfigMode:00000010 $d
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:92     .text.RTC_GetCounter:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:98     .text.RTC_GetCounter:00000000 RTC_GetCounter
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:122    .text.RTC_GetCounter:00000024 $d
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:125    .text.RTC_SetCounter:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:131    .text.RTC_SetCounter:00000000 RTC_SetCounter
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:147    .text.RTC_SetCounter:00000018 $d
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:150    .text.RTC_SetPrescaler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:156    .text.RTC_SetPrescaler:00000000 RTC_SetPrescaler
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:172    .text.RTC_SetPrescaler:0000001c $d
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:175    .text.RTC_SetAlarm:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:181    .text.RTC_SetAlarm:00000000 RTC_SetAlarm
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:197    .text.RTC_SetAlarm:00000018 $d
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:200    .text.RTC_GetDivider:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:206    .text.RTC_GetDivider:00000000 RTC_GetDivider
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:221    .text.RTC_GetDivider:00000014 $d
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:224    .text.RTC_WaitForLastTask:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:230    .text.RTC_WaitForLastTask:00000000 RTC_WaitForLastTask
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:243    .text.RTC_WaitForLastTask:0000000c $d
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:246    .text.RTC_WaitForSynchro:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:252    .text.RTC_WaitForSynchro:00000000 RTC_WaitForSynchro
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:271    .text.RTC_WaitForSynchro:0000001c $d
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:274    .text.RTC_GetFlagStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:280    .text.RTC_GetFlagStatus:00000000 RTC_GetFlagStatus
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:296    .text.RTC_GetFlagStatus:00000010 $d
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:299    .text.RTC_ClearFlag:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:305    .text.RTC_ClearFlag:00000000 RTC_ClearFlag
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:319    .text.RTC_ClearFlag:00000010 $d
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:322    .text.RTC_GetITStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:328    .text.RTC_GetITStatus:00000000 RTC_GetITStatus
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:351    .text.RTC_GetITStatus:0000001c $d
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:354    .text.RTC_ClearITPendingBit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:360    .text.RTC_ClearITPendingBit:00000000 RTC_ClearITPendingBit
+C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:374    .text.RTC_ClearITPendingBit:00000010 $d
+
+NO UNDEFINED SYMBOLS

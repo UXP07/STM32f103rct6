@@ -1,0 +1,2724 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f10x_tim.c"
+  14              		.text
+  15              		.section	.text.TI1_Config,"ax",%progbits
+  16              		.align	1
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  21              	TI1_Config:
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24 0000 00B5     		push	{lr}
+  25 0002 B0F820C0 		ldrh	ip, [r0, #32]
+  26 0006 1FFA8CFC 		uxth	ip, ip
+  27 000a 2CF0010C 		bic	ip, ip, #1
+  28 000e 1FFA8CFC 		uxth	ip, ip
+  29 0012 A0F820C0 		strh	ip, [r0, #32]	@ movhi
+  30 0016 B0F818C0 		ldrh	ip, [r0, #24]
+  31 001a 1FFA8CFC 		uxth	ip, ip
+  32 001e B0F820E0 		ldrh	lr, [r0, #32]
+  33 0022 1FFA8EFE 		uxth	lr, lr
+  34 0026 2CF0F30C 		bic	ip, ip, #243
+  35 002a 1B01     		lsls	r3, r3, #4
+  36 002c 9BB2     		uxth	r3, r3
+  37 002e 1343     		orrs	r3, r3, r2
+  38 0030 4CEA030C 		orr	ip, ip, r3
+  39 0034 124A     		ldr	r2, .L6
+  40 0036 9042     		cmp	r0, r2
+  41 0038 17D0     		beq	.L2
+  42 003a 124B     		ldr	r3, .L6+4
+  43 003c 9842     		cmp	r0, r3
+  44 003e 14D0     		beq	.L2
+  45 0040 B0F1804F 		cmp	r0, #1073741824
+  46 0044 11D0     		beq	.L2
+  47 0046 A3F59833 		sub	r3, r3, #77824
+  48 004a 9842     		cmp	r0, r3
+  49 004c 0DD0     		beq	.L2
+  50 004e 03F58063 		add	r3, r3, #1024
+  51 0052 9842     		cmp	r0, r3
+  52 0054 09D0     		beq	.L2
+  53 0056 03F58063 		add	r3, r3, #1024
+  54 005a 9842     		cmp	r0, r3
+  55 005c 05D0     		beq	.L2
+  56 005e 2EF00A03 		bic	r3, lr, #10
+  57 0062 0B43     		orrs	r3, r3, r1
+  58 0064 43F00103 		orr	r3, r3, #1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 2
+
+
+  59 0068 04E0     		b	.L4
+  60              	.L2:
+  61 006a 2EF00203 		bic	r3, lr, #2
+  62 006e 0B43     		orrs	r3, r3, r1
+  63 0070 43F00103 		orr	r3, r3, #1
+  64              	.L4:
+  65 0074 A0F818C0 		strh	ip, [r0, #24]	@ movhi
+  66 0078 0384     		strh	r3, [r0, #32]	@ movhi
+  67 007a 5DF804FB 		ldr	pc, [sp], #4
+  68              	.L7:
+  69 007e 00BF     		.align	2
+  70              	.L6:
+  71 0080 002C0140 		.word	1073818624
+  72 0084 00340140 		.word	1073820672
+  74              		.section	.text.TI2_Config,"ax",%progbits
+  75              		.align	1
+  76              		.syntax unified
+  77              		.thumb
+  78              		.thumb_func
+  80              	TI2_Config:
+  81              		@ args = 0, pretend = 0, frame = 0
+  82              		@ frame_needed = 0, uses_anonymous_args = 0
+  83 0000 10B5     		push	{r4, lr}
+  84 0002 B0F820C0 		ldrh	ip, [r0, #32]
+  85 0006 1FFA8CFC 		uxth	ip, ip
+  86 000a 2CF0100C 		bic	ip, ip, #16
+  87 000e 1FFA8CFC 		uxth	ip, ip
+  88 0012 A0F820C0 		strh	ip, [r0, #32]	@ movhi
+  89 0016 B0F818E0 		ldrh	lr, [r0, #24]
+  90 001a B0F820C0 		ldrh	ip, [r0, #32]
+  91 001e 1FFA8CFC 		uxth	ip, ip
+  92 0022 0C01     		lsls	r4, r1, #4
+  93 0024 A4B2     		uxth	r4, r4
+  94 0026 2EF4407E 		bic	lr, lr, #768
+  95 002a 4FEA0E5E 		lsl	lr, lr, #20
+  96 002e 4FEA1E5E 		lsr	lr, lr, #20
+  97 0032 1B03     		lsls	r3, r3, #12
+  98 0034 9BB2     		uxth	r3, r3
+  99 0036 43EA0E03 		orr	r3, r3, lr
+ 100 003a 1202     		lsls	r2, r2, #8
+ 101 003c 92B2     		uxth	r2, r2
+ 102 003e 1A43     		orrs	r2, r2, r3
+ 103 0040 134B     		ldr	r3, .L13
+ 104 0042 9842     		cmp	r0, r3
+ 105 0044 19D0     		beq	.L9
+ 106 0046 03F50063 		add	r3, r3, #2048
+ 107 004a 9842     		cmp	r0, r3
+ 108 004c 15D0     		beq	.L9
+ 109 004e B0F1804F 		cmp	r0, #1073741824
+ 110 0052 12D0     		beq	.L9
+ 111 0054 A3F59833 		sub	r3, r3, #77824
+ 112 0058 9842     		cmp	r0, r3
+ 113 005a 0ED0     		beq	.L9
+ 114 005c 03F58063 		add	r3, r3, #1024
+ 115 0060 9842     		cmp	r0, r3
+ 116 0062 0AD0     		beq	.L9
+ 117 0064 03F58063 		add	r3, r3, #1024
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 3
+
+
+ 118 0068 9842     		cmp	r0, r3
+ 119 006a 06D0     		beq	.L9
+ 120 006c 2CF0A00C 		bic	ip, ip, #160
+ 121 0070 4CEA0101 		orr	r1, ip, r1
+ 122 0074 41F0100C 		orr	ip, r1, #16
+ 123 0078 05E0     		b	.L11
+ 124              	.L9:
+ 125 007a 2CF0200C 		bic	ip, ip, #32
+ 126 007e 4CEA040C 		orr	ip, ip, r4
+ 127 0082 4CF0100C 		orr	ip, ip, #16
+ 128              	.L11:
+ 129 0086 0283     		strh	r2, [r0, #24]	@ movhi
+ 130 0088 A0F820C0 		strh	ip, [r0, #32]	@ movhi
+ 131 008c 10BD     		pop	{r4, pc}
+ 132              	.L14:
+ 133 008e 00BF     		.align	2
+ 134              	.L13:
+ 135 0090 002C0140 		.word	1073818624
+ 137              		.section	.text.TI3_Config,"ax",%progbits
+ 138              		.align	1
+ 139              		.syntax unified
+ 140              		.thumb
+ 141              		.thumb_func
+ 143              	TI3_Config:
+ 144              		@ args = 0, pretend = 0, frame = 0
+ 145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146 0000 10B5     		push	{r4, lr}
+ 147 0002 8E46     		mov	lr, r1
+ 148 0004 B0F820C0 		ldrh	ip, [r0, #32]
+ 149 0008 1FFA8CFC 		uxth	ip, ip
+ 150 000c 2CF4807C 		bic	ip, ip, #256
+ 151 0010 1FFA8CFC 		uxth	ip, ip
+ 152 0014 A0F820C0 		strh	ip, [r0, #32]	@ movhi
+ 153 0018 B0F81CC0 		ldrh	ip, [r0, #28]
+ 154 001c 1FFA8CFC 		uxth	ip, ip
+ 155 0020 018C     		ldrh	r1, [r0, #32]
+ 156 0022 89B2     		uxth	r1, r1
+ 157 0024 4FEA0E24 		lsl	r4, lr, #8
+ 158 0028 A4B2     		uxth	r4, r4
+ 159 002a 2CF0F30C 		bic	ip, ip, #243
+ 160 002e 1B01     		lsls	r3, r3, #4
+ 161 0030 9BB2     		uxth	r3, r3
+ 162 0032 1343     		orrs	r3, r3, r2
+ 163 0034 4CEA030C 		orr	ip, ip, r3
+ 164 0038 124A     		ldr	r2, .L20
+ 165 003a 9042     		cmp	r0, r2
+ 166 003c 18D0     		beq	.L16
+ 167 003e 124B     		ldr	r3, .L20+4
+ 168 0040 9842     		cmp	r0, r3
+ 169 0042 15D0     		beq	.L16
+ 170 0044 B0F1804F 		cmp	r0, #1073741824
+ 171 0048 12D0     		beq	.L16
+ 172 004a A3F59833 		sub	r3, r3, #77824
+ 173 004e 9842     		cmp	r0, r3
+ 174 0050 0ED0     		beq	.L16
+ 175 0052 03F58063 		add	r3, r3, #1024
+ 176 0056 9842     		cmp	r0, r3
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 4
+
+
+ 177 0058 0AD0     		beq	.L16
+ 178 005a 03F58063 		add	r3, r3, #1024
+ 179 005e 9842     		cmp	r0, r3
+ 180 0060 06D0     		beq	.L16
+ 181 0062 21F42063 		bic	r3, r1, #2560
+ 182 0066 43EA0E01 		orr	r1, r3, lr
+ 183 006a 41F48071 		orr	r1, r1, #256
+ 184 006e 04E0     		b	.L18
+ 185              	.L16:
+ 186 0070 21F40071 		bic	r1, r1, #512
+ 187 0074 2143     		orrs	r1, r1, r4
+ 188 0076 41F48071 		orr	r1, r1, #256
+ 189              	.L18:
+ 190 007a A0F81CC0 		strh	ip, [r0, #28]	@ movhi
+ 191 007e 0184     		strh	r1, [r0, #32]	@ movhi
+ 192 0080 10BD     		pop	{r4, pc}
+ 193              	.L21:
+ 194 0082 00BF     		.align	2
+ 195              	.L20:
+ 196 0084 002C0140 		.word	1073818624
+ 197 0088 00340140 		.word	1073820672
+ 199              		.section	.text.TI4_Config,"ax",%progbits
+ 200              		.align	1
+ 201              		.syntax unified
+ 202              		.thumb
+ 203              		.thumb_func
+ 205              	TI4_Config:
+ 206              		@ args = 0, pretend = 0, frame = 0
+ 207              		@ frame_needed = 0, uses_anonymous_args = 0
+ 208 0000 10B5     		push	{r4, lr}
+ 209 0002 B0F820C0 		ldrh	ip, [r0, #32]
+ 210 0006 1FFA8CFC 		uxth	ip, ip
+ 211 000a 2CF4805C 		bic	ip, ip, #4096
+ 212 000e 1FFA8CFC 		uxth	ip, ip
+ 213 0012 A0F820C0 		strh	ip, [r0, #32]	@ movhi
+ 214 0016 B0F81CE0 		ldrh	lr, [r0, #28]
+ 215 001a B0F820C0 		ldrh	ip, [r0, #32]
+ 216 001e 1FFA8CFC 		uxth	ip, ip
+ 217 0022 0C03     		lsls	r4, r1, #12
+ 218 0024 A4B2     		uxth	r4, r4
+ 219 0026 2EF4407E 		bic	lr, lr, #768
+ 220 002a 4FEA0E5E 		lsl	lr, lr, #20
+ 221 002e 4FEA1E5E 		lsr	lr, lr, #20
+ 222 0032 1202     		lsls	r2, r2, #8
+ 223 0034 92B2     		uxth	r2, r2
+ 224 0036 42EA0E02 		orr	r2, r2, lr
+ 225 003a 1B03     		lsls	r3, r3, #12
+ 226 003c 9BB2     		uxth	r3, r3
+ 227 003e 1343     		orrs	r3, r3, r2
+ 228 0040 144A     		ldr	r2, .L27
+ 229 0042 9042     		cmp	r0, r2
+ 230 0044 1DD0     		beq	.L23
+ 231 0046 02F50062 		add	r2, r2, #2048
+ 232 004a 9042     		cmp	r0, r2
+ 233 004c 19D0     		beq	.L23
+ 234 004e B0F1804F 		cmp	r0, #1073741824
+ 235 0052 16D0     		beq	.L23
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 5
+
+
+ 236 0054 A2F59832 		sub	r2, r2, #77824
+ 237 0058 9042     		cmp	r0, r2
+ 238 005a 12D0     		beq	.L23
+ 239 005c 02F58062 		add	r2, r2, #1024
+ 240 0060 9042     		cmp	r0, r2
+ 241 0062 0ED0     		beq	.L23
+ 242 0064 02F58062 		add	r2, r2, #1024
+ 243 0068 9042     		cmp	r0, r2
+ 244 006a 0AD0     		beq	.L23
+ 245 006c 2CF4007C 		bic	ip, ip, #512
+ 246 0070 4FEA4C4C 		lsl	ip, ip, #17
+ 247 0074 4FEA5C4C 		lsr	ip, ip, #17
+ 248 0078 41EA0C01 		orr	r1, r1, ip
+ 249 007c 41F48051 		orr	r1, r1, #4096
+ 250 0080 04E0     		b	.L25
+ 251              	.L23:
+ 252 0082 2CF40051 		bic	r1, ip, #8192
+ 253 0086 2143     		orrs	r1, r1, r4
+ 254 0088 41F48051 		orr	r1, r1, #4096
+ 255              	.L25:
+ 256 008c 8383     		strh	r3, [r0, #28]	@ movhi
+ 257 008e 0184     		strh	r1, [r0, #32]	@ movhi
+ 258 0090 10BD     		pop	{r4, pc}
+ 259              	.L28:
+ 260 0092 00BF     		.align	2
+ 261              	.L27:
+ 262 0094 002C0140 		.word	1073818624
+ 264              		.section	.text.TIM_DeInit,"ax",%progbits
+ 265              		.align	1
+ 266              		.global	TIM_DeInit
+ 267              		.syntax unified
+ 268              		.thumb
+ 269              		.thumb_func
+ 271              	TIM_DeInit:
+ 272              		@ args = 0, pretend = 0, frame = 0
+ 273              		@ frame_needed = 0, uses_anonymous_args = 0
+ 274 0000 08B5     		push	{r3, lr}
+ 275 0002 724B     		ldr	r3, .L64
+ 276 0004 9842     		cmp	r0, r3
+ 277 0006 40D0     		beq	.L48
+ 278 0008 B0F1804F 		cmp	r0, #1073741824
+ 279 000c 48D0     		beq	.L49
+ 280 000e 704B     		ldr	r3, .L64+4
+ 281 0010 9842     		cmp	r0, r3
+ 282 0012 4ED0     		beq	.L50
+ 283 0014 6F4B     		ldr	r3, .L64+8
+ 284 0016 9842     		cmp	r0, r3
+ 285 0018 54D0     		beq	.L51
+ 286 001a 6F4B     		ldr	r3, .L64+12
+ 287 001c 9842     		cmp	r0, r3
+ 288 001e 5AD0     		beq	.L52
+ 289 0020 6E4B     		ldr	r3, .L64+16
+ 290 0022 9842     		cmp	r0, r3
+ 291 0024 60D0     		beq	.L53
+ 292 0026 6E4B     		ldr	r3, .L64+20
+ 293 0028 9842     		cmp	r0, r3
+ 294 002a 66D0     		beq	.L54
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 6
+
+
+ 295 002c 6D4B     		ldr	r3, .L64+24
+ 296 002e 9842     		cmp	r0, r3
+ 297 0030 6CD0     		beq	.L55
+ 298 0032 6D4B     		ldr	r3, .L64+28
+ 299 0034 9842     		cmp	r0, r3
+ 300 0036 74D0     		beq	.L56
+ 301 0038 6C4B     		ldr	r3, .L64+32
+ 302 003a 9842     		cmp	r0, r3
+ 303 003c 7CD0     		beq	.L57
+ 304 003e 6C4B     		ldr	r3, .L64+36
+ 305 0040 9842     		cmp	r0, r3
+ 306 0042 00F08480 		beq	.L58
+ 307 0046 6B4B     		ldr	r3, .L64+40
+ 308 0048 9842     		cmp	r0, r3
+ 309 004a 00F08B80 		beq	.L59
+ 310 004e 6A4B     		ldr	r3, .L64+44
+ 311 0050 9842     		cmp	r0, r3
+ 312 0052 00F09080 		beq	.L60
+ 313 0056 694B     		ldr	r3, .L64+48
+ 314 0058 9842     		cmp	r0, r3
+ 315 005a 00F09580 		beq	.L61
+ 316 005e 684B     		ldr	r3, .L64+52
+ 317 0060 9842     		cmp	r0, r3
+ 318 0062 00F09C80 		beq	.L62
+ 319 0066 674B     		ldr	r3, .L64+56
+ 320 0068 9842     		cmp	r0, r3
+ 321 006a 00F0A380 		beq	.L63
+ 322 006e 664B     		ldr	r3, .L64+60
+ 323 0070 9842     		cmp	r0, r3
+ 324 0072 14D1     		bne	.L29
+ 325 0074 0121     		movs	r1, #1
+ 326 0076 4FF48020 		mov	r0, #262144
+ 327 007a FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 328 007e 0021     		movs	r1, #0
+ 329 0080 4FF48020 		mov	r0, #262144
+ 330 0084 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 331 0088 09E0     		b	.L29
+ 332              	.L48:
+ 333 008a 0121     		movs	r1, #1
+ 334 008c 4FF40060 		mov	r0, #2048
+ 335 0090 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 336 0094 0021     		movs	r1, #0
+ 337 0096 4FF40060 		mov	r0, #2048
+ 338 009a FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 339              	.L29:
+ 340 009e 08BD     		pop	{r3, pc}
+ 341              	.L49:
+ 342 00a0 0121     		movs	r1, #1
+ 343 00a2 0846     		mov	r0, r1
+ 344 00a4 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 345 00a8 0021     		movs	r1, #0
+ 346 00aa 0120     		movs	r0, #1
+ 347 00ac FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 348 00b0 F5E7     		b	.L29
+ 349              	.L50:
+ 350 00b2 0121     		movs	r1, #1
+ 351 00b4 0220     		movs	r0, #2
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 7
+
+
+ 352 00b6 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 353 00ba 0021     		movs	r1, #0
+ 354 00bc 0220     		movs	r0, #2
+ 355 00be FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 356 00c2 ECE7     		b	.L29
+ 357              	.L51:
+ 358 00c4 0121     		movs	r1, #1
+ 359 00c6 0420     		movs	r0, #4
+ 360 00c8 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 361 00cc 0021     		movs	r1, #0
+ 362 00ce 0420     		movs	r0, #4
+ 363 00d0 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 364 00d4 E3E7     		b	.L29
+ 365              	.L52:
+ 366 00d6 0121     		movs	r1, #1
+ 367 00d8 0820     		movs	r0, #8
+ 368 00da FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 369 00de 0021     		movs	r1, #0
+ 370 00e0 0820     		movs	r0, #8
+ 371 00e2 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 372 00e6 DAE7     		b	.L29
+ 373              	.L53:
+ 374 00e8 0121     		movs	r1, #1
+ 375 00ea 1020     		movs	r0, #16
+ 376 00ec FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 377 00f0 0021     		movs	r1, #0
+ 378 00f2 1020     		movs	r0, #16
+ 379 00f4 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 380 00f8 D1E7     		b	.L29
+ 381              	.L54:
+ 382 00fa 0121     		movs	r1, #1
+ 383 00fc 2020     		movs	r0, #32
+ 384 00fe FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 385 0102 0021     		movs	r1, #0
+ 386 0104 2020     		movs	r0, #32
+ 387 0106 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 388 010a C8E7     		b	.L29
+ 389              	.L55:
+ 390 010c 0121     		movs	r1, #1
+ 391 010e 4FF40050 		mov	r0, #8192
+ 392 0112 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 393 0116 0021     		movs	r1, #0
+ 394 0118 4FF40050 		mov	r0, #8192
+ 395 011c FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 396 0120 BDE7     		b	.L29
+ 397              	.L56:
+ 398 0122 0121     		movs	r1, #1
+ 399 0124 4FF40020 		mov	r0, #524288
+ 400 0128 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 401 012c 0021     		movs	r1, #0
+ 402 012e 4FF40020 		mov	r0, #524288
+ 403 0132 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 404 0136 B2E7     		b	.L29
+ 405              	.L57:
+ 406 0138 0121     		movs	r1, #1
+ 407 013a 4FF48010 		mov	r0, #1048576
+ 408 013e FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 8
+
+
+ 409 0142 0021     		movs	r1, #0
+ 410 0144 4FF48010 		mov	r0, #1048576
+ 411 0148 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 412 014c A7E7     		b	.L29
+ 413              	.L58:
+ 414 014e 0121     		movs	r1, #1
+ 415 0150 4FF40010 		mov	r0, #2097152
+ 416 0154 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 417 0158 0021     		movs	r1, #0
+ 418 015a 4FF40010 		mov	r0, #2097152
+ 419 015e FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 420 0162 9CE7     		b	.L29
+ 421              	.L59:
+ 422 0164 0121     		movs	r1, #1
+ 423 0166 4020     		movs	r0, #64
+ 424 0168 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 425 016c 0021     		movs	r1, #0
+ 426 016e 4020     		movs	r0, #64
+ 427 0170 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 428 0174 93E7     		b	.L29
+ 429              	.L60:
+ 430 0176 0121     		movs	r1, #1
+ 431 0178 8020     		movs	r0, #128
+ 432 017a FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 433 017e 0021     		movs	r1, #0
+ 434 0180 8020     		movs	r0, #128
+ 435 0182 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 436 0186 8AE7     		b	.L29
+ 437              	.L61:
+ 438 0188 0121     		movs	r1, #1
+ 439 018a 4FF48070 		mov	r0, #256
+ 440 018e FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 441 0192 0021     		movs	r1, #0
+ 442 0194 4FF48070 		mov	r0, #256
+ 443 0198 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+ 444 019c 7FE7     		b	.L29
+ 445              	.L62:
+ 446 019e 0121     		movs	r1, #1
+ 447 01a0 4FF48030 		mov	r0, #65536
+ 448 01a4 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 449 01a8 0021     		movs	r1, #0
+ 450 01aa 4FF48030 		mov	r0, #65536
+ 451 01ae FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 452 01b2 74E7     		b	.L29
+ 453              	.L63:
+ 454 01b4 0121     		movs	r1, #1
+ 455 01b6 4FF40030 		mov	r0, #131072
+ 456 01ba FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 457 01be 0021     		movs	r1, #0
+ 458 01c0 4FF40030 		mov	r0, #131072
+ 459 01c4 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+ 460 01c8 69E7     		b	.L29
+ 461              	.L65:
+ 462 01ca 00BF     		.align	2
+ 463              	.L64:
+ 464 01cc 002C0140 		.word	1073818624
+ 465 01d0 00040040 		.word	1073742848
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 9
+
+
+ 466 01d4 00080040 		.word	1073743872
+ 467 01d8 000C0040 		.word	1073744896
+ 468 01dc 00100040 		.word	1073745920
+ 469 01e0 00140040 		.word	1073746944
+ 470 01e4 00340140 		.word	1073820672
+ 471 01e8 004C0140 		.word	1073826816
+ 472 01ec 00500140 		.word	1073827840
+ 473 01f0 00540140 		.word	1073828864
+ 474 01f4 00180040 		.word	1073747968
+ 475 01f8 001C0040 		.word	1073748992
+ 476 01fc 00200040 		.word	1073750016
+ 477 0200 00400140 		.word	1073823744
+ 478 0204 00440140 		.word	1073824768
+ 479 0208 00480140 		.word	1073825792
+ 481              		.section	.text.TIM_TimeBaseInit,"ax",%progbits
+ 482              		.align	1
+ 483              		.global	TIM_TimeBaseInit
+ 484              		.syntax unified
+ 485              		.thumb
+ 486              		.thumb_func
+ 488              	TIM_TimeBaseInit:
+ 489              		@ args = 0, pretend = 0, frame = 0
+ 490              		@ frame_needed = 0, uses_anonymous_args = 0
+ 491              		@ link register save eliminated.
+ 492 0000 0388     		ldrh	r3, [r0]
+ 493 0002 9BB2     		uxth	r3, r3
+ 494 0004 214A     		ldr	r2, .L72
+ 495 0006 9042     		cmp	r0, r2
+ 496 0008 12D0     		beq	.L67
+ 497 000a 02F50062 		add	r2, r2, #2048
+ 498 000e 9042     		cmp	r0, r2
+ 499 0010 0ED0     		beq	.L67
+ 500 0012 B0F1804F 		cmp	r0, #1073741824
+ 501 0016 0BD0     		beq	.L67
+ 502 0018 A2F59832 		sub	r2, r2, #77824
+ 503 001c 9042     		cmp	r0, r2
+ 504 001e 07D0     		beq	.L67
+ 505 0020 02F58062 		add	r2, r2, #1024
+ 506 0024 9042     		cmp	r0, r2
+ 507 0026 03D0     		beq	.L67
+ 508 0028 02F58062 		add	r2, r2, #1024
+ 509 002c 9042     		cmp	r0, r2
+ 510 002e 03D1     		bne	.L68
+ 511              	.L67:
+ 512 0030 23F07003 		bic	r3, r3, #112
+ 513 0034 4A88     		ldrh	r2, [r1, #2]
+ 514 0036 1343     		orrs	r3, r3, r2
+ 515              	.L68:
+ 516 0038 154A     		ldr	r2, .L72+4
+ 517 003a 9042     		cmp	r0, r2
+ 518 003c 08D0     		beq	.L69
+ 519 003e 02F58062 		add	r2, r2, #1024
+ 520 0042 9042     		cmp	r0, r2
+ 521 0044 04D0     		beq	.L69
+ 522 0046 23F44073 		bic	r3, r3, #768
+ 523 004a 9BB2     		uxth	r3, r3
+ 524 004c CA88     		ldrh	r2, [r1, #6]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 10
+
+
+ 525 004e 1343     		orrs	r3, r3, r2
+ 526              	.L69:
+ 527 0050 0380     		strh	r3, [r0]	@ movhi
+ 528 0052 8B88     		ldrh	r3, [r1, #4]
+ 529 0054 8385     		strh	r3, [r0, #44]	@ movhi
+ 530 0056 0B88     		ldrh	r3, [r1]
+ 531 0058 0385     		strh	r3, [r0, #40]	@ movhi
+ 532 005a 0C4B     		ldr	r3, .L72
+ 533 005c 9842     		cmp	r0, r3
+ 534 005e 0FD0     		beq	.L70
+ 535 0060 03F50063 		add	r3, r3, #2048
+ 536 0064 9842     		cmp	r0, r3
+ 537 0066 0BD0     		beq	.L70
+ 538 0068 03F54063 		add	r3, r3, #3072
+ 539 006c 9842     		cmp	r0, r3
+ 540 006e 07D0     		beq	.L70
+ 541 0070 03F58063 		add	r3, r3, #1024
+ 542 0074 9842     		cmp	r0, r3
+ 543 0076 03D0     		beq	.L70
+ 544 0078 03F58063 		add	r3, r3, #1024
+ 545 007c 9842     		cmp	r0, r3
+ 546 007e 01D1     		bne	.L71
+ 547              	.L70:
+ 548 0080 0B7A     		ldrb	r3, [r1, #8]	@ zero_extendqisi2
+ 549 0082 0386     		strh	r3, [r0, #48]	@ movhi
+ 550              	.L71:
+ 551 0084 0123     		movs	r3, #1
+ 552 0086 8382     		strh	r3, [r0, #20]	@ movhi
+ 553 0088 7047     		bx	lr
+ 554              	.L73:
+ 555 008a 00BF     		.align	2
+ 556              	.L72:
+ 557 008c 002C0140 		.word	1073818624
+ 558 0090 00100040 		.word	1073745920
+ 560              		.section	.text.TIM_OC1Init,"ax",%progbits
+ 561              		.align	1
+ 562              		.global	TIM_OC1Init
+ 563              		.syntax unified
+ 564              		.thumb
+ 565              		.thumb_func
+ 567              	TIM_OC1Init:
+ 568              		@ args = 0, pretend = 0, frame = 0
+ 569              		@ frame_needed = 0, uses_anonymous_args = 0
+ 570 0000 00B5     		push	{lr}
+ 571 0002 038C     		ldrh	r3, [r0, #32]
+ 572 0004 9BB2     		uxth	r3, r3
+ 573 0006 23F00103 		bic	r3, r3, #1
+ 574 000a 9BB2     		uxth	r3, r3
+ 575 000c 0384     		strh	r3, [r0, #32]	@ movhi
+ 576 000e 028C     		ldrh	r2, [r0, #32]
+ 577 0010 92B2     		uxth	r2, r2
+ 578 0012 B0F804C0 		ldrh	ip, [r0, #4]
+ 579 0016 1FFA8CFC 		uxth	ip, ip
+ 580 001a 038B     		ldrh	r3, [r0, #24]
+ 581 001c 9BB2     		uxth	r3, r3
+ 582 001e 23F07303 		bic	r3, r3, #115
+ 583 0022 B1F800E0 		ldrh	lr, [r1]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 11
+
+
+ 584 0026 43EA0E0E 		orr	lr, r3, lr
+ 585 002a 22F00202 		bic	r2, r2, #2
+ 586 002e 0B89     		ldrh	r3, [r1, #8]
+ 587 0030 1A43     		orrs	r2, r2, r3
+ 588 0032 4B88     		ldrh	r3, [r1, #2]
+ 589 0034 1343     		orrs	r3, r3, r2
+ 590 0036 164A     		ldr	r2, .L78
+ 591 0038 9042     		cmp	r0, r2
+ 592 003a 0FD0     		beq	.L75
+ 593 003c 02F50062 		add	r2, r2, #2048
+ 594 0040 9042     		cmp	r0, r2
+ 595 0042 0BD0     		beq	.L75
+ 596 0044 02F54062 		add	r2, r2, #3072
+ 597 0048 9042     		cmp	r0, r2
+ 598 004a 07D0     		beq	.L75
+ 599 004c 02F58062 		add	r2, r2, #1024
+ 600 0050 9042     		cmp	r0, r2
+ 601 0052 03D0     		beq	.L75
+ 602 0054 02F58062 		add	r2, r2, #1024
+ 603 0058 9042     		cmp	r0, r2
+ 604 005a 0FD1     		bne	.L76
+ 605              	.L75:
+ 606 005c 23F00802 		bic	r2, r3, #8
+ 607 0060 4B89     		ldrh	r3, [r1, #10]
+ 608 0062 1A43     		orrs	r2, r2, r3
+ 609 0064 22F00402 		bic	r2, r2, #4
+ 610 0068 8B88     		ldrh	r3, [r1, #4]
+ 611 006a 1343     		orrs	r3, r3, r2
+ 612 006c 2CF4407C 		bic	ip, ip, #768
+ 613 0070 8A89     		ldrh	r2, [r1, #12]
+ 614 0072 4CEA020C 		orr	ip, ip, r2
+ 615 0076 CA89     		ldrh	r2, [r1, #14]
+ 616 0078 42EA0C0C 		orr	ip, r2, ip
+ 617              	.L76:
+ 618 007c A0F804C0 		strh	ip, [r0, #4]	@ movhi
+ 619 0080 A0F818E0 		strh	lr, [r0, #24]	@ movhi
+ 620 0084 CA88     		ldrh	r2, [r1, #6]
+ 621 0086 8286     		strh	r2, [r0, #52]	@ movhi
+ 622 0088 0384     		strh	r3, [r0, #32]	@ movhi
+ 623 008a 5DF804FB 		ldr	pc, [sp], #4
+ 624              	.L79:
+ 625 008e 00BF     		.align	2
+ 626              	.L78:
+ 627 0090 002C0140 		.word	1073818624
+ 629              		.section	.text.TIM_OC2Init,"ax",%progbits
+ 630              		.align	1
+ 631              		.global	TIM_OC2Init
+ 632              		.syntax unified
+ 633              		.thumb
+ 634              		.thumb_func
+ 636              	TIM_OC2Init:
+ 637              		@ args = 0, pretend = 0, frame = 0
+ 638              		@ frame_needed = 0, uses_anonymous_args = 0
+ 639 0000 00B5     		push	{lr}
+ 640 0002 038C     		ldrh	r3, [r0, #32]
+ 641 0004 9BB2     		uxth	r3, r3
+ 642 0006 23F01003 		bic	r3, r3, #16
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 12
+
+
+ 643 000a 9BB2     		uxth	r3, r3
+ 644 000c 0384     		strh	r3, [r0, #32]	@ movhi
+ 645 000e 028C     		ldrh	r2, [r0, #32]
+ 646 0010 92B2     		uxth	r2, r2
+ 647 0012 B0F804E0 		ldrh	lr, [r0, #4]
+ 648 0016 1FFA8EFE 		uxth	lr, lr
+ 649 001a B0F818C0 		ldrh	ip, [r0, #24]
+ 650 001e 1FFA8CFC 		uxth	ip, ip
+ 651 0022 2CF4E64C 		bic	ip, ip, #29440
+ 652 0026 0B88     		ldrh	r3, [r1]
+ 653 0028 1B02     		lsls	r3, r3, #8
+ 654 002a 9BB2     		uxth	r3, r3
+ 655 002c 4CEA030C 		orr	ip, ip, r3
+ 656 0030 22F02002 		bic	r2, r2, #32
+ 657 0034 0B89     		ldrh	r3, [r1, #8]
+ 658 0036 1B01     		lsls	r3, r3, #4
+ 659 0038 9BB2     		uxth	r3, r3
+ 660 003a 1A43     		orrs	r2, r2, r3
+ 661 003c 4B88     		ldrh	r3, [r1, #2]
+ 662 003e 1B01     		lsls	r3, r3, #4
+ 663 0040 9BB2     		uxth	r3, r3
+ 664 0042 1343     		orrs	r3, r3, r2
+ 665 0044 134A     		ldr	r2, .L84
+ 666 0046 9042     		cmp	r0, r2
+ 667 0048 03D0     		beq	.L81
+ 668 004a 02F50062 		add	r2, r2, #2048
+ 669 004e 9042     		cmp	r0, r2
+ 670 0050 17D1     		bne	.L82
+ 671              	.L81:
+ 672 0052 23F08003 		bic	r3, r3, #128
+ 673 0056 4A89     		ldrh	r2, [r1, #10]
+ 674 0058 1201     		lsls	r2, r2, #4
+ 675 005a 92B2     		uxth	r2, r2
+ 676 005c 1343     		orrs	r3, r3, r2
+ 677 005e 23F04003 		bic	r3, r3, #64
+ 678 0062 8A88     		ldrh	r2, [r1, #4]
+ 679 0064 1201     		lsls	r2, r2, #4
+ 680 0066 92B2     		uxth	r2, r2
+ 681 0068 1343     		orrs	r3, r3, r2
+ 682 006a 2EF4406E 		bic	lr, lr, #3072
+ 683 006e 8A89     		ldrh	r2, [r1, #12]
+ 684 0070 9200     		lsls	r2, r2, #2
+ 685 0072 92B2     		uxth	r2, r2
+ 686 0074 4EEA020E 		orr	lr, lr, r2
+ 687 0078 CA89     		ldrh	r2, [r1, #14]
+ 688 007a 9200     		lsls	r2, r2, #2
+ 689 007c 92B2     		uxth	r2, r2
+ 690 007e 42EA0E0E 		orr	lr, r2, lr
+ 691              	.L82:
+ 692 0082 A0F804E0 		strh	lr, [r0, #4]	@ movhi
+ 693 0086 A0F818C0 		strh	ip, [r0, #24]	@ movhi
+ 694 008a CA88     		ldrh	r2, [r1, #6]
+ 695 008c 0287     		strh	r2, [r0, #56]	@ movhi
+ 696 008e 0384     		strh	r3, [r0, #32]	@ movhi
+ 697 0090 5DF804FB 		ldr	pc, [sp], #4
+ 698              	.L85:
+ 699              		.align	2
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 13
+
+
+ 700              	.L84:
+ 701 0094 002C0140 		.word	1073818624
+ 703              		.section	.text.TIM_OC3Init,"ax",%progbits
+ 704              		.align	1
+ 705              		.global	TIM_OC3Init
+ 706              		.syntax unified
+ 707              		.thumb
+ 708              		.thumb_func
+ 710              	TIM_OC3Init:
+ 711              		@ args = 0, pretend = 0, frame = 0
+ 712              		@ frame_needed = 0, uses_anonymous_args = 0
+ 713 0000 00B5     		push	{lr}
+ 714 0002 038C     		ldrh	r3, [r0, #32]
+ 715 0004 9BB2     		uxth	r3, r3
+ 716 0006 23F48073 		bic	r3, r3, #256
+ 717 000a 9BB2     		uxth	r3, r3
+ 718 000c 0384     		strh	r3, [r0, #32]	@ movhi
+ 719 000e 028C     		ldrh	r2, [r0, #32]
+ 720 0010 92B2     		uxth	r2, r2
+ 721 0012 B0F804E0 		ldrh	lr, [r0, #4]
+ 722 0016 1FFA8EFE 		uxth	lr, lr
+ 723 001a B0F81CC0 		ldrh	ip, [r0, #28]
+ 724 001e 1FFA8CFC 		uxth	ip, ip
+ 725 0022 2CF0730C 		bic	ip, ip, #115
+ 726 0026 0B88     		ldrh	r3, [r1]
+ 727 0028 4CEA030C 		orr	ip, ip, r3
+ 728 002c 22F40072 		bic	r2, r2, #512
+ 729 0030 0B89     		ldrh	r3, [r1, #8]
+ 730 0032 1B02     		lsls	r3, r3, #8
+ 731 0034 9BB2     		uxth	r3, r3
+ 732 0036 1A43     		orrs	r2, r2, r3
+ 733 0038 4B88     		ldrh	r3, [r1, #2]
+ 734 003a 1B02     		lsls	r3, r3, #8
+ 735 003c 9BB2     		uxth	r3, r3
+ 736 003e 1343     		orrs	r3, r3, r2
+ 737 0040 134A     		ldr	r2, .L90
+ 738 0042 9042     		cmp	r0, r2
+ 739 0044 03D0     		beq	.L87
+ 740 0046 02F50062 		add	r2, r2, #2048
+ 741 004a 9042     		cmp	r0, r2
+ 742 004c 17D1     		bne	.L88
+ 743              	.L87:
+ 744 004e 23F40063 		bic	r3, r3, #2048
+ 745 0052 4A89     		ldrh	r2, [r1, #10]
+ 746 0054 1202     		lsls	r2, r2, #8
+ 747 0056 92B2     		uxth	r2, r2
+ 748 0058 1343     		orrs	r3, r3, r2
+ 749 005a 23F48063 		bic	r3, r3, #1024
+ 750 005e 8A88     		ldrh	r2, [r1, #4]
+ 751 0060 1202     		lsls	r2, r2, #8
+ 752 0062 92B2     		uxth	r2, r2
+ 753 0064 1343     		orrs	r3, r3, r2
+ 754 0066 2EF4405E 		bic	lr, lr, #12288
+ 755 006a 8A89     		ldrh	r2, [r1, #12]
+ 756 006c 1201     		lsls	r2, r2, #4
+ 757 006e 92B2     		uxth	r2, r2
+ 758 0070 4EEA020E 		orr	lr, lr, r2
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 14
+
+
+ 759 0074 CA89     		ldrh	r2, [r1, #14]
+ 760 0076 1201     		lsls	r2, r2, #4
+ 761 0078 92B2     		uxth	r2, r2
+ 762 007a 42EA0E0E 		orr	lr, r2, lr
+ 763              	.L88:
+ 764 007e A0F804E0 		strh	lr, [r0, #4]	@ movhi
+ 765 0082 A0F81CC0 		strh	ip, [r0, #28]	@ movhi
+ 766 0086 CA88     		ldrh	r2, [r1, #6]
+ 767 0088 8287     		strh	r2, [r0, #60]	@ movhi
+ 768 008a 0384     		strh	r3, [r0, #32]	@ movhi
+ 769 008c 5DF804FB 		ldr	pc, [sp], #4
+ 770              	.L91:
+ 771              		.align	2
+ 772              	.L90:
+ 773 0090 002C0140 		.word	1073818624
+ 775              		.section	.text.TIM_OC4Init,"ax",%progbits
+ 776              		.align	1
+ 777              		.global	TIM_OC4Init
+ 778              		.syntax unified
+ 779              		.thumb
+ 780              		.thumb_func
+ 782              	TIM_OC4Init:
+ 783              		@ args = 0, pretend = 0, frame = 0
+ 784              		@ frame_needed = 0, uses_anonymous_args = 0
+ 785 0000 10B5     		push	{r4, lr}
+ 786 0002 038C     		ldrh	r3, [r0, #32]
+ 787 0004 9BB2     		uxth	r3, r3
+ 788 0006 23F48053 		bic	r3, r3, #4096
+ 789 000a 9BB2     		uxth	r3, r3
+ 790 000c 0384     		strh	r3, [r0, #32]	@ movhi
+ 791 000e B0F820C0 		ldrh	ip, [r0, #32]
+ 792 0012 1FFA8CFC 		uxth	ip, ip
+ 793 0016 B0F804E0 		ldrh	lr, [r0, #4]
+ 794 001a 1FFA8EFE 		uxth	lr, lr
+ 795 001e 828B     		ldrh	r2, [r0, #28]
+ 796 0020 92B2     		uxth	r2, r2
+ 797 0022 22F4E642 		bic	r2, r2, #29440
+ 798 0026 0B88     		ldrh	r3, [r1]
+ 799 0028 1B02     		lsls	r3, r3, #8
+ 800 002a 9BB2     		uxth	r3, r3
+ 801 002c 1A43     		orrs	r2, r2, r3
+ 802 002e 2CF4005C 		bic	ip, ip, #8192
+ 803 0032 0B89     		ldrh	r3, [r1, #8]
+ 804 0034 1B03     		lsls	r3, r3, #12
+ 805 0036 9BB2     		uxth	r3, r3
+ 806 0038 4CEA030C 		orr	ip, ip, r3
+ 807 003c 4B88     		ldrh	r3, [r1, #2]
+ 808 003e 1B03     		lsls	r3, r3, #12
+ 809 0040 9BB2     		uxth	r3, r3
+ 810 0042 43EA0C03 		orr	r3, r3, ip
+ 811 0046 0C4C     		ldr	r4, .L96
+ 812 0048 A042     		cmp	r0, r4
+ 813 004a 03D0     		beq	.L93
+ 814 004c 04F50064 		add	r4, r4, #2048
+ 815 0050 A042     		cmp	r0, r4
+ 816 0052 09D1     		bne	.L94
+ 817              	.L93:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 15
+
+
+ 818 0054 2EF4804E 		bic	lr, lr, #16384
+ 819 0058 B1F80CC0 		ldrh	ip, [r1, #12]
+ 820 005c 4FEA8C1C 		lsl	ip, ip, #6
+ 821 0060 1FFA8CFC 		uxth	ip, ip
+ 822 0064 4EEA0C0E 		orr	lr, lr, ip
+ 823              	.L94:
+ 824 0068 A0F804E0 		strh	lr, [r0, #4]	@ movhi
+ 825 006c 8283     		strh	r2, [r0, #28]	@ movhi
+ 826 006e CA88     		ldrh	r2, [r1, #6]
+ 827 0070 A0F84020 		strh	r2, [r0, #64]	@ movhi
+ 828 0074 0384     		strh	r3, [r0, #32]	@ movhi
+ 829 0076 10BD     		pop	{r4, pc}
+ 830              	.L97:
+ 831              		.align	2
+ 832              	.L96:
+ 833 0078 002C0140 		.word	1073818624
+ 835              		.section	.text.TIM_BDTRConfig,"ax",%progbits
+ 836              		.align	1
+ 837              		.global	TIM_BDTRConfig
+ 838              		.syntax unified
+ 839              		.thumb
+ 840              		.thumb_func
+ 842              	TIM_BDTRConfig:
+ 843              		@ args = 0, pretend = 0, frame = 0
+ 844              		@ frame_needed = 0, uses_anonymous_args = 0
+ 845 0000 70B5     		push	{r4, r5, r6, lr}
+ 846 0002 0D88     		ldrh	r5, [r1]
+ 847 0004 4E88     		ldrh	r6, [r1, #2]
+ 848 0006 8C88     		ldrh	r4, [r1, #4]
+ 849 0008 B1F806E0 		ldrh	lr, [r1, #6]
+ 850 000c B1F808C0 		ldrh	ip, [r1, #8]
+ 851 0010 4A89     		ldrh	r2, [r1, #10]
+ 852 0012 8B89     		ldrh	r3, [r1, #12]
+ 853 0014 45EA0601 		orr	r1, r5, r6
+ 854 0018 2143     		orrs	r1, r1, r4
+ 855 001a 4EEA0101 		orr	r1, lr, r1
+ 856 001e 4CEA0101 		orr	r1, ip, r1
+ 857 0022 0A43     		orrs	r2, r2, r1
+ 858 0024 1343     		orrs	r3, r3, r2
+ 859 0026 A0F84430 		strh	r3, [r0, #68]	@ movhi
+ 860 002a 70BD     		pop	{r4, r5, r6, pc}
+ 862              		.section	.text.TIM_TimeBaseStructInit,"ax",%progbits
+ 863              		.align	1
+ 864              		.global	TIM_TimeBaseStructInit
+ 865              		.syntax unified
+ 866              		.thumb
+ 867              		.thumb_func
+ 869              	TIM_TimeBaseStructInit:
+ 870              		@ args = 0, pretend = 0, frame = 0
+ 871              		@ frame_needed = 0, uses_anonymous_args = 0
+ 872              		@ link register save eliminated.
+ 873 0000 4FF6FF73 		movw	r3, #65535
+ 874 0004 8380     		strh	r3, [r0, #4]	@ movhi
+ 875 0006 0023     		movs	r3, #0
+ 876 0008 0380     		strh	r3, [r0]	@ movhi
+ 877 000a C380     		strh	r3, [r0, #6]	@ movhi
+ 878 000c 4380     		strh	r3, [r0, #2]	@ movhi
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 16
+
+
+ 879 000e 0372     		strb	r3, [r0, #8]
+ 880 0010 7047     		bx	lr
+ 882              		.section	.text.TIM_OCStructInit,"ax",%progbits
+ 883              		.align	1
+ 884              		.global	TIM_OCStructInit
+ 885              		.syntax unified
+ 886              		.thumb
+ 887              		.thumb_func
+ 889              	TIM_OCStructInit:
+ 890              		@ args = 0, pretend = 0, frame = 0
+ 891              		@ frame_needed = 0, uses_anonymous_args = 0
+ 892              		@ link register save eliminated.
+ 893 0000 0023     		movs	r3, #0
+ 894 0002 0380     		strh	r3, [r0]	@ movhi
+ 895 0004 4380     		strh	r3, [r0, #2]	@ movhi
+ 896 0006 8380     		strh	r3, [r0, #4]	@ movhi
+ 897 0008 C380     		strh	r3, [r0, #6]	@ movhi
+ 898 000a 0381     		strh	r3, [r0, #8]	@ movhi
+ 899 000c 4381     		strh	r3, [r0, #10]	@ movhi
+ 900 000e 8381     		strh	r3, [r0, #12]	@ movhi
+ 901 0010 C381     		strh	r3, [r0, #14]	@ movhi
+ 902 0012 7047     		bx	lr
+ 904              		.section	.text.TIM_ICStructInit,"ax",%progbits
+ 905              		.align	1
+ 906              		.global	TIM_ICStructInit
+ 907              		.syntax unified
+ 908              		.thumb
+ 909              		.thumb_func
+ 911              	TIM_ICStructInit:
+ 912              		@ args = 0, pretend = 0, frame = 0
+ 913              		@ frame_needed = 0, uses_anonymous_args = 0
+ 914              		@ link register save eliminated.
+ 915 0000 0023     		movs	r3, #0
+ 916 0002 0380     		strh	r3, [r0]	@ movhi
+ 917 0004 4380     		strh	r3, [r0, #2]	@ movhi
+ 918 0006 0122     		movs	r2, #1
+ 919 0008 8280     		strh	r2, [r0, #4]	@ movhi
+ 920 000a C380     		strh	r3, [r0, #6]	@ movhi
+ 921 000c 0381     		strh	r3, [r0, #8]	@ movhi
+ 922 000e 7047     		bx	lr
+ 924              		.section	.text.TIM_BDTRStructInit,"ax",%progbits
+ 925              		.align	1
+ 926              		.global	TIM_BDTRStructInit
+ 927              		.syntax unified
+ 928              		.thumb
+ 929              		.thumb_func
+ 931              	TIM_BDTRStructInit:
+ 932              		@ args = 0, pretend = 0, frame = 0
+ 933              		@ frame_needed = 0, uses_anonymous_args = 0
+ 934              		@ link register save eliminated.
+ 935 0000 0023     		movs	r3, #0
+ 936 0002 0380     		strh	r3, [r0]	@ movhi
+ 937 0004 4380     		strh	r3, [r0, #2]	@ movhi
+ 938 0006 8380     		strh	r3, [r0, #4]	@ movhi
+ 939 0008 C380     		strh	r3, [r0, #6]	@ movhi
+ 940 000a 0381     		strh	r3, [r0, #8]	@ movhi
+ 941 000c 4381     		strh	r3, [r0, #10]	@ movhi
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 17
+
+
+ 942 000e 8381     		strh	r3, [r0, #12]	@ movhi
+ 943 0010 7047     		bx	lr
+ 945              		.section	.text.TIM_Cmd,"ax",%progbits
+ 946              		.align	1
+ 947              		.global	TIM_Cmd
+ 948              		.syntax unified
+ 949              		.thumb
+ 950              		.thumb_func
+ 952              	TIM_Cmd:
+ 953              		@ args = 0, pretend = 0, frame = 0
+ 954              		@ frame_needed = 0, uses_anonymous_args = 0
+ 955              		@ link register save eliminated.
+ 956 0000 29B1     		cbz	r1, .L105
+ 957 0002 0388     		ldrh	r3, [r0]
+ 958 0004 9BB2     		uxth	r3, r3
+ 959 0006 43F00103 		orr	r3, r3, #1
+ 960 000a 0380     		strh	r3, [r0]	@ movhi
+ 961 000c 7047     		bx	lr
+ 962              	.L105:
+ 963 000e 0388     		ldrh	r3, [r0]
+ 964 0010 9BB2     		uxth	r3, r3
+ 965 0012 23F00103 		bic	r3, r3, #1
+ 966 0016 9BB2     		uxth	r3, r3
+ 967 0018 0380     		strh	r3, [r0]	@ movhi
+ 968 001a 7047     		bx	lr
+ 970              		.section	.text.TIM_CtrlPWMOutputs,"ax",%progbits
+ 971              		.align	1
+ 972              		.global	TIM_CtrlPWMOutputs
+ 973              		.syntax unified
+ 974              		.thumb
+ 975              		.thumb_func
+ 977              	TIM_CtrlPWMOutputs:
+ 978              		@ args = 0, pretend = 0, frame = 0
+ 979              		@ frame_needed = 0, uses_anonymous_args = 0
+ 980              		@ link register save eliminated.
+ 981 0000 49B1     		cbz	r1, .L108
+ 982 0002 B0F84430 		ldrh	r3, [r0, #68]
+ 983 0006 6FEA4343 		mvn	r3, r3, lsl #17
+ 984 000a 6FEA5343 		mvn	r3, r3, lsr #17
+ 985 000e 9BB2     		uxth	r3, r3
+ 986 0010 A0F84430 		strh	r3, [r0, #68]	@ movhi
+ 987 0014 7047     		bx	lr
+ 988              	.L108:
+ 989 0016 B0F84430 		ldrh	r3, [r0, #68]
+ 990 001a C3F30E03 		ubfx	r3, r3, #0, #15
+ 991 001e A0F84430 		strh	r3, [r0, #68]	@ movhi
+ 992 0022 7047     		bx	lr
+ 994              		.section	.text.TIM_ITConfig,"ax",%progbits
+ 995              		.align	1
+ 996              		.global	TIM_ITConfig
+ 997              		.syntax unified
+ 998              		.thumb
+ 999              		.thumb_func
+ 1001              	TIM_ITConfig:
+ 1002              		@ args = 0, pretend = 0, frame = 0
+ 1003              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1004              		@ link register save eliminated.
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 18
+
+
+ 1005 0000 22B1     		cbz	r2, .L111
+ 1006 0002 8389     		ldrh	r3, [r0, #12]
+ 1007 0004 9BB2     		uxth	r3, r3
+ 1008 0006 0B43     		orrs	r3, r3, r1
+ 1009 0008 8381     		strh	r3, [r0, #12]	@ movhi
+ 1010 000a 7047     		bx	lr
+ 1011              	.L111:
+ 1012 000c 8389     		ldrh	r3, [r0, #12]
+ 1013 000e C943     		mvns	r1, r1
+ 1014 0010 89B2     		uxth	r1, r1
+ 1015 0012 1940     		ands	r1, r1, r3
+ 1016 0014 8181     		strh	r1, [r0, #12]	@ movhi
+ 1017 0016 7047     		bx	lr
+ 1019              		.section	.text.TIM_GenerateEvent,"ax",%progbits
+ 1020              		.align	1
+ 1021              		.global	TIM_GenerateEvent
+ 1022              		.syntax unified
+ 1023              		.thumb
+ 1024              		.thumb_func
+ 1026              	TIM_GenerateEvent:
+ 1027              		@ args = 0, pretend = 0, frame = 0
+ 1028              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1029              		@ link register save eliminated.
+ 1030 0000 8182     		strh	r1, [r0, #20]	@ movhi
+ 1031 0002 7047     		bx	lr
+ 1033              		.section	.text.TIM_DMAConfig,"ax",%progbits
+ 1034              		.align	1
+ 1035              		.global	TIM_DMAConfig
+ 1036              		.syntax unified
+ 1037              		.thumb
+ 1038              		.thumb_func
+ 1040              	TIM_DMAConfig:
+ 1041              		@ args = 0, pretend = 0, frame = 0
+ 1042              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1043              		@ link register save eliminated.
+ 1044 0000 1143     		orrs	r1, r1, r2
+ 1045 0002 A0F84810 		strh	r1, [r0, #72]	@ movhi
+ 1046 0006 7047     		bx	lr
+ 1048              		.section	.text.TIM_DMACmd,"ax",%progbits
+ 1049              		.align	1
+ 1050              		.global	TIM_DMACmd
+ 1051              		.syntax unified
+ 1052              		.thumb
+ 1053              		.thumb_func
+ 1055              	TIM_DMACmd:
+ 1056              		@ args = 0, pretend = 0, frame = 0
+ 1057              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1058              		@ link register save eliminated.
+ 1059 0000 22B1     		cbz	r2, .L116
+ 1060 0002 8389     		ldrh	r3, [r0, #12]
+ 1061 0004 9BB2     		uxth	r3, r3
+ 1062 0006 0B43     		orrs	r3, r3, r1
+ 1063 0008 8381     		strh	r3, [r0, #12]	@ movhi
+ 1064 000a 7047     		bx	lr
+ 1065              	.L116:
+ 1066 000c 8389     		ldrh	r3, [r0, #12]
+ 1067 000e C943     		mvns	r1, r1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 19
+
+
+ 1068 0010 89B2     		uxth	r1, r1
+ 1069 0012 1940     		ands	r1, r1, r3
+ 1070 0014 8181     		strh	r1, [r0, #12]	@ movhi
+ 1071 0016 7047     		bx	lr
+ 1073              		.section	.text.TIM_InternalClockConfig,"ax",%progbits
+ 1074              		.align	1
+ 1075              		.global	TIM_InternalClockConfig
+ 1076              		.syntax unified
+ 1077              		.thumb
+ 1078              		.thumb_func
+ 1080              	TIM_InternalClockConfig:
+ 1081              		@ args = 0, pretend = 0, frame = 0
+ 1082              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1083              		@ link register save eliminated.
+ 1084 0000 0389     		ldrh	r3, [r0, #8]
+ 1085 0002 9BB2     		uxth	r3, r3
+ 1086 0004 23F00703 		bic	r3, r3, #7
+ 1087 0008 9BB2     		uxth	r3, r3
+ 1088 000a 0381     		strh	r3, [r0, #8]	@ movhi
+ 1089 000c 7047     		bx	lr
+ 1091              		.section	.text.TIM_ETRConfig,"ax",%progbits
+ 1092              		.align	1
+ 1093              		.global	TIM_ETRConfig
+ 1094              		.syntax unified
+ 1095              		.thumb
+ 1096              		.thumb_func
+ 1098              	TIM_ETRConfig:
+ 1099              		@ args = 0, pretend = 0, frame = 0
+ 1100              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1101              		@ link register save eliminated.
+ 1102 0000 B0F808C0 		ldrh	ip, [r0, #8]
+ 1103 0004 5FFA8CFC 		uxtb	ip, ip
+ 1104 0008 1B02     		lsls	r3, r3, #8
+ 1105 000a 9BB2     		uxth	r3, r3
+ 1106 000c 1343     		orrs	r3, r3, r2
+ 1107 000e 0B43     		orrs	r3, r3, r1
+ 1108 0010 43EA0C03 		orr	r3, r3, ip
+ 1109 0014 0381     		strh	r3, [r0, #8]	@ movhi
+ 1110 0016 7047     		bx	lr
+ 1112              		.section	.text.TIM_ETRClockMode1Config,"ax",%progbits
+ 1113              		.align	1
+ 1114              		.global	TIM_ETRClockMode1Config
+ 1115              		.syntax unified
+ 1116              		.thumb
+ 1117              		.thumb_func
+ 1119              	TIM_ETRClockMode1Config:
+ 1120              		@ args = 0, pretend = 0, frame = 0
+ 1121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1122 0000 10B5     		push	{r4, lr}
+ 1123 0002 0446     		mov	r4, r0
+ 1124 0004 FFF7FEFF 		bl	TIM_ETRConfig
+ 1125 0008 2389     		ldrh	r3, [r4, #8]
+ 1126 000a 9BB2     		uxth	r3, r3
+ 1127 000c 43F07703 		orr	r3, r3, #119
+ 1128 0010 2381     		strh	r3, [r4, #8]	@ movhi
+ 1129 0012 10BD     		pop	{r4, pc}
+ 1131              		.section	.text.TIM_ETRClockMode2Config,"ax",%progbits
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 20
+
+
+ 1132              		.align	1
+ 1133              		.global	TIM_ETRClockMode2Config
+ 1134              		.syntax unified
+ 1135              		.thumb
+ 1136              		.thumb_func
+ 1138              	TIM_ETRClockMode2Config:
+ 1139              		@ args = 0, pretend = 0, frame = 0
+ 1140              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1141 0000 10B5     		push	{r4, lr}
+ 1142 0002 0446     		mov	r4, r0
+ 1143 0004 FFF7FEFF 		bl	TIM_ETRConfig
+ 1144 0008 2389     		ldrh	r3, [r4, #8]
+ 1145 000a 9BB2     		uxth	r3, r3
+ 1146 000c 43F48043 		orr	r3, r3, #16384
+ 1147 0010 2381     		strh	r3, [r4, #8]	@ movhi
+ 1148 0012 10BD     		pop	{r4, pc}
+ 1150              		.section	.text.TIM_PrescalerConfig,"ax",%progbits
+ 1151              		.align	1
+ 1152              		.global	TIM_PrescalerConfig
+ 1153              		.syntax unified
+ 1154              		.thumb
+ 1155              		.thumb_func
+ 1157              	TIM_PrescalerConfig:
+ 1158              		@ args = 0, pretend = 0, frame = 0
+ 1159              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1160              		@ link register save eliminated.
+ 1161 0000 0185     		strh	r1, [r0, #40]	@ movhi
+ 1162 0002 8282     		strh	r2, [r0, #20]	@ movhi
+ 1163 0004 7047     		bx	lr
+ 1165              		.section	.text.TIM_CounterModeConfig,"ax",%progbits
+ 1166              		.align	1
+ 1167              		.global	TIM_CounterModeConfig
+ 1168              		.syntax unified
+ 1169              		.thumb
+ 1170              		.thumb_func
+ 1172              	TIM_CounterModeConfig:
+ 1173              		@ args = 0, pretend = 0, frame = 0
+ 1174              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1175              		@ link register save eliminated.
+ 1176 0000 0388     		ldrh	r3, [r0]
+ 1177 0002 9BB2     		uxth	r3, r3
+ 1178 0004 23F07003 		bic	r3, r3, #112
+ 1179 0008 0B43     		orrs	r3, r3, r1
+ 1180 000a 0380     		strh	r3, [r0]	@ movhi
+ 1181 000c 7047     		bx	lr
+ 1183              		.section	.text.TIM_SelectInputTrigger,"ax",%progbits
+ 1184              		.align	1
+ 1185              		.global	TIM_SelectInputTrigger
+ 1186              		.syntax unified
+ 1187              		.thumb
+ 1188              		.thumb_func
+ 1190              	TIM_SelectInputTrigger:
+ 1191              		@ args = 0, pretend = 0, frame = 0
+ 1192              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1193              		@ link register save eliminated.
+ 1194 0000 0389     		ldrh	r3, [r0, #8]
+ 1195 0002 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 21
+
+
+ 1196 0004 23F07003 		bic	r3, r3, #112
+ 1197 0008 0B43     		orrs	r3, r3, r1
+ 1198 000a 0381     		strh	r3, [r0, #8]	@ movhi
+ 1199 000c 7047     		bx	lr
+ 1201              		.section	.text.TIM_ITRxExternalClockConfig,"ax",%progbits
+ 1202              		.align	1
+ 1203              		.global	TIM_ITRxExternalClockConfig
+ 1204              		.syntax unified
+ 1205              		.thumb
+ 1206              		.thumb_func
+ 1208              	TIM_ITRxExternalClockConfig:
+ 1209              		@ args = 0, pretend = 0, frame = 0
+ 1210              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1211 0000 10B5     		push	{r4, lr}
+ 1212 0002 0446     		mov	r4, r0
+ 1213 0004 FFF7FEFF 		bl	TIM_SelectInputTrigger
+ 1214 0008 2389     		ldrh	r3, [r4, #8]
+ 1215 000a 9BB2     		uxth	r3, r3
+ 1216 000c 43F00703 		orr	r3, r3, #7
+ 1217 0010 2381     		strh	r3, [r4, #8]	@ movhi
+ 1218 0012 10BD     		pop	{r4, pc}
+ 1220              		.section	.text.TIM_TIxExternalClockConfig,"ax",%progbits
+ 1221              		.align	1
+ 1222              		.global	TIM_TIxExternalClockConfig
+ 1223              		.syntax unified
+ 1224              		.thumb
+ 1225              		.thumb_func
+ 1227              	TIM_TIxExternalClockConfig:
+ 1228              		@ args = 0, pretend = 0, frame = 0
+ 1229              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1230 0000 38B5     		push	{r3, r4, r5, lr}
+ 1231 0002 0446     		mov	r4, r0
+ 1232 0004 0D46     		mov	r5, r1
+ 1233 0006 1146     		mov	r1, r2
+ 1234 0008 602D     		cmp	r5, #96
+ 1235 000a 0CD0     		beq	.L133
+ 1236 000c 0122     		movs	r2, #1
+ 1237 000e FFF7FEFF 		bl	TI1_Config
+ 1238              	.L131:
+ 1239 0012 2946     		mov	r1, r5
+ 1240 0014 2046     		mov	r0, r4
+ 1241 0016 FFF7FEFF 		bl	TIM_SelectInputTrigger
+ 1242 001a 2389     		ldrh	r3, [r4, #8]
+ 1243 001c 9BB2     		uxth	r3, r3
+ 1244 001e 43F00703 		orr	r3, r3, #7
+ 1245 0022 2381     		strh	r3, [r4, #8]	@ movhi
+ 1246 0024 38BD     		pop	{r3, r4, r5, pc}
+ 1247              	.L133:
+ 1248 0026 0122     		movs	r2, #1
+ 1249 0028 FFF7FEFF 		bl	TI2_Config
+ 1250 002c F1E7     		b	.L131
+ 1252              		.section	.text.TIM_EncoderInterfaceConfig,"ax",%progbits
+ 1253              		.align	1
+ 1254              		.global	TIM_EncoderInterfaceConfig
+ 1255              		.syntax unified
+ 1256              		.thumb
+ 1257              		.thumb_func
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 22
+
+
+ 1259              	TIM_EncoderInterfaceConfig:
+ 1260              		@ args = 0, pretend = 0, frame = 0
+ 1261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1262 0000 10B5     		push	{r4, lr}
+ 1263 0002 0489     		ldrh	r4, [r0, #8]
+ 1264 0004 A4B2     		uxth	r4, r4
+ 1265 0006 B0F818C0 		ldrh	ip, [r0, #24]
+ 1266 000a 1FFA8CFC 		uxth	ip, ip
+ 1267 000e B0F820E0 		ldrh	lr, [r0, #32]
+ 1268 0012 1FFA8EFE 		uxth	lr, lr
+ 1269 0016 24F00704 		bic	r4, r4, #7
+ 1270 001a 0C43     		orrs	r4, r4, r1
+ 1271 001c 2CF4407C 		bic	ip, ip, #768
+ 1272 0020 2CF0030C 		bic	ip, ip, #3
+ 1273 0024 4CF4807C 		orr	ip, ip, #256
+ 1274 0028 4CF0010C 		orr	ip, ip, #1
+ 1275 002c 2EF0220E 		bic	lr, lr, #34
+ 1276 0030 1B01     		lsls	r3, r3, #4
+ 1277 0032 9BB2     		uxth	r3, r3
+ 1278 0034 1343     		orrs	r3, r3, r2
+ 1279 0036 4EEA030E 		orr	lr, lr, r3
+ 1280 003a 0481     		strh	r4, [r0, #8]	@ movhi
+ 1281 003c A0F818C0 		strh	ip, [r0, #24]	@ movhi
+ 1282 0040 A0F820E0 		strh	lr, [r0, #32]	@ movhi
+ 1283 0044 10BD     		pop	{r4, pc}
+ 1285              		.section	.text.TIM_ForcedOC1Config,"ax",%progbits
+ 1286              		.align	1
+ 1287              		.global	TIM_ForcedOC1Config
+ 1288              		.syntax unified
+ 1289              		.thumb
+ 1290              		.thumb_func
+ 1292              	TIM_ForcedOC1Config:
+ 1293              		@ args = 0, pretend = 0, frame = 0
+ 1294              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1295              		@ link register save eliminated.
+ 1296 0000 038B     		ldrh	r3, [r0, #24]
+ 1297 0002 9BB2     		uxth	r3, r3
+ 1298 0004 23F07003 		bic	r3, r3, #112
+ 1299 0008 0B43     		orrs	r3, r3, r1
+ 1300 000a 0383     		strh	r3, [r0, #24]	@ movhi
+ 1301 000c 7047     		bx	lr
+ 1303              		.section	.text.TIM_ForcedOC2Config,"ax",%progbits
+ 1304              		.align	1
+ 1305              		.global	TIM_ForcedOC2Config
+ 1306              		.syntax unified
+ 1307              		.thumb
+ 1308              		.thumb_func
+ 1310              	TIM_ForcedOC2Config:
+ 1311              		@ args = 0, pretend = 0, frame = 0
+ 1312              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1313              		@ link register save eliminated.
+ 1314 0000 038B     		ldrh	r3, [r0, #24]
+ 1315 0002 9BB2     		uxth	r3, r3
+ 1316 0004 23F4E043 		bic	r3, r3, #28672
+ 1317 0008 0902     		lsls	r1, r1, #8
+ 1318 000a 89B2     		uxth	r1, r1
+ 1319 000c 0B43     		orrs	r3, r3, r1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 23
+
+
+ 1320 000e 0383     		strh	r3, [r0, #24]	@ movhi
+ 1321 0010 7047     		bx	lr
+ 1323              		.section	.text.TIM_ForcedOC3Config,"ax",%progbits
+ 1324              		.align	1
+ 1325              		.global	TIM_ForcedOC3Config
+ 1326              		.syntax unified
+ 1327              		.thumb
+ 1328              		.thumb_func
+ 1330              	TIM_ForcedOC3Config:
+ 1331              		@ args = 0, pretend = 0, frame = 0
+ 1332              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1333              		@ link register save eliminated.
+ 1334 0000 838B     		ldrh	r3, [r0, #28]
+ 1335 0002 9BB2     		uxth	r3, r3
+ 1336 0004 23F07003 		bic	r3, r3, #112
+ 1337 0008 0B43     		orrs	r3, r3, r1
+ 1338 000a 8383     		strh	r3, [r0, #28]	@ movhi
+ 1339 000c 7047     		bx	lr
+ 1341              		.section	.text.TIM_ForcedOC4Config,"ax",%progbits
+ 1342              		.align	1
+ 1343              		.global	TIM_ForcedOC4Config
+ 1344              		.syntax unified
+ 1345              		.thumb
+ 1346              		.thumb_func
+ 1348              	TIM_ForcedOC4Config:
+ 1349              		@ args = 0, pretend = 0, frame = 0
+ 1350              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1351              		@ link register save eliminated.
+ 1352 0000 838B     		ldrh	r3, [r0, #28]
+ 1353 0002 9BB2     		uxth	r3, r3
+ 1354 0004 23F4E043 		bic	r3, r3, #28672
+ 1355 0008 0902     		lsls	r1, r1, #8
+ 1356 000a 89B2     		uxth	r1, r1
+ 1357 000c 0B43     		orrs	r3, r3, r1
+ 1358 000e 8383     		strh	r3, [r0, #28]	@ movhi
+ 1359 0010 7047     		bx	lr
+ 1361              		.section	.text.TIM_ARRPreloadConfig,"ax",%progbits
+ 1362              		.align	1
+ 1363              		.global	TIM_ARRPreloadConfig
+ 1364              		.syntax unified
+ 1365              		.thumb
+ 1366              		.thumb_func
+ 1368              	TIM_ARRPreloadConfig:
+ 1369              		@ args = 0, pretend = 0, frame = 0
+ 1370              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1371              		@ link register save eliminated.
+ 1372 0000 29B1     		cbz	r1, .L141
+ 1373 0002 0388     		ldrh	r3, [r0]
+ 1374 0004 9BB2     		uxth	r3, r3
+ 1375 0006 43F08003 		orr	r3, r3, #128
+ 1376 000a 0380     		strh	r3, [r0]	@ movhi
+ 1377 000c 7047     		bx	lr
+ 1378              	.L141:
+ 1379 000e 0388     		ldrh	r3, [r0]
+ 1380 0010 9BB2     		uxth	r3, r3
+ 1381 0012 23F08003 		bic	r3, r3, #128
+ 1382 0016 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 24
+
+
+ 1383 0018 0380     		strh	r3, [r0]	@ movhi
+ 1384 001a 7047     		bx	lr
+ 1386              		.section	.text.TIM_SelectCOM,"ax",%progbits
+ 1387              		.align	1
+ 1388              		.global	TIM_SelectCOM
+ 1389              		.syntax unified
+ 1390              		.thumb
+ 1391              		.thumb_func
+ 1393              	TIM_SelectCOM:
+ 1394              		@ args = 0, pretend = 0, frame = 0
+ 1395              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1396              		@ link register save eliminated.
+ 1397 0000 29B1     		cbz	r1, .L144
+ 1398 0002 8388     		ldrh	r3, [r0, #4]
+ 1399 0004 9BB2     		uxth	r3, r3
+ 1400 0006 43F00403 		orr	r3, r3, #4
+ 1401 000a 8380     		strh	r3, [r0, #4]	@ movhi
+ 1402 000c 7047     		bx	lr
+ 1403              	.L144:
+ 1404 000e 8388     		ldrh	r3, [r0, #4]
+ 1405 0010 9BB2     		uxth	r3, r3
+ 1406 0012 23F00403 		bic	r3, r3, #4
+ 1407 0016 9BB2     		uxth	r3, r3
+ 1408 0018 8380     		strh	r3, [r0, #4]	@ movhi
+ 1409 001a 7047     		bx	lr
+ 1411              		.section	.text.TIM_SelectCCDMA,"ax",%progbits
+ 1412              		.align	1
+ 1413              		.global	TIM_SelectCCDMA
+ 1414              		.syntax unified
+ 1415              		.thumb
+ 1416              		.thumb_func
+ 1418              	TIM_SelectCCDMA:
+ 1419              		@ args = 0, pretend = 0, frame = 0
+ 1420              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1421              		@ link register save eliminated.
+ 1422 0000 29B1     		cbz	r1, .L147
+ 1423 0002 8388     		ldrh	r3, [r0, #4]
+ 1424 0004 9BB2     		uxth	r3, r3
+ 1425 0006 43F00803 		orr	r3, r3, #8
+ 1426 000a 8380     		strh	r3, [r0, #4]	@ movhi
+ 1427 000c 7047     		bx	lr
+ 1428              	.L147:
+ 1429 000e 8388     		ldrh	r3, [r0, #4]
+ 1430 0010 9BB2     		uxth	r3, r3
+ 1431 0012 23F00803 		bic	r3, r3, #8
+ 1432 0016 9BB2     		uxth	r3, r3
+ 1433 0018 8380     		strh	r3, [r0, #4]	@ movhi
+ 1434 001a 7047     		bx	lr
+ 1436              		.section	.text.TIM_CCPreloadControl,"ax",%progbits
+ 1437              		.align	1
+ 1438              		.global	TIM_CCPreloadControl
+ 1439              		.syntax unified
+ 1440              		.thumb
+ 1441              		.thumb_func
+ 1443              	TIM_CCPreloadControl:
+ 1444              		@ args = 0, pretend = 0, frame = 0
+ 1445              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 25
+
+
+ 1446              		@ link register save eliminated.
+ 1447 0000 29B1     		cbz	r1, .L150
+ 1448 0002 8388     		ldrh	r3, [r0, #4]
+ 1449 0004 9BB2     		uxth	r3, r3
+ 1450 0006 43F00103 		orr	r3, r3, #1
+ 1451 000a 8380     		strh	r3, [r0, #4]	@ movhi
+ 1452 000c 7047     		bx	lr
+ 1453              	.L150:
+ 1454 000e 8388     		ldrh	r3, [r0, #4]
+ 1455 0010 9BB2     		uxth	r3, r3
+ 1456 0012 23F00103 		bic	r3, r3, #1
+ 1457 0016 9BB2     		uxth	r3, r3
+ 1458 0018 8380     		strh	r3, [r0, #4]	@ movhi
+ 1459 001a 7047     		bx	lr
+ 1461              		.section	.text.TIM_OC1PreloadConfig,"ax",%progbits
+ 1462              		.align	1
+ 1463              		.global	TIM_OC1PreloadConfig
+ 1464              		.syntax unified
+ 1465              		.thumb
+ 1466              		.thumb_func
+ 1468              	TIM_OC1PreloadConfig:
+ 1469              		@ args = 0, pretend = 0, frame = 0
+ 1470              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1471              		@ link register save eliminated.
+ 1472 0000 038B     		ldrh	r3, [r0, #24]
+ 1473 0002 9BB2     		uxth	r3, r3
+ 1474 0004 23F00803 		bic	r3, r3, #8
+ 1475 0008 0B43     		orrs	r3, r3, r1
+ 1476 000a 0383     		strh	r3, [r0, #24]	@ movhi
+ 1477 000c 7047     		bx	lr
+ 1479              		.section	.text.TIM_OC2PreloadConfig,"ax",%progbits
+ 1480              		.align	1
+ 1481              		.global	TIM_OC2PreloadConfig
+ 1482              		.syntax unified
+ 1483              		.thumb
+ 1484              		.thumb_func
+ 1486              	TIM_OC2PreloadConfig:
+ 1487              		@ args = 0, pretend = 0, frame = 0
+ 1488              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1489              		@ link register save eliminated.
+ 1490 0000 038B     		ldrh	r3, [r0, #24]
+ 1491 0002 9BB2     		uxth	r3, r3
+ 1492 0004 23F40063 		bic	r3, r3, #2048
+ 1493 0008 0902     		lsls	r1, r1, #8
+ 1494 000a 89B2     		uxth	r1, r1
+ 1495 000c 0B43     		orrs	r3, r3, r1
+ 1496 000e 0383     		strh	r3, [r0, #24]	@ movhi
+ 1497 0010 7047     		bx	lr
+ 1499              		.section	.text.TIM_OC3PreloadConfig,"ax",%progbits
+ 1500              		.align	1
+ 1501              		.global	TIM_OC3PreloadConfig
+ 1502              		.syntax unified
+ 1503              		.thumb
+ 1504              		.thumb_func
+ 1506              	TIM_OC3PreloadConfig:
+ 1507              		@ args = 0, pretend = 0, frame = 0
+ 1508              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 26
+
+
+ 1509              		@ link register save eliminated.
+ 1510 0000 838B     		ldrh	r3, [r0, #28]
+ 1511 0002 9BB2     		uxth	r3, r3
+ 1512 0004 23F00803 		bic	r3, r3, #8
+ 1513 0008 0B43     		orrs	r3, r3, r1
+ 1514 000a 8383     		strh	r3, [r0, #28]	@ movhi
+ 1515 000c 7047     		bx	lr
+ 1517              		.section	.text.TIM_OC4PreloadConfig,"ax",%progbits
+ 1518              		.align	1
+ 1519              		.global	TIM_OC4PreloadConfig
+ 1520              		.syntax unified
+ 1521              		.thumb
+ 1522              		.thumb_func
+ 1524              	TIM_OC4PreloadConfig:
+ 1525              		@ args = 0, pretend = 0, frame = 0
+ 1526              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1527              		@ link register save eliminated.
+ 1528 0000 838B     		ldrh	r3, [r0, #28]
+ 1529 0002 9BB2     		uxth	r3, r3
+ 1530 0004 23F40063 		bic	r3, r3, #2048
+ 1531 0008 0902     		lsls	r1, r1, #8
+ 1532 000a 89B2     		uxth	r1, r1
+ 1533 000c 0B43     		orrs	r3, r3, r1
+ 1534 000e 8383     		strh	r3, [r0, #28]	@ movhi
+ 1535 0010 7047     		bx	lr
+ 1537              		.section	.text.TIM_OC1FastConfig,"ax",%progbits
+ 1538              		.align	1
+ 1539              		.global	TIM_OC1FastConfig
+ 1540              		.syntax unified
+ 1541              		.thumb
+ 1542              		.thumb_func
+ 1544              	TIM_OC1FastConfig:
+ 1545              		@ args = 0, pretend = 0, frame = 0
+ 1546              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1547              		@ link register save eliminated.
+ 1548 0000 038B     		ldrh	r3, [r0, #24]
+ 1549 0002 9BB2     		uxth	r3, r3
+ 1550 0004 23F00403 		bic	r3, r3, #4
+ 1551 0008 0B43     		orrs	r3, r3, r1
+ 1552 000a 0383     		strh	r3, [r0, #24]	@ movhi
+ 1553 000c 7047     		bx	lr
+ 1555              		.section	.text.TIM_OC2FastConfig,"ax",%progbits
+ 1556              		.align	1
+ 1557              		.global	TIM_OC2FastConfig
+ 1558              		.syntax unified
+ 1559              		.thumb
+ 1560              		.thumb_func
+ 1562              	TIM_OC2FastConfig:
+ 1563              		@ args = 0, pretend = 0, frame = 0
+ 1564              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1565              		@ link register save eliminated.
+ 1566 0000 038B     		ldrh	r3, [r0, #24]
+ 1567 0002 9BB2     		uxth	r3, r3
+ 1568 0004 23F48063 		bic	r3, r3, #1024
+ 1569 0008 0902     		lsls	r1, r1, #8
+ 1570 000a 89B2     		uxth	r1, r1
+ 1571 000c 0B43     		orrs	r3, r3, r1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 27
+
+
+ 1572 000e 0383     		strh	r3, [r0, #24]	@ movhi
+ 1573 0010 7047     		bx	lr
+ 1575              		.section	.text.TIM_OC3FastConfig,"ax",%progbits
+ 1576              		.align	1
+ 1577              		.global	TIM_OC3FastConfig
+ 1578              		.syntax unified
+ 1579              		.thumb
+ 1580              		.thumb_func
+ 1582              	TIM_OC3FastConfig:
+ 1583              		@ args = 0, pretend = 0, frame = 0
+ 1584              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1585              		@ link register save eliminated.
+ 1586 0000 838B     		ldrh	r3, [r0, #28]
+ 1587 0002 9BB2     		uxth	r3, r3
+ 1588 0004 23F00403 		bic	r3, r3, #4
+ 1589 0008 0B43     		orrs	r3, r3, r1
+ 1590 000a 8383     		strh	r3, [r0, #28]	@ movhi
+ 1591 000c 7047     		bx	lr
+ 1593              		.section	.text.TIM_OC4FastConfig,"ax",%progbits
+ 1594              		.align	1
+ 1595              		.global	TIM_OC4FastConfig
+ 1596              		.syntax unified
+ 1597              		.thumb
+ 1598              		.thumb_func
+ 1600              	TIM_OC4FastConfig:
+ 1601              		@ args = 0, pretend = 0, frame = 0
+ 1602              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1603              		@ link register save eliminated.
+ 1604 0000 838B     		ldrh	r3, [r0, #28]
+ 1605 0002 9BB2     		uxth	r3, r3
+ 1606 0004 23F48063 		bic	r3, r3, #1024
+ 1607 0008 0902     		lsls	r1, r1, #8
+ 1608 000a 89B2     		uxth	r1, r1
+ 1609 000c 0B43     		orrs	r3, r3, r1
+ 1610 000e 8383     		strh	r3, [r0, #28]	@ movhi
+ 1611 0010 7047     		bx	lr
+ 1613              		.section	.text.TIM_ClearOC1Ref,"ax",%progbits
+ 1614              		.align	1
+ 1615              		.global	TIM_ClearOC1Ref
+ 1616              		.syntax unified
+ 1617              		.thumb
+ 1618              		.thumb_func
+ 1620              	TIM_ClearOC1Ref:
+ 1621              		@ args = 0, pretend = 0, frame = 0
+ 1622              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1623              		@ link register save eliminated.
+ 1624 0000 038B     		ldrh	r3, [r0, #24]
+ 1625 0002 9BB2     		uxth	r3, r3
+ 1626 0004 23F08003 		bic	r3, r3, #128
+ 1627 0008 0B43     		orrs	r3, r3, r1
+ 1628 000a 0383     		strh	r3, [r0, #24]	@ movhi
+ 1629 000c 7047     		bx	lr
+ 1631              		.section	.text.TIM_ClearOC2Ref,"ax",%progbits
+ 1632              		.align	1
+ 1633              		.global	TIM_ClearOC2Ref
+ 1634              		.syntax unified
+ 1635              		.thumb
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 28
+
+
+ 1636              		.thumb_func
+ 1638              	TIM_ClearOC2Ref:
+ 1639              		@ args = 0, pretend = 0, frame = 0
+ 1640              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1641              		@ link register save eliminated.
+ 1642 0000 038B     		ldrh	r3, [r0, #24]
+ 1643 0002 C3F30E03 		ubfx	r3, r3, #0, #15
+ 1644 0006 0902     		lsls	r1, r1, #8
+ 1645 0008 89B2     		uxth	r1, r1
+ 1646 000a 1943     		orrs	r1, r1, r3
+ 1647 000c 0183     		strh	r1, [r0, #24]	@ movhi
+ 1648 000e 7047     		bx	lr
+ 1650              		.section	.text.TIM_ClearOC3Ref,"ax",%progbits
+ 1651              		.align	1
+ 1652              		.global	TIM_ClearOC3Ref
+ 1653              		.syntax unified
+ 1654              		.thumb
+ 1655              		.thumb_func
+ 1657              	TIM_ClearOC3Ref:
+ 1658              		@ args = 0, pretend = 0, frame = 0
+ 1659              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1660              		@ link register save eliminated.
+ 1661 0000 838B     		ldrh	r3, [r0, #28]
+ 1662 0002 9BB2     		uxth	r3, r3
+ 1663 0004 23F08003 		bic	r3, r3, #128
+ 1664 0008 0B43     		orrs	r3, r3, r1
+ 1665 000a 8383     		strh	r3, [r0, #28]	@ movhi
+ 1666 000c 7047     		bx	lr
+ 1668              		.section	.text.TIM_ClearOC4Ref,"ax",%progbits
+ 1669              		.align	1
+ 1670              		.global	TIM_ClearOC4Ref
+ 1671              		.syntax unified
+ 1672              		.thumb
+ 1673              		.thumb_func
+ 1675              	TIM_ClearOC4Ref:
+ 1676              		@ args = 0, pretend = 0, frame = 0
+ 1677              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1678              		@ link register save eliminated.
+ 1679 0000 838B     		ldrh	r3, [r0, #28]
+ 1680 0002 C3F30E03 		ubfx	r3, r3, #0, #15
+ 1681 0006 0902     		lsls	r1, r1, #8
+ 1682 0008 89B2     		uxth	r1, r1
+ 1683 000a 1943     		orrs	r1, r1, r3
+ 1684 000c 8183     		strh	r1, [r0, #28]	@ movhi
+ 1685 000e 7047     		bx	lr
+ 1687              		.section	.text.TIM_OC1PolarityConfig,"ax",%progbits
+ 1688              		.align	1
+ 1689              		.global	TIM_OC1PolarityConfig
+ 1690              		.syntax unified
+ 1691              		.thumb
+ 1692              		.thumb_func
+ 1694              	TIM_OC1PolarityConfig:
+ 1695              		@ args = 0, pretend = 0, frame = 0
+ 1696              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1697              		@ link register save eliminated.
+ 1698 0000 038C     		ldrh	r3, [r0, #32]
+ 1699 0002 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 29
+
+
+ 1700 0004 23F00203 		bic	r3, r3, #2
+ 1701 0008 0B43     		orrs	r3, r3, r1
+ 1702 000a 0384     		strh	r3, [r0, #32]	@ movhi
+ 1703 000c 7047     		bx	lr
+ 1705              		.section	.text.TIM_OC1NPolarityConfig,"ax",%progbits
+ 1706              		.align	1
+ 1707              		.global	TIM_OC1NPolarityConfig
+ 1708              		.syntax unified
+ 1709              		.thumb
+ 1710              		.thumb_func
+ 1712              	TIM_OC1NPolarityConfig:
+ 1713              		@ args = 0, pretend = 0, frame = 0
+ 1714              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1715              		@ link register save eliminated.
+ 1716 0000 038C     		ldrh	r3, [r0, #32]
+ 1717 0002 9BB2     		uxth	r3, r3
+ 1718 0004 23F00803 		bic	r3, r3, #8
+ 1719 0008 0B43     		orrs	r3, r3, r1
+ 1720 000a 0384     		strh	r3, [r0, #32]	@ movhi
+ 1721 000c 7047     		bx	lr
+ 1723              		.section	.text.TIM_OC2PolarityConfig,"ax",%progbits
+ 1724              		.align	1
+ 1725              		.global	TIM_OC2PolarityConfig
+ 1726              		.syntax unified
+ 1727              		.thumb
+ 1728              		.thumb_func
+ 1730              	TIM_OC2PolarityConfig:
+ 1731              		@ args = 0, pretend = 0, frame = 0
+ 1732              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1733              		@ link register save eliminated.
+ 1734 0000 038C     		ldrh	r3, [r0, #32]
+ 1735 0002 9BB2     		uxth	r3, r3
+ 1736 0004 23F02003 		bic	r3, r3, #32
+ 1737 0008 0901     		lsls	r1, r1, #4
+ 1738 000a 89B2     		uxth	r1, r1
+ 1739 000c 0B43     		orrs	r3, r3, r1
+ 1740 000e 0384     		strh	r3, [r0, #32]	@ movhi
+ 1741 0010 7047     		bx	lr
+ 1743              		.section	.text.TIM_OC2NPolarityConfig,"ax",%progbits
+ 1744              		.align	1
+ 1745              		.global	TIM_OC2NPolarityConfig
+ 1746              		.syntax unified
+ 1747              		.thumb
+ 1748              		.thumb_func
+ 1750              	TIM_OC2NPolarityConfig:
+ 1751              		@ args = 0, pretend = 0, frame = 0
+ 1752              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1753              		@ link register save eliminated.
+ 1754 0000 038C     		ldrh	r3, [r0, #32]
+ 1755 0002 9BB2     		uxth	r3, r3
+ 1756 0004 23F08003 		bic	r3, r3, #128
+ 1757 0008 0901     		lsls	r1, r1, #4
+ 1758 000a 89B2     		uxth	r1, r1
+ 1759 000c 0B43     		orrs	r3, r3, r1
+ 1760 000e 0384     		strh	r3, [r0, #32]	@ movhi
+ 1761 0010 7047     		bx	lr
+ 1763              		.section	.text.TIM_OC3PolarityConfig,"ax",%progbits
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 30
+
+
+ 1764              		.align	1
+ 1765              		.global	TIM_OC3PolarityConfig
+ 1766              		.syntax unified
+ 1767              		.thumb
+ 1768              		.thumb_func
+ 1770              	TIM_OC3PolarityConfig:
+ 1771              		@ args = 0, pretend = 0, frame = 0
+ 1772              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1773              		@ link register save eliminated.
+ 1774 0000 038C     		ldrh	r3, [r0, #32]
+ 1775 0002 9BB2     		uxth	r3, r3
+ 1776 0004 23F40073 		bic	r3, r3, #512
+ 1777 0008 0902     		lsls	r1, r1, #8
+ 1778 000a 89B2     		uxth	r1, r1
+ 1779 000c 0B43     		orrs	r3, r3, r1
+ 1780 000e 0384     		strh	r3, [r0, #32]	@ movhi
+ 1781 0010 7047     		bx	lr
+ 1783              		.section	.text.TIM_OC3NPolarityConfig,"ax",%progbits
+ 1784              		.align	1
+ 1785              		.global	TIM_OC3NPolarityConfig
+ 1786              		.syntax unified
+ 1787              		.thumb
+ 1788              		.thumb_func
+ 1790              	TIM_OC3NPolarityConfig:
+ 1791              		@ args = 0, pretend = 0, frame = 0
+ 1792              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1793              		@ link register save eliminated.
+ 1794 0000 038C     		ldrh	r3, [r0, #32]
+ 1795 0002 9BB2     		uxth	r3, r3
+ 1796 0004 23F40063 		bic	r3, r3, #2048
+ 1797 0008 0902     		lsls	r1, r1, #8
+ 1798 000a 89B2     		uxth	r1, r1
+ 1799 000c 0B43     		orrs	r3, r3, r1
+ 1800 000e 0384     		strh	r3, [r0, #32]	@ movhi
+ 1801 0010 7047     		bx	lr
+ 1803              		.section	.text.TIM_OC4PolarityConfig,"ax",%progbits
+ 1804              		.align	1
+ 1805              		.global	TIM_OC4PolarityConfig
+ 1806              		.syntax unified
+ 1807              		.thumb
+ 1808              		.thumb_func
+ 1810              	TIM_OC4PolarityConfig:
+ 1811              		@ args = 0, pretend = 0, frame = 0
+ 1812              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1813              		@ link register save eliminated.
+ 1814 0000 038C     		ldrh	r3, [r0, #32]
+ 1815 0002 9BB2     		uxth	r3, r3
+ 1816 0004 23F40053 		bic	r3, r3, #8192
+ 1817 0008 0903     		lsls	r1, r1, #12
+ 1818 000a 89B2     		uxth	r1, r1
+ 1819 000c 0B43     		orrs	r3, r3, r1
+ 1820 000e 0384     		strh	r3, [r0, #32]	@ movhi
+ 1821 0010 7047     		bx	lr
+ 1823              		.section	.text.TIM_CCxCmd,"ax",%progbits
+ 1824              		.align	1
+ 1825              		.global	TIM_CCxCmd
+ 1826              		.syntax unified
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 31
+
+
+ 1827              		.thumb
+ 1828              		.thumb_func
+ 1830              	TIM_CCxCmd:
+ 1831              		@ args = 0, pretend = 0, frame = 0
+ 1832              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1833              		@ link register save eliminated.
+ 1834 0000 0123     		movs	r3, #1
+ 1835 0002 8B40     		lsls	r3, r3, r1
+ 1836 0004 9BB2     		uxth	r3, r3
+ 1837 0006 B0F820C0 		ldrh	ip, [r0, #32]
+ 1838 000a DB43     		mvns	r3, r3
+ 1839 000c 9BB2     		uxth	r3, r3
+ 1840 000e 03EA0C03 		and	r3, r3, ip
+ 1841 0012 0384     		strh	r3, [r0, #32]	@ movhi
+ 1842 0014 038C     		ldrh	r3, [r0, #32]
+ 1843 0016 9BB2     		uxth	r3, r3
+ 1844 0018 8A40     		lsls	r2, r2, r1
+ 1845 001a 92B2     		uxth	r2, r2
+ 1846 001c 1343     		orrs	r3, r3, r2
+ 1847 001e 0384     		strh	r3, [r0, #32]	@ movhi
+ 1848 0020 7047     		bx	lr
+ 1850              		.section	.text.TIM_CCxNCmd,"ax",%progbits
+ 1851              		.align	1
+ 1852              		.global	TIM_CCxNCmd
+ 1853              		.syntax unified
+ 1854              		.thumb
+ 1855              		.thumb_func
+ 1857              	TIM_CCxNCmd:
+ 1858              		@ args = 0, pretend = 0, frame = 0
+ 1859              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1860              		@ link register save eliminated.
+ 1861 0000 0423     		movs	r3, #4
+ 1862 0002 8B40     		lsls	r3, r3, r1
+ 1863 0004 9BB2     		uxth	r3, r3
+ 1864 0006 B0F820C0 		ldrh	ip, [r0, #32]
+ 1865 000a DB43     		mvns	r3, r3
+ 1866 000c 9BB2     		uxth	r3, r3
+ 1867 000e 03EA0C03 		and	r3, r3, ip
+ 1868 0012 0384     		strh	r3, [r0, #32]	@ movhi
+ 1869 0014 038C     		ldrh	r3, [r0, #32]
+ 1870 0016 9BB2     		uxth	r3, r3
+ 1871 0018 8A40     		lsls	r2, r2, r1
+ 1872 001a 92B2     		uxth	r2, r2
+ 1873 001c 1343     		orrs	r3, r3, r2
+ 1874 001e 0384     		strh	r3, [r0, #32]	@ movhi
+ 1875 0020 7047     		bx	lr
+ 1877              		.section	.text.TIM_SelectOCxM,"ax",%progbits
+ 1878              		.align	1
+ 1879              		.global	TIM_SelectOCxM
+ 1880              		.syntax unified
+ 1881              		.thumb
+ 1882              		.thumb_func
+ 1884              	TIM_SelectOCxM:
+ 1885              		@ args = 0, pretend = 0, frame = 0
+ 1886              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1887 0000 00B5     		push	{lr}
+ 1888 0002 00F1180C 		add	ip, r0, #24
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 32
+
+
+ 1889 0006 0123     		movs	r3, #1
+ 1890 0008 8B40     		lsls	r3, r3, r1
+ 1891 000a 9BB2     		uxth	r3, r3
+ 1892 000c B0F820E0 		ldrh	lr, [r0, #32]
+ 1893 0010 DB43     		mvns	r3, r3
+ 1894 0012 9BB2     		uxth	r3, r3
+ 1895 0014 03EA0E03 		and	r3, r3, lr
+ 1896 0018 0384     		strh	r3, [r0, #32]	@ movhi
+ 1897 001a 91B1     		cbz	r1, .L174
+ 1898 001c 0829     		cmp	r1, #8
+ 1899 001e 10D0     		beq	.L174
+ 1900 0020 0439     		subs	r1, r1, #4
+ 1901 0022 C1F34E01 		ubfx	r1, r1, #1, #15
+ 1902 0026 51F80C30 		ldr	r3, [r1, ip]
+ 1903 002a 23F4E043 		bic	r3, r3, #28672
+ 1904 002e 41F80C30 		str	r3, [r1, ip]
+ 1905 0032 51F80C30 		ldr	r3, [r1, ip]
+ 1906 0036 1202     		lsls	r2, r2, #8
+ 1907 0038 92B2     		uxth	r2, r2
+ 1908 003a 1343     		orrs	r3, r3, r2
+ 1909 003c 41F80C30 		str	r3, [r1, ip]
+ 1910 0040 0BE0     		b	.L173
+ 1911              	.L174:
+ 1912 0042 4908     		lsrs	r1, r1, #1
+ 1913 0044 51F80C30 		ldr	r3, [r1, ip]
+ 1914 0048 23F07003 		bic	r3, r3, #112
+ 1915 004c 41F80C30 		str	r3, [r1, ip]
+ 1916 0050 51F80C30 		ldr	r3, [r1, ip]
+ 1917 0054 1343     		orrs	r3, r3, r2
+ 1918 0056 41F80C30 		str	r3, [r1, ip]
+ 1919              	.L173:
+ 1920 005a 5DF804FB 		ldr	pc, [sp], #4
+ 1922              		.section	.text.TIM_UpdateDisableConfig,"ax",%progbits
+ 1923              		.align	1
+ 1924              		.global	TIM_UpdateDisableConfig
+ 1925              		.syntax unified
+ 1926              		.thumb
+ 1927              		.thumb_func
+ 1929              	TIM_UpdateDisableConfig:
+ 1930              		@ args = 0, pretend = 0, frame = 0
+ 1931              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1932              		@ link register save eliminated.
+ 1933 0000 29B1     		cbz	r1, .L179
+ 1934 0002 0388     		ldrh	r3, [r0]
+ 1935 0004 9BB2     		uxth	r3, r3
+ 1936 0006 43F00203 		orr	r3, r3, #2
+ 1937 000a 0380     		strh	r3, [r0]	@ movhi
+ 1938 000c 7047     		bx	lr
+ 1939              	.L179:
+ 1940 000e 0388     		ldrh	r3, [r0]
+ 1941 0010 9BB2     		uxth	r3, r3
+ 1942 0012 23F00203 		bic	r3, r3, #2
+ 1943 0016 9BB2     		uxth	r3, r3
+ 1944 0018 0380     		strh	r3, [r0]	@ movhi
+ 1945 001a 7047     		bx	lr
+ 1947              		.section	.text.TIM_UpdateRequestConfig,"ax",%progbits
+ 1948              		.align	1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 33
+
+
+ 1949              		.global	TIM_UpdateRequestConfig
+ 1950              		.syntax unified
+ 1951              		.thumb
+ 1952              		.thumb_func
+ 1954              	TIM_UpdateRequestConfig:
+ 1955              		@ args = 0, pretend = 0, frame = 0
+ 1956              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1957              		@ link register save eliminated.
+ 1958 0000 29B1     		cbz	r1, .L182
+ 1959 0002 0388     		ldrh	r3, [r0]
+ 1960 0004 9BB2     		uxth	r3, r3
+ 1961 0006 43F00403 		orr	r3, r3, #4
+ 1962 000a 0380     		strh	r3, [r0]	@ movhi
+ 1963 000c 7047     		bx	lr
+ 1964              	.L182:
+ 1965 000e 0388     		ldrh	r3, [r0]
+ 1966 0010 9BB2     		uxth	r3, r3
+ 1967 0012 23F00403 		bic	r3, r3, #4
+ 1968 0016 9BB2     		uxth	r3, r3
+ 1969 0018 0380     		strh	r3, [r0]	@ movhi
+ 1970 001a 7047     		bx	lr
+ 1972              		.section	.text.TIM_SelectHallSensor,"ax",%progbits
+ 1973              		.align	1
+ 1974              		.global	TIM_SelectHallSensor
+ 1975              		.syntax unified
+ 1976              		.thumb
+ 1977              		.thumb_func
+ 1979              	TIM_SelectHallSensor:
+ 1980              		@ args = 0, pretend = 0, frame = 0
+ 1981              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1982              		@ link register save eliminated.
+ 1983 0000 29B1     		cbz	r1, .L185
+ 1984 0002 8388     		ldrh	r3, [r0, #4]
+ 1985 0004 9BB2     		uxth	r3, r3
+ 1986 0006 43F08003 		orr	r3, r3, #128
+ 1987 000a 8380     		strh	r3, [r0, #4]	@ movhi
+ 1988 000c 7047     		bx	lr
+ 1989              	.L185:
+ 1990 000e 8388     		ldrh	r3, [r0, #4]
+ 1991 0010 9BB2     		uxth	r3, r3
+ 1992 0012 23F08003 		bic	r3, r3, #128
+ 1993 0016 9BB2     		uxth	r3, r3
+ 1994 0018 8380     		strh	r3, [r0, #4]	@ movhi
+ 1995 001a 7047     		bx	lr
+ 1997              		.section	.text.TIM_SelectOnePulseMode,"ax",%progbits
+ 1998              		.align	1
+ 1999              		.global	TIM_SelectOnePulseMode
+ 2000              		.syntax unified
+ 2001              		.thumb
+ 2002              		.thumb_func
+ 2004              	TIM_SelectOnePulseMode:
+ 2005              		@ args = 0, pretend = 0, frame = 0
+ 2006              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2007              		@ link register save eliminated.
+ 2008 0000 0388     		ldrh	r3, [r0]
+ 2009 0002 9BB2     		uxth	r3, r3
+ 2010 0004 23F00803 		bic	r3, r3, #8
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 34
+
+
+ 2011 0008 9BB2     		uxth	r3, r3
+ 2012 000a 0380     		strh	r3, [r0]	@ movhi
+ 2013 000c 0388     		ldrh	r3, [r0]
+ 2014 000e 9BB2     		uxth	r3, r3
+ 2015 0010 0B43     		orrs	r3, r3, r1
+ 2016 0012 0380     		strh	r3, [r0]	@ movhi
+ 2017 0014 7047     		bx	lr
+ 2019              		.section	.text.TIM_SelectOutputTrigger,"ax",%progbits
+ 2020              		.align	1
+ 2021              		.global	TIM_SelectOutputTrigger
+ 2022              		.syntax unified
+ 2023              		.thumb
+ 2024              		.thumb_func
+ 2026              	TIM_SelectOutputTrigger:
+ 2027              		@ args = 0, pretend = 0, frame = 0
+ 2028              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2029              		@ link register save eliminated.
+ 2030 0000 8388     		ldrh	r3, [r0, #4]
+ 2031 0002 9BB2     		uxth	r3, r3
+ 2032 0004 23F07003 		bic	r3, r3, #112
+ 2033 0008 9BB2     		uxth	r3, r3
+ 2034 000a 8380     		strh	r3, [r0, #4]	@ movhi
+ 2035 000c 8388     		ldrh	r3, [r0, #4]
+ 2036 000e 9BB2     		uxth	r3, r3
+ 2037 0010 0B43     		orrs	r3, r3, r1
+ 2038 0012 8380     		strh	r3, [r0, #4]	@ movhi
+ 2039 0014 7047     		bx	lr
+ 2041              		.section	.text.TIM_SelectSlaveMode,"ax",%progbits
+ 2042              		.align	1
+ 2043              		.global	TIM_SelectSlaveMode
+ 2044              		.syntax unified
+ 2045              		.thumb
+ 2046              		.thumb_func
+ 2048              	TIM_SelectSlaveMode:
+ 2049              		@ args = 0, pretend = 0, frame = 0
+ 2050              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2051              		@ link register save eliminated.
+ 2052 0000 0389     		ldrh	r3, [r0, #8]
+ 2053 0002 9BB2     		uxth	r3, r3
+ 2054 0004 23F00703 		bic	r3, r3, #7
+ 2055 0008 9BB2     		uxth	r3, r3
+ 2056 000a 0381     		strh	r3, [r0, #8]	@ movhi
+ 2057 000c 0389     		ldrh	r3, [r0, #8]
+ 2058 000e 9BB2     		uxth	r3, r3
+ 2059 0010 0B43     		orrs	r3, r3, r1
+ 2060 0012 0381     		strh	r3, [r0, #8]	@ movhi
+ 2061 0014 7047     		bx	lr
+ 2063              		.section	.text.TIM_SelectMasterSlaveMode,"ax",%progbits
+ 2064              		.align	1
+ 2065              		.global	TIM_SelectMasterSlaveMode
+ 2066              		.syntax unified
+ 2067              		.thumb
+ 2068              		.thumb_func
+ 2070              	TIM_SelectMasterSlaveMode:
+ 2071              		@ args = 0, pretend = 0, frame = 0
+ 2072              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2073              		@ link register save eliminated.
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 35
+
+
+ 2074 0000 0389     		ldrh	r3, [r0, #8]
+ 2075 0002 9BB2     		uxth	r3, r3
+ 2076 0004 23F08003 		bic	r3, r3, #128
+ 2077 0008 9BB2     		uxth	r3, r3
+ 2078 000a 0381     		strh	r3, [r0, #8]	@ movhi
+ 2079 000c 0389     		ldrh	r3, [r0, #8]
+ 2080 000e 9BB2     		uxth	r3, r3
+ 2081 0010 0B43     		orrs	r3, r3, r1
+ 2082 0012 0381     		strh	r3, [r0, #8]	@ movhi
+ 2083 0014 7047     		bx	lr
+ 2085              		.section	.text.TIM_SetCounter,"ax",%progbits
+ 2086              		.align	1
+ 2087              		.global	TIM_SetCounter
+ 2088              		.syntax unified
+ 2089              		.thumb
+ 2090              		.thumb_func
+ 2092              	TIM_SetCounter:
+ 2093              		@ args = 0, pretend = 0, frame = 0
+ 2094              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2095              		@ link register save eliminated.
+ 2096 0000 8184     		strh	r1, [r0, #36]	@ movhi
+ 2097 0002 7047     		bx	lr
+ 2099              		.section	.text.TIM_SetAutoreload,"ax",%progbits
+ 2100              		.align	1
+ 2101              		.global	TIM_SetAutoreload
+ 2102              		.syntax unified
+ 2103              		.thumb
+ 2104              		.thumb_func
+ 2106              	TIM_SetAutoreload:
+ 2107              		@ args = 0, pretend = 0, frame = 0
+ 2108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2109              		@ link register save eliminated.
+ 2110 0000 8185     		strh	r1, [r0, #44]	@ movhi
+ 2111 0002 7047     		bx	lr
+ 2113              		.section	.text.TIM_SetCompare1,"ax",%progbits
+ 2114              		.align	1
+ 2115              		.global	TIM_SetCompare1
+ 2116              		.syntax unified
+ 2117              		.thumb
+ 2118              		.thumb_func
+ 2120              	TIM_SetCompare1:
+ 2121              		@ args = 0, pretend = 0, frame = 0
+ 2122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2123              		@ link register save eliminated.
+ 2124 0000 8186     		strh	r1, [r0, #52]	@ movhi
+ 2125 0002 7047     		bx	lr
+ 2127              		.section	.text.TIM_SetCompare2,"ax",%progbits
+ 2128              		.align	1
+ 2129              		.global	TIM_SetCompare2
+ 2130              		.syntax unified
+ 2131              		.thumb
+ 2132              		.thumb_func
+ 2134              	TIM_SetCompare2:
+ 2135              		@ args = 0, pretend = 0, frame = 0
+ 2136              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2137              		@ link register save eliminated.
+ 2138 0000 0187     		strh	r1, [r0, #56]	@ movhi
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 36
+
+
+ 2139 0002 7047     		bx	lr
+ 2141              		.section	.text.TIM_SetCompare3,"ax",%progbits
+ 2142              		.align	1
+ 2143              		.global	TIM_SetCompare3
+ 2144              		.syntax unified
+ 2145              		.thumb
+ 2146              		.thumb_func
+ 2148              	TIM_SetCompare3:
+ 2149              		@ args = 0, pretend = 0, frame = 0
+ 2150              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2151              		@ link register save eliminated.
+ 2152 0000 8187     		strh	r1, [r0, #60]	@ movhi
+ 2153 0002 7047     		bx	lr
+ 2155              		.section	.text.TIM_SetCompare4,"ax",%progbits
+ 2156              		.align	1
+ 2157              		.global	TIM_SetCompare4
+ 2158              		.syntax unified
+ 2159              		.thumb
+ 2160              		.thumb_func
+ 2162              	TIM_SetCompare4:
+ 2163              		@ args = 0, pretend = 0, frame = 0
+ 2164              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2165              		@ link register save eliminated.
+ 2166 0000 A0F84010 		strh	r1, [r0, #64]	@ movhi
+ 2167 0004 7047     		bx	lr
+ 2169              		.section	.text.TIM_SetIC1Prescaler,"ax",%progbits
+ 2170              		.align	1
+ 2171              		.global	TIM_SetIC1Prescaler
+ 2172              		.syntax unified
+ 2173              		.thumb
+ 2174              		.thumb_func
+ 2176              	TIM_SetIC1Prescaler:
+ 2177              		@ args = 0, pretend = 0, frame = 0
+ 2178              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2179              		@ link register save eliminated.
+ 2180 0000 038B     		ldrh	r3, [r0, #24]
+ 2181 0002 9BB2     		uxth	r3, r3
+ 2182 0004 23F00C03 		bic	r3, r3, #12
+ 2183 0008 9BB2     		uxth	r3, r3
+ 2184 000a 0383     		strh	r3, [r0, #24]	@ movhi
+ 2185 000c 038B     		ldrh	r3, [r0, #24]
+ 2186 000e 9BB2     		uxth	r3, r3
+ 2187 0010 0B43     		orrs	r3, r3, r1
+ 2188 0012 0383     		strh	r3, [r0, #24]	@ movhi
+ 2189 0014 7047     		bx	lr
+ 2191              		.section	.text.TIM_SetIC2Prescaler,"ax",%progbits
+ 2192              		.align	1
+ 2193              		.global	TIM_SetIC2Prescaler
+ 2194              		.syntax unified
+ 2195              		.thumb
+ 2196              		.thumb_func
+ 2198              	TIM_SetIC2Prescaler:
+ 2199              		@ args = 0, pretend = 0, frame = 0
+ 2200              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2201              		@ link register save eliminated.
+ 2202 0000 038B     		ldrh	r3, [r0, #24]
+ 2203 0002 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 37
+
+
+ 2204 0004 23F44063 		bic	r3, r3, #3072
+ 2205 0008 9BB2     		uxth	r3, r3
+ 2206 000a 0383     		strh	r3, [r0, #24]	@ movhi
+ 2207 000c 038B     		ldrh	r3, [r0, #24]
+ 2208 000e 9BB2     		uxth	r3, r3
+ 2209 0010 0902     		lsls	r1, r1, #8
+ 2210 0012 89B2     		uxth	r1, r1
+ 2211 0014 0B43     		orrs	r3, r3, r1
+ 2212 0016 0383     		strh	r3, [r0, #24]	@ movhi
+ 2213 0018 7047     		bx	lr
+ 2215              		.section	.text.TIM_PWMIConfig,"ax",%progbits
+ 2216              		.align	1
+ 2217              		.global	TIM_PWMIConfig
+ 2218              		.syntax unified
+ 2219              		.thumb
+ 2220              		.thumb_func
+ 2222              	TIM_PWMIConfig:
+ 2223              		@ args = 0, pretend = 0, frame = 0
+ 2224              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2225 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 2226 0002 0546     		mov	r5, r0
+ 2227 0004 0C46     		mov	r4, r1
+ 2228 0006 4988     		ldrh	r1, [r1, #2]
+ 2229 0008 C9B9     		cbnz	r1, .L204
+ 2230 000a 0226     		movs	r6, #2
+ 2231              	.L200:
+ 2232 000c A288     		ldrh	r2, [r4, #4]
+ 2233 000e 012A     		cmp	r2, #1
+ 2234 0010 17D0     		beq	.L207
+ 2235 0012 0127     		movs	r7, #1
+ 2236              	.L201:
+ 2237 0014 2388     		ldrh	r3, [r4]
+ 2238 0016 B3B9     		cbnz	r3, .L202
+ 2239 0018 2389     		ldrh	r3, [r4, #8]
+ 2240 001a 2846     		mov	r0, r5
+ 2241 001c FFF7FEFF 		bl	TI1_Config
+ 2242 0020 E188     		ldrh	r1, [r4, #6]
+ 2243 0022 2846     		mov	r0, r5
+ 2244 0024 FFF7FEFF 		bl	TIM_SetIC1Prescaler
+ 2245 0028 2389     		ldrh	r3, [r4, #8]
+ 2246 002a 3A46     		mov	r2, r7
+ 2247 002c 3146     		mov	r1, r6
+ 2248 002e 2846     		mov	r0, r5
+ 2249 0030 FFF7FEFF 		bl	TI2_Config
+ 2250 0034 E188     		ldrh	r1, [r4, #6]
+ 2251 0036 2846     		mov	r0, r5
+ 2252 0038 FFF7FEFF 		bl	TIM_SetIC2Prescaler
+ 2253              	.L199:
+ 2254 003c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 2255              	.L204:
+ 2256 003e 0026     		movs	r6, #0
+ 2257 0040 E4E7     		b	.L200
+ 2258              	.L207:
+ 2259 0042 0227     		movs	r7, #2
+ 2260 0044 E6E7     		b	.L201
+ 2261              	.L202:
+ 2262 0046 2389     		ldrh	r3, [r4, #8]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 38
+
+
+ 2263 0048 2846     		mov	r0, r5
+ 2264 004a FFF7FEFF 		bl	TI2_Config
+ 2265 004e E188     		ldrh	r1, [r4, #6]
+ 2266 0050 2846     		mov	r0, r5
+ 2267 0052 FFF7FEFF 		bl	TIM_SetIC2Prescaler
+ 2268 0056 2389     		ldrh	r3, [r4, #8]
+ 2269 0058 3A46     		mov	r2, r7
+ 2270 005a 3146     		mov	r1, r6
+ 2271 005c 2846     		mov	r0, r5
+ 2272 005e FFF7FEFF 		bl	TI1_Config
+ 2273 0062 E188     		ldrh	r1, [r4, #6]
+ 2274 0064 2846     		mov	r0, r5
+ 2275 0066 FFF7FEFF 		bl	TIM_SetIC1Prescaler
+ 2276 006a E7E7     		b	.L199
+ 2278              		.section	.text.TIM_SetIC3Prescaler,"ax",%progbits
+ 2279              		.align	1
+ 2280              		.global	TIM_SetIC3Prescaler
+ 2281              		.syntax unified
+ 2282              		.thumb
+ 2283              		.thumb_func
+ 2285              	TIM_SetIC3Prescaler:
+ 2286              		@ args = 0, pretend = 0, frame = 0
+ 2287              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2288              		@ link register save eliminated.
+ 2289 0000 838B     		ldrh	r3, [r0, #28]
+ 2290 0002 9BB2     		uxth	r3, r3
+ 2291 0004 23F00C03 		bic	r3, r3, #12
+ 2292 0008 9BB2     		uxth	r3, r3
+ 2293 000a 8383     		strh	r3, [r0, #28]	@ movhi
+ 2294 000c 838B     		ldrh	r3, [r0, #28]
+ 2295 000e 9BB2     		uxth	r3, r3
+ 2296 0010 0B43     		orrs	r3, r3, r1
+ 2297 0012 8383     		strh	r3, [r0, #28]	@ movhi
+ 2298 0014 7047     		bx	lr
+ 2300              		.section	.text.TIM_SetIC4Prescaler,"ax",%progbits
+ 2301              		.align	1
+ 2302              		.global	TIM_SetIC4Prescaler
+ 2303              		.syntax unified
+ 2304              		.thumb
+ 2305              		.thumb_func
+ 2307              	TIM_SetIC4Prescaler:
+ 2308              		@ args = 0, pretend = 0, frame = 0
+ 2309              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2310              		@ link register save eliminated.
+ 2311 0000 838B     		ldrh	r3, [r0, #28]
+ 2312 0002 9BB2     		uxth	r3, r3
+ 2313 0004 23F44063 		bic	r3, r3, #3072
+ 2314 0008 9BB2     		uxth	r3, r3
+ 2315 000a 8383     		strh	r3, [r0, #28]	@ movhi
+ 2316 000c 838B     		ldrh	r3, [r0, #28]
+ 2317 000e 9BB2     		uxth	r3, r3
+ 2318 0010 0902     		lsls	r1, r1, #8
+ 2319 0012 89B2     		uxth	r1, r1
+ 2320 0014 0B43     		orrs	r3, r3, r1
+ 2321 0016 8383     		strh	r3, [r0, #28]	@ movhi
+ 2322 0018 7047     		bx	lr
+ 2324              		.section	.text.TIM_ICInit,"ax",%progbits
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 39
+
+
+ 2325              		.align	1
+ 2326              		.global	TIM_ICInit
+ 2327              		.syntax unified
+ 2328              		.thumb
+ 2329              		.thumb_func
+ 2331              	TIM_ICInit:
+ 2332              		@ args = 0, pretend = 0, frame = 0
+ 2333              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2334 0000 38B5     		push	{r3, r4, r5, lr}
+ 2335 0002 0546     		mov	r5, r0
+ 2336 0004 0C46     		mov	r4, r1
+ 2337 0006 0B88     		ldrh	r3, [r1]
+ 2338 0008 6BB1     		cbz	r3, .L216
+ 2339 000a 042B     		cmp	r3, #4
+ 2340 000c 15D0     		beq	.L217
+ 2341 000e 082B     		cmp	r3, #8
+ 2342 0010 1DD0     		beq	.L218
+ 2343 0012 0B89     		ldrh	r3, [r1, #8]
+ 2344 0014 8A88     		ldrh	r2, [r1, #4]
+ 2345 0016 4988     		ldrh	r1, [r1, #2]
+ 2346 0018 FFF7FEFF 		bl	TI4_Config
+ 2347 001c E188     		ldrh	r1, [r4, #6]
+ 2348 001e 2846     		mov	r0, r5
+ 2349 0020 FFF7FEFF 		bl	TIM_SetIC4Prescaler
+ 2350              	.L210:
+ 2351 0024 38BD     		pop	{r3, r4, r5, pc}
+ 2352              	.L216:
+ 2353 0026 0B89     		ldrh	r3, [r1, #8]
+ 2354 0028 8A88     		ldrh	r2, [r1, #4]
+ 2355 002a 4988     		ldrh	r1, [r1, #2]
+ 2356 002c FFF7FEFF 		bl	TI1_Config
+ 2357 0030 E188     		ldrh	r1, [r4, #6]
+ 2358 0032 2846     		mov	r0, r5
+ 2359 0034 FFF7FEFF 		bl	TIM_SetIC1Prescaler
+ 2360 0038 F4E7     		b	.L210
+ 2361              	.L217:
+ 2362 003a 0B89     		ldrh	r3, [r1, #8]
+ 2363 003c 8A88     		ldrh	r2, [r1, #4]
+ 2364 003e 4988     		ldrh	r1, [r1, #2]
+ 2365 0040 FFF7FEFF 		bl	TI2_Config
+ 2366 0044 E188     		ldrh	r1, [r4, #6]
+ 2367 0046 2846     		mov	r0, r5
+ 2368 0048 FFF7FEFF 		bl	TIM_SetIC2Prescaler
+ 2369 004c EAE7     		b	.L210
+ 2370              	.L218:
+ 2371 004e 0B89     		ldrh	r3, [r1, #8]
+ 2372 0050 8A88     		ldrh	r2, [r1, #4]
+ 2373 0052 4988     		ldrh	r1, [r1, #2]
+ 2374 0054 FFF7FEFF 		bl	TI3_Config
+ 2375 0058 E188     		ldrh	r1, [r4, #6]
+ 2376 005a 2846     		mov	r0, r5
+ 2377 005c FFF7FEFF 		bl	TIM_SetIC3Prescaler
+ 2378 0060 E0E7     		b	.L210
+ 2380              		.section	.text.TIM_SetClockDivision,"ax",%progbits
+ 2381              		.align	1
+ 2382              		.global	TIM_SetClockDivision
+ 2383              		.syntax unified
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 40
+
+
+ 2384              		.thumb
+ 2385              		.thumb_func
+ 2387              	TIM_SetClockDivision:
+ 2388              		@ args = 0, pretend = 0, frame = 0
+ 2389              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2390              		@ link register save eliminated.
+ 2391 0000 0388     		ldrh	r3, [r0]
+ 2392 0002 9BB2     		uxth	r3, r3
+ 2393 0004 23F44073 		bic	r3, r3, #768
+ 2394 0008 9BB2     		uxth	r3, r3
+ 2395 000a 0380     		strh	r3, [r0]	@ movhi
+ 2396 000c 0388     		ldrh	r3, [r0]
+ 2397 000e 9BB2     		uxth	r3, r3
+ 2398 0010 0B43     		orrs	r3, r3, r1
+ 2399 0012 0380     		strh	r3, [r0]	@ movhi
+ 2400 0014 7047     		bx	lr
+ 2402              		.section	.text.TIM_GetCapture1,"ax",%progbits
+ 2403              		.align	1
+ 2404              		.global	TIM_GetCapture1
+ 2405              		.syntax unified
+ 2406              		.thumb
+ 2407              		.thumb_func
+ 2409              	TIM_GetCapture1:
+ 2410              		@ args = 0, pretend = 0, frame = 0
+ 2411              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2412              		@ link register save eliminated.
+ 2413 0000 808E     		ldrh	r0, [r0, #52]
+ 2414 0002 80B2     		uxth	r0, r0
+ 2415 0004 7047     		bx	lr
+ 2417              		.section	.text.TIM_GetCapture2,"ax",%progbits
+ 2418              		.align	1
+ 2419              		.global	TIM_GetCapture2
+ 2420              		.syntax unified
+ 2421              		.thumb
+ 2422              		.thumb_func
+ 2424              	TIM_GetCapture2:
+ 2425              		@ args = 0, pretend = 0, frame = 0
+ 2426              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2427              		@ link register save eliminated.
+ 2428 0000 008F     		ldrh	r0, [r0, #56]
+ 2429 0002 80B2     		uxth	r0, r0
+ 2430 0004 7047     		bx	lr
+ 2432              		.section	.text.TIM_GetCapture3,"ax",%progbits
+ 2433              		.align	1
+ 2434              		.global	TIM_GetCapture3
+ 2435              		.syntax unified
+ 2436              		.thumb
+ 2437              		.thumb_func
+ 2439              	TIM_GetCapture3:
+ 2440              		@ args = 0, pretend = 0, frame = 0
+ 2441              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2442              		@ link register save eliminated.
+ 2443 0000 808F     		ldrh	r0, [r0, #60]
+ 2444 0002 80B2     		uxth	r0, r0
+ 2445 0004 7047     		bx	lr
+ 2447              		.section	.text.TIM_GetCapture4,"ax",%progbits
+ 2448              		.align	1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 41
+
+
+ 2449              		.global	TIM_GetCapture4
+ 2450              		.syntax unified
+ 2451              		.thumb
+ 2452              		.thumb_func
+ 2454              	TIM_GetCapture4:
+ 2455              		@ args = 0, pretend = 0, frame = 0
+ 2456              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2457              		@ link register save eliminated.
+ 2458 0000 B0F84000 		ldrh	r0, [r0, #64]
+ 2459 0004 80B2     		uxth	r0, r0
+ 2460 0006 7047     		bx	lr
+ 2462              		.section	.text.TIM_GetCounter,"ax",%progbits
+ 2463              		.align	1
+ 2464              		.global	TIM_GetCounter
+ 2465              		.syntax unified
+ 2466              		.thumb
+ 2467              		.thumb_func
+ 2469              	TIM_GetCounter:
+ 2470              		@ args = 0, pretend = 0, frame = 0
+ 2471              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2472              		@ link register save eliminated.
+ 2473 0000 808C     		ldrh	r0, [r0, #36]
+ 2474 0002 80B2     		uxth	r0, r0
+ 2475 0004 7047     		bx	lr
+ 2477              		.section	.text.TIM_GetPrescaler,"ax",%progbits
+ 2478              		.align	1
+ 2479              		.global	TIM_GetPrescaler
+ 2480              		.syntax unified
+ 2481              		.thumb
+ 2482              		.thumb_func
+ 2484              	TIM_GetPrescaler:
+ 2485              		@ args = 0, pretend = 0, frame = 0
+ 2486              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2487              		@ link register save eliminated.
+ 2488 0000 008D     		ldrh	r0, [r0, #40]
+ 2489 0002 80B2     		uxth	r0, r0
+ 2490 0004 7047     		bx	lr
+ 2492              		.section	.text.TIM_GetFlagStatus,"ax",%progbits
+ 2493              		.align	1
+ 2494              		.global	TIM_GetFlagStatus
+ 2495              		.syntax unified
+ 2496              		.thumb
+ 2497              		.thumb_func
+ 2499              	TIM_GetFlagStatus:
+ 2500              		@ args = 0, pretend = 0, frame = 0
+ 2501              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2502              		@ link register save eliminated.
+ 2503 0000 038A     		ldrh	r3, [r0, #16]
+ 2504 0002 1942     		tst	r1, r3
+ 2505 0004 01D0     		beq	.L228
+ 2506 0006 0120     		movs	r0, #1
+ 2507 0008 7047     		bx	lr
+ 2508              	.L228:
+ 2509 000a 0020     		movs	r0, #0
+ 2510 000c 7047     		bx	lr
+ 2512              		.section	.text.TIM_ClearFlag,"ax",%progbits
+ 2513              		.align	1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 42
+
+
+ 2514              		.global	TIM_ClearFlag
+ 2515              		.syntax unified
+ 2516              		.thumb
+ 2517              		.thumb_func
+ 2519              	TIM_ClearFlag:
+ 2520              		@ args = 0, pretend = 0, frame = 0
+ 2521              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2522              		@ link register save eliminated.
+ 2523 0000 C943     		mvns	r1, r1
+ 2524 0002 89B2     		uxth	r1, r1
+ 2525 0004 0182     		strh	r1, [r0, #16]	@ movhi
+ 2526 0006 7047     		bx	lr
+ 2528              		.section	.text.TIM_GetITStatus,"ax",%progbits
+ 2529              		.align	1
+ 2530              		.global	TIM_GetITStatus
+ 2531              		.syntax unified
+ 2532              		.thumb
+ 2533              		.thumb_func
+ 2535              	TIM_GetITStatus:
+ 2536              		@ args = 0, pretend = 0, frame = 0
+ 2537              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2538              		@ link register save eliminated.
+ 2539 0000 028A     		ldrh	r2, [r0, #16]
+ 2540 0002 8389     		ldrh	r3, [r0, #12]
+ 2541 0004 0B40     		ands	r3, r3, r1
+ 2542 0006 1142     		tst	r1, r2
+ 2543 0008 02D0     		beq	.L232
+ 2544 000a 1BB9     		cbnz	r3, .L233
+ 2545 000c 0020     		movs	r0, #0
+ 2546 000e 7047     		bx	lr
+ 2547              	.L232:
+ 2548 0010 0020     		movs	r0, #0
+ 2549 0012 7047     		bx	lr
+ 2550              	.L233:
+ 2551 0014 0120     		movs	r0, #1
+ 2552 0016 7047     		bx	lr
+ 2554              		.section	.text.TIM_ClearITPendingBit,"ax",%progbits
+ 2555              		.align	1
+ 2556              		.global	TIM_ClearITPendingBit
+ 2557              		.syntax unified
+ 2558              		.thumb
+ 2559              		.thumb_func
+ 2561              	TIM_ClearITPendingBit:
+ 2562              		@ args = 0, pretend = 0, frame = 0
+ 2563              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2564              		@ link register save eliminated.
+ 2565 0000 C943     		mvns	r1, r1
+ 2566 0002 89B2     		uxth	r1, r1
+ 2567 0004 0182     		strh	r1, [r0, #16]	@ movhi
+ 2568 0006 7047     		bx	lr
+ 2570              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 43
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f10x_tim.c
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:16     .text.TI1_Config:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:21     .text.TI1_Config:00000000 TI1_Config
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:71     .text.TI1_Config:00000080 $d
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:75     .text.TI2_Config:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:80     .text.TI2_Config:00000000 TI2_Config
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:135    .text.TI2_Config:00000090 $d
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:138    .text.TI3_Config:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:143    .text.TI3_Config:00000000 TI3_Config
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:196    .text.TI3_Config:00000084 $d
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:200    .text.TI4_Config:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:205    .text.TI4_Config:00000000 TI4_Config
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:262    .text.TI4_Config:00000094 $d
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:265    .text.TIM_DeInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:271    .text.TIM_DeInit:00000000 TIM_DeInit
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:464    .text.TIM_DeInit:000001cc $d
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:482    .text.TIM_TimeBaseInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:488    .text.TIM_TimeBaseInit:00000000 TIM_TimeBaseInit
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:557    .text.TIM_TimeBaseInit:0000008c $d
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:561    .text.TIM_OC1Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:567    .text.TIM_OC1Init:00000000 TIM_OC1Init
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:627    .text.TIM_OC1Init:00000090 $d
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:630    .text.TIM_OC2Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:636    .text.TIM_OC2Init:00000000 TIM_OC2Init
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:701    .text.TIM_OC2Init:00000094 $d
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:704    .text.TIM_OC3Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:710    .text.TIM_OC3Init:00000000 TIM_OC3Init
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:773    .text.TIM_OC3Init:00000090 $d
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:776    .text.TIM_OC4Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:782    .text.TIM_OC4Init:00000000 TIM_OC4Init
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:833    .text.TIM_OC4Init:00000078 $d
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:836    .text.TIM_BDTRConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:842    .text.TIM_BDTRConfig:00000000 TIM_BDTRConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:863    .text.TIM_TimeBaseStructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:869    .text.TIM_TimeBaseStructInit:00000000 TIM_TimeBaseStructInit
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:883    .text.TIM_OCStructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:889    .text.TIM_OCStructInit:00000000 TIM_OCStructInit
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:905    .text.TIM_ICStructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:911    .text.TIM_ICStructInit:00000000 TIM_ICStructInit
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:925    .text.TIM_BDTRStructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:931    .text.TIM_BDTRStructInit:00000000 TIM_BDTRStructInit
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:946    .text.TIM_Cmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:952    .text.TIM_Cmd:00000000 TIM_Cmd
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:971    .text.TIM_CtrlPWMOutputs:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:977    .text.TIM_CtrlPWMOutputs:00000000 TIM_CtrlPWMOutputs
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:995    .text.TIM_ITConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1001   .text.TIM_ITConfig:00000000 TIM_ITConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1020   .text.TIM_GenerateEvent:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1026   .text.TIM_GenerateEvent:00000000 TIM_GenerateEvent
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1034   .text.TIM_DMAConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1040   .text.TIM_DMAConfig:00000000 TIM_DMAConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1049   .text.TIM_DMACmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1055   .text.TIM_DMACmd:00000000 TIM_DMACmd
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1074   .text.TIM_InternalClockConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1080   .text.TIM_InternalClockConfig:00000000 TIM_InternalClockConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1092   .text.TIM_ETRConfig:00000000 $t
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 44
+
+
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1098   .text.TIM_ETRConfig:00000000 TIM_ETRConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1113   .text.TIM_ETRClockMode1Config:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1119   .text.TIM_ETRClockMode1Config:00000000 TIM_ETRClockMode1Config
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1132   .text.TIM_ETRClockMode2Config:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1138   .text.TIM_ETRClockMode2Config:00000000 TIM_ETRClockMode2Config
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1151   .text.TIM_PrescalerConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1157   .text.TIM_PrescalerConfig:00000000 TIM_PrescalerConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1166   .text.TIM_CounterModeConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1172   .text.TIM_CounterModeConfig:00000000 TIM_CounterModeConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1184   .text.TIM_SelectInputTrigger:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1190   .text.TIM_SelectInputTrigger:00000000 TIM_SelectInputTrigger
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1202   .text.TIM_ITRxExternalClockConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1208   .text.TIM_ITRxExternalClockConfig:00000000 TIM_ITRxExternalClockConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1221   .text.TIM_TIxExternalClockConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1227   .text.TIM_TIxExternalClockConfig:00000000 TIM_TIxExternalClockConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1253   .text.TIM_EncoderInterfaceConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1259   .text.TIM_EncoderInterfaceConfig:00000000 TIM_EncoderInterfaceConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1286   .text.TIM_ForcedOC1Config:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1292   .text.TIM_ForcedOC1Config:00000000 TIM_ForcedOC1Config
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1304   .text.TIM_ForcedOC2Config:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1310   .text.TIM_ForcedOC2Config:00000000 TIM_ForcedOC2Config
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1324   .text.TIM_ForcedOC3Config:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1330   .text.TIM_ForcedOC3Config:00000000 TIM_ForcedOC3Config
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1342   .text.TIM_ForcedOC4Config:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1348   .text.TIM_ForcedOC4Config:00000000 TIM_ForcedOC4Config
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1362   .text.TIM_ARRPreloadConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1368   .text.TIM_ARRPreloadConfig:00000000 TIM_ARRPreloadConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1387   .text.TIM_SelectCOM:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1393   .text.TIM_SelectCOM:00000000 TIM_SelectCOM
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1412   .text.TIM_SelectCCDMA:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1418   .text.TIM_SelectCCDMA:00000000 TIM_SelectCCDMA
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1437   .text.TIM_CCPreloadControl:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1443   .text.TIM_CCPreloadControl:00000000 TIM_CCPreloadControl
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1462   .text.TIM_OC1PreloadConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1468   .text.TIM_OC1PreloadConfig:00000000 TIM_OC1PreloadConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1480   .text.TIM_OC2PreloadConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1486   .text.TIM_OC2PreloadConfig:00000000 TIM_OC2PreloadConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1500   .text.TIM_OC3PreloadConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1506   .text.TIM_OC3PreloadConfig:00000000 TIM_OC3PreloadConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1518   .text.TIM_OC4PreloadConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1524   .text.TIM_OC4PreloadConfig:00000000 TIM_OC4PreloadConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1538   .text.TIM_OC1FastConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1544   .text.TIM_OC1FastConfig:00000000 TIM_OC1FastConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1556   .text.TIM_OC2FastConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1562   .text.TIM_OC2FastConfig:00000000 TIM_OC2FastConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1576   .text.TIM_OC3FastConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1582   .text.TIM_OC3FastConfig:00000000 TIM_OC3FastConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1594   .text.TIM_OC4FastConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1600   .text.TIM_OC4FastConfig:00000000 TIM_OC4FastConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1614   .text.TIM_ClearOC1Ref:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1620   .text.TIM_ClearOC1Ref:00000000 TIM_ClearOC1Ref
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1632   .text.TIM_ClearOC2Ref:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1638   .text.TIM_ClearOC2Ref:00000000 TIM_ClearOC2Ref
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1651   .text.TIM_ClearOC3Ref:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1657   .text.TIM_ClearOC3Ref:00000000 TIM_ClearOC3Ref
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1669   .text.TIM_ClearOC4Ref:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1675   .text.TIM_ClearOC4Ref:00000000 TIM_ClearOC4Ref
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 45
+
+
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1688   .text.TIM_OC1PolarityConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1694   .text.TIM_OC1PolarityConfig:00000000 TIM_OC1PolarityConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1706   .text.TIM_OC1NPolarityConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1712   .text.TIM_OC1NPolarityConfig:00000000 TIM_OC1NPolarityConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1724   .text.TIM_OC2PolarityConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1730   .text.TIM_OC2PolarityConfig:00000000 TIM_OC2PolarityConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1744   .text.TIM_OC2NPolarityConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1750   .text.TIM_OC2NPolarityConfig:00000000 TIM_OC2NPolarityConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1764   .text.TIM_OC3PolarityConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1770   .text.TIM_OC3PolarityConfig:00000000 TIM_OC3PolarityConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1784   .text.TIM_OC3NPolarityConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1790   .text.TIM_OC3NPolarityConfig:00000000 TIM_OC3NPolarityConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1804   .text.TIM_OC4PolarityConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1810   .text.TIM_OC4PolarityConfig:00000000 TIM_OC4PolarityConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1824   .text.TIM_CCxCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1830   .text.TIM_CCxCmd:00000000 TIM_CCxCmd
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1851   .text.TIM_CCxNCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1857   .text.TIM_CCxNCmd:00000000 TIM_CCxNCmd
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1878   .text.TIM_SelectOCxM:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1884   .text.TIM_SelectOCxM:00000000 TIM_SelectOCxM
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1923   .text.TIM_UpdateDisableConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1929   .text.TIM_UpdateDisableConfig:00000000 TIM_UpdateDisableConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1948   .text.TIM_UpdateRequestConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1954   .text.TIM_UpdateRequestConfig:00000000 TIM_UpdateRequestConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1973   .text.TIM_SelectHallSensor:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1979   .text.TIM_SelectHallSensor:00000000 TIM_SelectHallSensor
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:1998   .text.TIM_SelectOnePulseMode:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2004   .text.TIM_SelectOnePulseMode:00000000 TIM_SelectOnePulseMode
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2020   .text.TIM_SelectOutputTrigger:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2026   .text.TIM_SelectOutputTrigger:00000000 TIM_SelectOutputTrigger
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2042   .text.TIM_SelectSlaveMode:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2048   .text.TIM_SelectSlaveMode:00000000 TIM_SelectSlaveMode
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2064   .text.TIM_SelectMasterSlaveMode:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2070   .text.TIM_SelectMasterSlaveMode:00000000 TIM_SelectMasterSlaveMode
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2086   .text.TIM_SetCounter:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2092   .text.TIM_SetCounter:00000000 TIM_SetCounter
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2100   .text.TIM_SetAutoreload:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2106   .text.TIM_SetAutoreload:00000000 TIM_SetAutoreload
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2114   .text.TIM_SetCompare1:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2120   .text.TIM_SetCompare1:00000000 TIM_SetCompare1
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2128   .text.TIM_SetCompare2:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2134   .text.TIM_SetCompare2:00000000 TIM_SetCompare2
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2142   .text.TIM_SetCompare3:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2148   .text.TIM_SetCompare3:00000000 TIM_SetCompare3
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2156   .text.TIM_SetCompare4:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2162   .text.TIM_SetCompare4:00000000 TIM_SetCompare4
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2170   .text.TIM_SetIC1Prescaler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2176   .text.TIM_SetIC1Prescaler:00000000 TIM_SetIC1Prescaler
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2192   .text.TIM_SetIC2Prescaler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2198   .text.TIM_SetIC2Prescaler:00000000 TIM_SetIC2Prescaler
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2216   .text.TIM_PWMIConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2222   .text.TIM_PWMIConfig:00000000 TIM_PWMIConfig
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2279   .text.TIM_SetIC3Prescaler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2285   .text.TIM_SetIC3Prescaler:00000000 TIM_SetIC3Prescaler
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2301   .text.TIM_SetIC4Prescaler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2307   .text.TIM_SetIC4Prescaler:00000000 TIM_SetIC4Prescaler
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2325   .text.TIM_ICInit:00000000 $t
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s 			page 46
+
+
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2331   .text.TIM_ICInit:00000000 TIM_ICInit
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2381   .text.TIM_SetClockDivision:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2387   .text.TIM_SetClockDivision:00000000 TIM_SetClockDivision
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2403   .text.TIM_GetCapture1:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2409   .text.TIM_GetCapture1:00000000 TIM_GetCapture1
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2418   .text.TIM_GetCapture2:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2424   .text.TIM_GetCapture2:00000000 TIM_GetCapture2
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2433   .text.TIM_GetCapture3:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2439   .text.TIM_GetCapture3:00000000 TIM_GetCapture3
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2448   .text.TIM_GetCapture4:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2454   .text.TIM_GetCapture4:00000000 TIM_GetCapture4
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2463   .text.TIM_GetCounter:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2469   .text.TIM_GetCounter:00000000 TIM_GetCounter
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2478   .text.TIM_GetPrescaler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2484   .text.TIM_GetPrescaler:00000000 TIM_GetPrescaler
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2493   .text.TIM_GetFlagStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2499   .text.TIM_GetFlagStatus:00000000 TIM_GetFlagStatus
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2513   .text.TIM_ClearFlag:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2519   .text.TIM_ClearFlag:00000000 TIM_ClearFlag
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2529   .text.TIM_GetITStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2535   .text.TIM_GetITStatus:00000000 TIM_GetITStatus
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2555   .text.TIM_ClearITPendingBit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccT8fbZL.s:2561   .text.TIM_ClearITPendingBit:00000000 TIM_ClearITPendingBit
+
+UNDEFINED SYMBOLS
+RCC_APB2PeriphResetCmd
+RCC_APB1PeriphResetCmd

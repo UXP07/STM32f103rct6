@@ -1,0 +1,280 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f10x_exti.c"
+  14              		.text
+  15              		.section	.text.EXTI_DeInit,"ax",%progbits
+  16              		.align	1
+  17              		.global	EXTI_DeInit
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	EXTI_DeInit:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25              		@ link register save eliminated.
+  26 0000 044B     		ldr	r3, .L2
+  27 0002 0022     		movs	r2, #0
+  28 0004 1A60     		str	r2, [r3]
+  29 0006 5A60     		str	r2, [r3, #4]
+  30 0008 9A60     		str	r2, [r3, #8]
+  31 000a DA60     		str	r2, [r3, #12]
+  32 000c 024A     		ldr	r2, .L2+4
+  33 000e 5A61     		str	r2, [r3, #20]
+  34 0010 7047     		bx	lr
+  35              	.L3:
+  36 0012 00BF     		.align	2
+  37              	.L2:
+  38 0014 00040140 		.word	1073808384
+  39 0018 FFFF0F00 		.word	1048575
+  41              		.section	.text.EXTI_Init,"ax",%progbits
+  42              		.align	1
+  43              		.global	EXTI_Init
+  44              		.syntax unified
+  45              		.thumb
+  46              		.thumb_func
+  48              	EXTI_Init:
+  49              		@ args = 0, pretend = 0, frame = 0
+  50              		@ frame_needed = 0, uses_anonymous_args = 0
+  51              		@ link register save eliminated.
+  52 0000 8379     		ldrb	r3, [r0, #6]	@ zero_extendqisi2
+  53 0002 002B     		cmp	r3, #0
+  54 0004 35D0     		beq	.L5
+  55 0006 10B4     		push	{r4}
+  56 0008 1F4B     		ldr	r3, .L13
+  57 000a 1A68     		ldr	r2, [r3]
+  58 000c 0168     		ldr	r1, [r0]
+  59 000e 22EA0102 		bic	r2, r2, r1
+  60 0012 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s 			page 2
+
+
+  61 0014 5A68     		ldr	r2, [r3, #4]
+  62 0016 0168     		ldr	r1, [r0]
+  63 0018 22EA0102 		bic	r2, r2, r1
+  64 001c 5A60     		str	r2, [r3, #4]
+  65 001e 0279     		ldrb	r2, [r0, #4]	@ zero_extendqisi2
+  66 0020 02F18042 		add	r2, r2, #1073741824
+  67 0024 02F58232 		add	r2, r2, #66560
+  68 0028 1168     		ldr	r1, [r2]
+  69 002a 0468     		ldr	r4, [r0]
+  70 002c 2143     		orrs	r1, r1, r4
+  71 002e 1160     		str	r1, [r2]
+  72 0030 9A68     		ldr	r2, [r3, #8]
+  73 0032 0168     		ldr	r1, [r0]
+  74 0034 22EA0102 		bic	r2, r2, r1
+  75 0038 9A60     		str	r2, [r3, #8]
+  76 003a DA68     		ldr	r2, [r3, #12]
+  77 003c 0168     		ldr	r1, [r0]
+  78 003e 22EA0102 		bic	r2, r2, r1
+  79 0042 DA60     		str	r2, [r3, #12]
+  80 0044 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
+  81 0046 102B     		cmp	r3, #16
+  82 0048 09D0     		beq	.L12
+  83 004a 03F18043 		add	r3, r3, #1073741824
+  84 004e 03F58233 		add	r3, r3, #66560
+  85 0052 1A68     		ldr	r2, [r3]
+  86 0054 0168     		ldr	r1, [r0]
+  87 0056 0A43     		orrs	r2, r2, r1
+  88 0058 1A60     		str	r2, [r3]
+  89              	.L4:
+  90 005a 10BC     		pop	{r4}
+  91 005c 7047     		bx	lr
+  92              	.L12:
+  93 005e 0A4B     		ldr	r3, .L13
+  94 0060 9A68     		ldr	r2, [r3, #8]
+  95 0062 0168     		ldr	r1, [r0]
+  96 0064 0A43     		orrs	r2, r2, r1
+  97 0066 9A60     		str	r2, [r3, #8]
+  98 0068 DA68     		ldr	r2, [r3, #12]
+  99 006a 0168     		ldr	r1, [r0]
+ 100 006c 0A43     		orrs	r2, r2, r1
+ 101 006e DA60     		str	r2, [r3, #12]
+ 102 0070 F3E7     		b	.L4
+ 103              	.L5:
+ 104 0072 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
+ 105 0074 03F18043 		add	r3, r3, #1073741824
+ 106 0078 03F58233 		add	r3, r3, #66560
+ 107 007c 1A68     		ldr	r2, [r3]
+ 108 007e 0168     		ldr	r1, [r0]
+ 109 0080 22EA0102 		bic	r2, r2, r1
+ 110 0084 1A60     		str	r2, [r3]
+ 111 0086 7047     		bx	lr
+ 112              	.L14:
+ 113              		.align	2
+ 114              	.L13:
+ 115 0088 00040140 		.word	1073808384
+ 117              		.section	.text.EXTI_StructInit,"ax",%progbits
+ 118              		.align	1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s 			page 3
+
+
+ 119              		.global	EXTI_StructInit
+ 120              		.syntax unified
+ 121              		.thumb
+ 122              		.thumb_func
+ 124              	EXTI_StructInit:
+ 125              		@ args = 0, pretend = 0, frame = 0
+ 126              		@ frame_needed = 0, uses_anonymous_args = 0
+ 127              		@ link register save eliminated.
+ 128 0000 0023     		movs	r3, #0
+ 129 0002 0360     		str	r3, [r0]
+ 130 0004 0371     		strb	r3, [r0, #4]
+ 131 0006 0C22     		movs	r2, #12
+ 132 0008 4271     		strb	r2, [r0, #5]
+ 133 000a 8371     		strb	r3, [r0, #6]
+ 134 000c 7047     		bx	lr
+ 136              		.section	.text.EXTI_GenerateSWInterrupt,"ax",%progbits
+ 137              		.align	1
+ 138              		.global	EXTI_GenerateSWInterrupt
+ 139              		.syntax unified
+ 140              		.thumb
+ 141              		.thumb_func
+ 143              	EXTI_GenerateSWInterrupt:
+ 144              		@ args = 0, pretend = 0, frame = 0
+ 145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146              		@ link register save eliminated.
+ 147 0000 024A     		ldr	r2, .L17
+ 148 0002 1369     		ldr	r3, [r2, #16]
+ 149 0004 0343     		orrs	r3, r3, r0
+ 150 0006 1361     		str	r3, [r2, #16]
+ 151 0008 7047     		bx	lr
+ 152              	.L18:
+ 153 000a 00BF     		.align	2
+ 154              	.L17:
+ 155 000c 00040140 		.word	1073808384
+ 157              		.section	.text.EXTI_GetFlagStatus,"ax",%progbits
+ 158              		.align	1
+ 159              		.global	EXTI_GetFlagStatus
+ 160              		.syntax unified
+ 161              		.thumb
+ 162              		.thumb_func
+ 164              	EXTI_GetFlagStatus:
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 0, uses_anonymous_args = 0
+ 167              		@ link register save eliminated.
+ 168 0000 034B     		ldr	r3, .L22
+ 169 0002 5B69     		ldr	r3, [r3, #20]
+ 170 0004 0342     		tst	r3, r0
+ 171 0006 01D0     		beq	.L21
+ 172 0008 0120     		movs	r0, #1
+ 173 000a 7047     		bx	lr
+ 174              	.L21:
+ 175 000c 0020     		movs	r0, #0
+ 176 000e 7047     		bx	lr
+ 177              	.L23:
+ 178              		.align	2
+ 179              	.L22:
+ 180 0010 00040140 		.word	1073808384
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s 			page 4
+
+
+ 182              		.section	.text.EXTI_ClearFlag,"ax",%progbits
+ 183              		.align	1
+ 184              		.global	EXTI_ClearFlag
+ 185              		.syntax unified
+ 186              		.thumb
+ 187              		.thumb_func
+ 189              	EXTI_ClearFlag:
+ 190              		@ args = 0, pretend = 0, frame = 0
+ 191              		@ frame_needed = 0, uses_anonymous_args = 0
+ 192              		@ link register save eliminated.
+ 193 0000 014B     		ldr	r3, .L25
+ 194 0002 5861     		str	r0, [r3, #20]
+ 195 0004 7047     		bx	lr
+ 196              	.L26:
+ 197 0006 00BF     		.align	2
+ 198              	.L25:
+ 199 0008 00040140 		.word	1073808384
+ 201              		.section	.text.EXTI_GetITStatus,"ax",%progbits
+ 202              		.align	1
+ 203              		.global	EXTI_GetITStatus
+ 204              		.syntax unified
+ 205              		.thumb
+ 206              		.thumb_func
+ 208              	EXTI_GetITStatus:
+ 209              		@ args = 0, pretend = 0, frame = 0
+ 210              		@ frame_needed = 0, uses_anonymous_args = 0
+ 211              		@ link register save eliminated.
+ 212 0000 064A     		ldr	r2, .L31
+ 213 0002 1368     		ldr	r3, [r2]
+ 214 0004 0340     		ands	r3, r3, r0
+ 215 0006 5269     		ldr	r2, [r2, #20]
+ 216 0008 0242     		tst	r2, r0
+ 217 000a 02D0     		beq	.L29
+ 218 000c 1BB9     		cbnz	r3, .L30
+ 219 000e 0020     		movs	r0, #0
+ 220 0010 7047     		bx	lr
+ 221              	.L29:
+ 222 0012 0020     		movs	r0, #0
+ 223 0014 7047     		bx	lr
+ 224              	.L30:
+ 225 0016 0120     		movs	r0, #1
+ 226 0018 7047     		bx	lr
+ 227              	.L32:
+ 228 001a 00BF     		.align	2
+ 229              	.L31:
+ 230 001c 00040140 		.word	1073808384
+ 232              		.section	.text.EXTI_ClearITPendingBit,"ax",%progbits
+ 233              		.align	1
+ 234              		.global	EXTI_ClearITPendingBit
+ 235              		.syntax unified
+ 236              		.thumb
+ 237              		.thumb_func
+ 239              	EXTI_ClearITPendingBit:
+ 240              		@ args = 0, pretend = 0, frame = 0
+ 241              		@ frame_needed = 0, uses_anonymous_args = 0
+ 242              		@ link register save eliminated.
+ 243 0000 014B     		ldr	r3, .L34
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s 			page 5
+
+
+ 244 0002 5861     		str	r0, [r3, #20]
+ 245 0004 7047     		bx	lr
+ 246              	.L35:
+ 247 0006 00BF     		.align	2
+ 248              	.L34:
+ 249 0008 00040140 		.word	1073808384
+ 251              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f10x_exti.c
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:16     .text.EXTI_DeInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:22     .text.EXTI_DeInit:00000000 EXTI_DeInit
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:38     .text.EXTI_DeInit:00000014 $d
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:42     .text.EXTI_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:48     .text.EXTI_Init:00000000 EXTI_Init
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:115    .text.EXTI_Init:00000088 $d
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:118    .text.EXTI_StructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:124    .text.EXTI_StructInit:00000000 EXTI_StructInit
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:137    .text.EXTI_GenerateSWInterrupt:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:143    .text.EXTI_GenerateSWInterrupt:00000000 EXTI_GenerateSWInterrupt
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:155    .text.EXTI_GenerateSWInterrupt:0000000c $d
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:158    .text.EXTI_GetFlagStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:164    .text.EXTI_GetFlagStatus:00000000 EXTI_GetFlagStatus
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:180    .text.EXTI_GetFlagStatus:00000010 $d
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:183    .text.EXTI_ClearFlag:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:189    .text.EXTI_ClearFlag:00000000 EXTI_ClearFlag
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:199    .text.EXTI_ClearFlag:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:202    .text.EXTI_GetITStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:208    .text.EXTI_GetITStatus:00000000 EXTI_GetITStatus
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:230    .text.EXTI_GetITStatus:0000001c $d
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:233    .text.EXTI_ClearITPendingBit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:239    .text.EXTI_ClearITPendingBit:00000000 EXTI_ClearITPendingBit
+C:\Users\UXP\AppData\Local\Temp\cc0aUTNg.s:249    .text.EXTI_ClearITPendingBit:00000008 $d
+
+NO UNDEFINED SYMBOLS

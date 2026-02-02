@@ -1,0 +1,749 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f10x_sdio.c"
+  14              		.text
+  15              		.section	.text.SDIO_DeInit,"ax",%progbits
+  16              		.align	1
+  17              		.global	SDIO_DeInit
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	SDIO_DeInit:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25              		@ link register save eliminated.
+  26 0000 064B     		ldr	r3, .L2
+  27 0002 0022     		movs	r2, #0
+  28 0004 1A60     		str	r2, [r3]
+  29 0006 5A60     		str	r2, [r3, #4]
+  30 0008 9A60     		str	r2, [r3, #8]
+  31 000a DA60     		str	r2, [r3, #12]
+  32 000c 5A62     		str	r2, [r3, #36]
+  33 000e 9A62     		str	r2, [r3, #40]
+  34 0010 DA62     		str	r2, [r3, #44]
+  35 0012 0349     		ldr	r1, .L2+4
+  36 0014 9963     		str	r1, [r3, #56]
+  37 0016 DA63     		str	r2, [r3, #60]
+  38 0018 7047     		bx	lr
+  39              	.L3:
+  40 001a 00BF     		.align	2
+  41              	.L2:
+  42 001c 00800140 		.word	1073840128
+  43 0020 FF07C000 		.word	12584959
+  45              		.section	.text.SDIO_Init,"ax",%progbits
+  46              		.align	1
+  47              		.global	SDIO_Init
+  48              		.syntax unified
+  49              		.thumb
+  50              		.thumb_func
+  52              	SDIO_Init:
+  53              		@ args = 0, pretend = 0, frame = 0
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+  55              		@ link register save eliminated.
+  56 0000 10B4     		push	{r4}
+  57 0002 0A49     		ldr	r1, .L6
+  58 0004 4A68     		ldr	r2, [r1, #4]
+  59 0006 22F4FD42 		bic	r2, r2, #32384
+  60 000a 22F07F02 		bic	r2, r2, #127
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s 			page 2
+
+
+  61 000e 037D     		ldrb	r3, [r0, #20]	@ zero_extendqisi2
+  62 0010 8468     		ldr	r4, [r0, #8]
+  63 0012 2343     		orrs	r3, r3, r4
+  64 0014 4468     		ldr	r4, [r0, #4]
+  65 0016 2343     		orrs	r3, r3, r4
+  66 0018 C468     		ldr	r4, [r0, #12]
+  67 001a 2343     		orrs	r3, r3, r4
+  68 001c 0468     		ldr	r4, [r0]
+  69 001e 2343     		orrs	r3, r3, r4
+  70 0020 0069     		ldr	r0, [r0, #16]
+  71 0022 0343     		orrs	r3, r3, r0
+  72 0024 1343     		orrs	r3, r3, r2
+  73 0026 4B60     		str	r3, [r1, #4]
+  74 0028 10BC     		pop	{r4}
+  75 002a 7047     		bx	lr
+  76              	.L7:
+  77              		.align	2
+  78              	.L6:
+  79 002c 00800140 		.word	1073840128
+  81              		.section	.text.SDIO_StructInit,"ax",%progbits
+  82              		.align	1
+  83              		.global	SDIO_StructInit
+  84              		.syntax unified
+  85              		.thumb
+  86              		.thumb_func
+  88              	SDIO_StructInit:
+  89              		@ args = 0, pretend = 0, frame = 0
+  90              		@ frame_needed = 0, uses_anonymous_args = 0
+  91              		@ link register save eliminated.
+  92 0000 0023     		movs	r3, #0
+  93 0002 0375     		strb	r3, [r0, #20]
+  94 0004 0360     		str	r3, [r0]
+  95 0006 4360     		str	r3, [r0, #4]
+  96 0008 8360     		str	r3, [r0, #8]
+  97 000a C360     		str	r3, [r0, #12]
+  98 000c 0361     		str	r3, [r0, #16]
+  99 000e 7047     		bx	lr
+ 101              		.section	.text.SDIO_ClockCmd,"ax",%progbits
+ 102              		.align	1
+ 103              		.global	SDIO_ClockCmd
+ 104              		.syntax unified
+ 105              		.thumb
+ 106              		.thumb_func
+ 108              	SDIO_ClockCmd:
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111              		@ link register save eliminated.
+ 112 0000 014B     		ldr	r3, .L10
+ 113 0002 C3F8A000 		str	r0, [r3, #160]
+ 114 0006 7047     		bx	lr
+ 115              	.L11:
+ 116              		.align	2
+ 117              	.L10:
+ 118 0008 00003042 		.word	1110441984
+ 120              		.section	.text.SDIO_SetPowerState,"ax",%progbits
+ 121              		.align	1
+ 122              		.global	SDIO_SetPowerState
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s 			page 3
+
+
+ 123              		.syntax unified
+ 124              		.thumb
+ 125              		.thumb_func
+ 127              	SDIO_SetPowerState:
+ 128              		@ args = 0, pretend = 0, frame = 0
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130              		@ link register save eliminated.
+ 131 0000 014B     		ldr	r3, .L13
+ 132 0002 1860     		str	r0, [r3]
+ 133 0004 7047     		bx	lr
+ 134              	.L14:
+ 135 0006 00BF     		.align	2
+ 136              	.L13:
+ 137 0008 00800140 		.word	1073840128
+ 139              		.section	.text.SDIO_GetPowerState,"ax",%progbits
+ 140              		.align	1
+ 141              		.global	SDIO_GetPowerState
+ 142              		.syntax unified
+ 143              		.thumb
+ 144              		.thumb_func
+ 146              	SDIO_GetPowerState:
+ 147              		@ args = 0, pretend = 0, frame = 0
+ 148              		@ frame_needed = 0, uses_anonymous_args = 0
+ 149              		@ link register save eliminated.
+ 150 0000 024B     		ldr	r3, .L16
+ 151 0002 1868     		ldr	r0, [r3]
+ 152 0004 00F00300 		and	r0, r0, #3
+ 153 0008 7047     		bx	lr
+ 154              	.L17:
+ 155 000a 00BF     		.align	2
+ 156              	.L16:
+ 157 000c 00800140 		.word	1073840128
+ 159              		.section	.text.SDIO_ITConfig,"ax",%progbits
+ 160              		.align	1
+ 161              		.global	SDIO_ITConfig
+ 162              		.syntax unified
+ 163              		.thumb
+ 164              		.thumb_func
+ 166              	SDIO_ITConfig:
+ 167              		@ args = 0, pretend = 0, frame = 0
+ 168              		@ frame_needed = 0, uses_anonymous_args = 0
+ 169              		@ link register save eliminated.
+ 170 0000 21B1     		cbz	r1, .L19
+ 171 0002 054A     		ldr	r2, .L21
+ 172 0004 D36B     		ldr	r3, [r2, #60]
+ 173 0006 0343     		orrs	r3, r3, r0
+ 174 0008 D363     		str	r3, [r2, #60]
+ 175 000a 7047     		bx	lr
+ 176              	.L19:
+ 177 000c 024A     		ldr	r2, .L21
+ 178 000e D36B     		ldr	r3, [r2, #60]
+ 179 0010 23EA0003 		bic	r3, r3, r0
+ 180 0014 D363     		str	r3, [r2, #60]
+ 181 0016 7047     		bx	lr
+ 182              	.L22:
+ 183              		.align	2
+ 184              	.L21:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s 			page 4
+
+
+ 185 0018 00800140 		.word	1073840128
+ 187              		.section	.text.SDIO_DMACmd,"ax",%progbits
+ 188              		.align	1
+ 189              		.global	SDIO_DMACmd
+ 190              		.syntax unified
+ 191              		.thumb
+ 192              		.thumb_func
+ 194              	SDIO_DMACmd:
+ 195              		@ args = 0, pretend = 0, frame = 0
+ 196              		@ frame_needed = 0, uses_anonymous_args = 0
+ 197              		@ link register save eliminated.
+ 198 0000 014B     		ldr	r3, .L24
+ 199 0002 C3F88C05 		str	r0, [r3, #1420]
+ 200 0006 7047     		bx	lr
+ 201              	.L25:
+ 202              		.align	2
+ 203              	.L24:
+ 204 0008 00003042 		.word	1110441984
+ 206              		.section	.text.SDIO_SendCommand,"ax",%progbits
+ 207              		.align	1
+ 208              		.global	SDIO_SendCommand
+ 209              		.syntax unified
+ 210              		.thumb
+ 211              		.thumb_func
+ 213              	SDIO_SendCommand:
+ 214              		@ args = 0, pretend = 0, frame = 0
+ 215              		@ frame_needed = 0, uses_anonymous_args = 0
+ 216              		@ link register save eliminated.
+ 217 0000 10B4     		push	{r4}
+ 218 0002 0368     		ldr	r3, [r0]
+ 219 0004 074A     		ldr	r2, .L28
+ 220 0006 9360     		str	r3, [r2, #8]
+ 221 0008 D168     		ldr	r1, [r2, #12]
+ 222 000a 6FF30A01 		bfc	r1, #0, #11
+ 223 000e 4368     		ldr	r3, [r0, #4]
+ 224 0010 8468     		ldr	r4, [r0, #8]
+ 225 0012 2343     		orrs	r3, r3, r4
+ 226 0014 C468     		ldr	r4, [r0, #12]
+ 227 0016 2343     		orrs	r3, r3, r4
+ 228 0018 0069     		ldr	r0, [r0, #16]
+ 229 001a 0343     		orrs	r3, r3, r0
+ 230 001c 0B43     		orrs	r3, r3, r1
+ 231 001e D360     		str	r3, [r2, #12]
+ 232 0020 10BC     		pop	{r4}
+ 233 0022 7047     		bx	lr
+ 234              	.L29:
+ 235              		.align	2
+ 236              	.L28:
+ 237 0024 00800140 		.word	1073840128
+ 239              		.section	.text.SDIO_CmdStructInit,"ax",%progbits
+ 240              		.align	1
+ 241              		.global	SDIO_CmdStructInit
+ 242              		.syntax unified
+ 243              		.thumb
+ 244              		.thumb_func
+ 246              	SDIO_CmdStructInit:
+ 247              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s 			page 5
+
+
+ 248              		@ frame_needed = 0, uses_anonymous_args = 0
+ 249              		@ link register save eliminated.
+ 250 0000 0023     		movs	r3, #0
+ 251 0002 0360     		str	r3, [r0]
+ 252 0004 4360     		str	r3, [r0, #4]
+ 253 0006 8360     		str	r3, [r0, #8]
+ 254 0008 C360     		str	r3, [r0, #12]
+ 255 000a 0361     		str	r3, [r0, #16]
+ 256 000c 7047     		bx	lr
+ 258              		.section	.text.SDIO_GetCommandResponse,"ax",%progbits
+ 259              		.align	1
+ 260              		.global	SDIO_GetCommandResponse
+ 261              		.syntax unified
+ 262              		.thumb
+ 263              		.thumb_func
+ 265              	SDIO_GetCommandResponse:
+ 266              		@ args = 0, pretend = 0, frame = 0
+ 267              		@ frame_needed = 0, uses_anonymous_args = 0
+ 268              		@ link register save eliminated.
+ 269 0000 014B     		ldr	r3, .L32
+ 270 0002 1869     		ldr	r0, [r3, #16]
+ 271 0004 C0B2     		uxtb	r0, r0
+ 272 0006 7047     		bx	lr
+ 273              	.L33:
+ 274              		.align	2
+ 275              	.L32:
+ 276 0008 00800140 		.word	1073840128
+ 278              		.section	.text.SDIO_GetResponse,"ax",%progbits
+ 279              		.align	1
+ 280              		.global	SDIO_GetResponse
+ 281              		.syntax unified
+ 282              		.thumb
+ 283              		.thumb_func
+ 285              	SDIO_GetResponse:
+ 286              		@ args = 0, pretend = 0, frame = 8
+ 287              		@ frame_needed = 0, uses_anonymous_args = 0
+ 288              		@ link register save eliminated.
+ 289 0000 82B0     		sub	sp, sp, #8
+ 290 0002 0023     		movs	r3, #0
+ 291 0004 0193     		str	r3, [sp, #4]
+ 292 0006 034B     		ldr	r3, .L36
+ 293 0008 0344     		add	r3, r3, r0
+ 294 000a 0193     		str	r3, [sp, #4]
+ 295 000c 019B     		ldr	r3, [sp, #4]
+ 296 000e 1868     		ldr	r0, [r3]
+ 297 0010 02B0     		add	sp, sp, #8
+ 298              		@ sp needed
+ 299 0012 7047     		bx	lr
+ 300              	.L37:
+ 301              		.align	2
+ 302              	.L36:
+ 303 0014 14800140 		.word	1073840148
+ 305              		.section	.text.SDIO_DataConfig,"ax",%progbits
+ 306              		.align	1
+ 307              		.global	SDIO_DataConfig
+ 308              		.syntax unified
+ 309              		.thumb
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s 			page 6
+
+
+ 310              		.thumb_func
+ 312              	SDIO_DataConfig:
+ 313              		@ args = 0, pretend = 0, frame = 0
+ 314              		@ frame_needed = 0, uses_anonymous_args = 0
+ 315              		@ link register save eliminated.
+ 316 0000 10B4     		push	{r4}
+ 317 0002 0368     		ldr	r3, [r0]
+ 318 0004 084A     		ldr	r2, .L40
+ 319 0006 5362     		str	r3, [r2, #36]
+ 320 0008 4368     		ldr	r3, [r0, #4]
+ 321 000a 9362     		str	r3, [r2, #40]
+ 322 000c D16A     		ldr	r1, [r2, #44]
+ 323 000e 21F0F701 		bic	r1, r1, #247
+ 324 0012 8368     		ldr	r3, [r0, #8]
+ 325 0014 C468     		ldr	r4, [r0, #12]
+ 326 0016 2343     		orrs	r3, r3, r4
+ 327 0018 0469     		ldr	r4, [r0, #16]
+ 328 001a 2343     		orrs	r3, r3, r4
+ 329 001c 4069     		ldr	r0, [r0, #20]
+ 330 001e 0343     		orrs	r3, r3, r0
+ 331 0020 0B43     		orrs	r3, r3, r1
+ 332 0022 D362     		str	r3, [r2, #44]
+ 333 0024 10BC     		pop	{r4}
+ 334 0026 7047     		bx	lr
+ 335              	.L41:
+ 336              		.align	2
+ 337              	.L40:
+ 338 0028 00800140 		.word	1073840128
+ 340              		.section	.text.SDIO_DataStructInit,"ax",%progbits
+ 341              		.align	1
+ 342              		.global	SDIO_DataStructInit
+ 343              		.syntax unified
+ 344              		.thumb
+ 345              		.thumb_func
+ 347              	SDIO_DataStructInit:
+ 348              		@ args = 0, pretend = 0, frame = 0
+ 349              		@ frame_needed = 0, uses_anonymous_args = 0
+ 350              		@ link register save eliminated.
+ 351 0000 4FF0FF33 		mov	r3, #-1
+ 352 0004 0360     		str	r3, [r0]
+ 353 0006 0023     		movs	r3, #0
+ 354 0008 4360     		str	r3, [r0, #4]
+ 355 000a 8360     		str	r3, [r0, #8]
+ 356 000c C360     		str	r3, [r0, #12]
+ 357 000e 0361     		str	r3, [r0, #16]
+ 358 0010 4361     		str	r3, [r0, #20]
+ 359 0012 7047     		bx	lr
+ 361              		.section	.text.SDIO_GetDataCounter,"ax",%progbits
+ 362              		.align	1
+ 363              		.global	SDIO_GetDataCounter
+ 364              		.syntax unified
+ 365              		.thumb
+ 366              		.thumb_func
+ 368              	SDIO_GetDataCounter:
+ 369              		@ args = 0, pretend = 0, frame = 0
+ 370              		@ frame_needed = 0, uses_anonymous_args = 0
+ 371              		@ link register save eliminated.
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s 			page 7
+
+
+ 372 0000 014B     		ldr	r3, .L44
+ 373 0002 186B     		ldr	r0, [r3, #48]
+ 374 0004 7047     		bx	lr
+ 375              	.L45:
+ 376 0006 00BF     		.align	2
+ 377              	.L44:
+ 378 0008 00800140 		.word	1073840128
+ 380              		.section	.text.SDIO_ReadData,"ax",%progbits
+ 381              		.align	1
+ 382              		.global	SDIO_ReadData
+ 383              		.syntax unified
+ 384              		.thumb
+ 385              		.thumb_func
+ 387              	SDIO_ReadData:
+ 388              		@ args = 0, pretend = 0, frame = 0
+ 389              		@ frame_needed = 0, uses_anonymous_args = 0
+ 390              		@ link register save eliminated.
+ 391 0000 014B     		ldr	r3, .L47
+ 392 0002 D3F88000 		ldr	r0, [r3, #128]
+ 393 0006 7047     		bx	lr
+ 394              	.L48:
+ 395              		.align	2
+ 396              	.L47:
+ 397 0008 00800140 		.word	1073840128
+ 399              		.section	.text.SDIO_WriteData,"ax",%progbits
+ 400              		.align	1
+ 401              		.global	SDIO_WriteData
+ 402              		.syntax unified
+ 403              		.thumb
+ 404              		.thumb_func
+ 406              	SDIO_WriteData:
+ 407              		@ args = 0, pretend = 0, frame = 0
+ 408              		@ frame_needed = 0, uses_anonymous_args = 0
+ 409              		@ link register save eliminated.
+ 410 0000 014B     		ldr	r3, .L50
+ 411 0002 C3F88000 		str	r0, [r3, #128]
+ 412 0006 7047     		bx	lr
+ 413              	.L51:
+ 414              		.align	2
+ 415              	.L50:
+ 416 0008 00800140 		.word	1073840128
+ 418              		.section	.text.SDIO_GetFIFOCount,"ax",%progbits
+ 419              		.align	1
+ 420              		.global	SDIO_GetFIFOCount
+ 421              		.syntax unified
+ 422              		.thumb
+ 423              		.thumb_func
+ 425              	SDIO_GetFIFOCount:
+ 426              		@ args = 0, pretend = 0, frame = 0
+ 427              		@ frame_needed = 0, uses_anonymous_args = 0
+ 428              		@ link register save eliminated.
+ 429 0000 014B     		ldr	r3, .L53
+ 430 0002 986C     		ldr	r0, [r3, #72]
+ 431 0004 7047     		bx	lr
+ 432              	.L54:
+ 433 0006 00BF     		.align	2
+ 434              	.L53:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s 			page 8
+
+
+ 435 0008 00800140 		.word	1073840128
+ 437              		.section	.text.SDIO_StartSDIOReadWait,"ax",%progbits
+ 438              		.align	1
+ 439              		.global	SDIO_StartSDIOReadWait
+ 440              		.syntax unified
+ 441              		.thumb
+ 442              		.thumb_func
+ 444              	SDIO_StartSDIOReadWait:
+ 445              		@ args = 0, pretend = 0, frame = 0
+ 446              		@ frame_needed = 0, uses_anonymous_args = 0
+ 447              		@ link register save eliminated.
+ 448 0000 014B     		ldr	r3, .L56
+ 449 0002 C3F8A005 		str	r0, [r3, #1440]
+ 450 0006 7047     		bx	lr
+ 451              	.L57:
+ 452              		.align	2
+ 453              	.L56:
+ 454 0008 00003042 		.word	1110441984
+ 456              		.section	.text.SDIO_StopSDIOReadWait,"ax",%progbits
+ 457              		.align	1
+ 458              		.global	SDIO_StopSDIOReadWait
+ 459              		.syntax unified
+ 460              		.thumb
+ 461              		.thumb_func
+ 463              	SDIO_StopSDIOReadWait:
+ 464              		@ args = 0, pretend = 0, frame = 0
+ 465              		@ frame_needed = 0, uses_anonymous_args = 0
+ 466              		@ link register save eliminated.
+ 467 0000 014B     		ldr	r3, .L59
+ 468 0002 C3F8A405 		str	r0, [r3, #1444]
+ 469 0006 7047     		bx	lr
+ 470              	.L60:
+ 471              		.align	2
+ 472              	.L59:
+ 473 0008 00003042 		.word	1110441984
+ 475              		.section	.text.SDIO_SetSDIOReadWaitMode,"ax",%progbits
+ 476              		.align	1
+ 477              		.global	SDIO_SetSDIOReadWaitMode
+ 478              		.syntax unified
+ 479              		.thumb
+ 480              		.thumb_func
+ 482              	SDIO_SetSDIOReadWaitMode:
+ 483              		@ args = 0, pretend = 0, frame = 0
+ 484              		@ frame_needed = 0, uses_anonymous_args = 0
+ 485              		@ link register save eliminated.
+ 486 0000 014B     		ldr	r3, .L62
+ 487 0002 C3F8A805 		str	r0, [r3, #1448]
+ 488 0006 7047     		bx	lr
+ 489              	.L63:
+ 490              		.align	2
+ 491              	.L62:
+ 492 0008 00003042 		.word	1110441984
+ 494              		.section	.text.SDIO_SetSDIOOperation,"ax",%progbits
+ 495              		.align	1
+ 496              		.global	SDIO_SetSDIOOperation
+ 497              		.syntax unified
+ 498              		.thumb
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s 			page 9
+
+
+ 499              		.thumb_func
+ 501              	SDIO_SetSDIOOperation:
+ 502              		@ args = 0, pretend = 0, frame = 0
+ 503              		@ frame_needed = 0, uses_anonymous_args = 0
+ 504              		@ link register save eliminated.
+ 505 0000 014B     		ldr	r3, .L65
+ 506 0002 C3F8AC05 		str	r0, [r3, #1452]
+ 507 0006 7047     		bx	lr
+ 508              	.L66:
+ 509              		.align	2
+ 510              	.L65:
+ 511 0008 00003042 		.word	1110441984
+ 513              		.section	.text.SDIO_SendSDIOSuspendCmd,"ax",%progbits
+ 514              		.align	1
+ 515              		.global	SDIO_SendSDIOSuspendCmd
+ 516              		.syntax unified
+ 517              		.thumb
+ 518              		.thumb_func
+ 520              	SDIO_SendSDIOSuspendCmd:
+ 521              		@ args = 0, pretend = 0, frame = 0
+ 522              		@ frame_needed = 0, uses_anonymous_args = 0
+ 523              		@ link register save eliminated.
+ 524 0000 014B     		ldr	r3, .L68
+ 525 0002 C3F8AC01 		str	r0, [r3, #428]
+ 526 0006 7047     		bx	lr
+ 527              	.L69:
+ 528              		.align	2
+ 529              	.L68:
+ 530 0008 00003042 		.word	1110441984
+ 532              		.section	.text.SDIO_CommandCompletionCmd,"ax",%progbits
+ 533              		.align	1
+ 534              		.global	SDIO_CommandCompletionCmd
+ 535              		.syntax unified
+ 536              		.thumb
+ 537              		.thumb_func
+ 539              	SDIO_CommandCompletionCmd:
+ 540              		@ args = 0, pretend = 0, frame = 0
+ 541              		@ frame_needed = 0, uses_anonymous_args = 0
+ 542              		@ link register save eliminated.
+ 543 0000 014B     		ldr	r3, .L71
+ 544 0002 C3F8B001 		str	r0, [r3, #432]
+ 545 0006 7047     		bx	lr
+ 546              	.L72:
+ 547              		.align	2
+ 548              	.L71:
+ 549 0008 00003042 		.word	1110441984
+ 551              		.section	.text.SDIO_CEATAITCmd,"ax",%progbits
+ 552              		.align	1
+ 553              		.global	SDIO_CEATAITCmd
+ 554              		.syntax unified
+ 555              		.thumb
+ 556              		.thumb_func
+ 558              	SDIO_CEATAITCmd:
+ 559              		@ args = 0, pretend = 0, frame = 0
+ 560              		@ frame_needed = 0, uses_anonymous_args = 0
+ 561              		@ link register save eliminated.
+ 562 0000 C043     		mvns	r0, r0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s 			page 10
+
+
+ 563 0002 00F00100 		and	r0, r0, #1
+ 564 0006 024B     		ldr	r3, .L74
+ 565 0008 C3F8B401 		str	r0, [r3, #436]
+ 566 000c 7047     		bx	lr
+ 567              	.L75:
+ 568 000e 00BF     		.align	2
+ 569              	.L74:
+ 570 0010 00003042 		.word	1110441984
+ 572              		.section	.text.SDIO_SendCEATACmd,"ax",%progbits
+ 573              		.align	1
+ 574              		.global	SDIO_SendCEATACmd
+ 575              		.syntax unified
+ 576              		.thumb
+ 577              		.thumb_func
+ 579              	SDIO_SendCEATACmd:
+ 580              		@ args = 0, pretend = 0, frame = 0
+ 581              		@ frame_needed = 0, uses_anonymous_args = 0
+ 582              		@ link register save eliminated.
+ 583 0000 014B     		ldr	r3, .L77
+ 584 0002 C3F8B801 		str	r0, [r3, #440]
+ 585 0006 7047     		bx	lr
+ 586              	.L78:
+ 587              		.align	2
+ 588              	.L77:
+ 589 0008 00003042 		.word	1110441984
+ 591              		.section	.text.SDIO_GetFlagStatus,"ax",%progbits
+ 592              		.align	1
+ 593              		.global	SDIO_GetFlagStatus
+ 594              		.syntax unified
+ 595              		.thumb
+ 596              		.thumb_func
+ 598              	SDIO_GetFlagStatus:
+ 599              		@ args = 0, pretend = 0, frame = 0
+ 600              		@ frame_needed = 0, uses_anonymous_args = 0
+ 601              		@ link register save eliminated.
+ 602 0000 034B     		ldr	r3, .L82
+ 603 0002 5B6B     		ldr	r3, [r3, #52]
+ 604 0004 0342     		tst	r3, r0
+ 605 0006 01D0     		beq	.L81
+ 606 0008 0120     		movs	r0, #1
+ 607 000a 7047     		bx	lr
+ 608              	.L81:
+ 609 000c 0020     		movs	r0, #0
+ 610 000e 7047     		bx	lr
+ 611              	.L83:
+ 612              		.align	2
+ 613              	.L82:
+ 614 0010 00800140 		.word	1073840128
+ 616              		.section	.text.SDIO_ClearFlag,"ax",%progbits
+ 617              		.align	1
+ 618              		.global	SDIO_ClearFlag
+ 619              		.syntax unified
+ 620              		.thumb
+ 621              		.thumb_func
+ 623              	SDIO_ClearFlag:
+ 624              		@ args = 0, pretend = 0, frame = 0
+ 625              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s 			page 11
+
+
+ 626              		@ link register save eliminated.
+ 627 0000 014B     		ldr	r3, .L85
+ 628 0002 9863     		str	r0, [r3, #56]
+ 629 0004 7047     		bx	lr
+ 630              	.L86:
+ 631 0006 00BF     		.align	2
+ 632              	.L85:
+ 633 0008 00800140 		.word	1073840128
+ 635              		.section	.text.SDIO_GetITStatus,"ax",%progbits
+ 636              		.align	1
+ 637              		.global	SDIO_GetITStatus
+ 638              		.syntax unified
+ 639              		.thumb
+ 640              		.thumb_func
+ 642              	SDIO_GetITStatus:
+ 643              		@ args = 0, pretend = 0, frame = 0
+ 644              		@ frame_needed = 0, uses_anonymous_args = 0
+ 645              		@ link register save eliminated.
+ 646 0000 034B     		ldr	r3, .L90
+ 647 0002 5B6B     		ldr	r3, [r3, #52]
+ 648 0004 0342     		tst	r3, r0
+ 649 0006 01D0     		beq	.L89
+ 650 0008 0120     		movs	r0, #1
+ 651 000a 7047     		bx	lr
+ 652              	.L89:
+ 653 000c 0020     		movs	r0, #0
+ 654 000e 7047     		bx	lr
+ 655              	.L91:
+ 656              		.align	2
+ 657              	.L90:
+ 658 0010 00800140 		.word	1073840128
+ 660              		.section	.text.SDIO_ClearITPendingBit,"ax",%progbits
+ 661              		.align	1
+ 662              		.global	SDIO_ClearITPendingBit
+ 663              		.syntax unified
+ 664              		.thumb
+ 665              		.thumb_func
+ 667              	SDIO_ClearITPendingBit:
+ 668              		@ args = 0, pretend = 0, frame = 0
+ 669              		@ frame_needed = 0, uses_anonymous_args = 0
+ 670              		@ link register save eliminated.
+ 671 0000 014B     		ldr	r3, .L93
+ 672 0002 9863     		str	r0, [r3, #56]
+ 673 0004 7047     		bx	lr
+ 674              	.L94:
+ 675 0006 00BF     		.align	2
+ 676              	.L93:
+ 677 0008 00800140 		.word	1073840128
+ 679              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f10x_sdio.c
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:16     .text.SDIO_DeInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:22     .text.SDIO_DeInit:00000000 SDIO_DeInit
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:42     .text.SDIO_DeInit:0000001c $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:46     .text.SDIO_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:52     .text.SDIO_Init:00000000 SDIO_Init
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:79     .text.SDIO_Init:0000002c $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:82     .text.SDIO_StructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:88     .text.SDIO_StructInit:00000000 SDIO_StructInit
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:102    .text.SDIO_ClockCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:108    .text.SDIO_ClockCmd:00000000 SDIO_ClockCmd
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:118    .text.SDIO_ClockCmd:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:121    .text.SDIO_SetPowerState:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:127    .text.SDIO_SetPowerState:00000000 SDIO_SetPowerState
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:137    .text.SDIO_SetPowerState:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:140    .text.SDIO_GetPowerState:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:146    .text.SDIO_GetPowerState:00000000 SDIO_GetPowerState
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:157    .text.SDIO_GetPowerState:0000000c $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:160    .text.SDIO_ITConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:166    .text.SDIO_ITConfig:00000000 SDIO_ITConfig
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:185    .text.SDIO_ITConfig:00000018 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:188    .text.SDIO_DMACmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:194    .text.SDIO_DMACmd:00000000 SDIO_DMACmd
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:204    .text.SDIO_DMACmd:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:207    .text.SDIO_SendCommand:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:213    .text.SDIO_SendCommand:00000000 SDIO_SendCommand
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:237    .text.SDIO_SendCommand:00000024 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:240    .text.SDIO_CmdStructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:246    .text.SDIO_CmdStructInit:00000000 SDIO_CmdStructInit
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:259    .text.SDIO_GetCommandResponse:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:265    .text.SDIO_GetCommandResponse:00000000 SDIO_GetCommandResponse
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:276    .text.SDIO_GetCommandResponse:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:279    .text.SDIO_GetResponse:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:285    .text.SDIO_GetResponse:00000000 SDIO_GetResponse
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:303    .text.SDIO_GetResponse:00000014 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:306    .text.SDIO_DataConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:312    .text.SDIO_DataConfig:00000000 SDIO_DataConfig
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:338    .text.SDIO_DataConfig:00000028 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:341    .text.SDIO_DataStructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:347    .text.SDIO_DataStructInit:00000000 SDIO_DataStructInit
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:362    .text.SDIO_GetDataCounter:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:368    .text.SDIO_GetDataCounter:00000000 SDIO_GetDataCounter
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:378    .text.SDIO_GetDataCounter:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:381    .text.SDIO_ReadData:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:387    .text.SDIO_ReadData:00000000 SDIO_ReadData
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:397    .text.SDIO_ReadData:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:400    .text.SDIO_WriteData:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:406    .text.SDIO_WriteData:00000000 SDIO_WriteData
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:416    .text.SDIO_WriteData:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:419    .text.SDIO_GetFIFOCount:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:425    .text.SDIO_GetFIFOCount:00000000 SDIO_GetFIFOCount
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:435    .text.SDIO_GetFIFOCount:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:438    .text.SDIO_StartSDIOReadWait:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:444    .text.SDIO_StartSDIOReadWait:00000000 SDIO_StartSDIOReadWait
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:454    .text.SDIO_StartSDIOReadWait:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:457    .text.SDIO_StopSDIOReadWait:00000000 $t
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s 			page 13
+
+
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:463    .text.SDIO_StopSDIOReadWait:00000000 SDIO_StopSDIOReadWait
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:473    .text.SDIO_StopSDIOReadWait:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:476    .text.SDIO_SetSDIOReadWaitMode:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:482    .text.SDIO_SetSDIOReadWaitMode:00000000 SDIO_SetSDIOReadWaitMode
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:492    .text.SDIO_SetSDIOReadWaitMode:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:495    .text.SDIO_SetSDIOOperation:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:501    .text.SDIO_SetSDIOOperation:00000000 SDIO_SetSDIOOperation
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:511    .text.SDIO_SetSDIOOperation:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:514    .text.SDIO_SendSDIOSuspendCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:520    .text.SDIO_SendSDIOSuspendCmd:00000000 SDIO_SendSDIOSuspendCmd
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:530    .text.SDIO_SendSDIOSuspendCmd:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:533    .text.SDIO_CommandCompletionCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:539    .text.SDIO_CommandCompletionCmd:00000000 SDIO_CommandCompletionCmd
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:549    .text.SDIO_CommandCompletionCmd:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:552    .text.SDIO_CEATAITCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:558    .text.SDIO_CEATAITCmd:00000000 SDIO_CEATAITCmd
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:570    .text.SDIO_CEATAITCmd:00000010 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:573    .text.SDIO_SendCEATACmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:579    .text.SDIO_SendCEATACmd:00000000 SDIO_SendCEATACmd
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:589    .text.SDIO_SendCEATACmd:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:592    .text.SDIO_GetFlagStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:598    .text.SDIO_GetFlagStatus:00000000 SDIO_GetFlagStatus
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:614    .text.SDIO_GetFlagStatus:00000010 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:617    .text.SDIO_ClearFlag:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:623    .text.SDIO_ClearFlag:00000000 SDIO_ClearFlag
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:633    .text.SDIO_ClearFlag:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:636    .text.SDIO_GetITStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:642    .text.SDIO_GetITStatus:00000000 SDIO_GetITStatus
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:658    .text.SDIO_GetITStatus:00000010 $d
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:661    .text.SDIO_ClearITPendingBit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:667    .text.SDIO_ClearITPendingBit:00000000 SDIO_ClearITPendingBit
+C:\Users\UXP\AppData\Local\Temp\cc6kOPld.s:677    .text.SDIO_ClearITPendingBit:00000008 $d
+
+NO UNDEFINED SYMBOLS

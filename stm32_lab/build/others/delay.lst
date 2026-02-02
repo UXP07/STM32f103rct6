@@ -1,0 +1,159 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"delay.c"
+  14              		.text
+  15              		.section	.text.delay_init,"ax",%progbits
+  16              		.align	1
+  17              		.global	delay_init
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	delay_init:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 08B5     		push	{r3, lr}
+  26 0002 6FF00400 		mvn	r0, #4
+  27 0006 FFF7FEFF 		bl	SysTick_CLKSourceConfig
+  28 000a 084B     		ldr	r3, .L3
+  29 000c 1B68     		ldr	r3, [r3]
+  30 000e 084A     		ldr	r2, .L3+4
+  31 0010 A2FB0323 		umull	r2, r3, r2, r3
+  32 0014 C3F34753 		ubfx	r3, r3, #21, #8
+  33 0018 064A     		ldr	r2, .L3+8
+  34 001a 1370     		strb	r3, [r2]
+  35 001c C3EB4312 		rsb	r2, r3, r3, lsl #5
+  36 0020 03EB8203 		add	r3, r3, r2, lsl #2
+  37 0024 DA00     		lsls	r2, r3, #3
+  38 0026 044B     		ldr	r3, .L3+12
+  39 0028 1A80     		strh	r2, [r3]	@ movhi
+  40 002a 08BD     		pop	{r3, pc}
+  41              	.L4:
+  42              		.align	2
+  43              	.L3:
+  44 002c 00000000 		.word	SystemCoreClock
+  45 0030 83DE1B43 		.word	1125899907
+  46 0034 00000000 		.word	fac_us
+  47 0038 00000000 		.word	fac_ms
+  49              		.section	.text.delay_us,"ax",%progbits
+  50              		.align	1
+  51              		.global	delay_us
+  52              		.syntax unified
+  53              		.thumb
+  54              		.thumb_func
+  56              	delay_us:
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59              		@ link register save eliminated.
+  60 0000 0E4B     		ldr	r3, .L7
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s 			page 2
+
+
+  61 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  62 0004 03FB00F0 		mul	r0, r3, r0
+  63 0008 4FF0E023 		mov	r3, #-536813568
+  64 000c 5861     		str	r0, [r3, #20]
+  65 000e 0022     		movs	r2, #0
+  66 0010 9A61     		str	r2, [r3, #24]
+  67 0012 1A69     		ldr	r2, [r3, #16]
+  68 0014 42F00102 		orr	r2, r2, #1
+  69 0018 1A61     		str	r2, [r3, #16]
+  70              	.L6:
+  71 001a 4FF0E023 		mov	r3, #-536813568
+  72 001e 1B69     		ldr	r3, [r3, #16]
+  73 0020 03F00113 		and	r3, r3, #65537
+  74 0024 012B     		cmp	r3, #1
+  75 0026 F8D0     		beq	.L6
+  76 0028 4FF0E023 		mov	r3, #-536813568
+  77 002c 1A69     		ldr	r2, [r3, #16]
+  78 002e 22F00102 		bic	r2, r2, #1
+  79 0032 1A61     		str	r2, [r3, #16]
+  80 0034 0022     		movs	r2, #0
+  81 0036 9A61     		str	r2, [r3, #24]
+  82 0038 7047     		bx	lr
+  83              	.L8:
+  84 003a 00BF     		.align	2
+  85              	.L7:
+  86 003c 00000000 		.word	fac_us
+  88              		.section	.text.delay_ms,"ax",%progbits
+  89              		.align	1
+  90              		.global	delay_ms
+  91              		.syntax unified
+  92              		.thumb
+  93              		.thumb_func
+  95              	delay_ms:
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98              		@ link register save eliminated.
+  99 0000 0E4B     		ldr	r3, .L11
+ 100 0002 1B88     		ldrh	r3, [r3]
+ 101 0004 03FB00F0 		mul	r0, r3, r0
+ 102 0008 4FF0E023 		mov	r3, #-536813568
+ 103 000c 5861     		str	r0, [r3, #20]
+ 104 000e 0022     		movs	r2, #0
+ 105 0010 9A61     		str	r2, [r3, #24]
+ 106 0012 1A69     		ldr	r2, [r3, #16]
+ 107 0014 42F00102 		orr	r2, r2, #1
+ 108 0018 1A61     		str	r2, [r3, #16]
+ 109              	.L10:
+ 110 001a 4FF0E023 		mov	r3, #-536813568
+ 111 001e 1B69     		ldr	r3, [r3, #16]
+ 112 0020 03F00113 		and	r3, r3, #65537
+ 113 0024 012B     		cmp	r3, #1
+ 114 0026 F8D0     		beq	.L10
+ 115 0028 4FF0E023 		mov	r3, #-536813568
+ 116 002c 1A69     		ldr	r2, [r3, #16]
+ 117 002e 22F00102 		bic	r2, r2, #1
+ 118 0032 1A61     		str	r2, [r3, #16]
+ 119 0034 0022     		movs	r2, #0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s 			page 3
+
+
+ 120 0036 9A61     		str	r2, [r3, #24]
+ 121 0038 7047     		bx	lr
+ 122              	.L12:
+ 123 003a 00BF     		.align	2
+ 124              	.L11:
+ 125 003c 00000000 		.word	fac_ms
+ 127              		.section	.bss.fac_ms,"aw",%nobits
+ 128              		.align	1
+ 131              	fac_ms:
+ 132 0000 0000     		.space	2
+ 133              		.section	.bss.fac_us,"aw",%nobits
+ 136              	fac_us:
+ 137 0000 00       		.space	1
+ 138              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 delay.c
+C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:16     .text.delay_init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:22     .text.delay_init:00000000 delay_init
+C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:44     .text.delay_init:0000002c $d
+C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:136    .bss.fac_us:00000000 fac_us
+C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:131    .bss.fac_ms:00000000 fac_ms
+C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:50     .text.delay_us:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:56     .text.delay_us:00000000 delay_us
+C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:86     .text.delay_us:0000003c $d
+C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:89     .text.delay_ms:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:95     .text.delay_ms:00000000 delay_ms
+C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:125    .text.delay_ms:0000003c $d
+C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:128    .bss.fac_ms:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:137    .bss.fac_us:00000000 $d
+
+UNDEFINED SYMBOLS
+SysTick_CLKSourceConfig
+SystemCoreClock

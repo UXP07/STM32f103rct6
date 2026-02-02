@@ -1,0 +1,859 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f10x_fsmc.c"
+  14              		.text
+  15              		.section	.text.FSMC_NORSRAMDeInit,"ax",%progbits
+  16              		.align	1
+  17              		.global	FSMC_NORSRAMDeInit
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	FSMC_NORSRAMDeInit:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25              		@ link register save eliminated.
+  26 0000 0346     		mov	r3, r0
+  27 0002 88B9     		cbnz	r0, .L2
+  28 0004 4FF02042 		mov	r2, #-1610612736
+  29 0008 43F2DB01 		movw	r1, #12507
+  30 000c 42F82010 		str	r1, [r2, r0, lsl #2]
+  31              	.L3:
+  32 0010 581C     		adds	r0, r3, #1
+  33 0012 6FF07042 		mvn	r2, #-268435456
+  34 0016 4FF02041 		mov	r1, #-1610612736
+  35 001a 41F82020 		str	r2, [r1, r0, lsl #2]
+  36 001e 9B00     		lsls	r3, r3, #2
+  37 0020 0B44     		add	r3, r3, r1
+  38 0022 C3F80421 		str	r2, [r3, #260]
+  39 0026 7047     		bx	lr
+  40              	.L2:
+  41 0028 4FF02042 		mov	r2, #-1610612736
+  42 002c 43F2D201 		movw	r1, #12498
+  43 0030 42F82010 		str	r1, [r2, r0, lsl #2]
+  44 0034 ECE7     		b	.L3
+  46              		.section	.text.FSMC_NANDDeInit,"ax",%progbits
+  47              		.align	1
+  48              		.global	FSMC_NANDDeInit
+  49              		.syntax unified
+  50              		.thumb
+  51              		.thumb_func
+  53              	FSMC_NANDDeInit:
+  54              		@ args = 0, pretend = 0, frame = 0
+  55              		@ frame_needed = 0, uses_anonymous_args = 0
+  56              		@ link register save eliminated.
+  57 0000 1028     		cmp	r0, #16
+  58 0002 0ED0     		beq	.L7
+  59 0004 4FF02043 		mov	r3, #-1610612736
+  60 0008 1822     		movs	r2, #24
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 2
+
+
+  61 000a C3F88020 		str	r2, [r3, #128]
+  62 000e 4022     		movs	r2, #64
+  63 0010 C3F88420 		str	r2, [r3, #132]
+  64 0014 4FF0FC32 		mov	r2, #-50529028
+  65 0018 C3F88820 		str	r2, [r3, #136]
+  66 001c C3F88C20 		str	r2, [r3, #140]
+  67 0020 7047     		bx	lr
+  68              	.L7:
+  69 0022 4FF02043 		mov	r3, #-1610612736
+  70 0026 1822     		movs	r2, #24
+  71 0028 1A66     		str	r2, [r3, #96]
+  72 002a 4022     		movs	r2, #64
+  73 002c 5A66     		str	r2, [r3, #100]
+  74 002e 4FF0FC32 		mov	r2, #-50529028
+  75 0032 9A66     		str	r2, [r3, #104]
+  76 0034 DA66     		str	r2, [r3, #108]
+  77 0036 7047     		bx	lr
+  79              		.section	.text.FSMC_PCCARDDeInit,"ax",%progbits
+  80              		.align	1
+  81              		.global	FSMC_PCCARDDeInit
+  82              		.syntax unified
+  83              		.thumb
+  84              		.thumb_func
+  86              	FSMC_PCCARDDeInit:
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89              		@ link register save eliminated.
+  90 0000 4FF02043 		mov	r3, #-1610612736
+  91 0004 1822     		movs	r2, #24
+  92 0006 C3F8A020 		str	r2, [r3, #160]
+  93 000a 0022     		movs	r2, #0
+  94 000c C3F8A420 		str	r2, [r3, #164]
+  95 0010 4FF0FC32 		mov	r2, #-50529028
+  96 0014 C3F8A820 		str	r2, [r3, #168]
+  97 0018 C3F8AC20 		str	r2, [r3, #172]
+  98 001c C3F8B020 		str	r2, [r3, #176]
+  99 0020 7047     		bx	lr
+ 101              		.section	.text.FSMC_NORSRAMInit,"ax",%progbits
+ 102              		.align	1
+ 103              		.global	FSMC_NORSRAMInit
+ 104              		.syntax unified
+ 105              		.thumb
+ 106              		.thumb_func
+ 108              	FSMC_NORSRAMInit:
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111              		@ link register save eliminated.
+ 112 0000 4368     		ldr	r3, [r0, #4]
+ 113 0002 8268     		ldr	r2, [r0, #8]
+ 114 0004 1343     		orrs	r3, r3, r2
+ 115 0006 C268     		ldr	r2, [r0, #12]
+ 116 0008 1343     		orrs	r3, r3, r2
+ 117 000a 0269     		ldr	r2, [r0, #16]
+ 118 000c 1343     		orrs	r3, r3, r2
+ 119 000e 4269     		ldr	r2, [r0, #20]
+ 120 0010 1343     		orrs	r3, r3, r2
+ 121 0012 8269     		ldr	r2, [r0, #24]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 3
+
+
+ 122 0014 1343     		orrs	r3, r3, r2
+ 123 0016 C269     		ldr	r2, [r0, #28]
+ 124 0018 1343     		orrs	r3, r3, r2
+ 125 001a 026A     		ldr	r2, [r0, #32]
+ 126 001c 1343     		orrs	r3, r3, r2
+ 127 001e 426A     		ldr	r2, [r0, #36]
+ 128 0020 1343     		orrs	r3, r3, r2
+ 129 0022 826A     		ldr	r2, [r0, #40]
+ 130 0024 1343     		orrs	r3, r3, r2
+ 131 0026 C26A     		ldr	r2, [r0, #44]
+ 132 0028 1343     		orrs	r3, r3, r2
+ 133 002a 026B     		ldr	r2, [r0, #48]
+ 134 002c 0168     		ldr	r1, [r0]
+ 135 002e 1343     		orrs	r3, r3, r2
+ 136 0030 4FF02042 		mov	r2, #-1610612736
+ 137 0034 42F82130 		str	r3, [r2, r1, lsl #2]
+ 138 0038 8368     		ldr	r3, [r0, #8]
+ 139 003a 082B     		cmp	r3, #8
+ 140 003c 25D0     		beq	.L13
+ 141              	.L10:
+ 142 003e 426B     		ldr	r2, [r0, #52]
+ 143 0040 1368     		ldr	r3, [r2]
+ 144 0042 5168     		ldr	r1, [r2, #4]
+ 145 0044 43EA0113 		orr	r3, r3, r1, lsl #4
+ 146 0048 9168     		ldr	r1, [r2, #8]
+ 147 004a 43EA0123 		orr	r3, r3, r1, lsl #8
+ 148 004e D168     		ldr	r1, [r2, #12]
+ 149 0050 43EA0143 		orr	r3, r3, r1, lsl #16
+ 150 0054 1169     		ldr	r1, [r2, #16]
+ 151 0056 43EA0153 		orr	r3, r3, r1, lsl #20
+ 152 005a 5169     		ldr	r1, [r2, #20]
+ 153 005c 43EA0163 		orr	r3, r3, r1, lsl #24
+ 154 0060 9169     		ldr	r1, [r2, #24]
+ 155 0062 0268     		ldr	r2, [r0]
+ 156 0064 0132     		adds	r2, r2, #1
+ 157 0066 0B43     		orrs	r3, r3, r1
+ 158 0068 4FF02041 		mov	r1, #-1610612736
+ 159 006c 41F82230 		str	r3, [r1, r2, lsl #2]
+ 160 0070 C36A     		ldr	r3, [r0, #44]
+ 161 0072 B3F5804F 		cmp	r3, #16384
+ 162 0076 10D0     		beq	.L14
+ 163 0078 0368     		ldr	r3, [r0]
+ 164 007a 9B00     		lsls	r3, r3, #2
+ 165 007c 03F12043 		add	r3, r3, #-1610612736
+ 166 0080 6FF07042 		mvn	r2, #-268435456
+ 167 0084 C3F80421 		str	r2, [r3, #260]
+ 168 0088 7047     		bx	lr
+ 169              	.L13:
+ 170 008a 0168     		ldr	r1, [r0]
+ 171 008c 52F82130 		ldr	r3, [r2, r1, lsl #2]
+ 172 0090 43F04003 		orr	r3, r3, #64
+ 173 0094 42F82130 		str	r3, [r2, r1, lsl #2]
+ 174 0098 D1E7     		b	.L10
+ 175              	.L14:
+ 176 009a 826B     		ldr	r2, [r0, #56]
+ 177 009c 1368     		ldr	r3, [r2]
+ 178 009e 5168     		ldr	r1, [r2, #4]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 4
+
+
+ 179 00a0 43EA0113 		orr	r3, r3, r1, lsl #4
+ 180 00a4 9168     		ldr	r1, [r2, #8]
+ 181 00a6 43EA0123 		orr	r3, r3, r1, lsl #8
+ 182 00aa 1169     		ldr	r1, [r2, #16]
+ 183 00ac 43EA0153 		orr	r3, r3, r1, lsl #20
+ 184 00b0 5169     		ldr	r1, [r2, #20]
+ 185 00b2 43EA0163 		orr	r3, r3, r1, lsl #24
+ 186 00b6 9169     		ldr	r1, [r2, #24]
+ 187 00b8 0268     		ldr	r2, [r0]
+ 188 00ba 0B43     		orrs	r3, r3, r1
+ 189 00bc 9200     		lsls	r2, r2, #2
+ 190 00be 02F12042 		add	r2, r2, #-1610612736
+ 191 00c2 C2F80431 		str	r3, [r2, #260]
+ 192 00c6 7047     		bx	lr
+ 194              		.section	.text.FSMC_NANDInit,"ax",%progbits
+ 195              		.align	1
+ 196              		.global	FSMC_NANDInit
+ 197              		.syntax unified
+ 198              		.thumb
+ 199              		.thumb_func
+ 201              	FSMC_NANDInit:
+ 202              		@ args = 0, pretend = 0, frame = 0
+ 203              		@ frame_needed = 0, uses_anonymous_args = 0
+ 204              		@ link register save eliminated.
+ 205 0000 10B4     		push	{r4}
+ 206 0002 4368     		ldr	r3, [r0, #4]
+ 207 0004 8268     		ldr	r2, [r0, #8]
+ 208 0006 1343     		orrs	r3, r3, r2
+ 209 0008 C268     		ldr	r2, [r0, #12]
+ 210 000a 1343     		orrs	r3, r3, r2
+ 211 000c 0269     		ldr	r2, [r0, #16]
+ 212 000e 1343     		orrs	r3, r3, r2
+ 213 0010 4269     		ldr	r2, [r0, #20]
+ 214 0012 43EA4223 		orr	r3, r3, r2, lsl #9
+ 215 0016 8269     		ldr	r2, [r0, #24]
+ 216 0018 43EA4233 		orr	r3, r3, r2, lsl #13
+ 217 001c 43F00803 		orr	r3, r3, #8
+ 218 0020 C469     		ldr	r4, [r0, #28]
+ 219 0022 2268     		ldr	r2, [r4]
+ 220 0024 6168     		ldr	r1, [r4, #4]
+ 221 0026 42EA0121 		orr	r1, r2, r1, lsl #8
+ 222 002a A268     		ldr	r2, [r4, #8]
+ 223 002c 41EA0241 		orr	r1, r1, r2, lsl #16
+ 224 0030 E268     		ldr	r2, [r4, #12]
+ 225 0032 41EA0261 		orr	r1, r1, r2, lsl #24
+ 226 0036 046A     		ldr	r4, [r0, #32]
+ 227 0038 2268     		ldr	r2, [r4]
+ 228 003a D4F804C0 		ldr	ip, [r4, #4]
+ 229 003e 42EA0C22 		orr	r2, r2, ip, lsl #8
+ 230 0042 D4F808C0 		ldr	ip, [r4, #8]
+ 231 0046 42EA0C42 		orr	r2, r2, ip, lsl #16
+ 232 004a E468     		ldr	r4, [r4, #12]
+ 233 004c 42EA0462 		orr	r2, r2, r4, lsl #24
+ 234 0050 0068     		ldr	r0, [r0]
+ 235 0052 1028     		cmp	r0, #16
+ 236 0054 09D0     		beq	.L19
+ 237 0056 4FF02040 		mov	r0, #-1610612736
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 5
+
+
+ 238 005a C0F88030 		str	r3, [r0, #128]
+ 239 005e C0F88810 		str	r1, [r0, #136]
+ 240 0062 C0F88C20 		str	r2, [r0, #140]
+ 241              	.L15:
+ 242 0066 10BC     		pop	{r4}
+ 243 0068 7047     		bx	lr
+ 244              	.L19:
+ 245 006a 4FF02040 		mov	r0, #-1610612736
+ 246 006e 0366     		str	r3, [r0, #96]
+ 247 0070 8166     		str	r1, [r0, #104]
+ 248 0072 C266     		str	r2, [r0, #108]
+ 249 0074 F7E7     		b	.L15
+ 251              		.section	.text.FSMC_PCCARDInit,"ax",%progbits
+ 252              		.align	1
+ 253              		.global	FSMC_PCCARDInit
+ 254              		.syntax unified
+ 255              		.thumb
+ 256              		.thumb_func
+ 258              	FSMC_PCCARDInit:
+ 259              		@ args = 0, pretend = 0, frame = 0
+ 260              		@ frame_needed = 0, uses_anonymous_args = 0
+ 261              		@ link register save eliminated.
+ 262 0000 0368     		ldr	r3, [r0]
+ 263 0002 4268     		ldr	r2, [r0, #4]
+ 264 0004 43EA4223 		orr	r3, r3, r2, lsl #9
+ 265 0008 8268     		ldr	r2, [r0, #8]
+ 266 000a 43EA4233 		orr	r3, r3, r2, lsl #13
+ 267 000e 43F01003 		orr	r3, r3, #16
+ 268 0012 4FF02042 		mov	r2, #-1610612736
+ 269 0016 C2F8A030 		str	r3, [r2, #160]
+ 270 001a C168     		ldr	r1, [r0, #12]
+ 271 001c 0B68     		ldr	r3, [r1]
+ 272 001e D1F804C0 		ldr	ip, [r1, #4]
+ 273 0022 43EA0C23 		orr	r3, r3, ip, lsl #8
+ 274 0026 D1F808C0 		ldr	ip, [r1, #8]
+ 275 002a 43EA0C43 		orr	r3, r3, ip, lsl #16
+ 276 002e C968     		ldr	r1, [r1, #12]
+ 277 0030 43EA0163 		orr	r3, r3, r1, lsl #24
+ 278 0034 C2F8A830 		str	r3, [r2, #168]
+ 279 0038 0169     		ldr	r1, [r0, #16]
+ 280 003a 0B68     		ldr	r3, [r1]
+ 281 003c D1F804C0 		ldr	ip, [r1, #4]
+ 282 0040 43EA0C23 		orr	r3, r3, ip, lsl #8
+ 283 0044 D1F808C0 		ldr	ip, [r1, #8]
+ 284 0048 43EA0C43 		orr	r3, r3, ip, lsl #16
+ 285 004c C968     		ldr	r1, [r1, #12]
+ 286 004e 43EA0163 		orr	r3, r3, r1, lsl #24
+ 287 0052 C2F8AC30 		str	r3, [r2, #172]
+ 288 0056 4169     		ldr	r1, [r0, #20]
+ 289 0058 0B68     		ldr	r3, [r1]
+ 290 005a 4868     		ldr	r0, [r1, #4]
+ 291 005c 43EA0023 		orr	r3, r3, r0, lsl #8
+ 292 0060 8868     		ldr	r0, [r1, #8]
+ 293 0062 43EA0043 		orr	r3, r3, r0, lsl #16
+ 294 0066 C968     		ldr	r1, [r1, #12]
+ 295 0068 43EA0163 		orr	r3, r3, r1, lsl #24
+ 296 006c C2F8B030 		str	r3, [r2, #176]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 6
+
+
+ 297 0070 7047     		bx	lr
+ 299              		.section	.text.FSMC_NORSRAMStructInit,"ax",%progbits
+ 300              		.align	1
+ 301              		.global	FSMC_NORSRAMStructInit
+ 302              		.syntax unified
+ 303              		.thumb
+ 304              		.thumb_func
+ 306              	FSMC_NORSRAMStructInit:
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309              		@ link register save eliminated.
+ 310 0000 0023     		movs	r3, #0
+ 311 0002 0360     		str	r3, [r0]
+ 312 0004 0222     		movs	r2, #2
+ 313 0006 4260     		str	r2, [r0, #4]
+ 314 0008 8360     		str	r3, [r0, #8]
+ 315 000a C360     		str	r3, [r0, #12]
+ 316 000c 0361     		str	r3, [r0, #16]
+ 317 000e 4361     		str	r3, [r0, #20]
+ 318 0010 8361     		str	r3, [r0, #24]
+ 319 0012 C361     		str	r3, [r0, #28]
+ 320 0014 0362     		str	r3, [r0, #32]
+ 321 0016 4FF48052 		mov	r2, #4096
+ 322 001a 4262     		str	r2, [r0, #36]
+ 323 001c 4FF40052 		mov	r2, #8192
+ 324 0020 8262     		str	r2, [r0, #40]
+ 325 0022 C362     		str	r3, [r0, #44]
+ 326 0024 0363     		str	r3, [r0, #48]
+ 327 0026 416B     		ldr	r1, [r0, #52]
+ 328 0028 0F22     		movs	r2, #15
+ 329 002a 0A60     		str	r2, [r1]
+ 330 002c 416B     		ldr	r1, [r0, #52]
+ 331 002e 4A60     		str	r2, [r1, #4]
+ 332 0030 FF21     		movs	r1, #255
+ 333 0032 D0F834C0 		ldr	ip, [r0, #52]
+ 334 0036 CCF80810 		str	r1, [ip, #8]
+ 335 003a D0F834C0 		ldr	ip, [r0, #52]
+ 336 003e CCF80C20 		str	r2, [ip, #12]
+ 337 0042 D0F834C0 		ldr	ip, [r0, #52]
+ 338 0046 CCF81020 		str	r2, [ip, #16]
+ 339 004a D0F834C0 		ldr	ip, [r0, #52]
+ 340 004e CCF81420 		str	r2, [ip, #20]
+ 341 0052 D0F834C0 		ldr	ip, [r0, #52]
+ 342 0056 CCF81830 		str	r3, [ip, #24]
+ 343 005a D0F838C0 		ldr	ip, [r0, #56]
+ 344 005e CCF80020 		str	r2, [ip]
+ 345 0062 D0F838C0 		ldr	ip, [r0, #56]
+ 346 0066 CCF80420 		str	r2, [ip, #4]
+ 347 006a D0F838C0 		ldr	ip, [r0, #56]
+ 348 006e CCF80810 		str	r1, [ip, #8]
+ 349 0072 816B     		ldr	r1, [r0, #56]
+ 350 0074 CA60     		str	r2, [r1, #12]
+ 351 0076 816B     		ldr	r1, [r0, #56]
+ 352 0078 0A61     		str	r2, [r1, #16]
+ 353 007a 816B     		ldr	r1, [r0, #56]
+ 354 007c 4A61     		str	r2, [r1, #20]
+ 355 007e 826B     		ldr	r2, [r0, #56]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 7
+
+
+ 356 0080 9361     		str	r3, [r2, #24]
+ 357 0082 7047     		bx	lr
+ 359              		.section	.text.FSMC_NANDStructInit,"ax",%progbits
+ 360              		.align	1
+ 361              		.global	FSMC_NANDStructInit
+ 362              		.syntax unified
+ 363              		.thumb
+ 364              		.thumb_func
+ 366              	FSMC_NANDStructInit:
+ 367              		@ args = 0, pretend = 0, frame = 0
+ 368              		@ frame_needed = 0, uses_anonymous_args = 0
+ 369              		@ link register save eliminated.
+ 370 0000 1023     		movs	r3, #16
+ 371 0002 0360     		str	r3, [r0]
+ 372 0004 0023     		movs	r3, #0
+ 373 0006 4360     		str	r3, [r0, #4]
+ 374 0008 8360     		str	r3, [r0, #8]
+ 375 000a C360     		str	r3, [r0, #12]
+ 376 000c 0361     		str	r3, [r0, #16]
+ 377 000e 4361     		str	r3, [r0, #20]
+ 378 0010 8361     		str	r3, [r0, #24]
+ 379 0012 C269     		ldr	r2, [r0, #28]
+ 380 0014 FC23     		movs	r3, #252
+ 381 0016 1360     		str	r3, [r2]
+ 382 0018 C269     		ldr	r2, [r0, #28]
+ 383 001a 5360     		str	r3, [r2, #4]
+ 384 001c C269     		ldr	r2, [r0, #28]
+ 385 001e 9360     		str	r3, [r2, #8]
+ 386 0020 C269     		ldr	r2, [r0, #28]
+ 387 0022 D360     		str	r3, [r2, #12]
+ 388 0024 026A     		ldr	r2, [r0, #32]
+ 389 0026 1360     		str	r3, [r2]
+ 390 0028 026A     		ldr	r2, [r0, #32]
+ 391 002a 5360     		str	r3, [r2, #4]
+ 392 002c 026A     		ldr	r2, [r0, #32]
+ 393 002e 9360     		str	r3, [r2, #8]
+ 394 0030 026A     		ldr	r2, [r0, #32]
+ 395 0032 D360     		str	r3, [r2, #12]
+ 396 0034 7047     		bx	lr
+ 398              		.section	.text.FSMC_PCCARDStructInit,"ax",%progbits
+ 399              		.align	1
+ 400              		.global	FSMC_PCCARDStructInit
+ 401              		.syntax unified
+ 402              		.thumb
+ 403              		.thumb_func
+ 405              	FSMC_PCCARDStructInit:
+ 406              		@ args = 0, pretend = 0, frame = 0
+ 407              		@ frame_needed = 0, uses_anonymous_args = 0
+ 408              		@ link register save eliminated.
+ 409 0000 0023     		movs	r3, #0
+ 410 0002 0360     		str	r3, [r0]
+ 411 0004 4360     		str	r3, [r0, #4]
+ 412 0006 8360     		str	r3, [r0, #8]
+ 413 0008 C268     		ldr	r2, [r0, #12]
+ 414 000a FC23     		movs	r3, #252
+ 415 000c 1360     		str	r3, [r2]
+ 416 000e C268     		ldr	r2, [r0, #12]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 8
+
+
+ 417 0010 5360     		str	r3, [r2, #4]
+ 418 0012 C268     		ldr	r2, [r0, #12]
+ 419 0014 9360     		str	r3, [r2, #8]
+ 420 0016 C268     		ldr	r2, [r0, #12]
+ 421 0018 D360     		str	r3, [r2, #12]
+ 422 001a 0269     		ldr	r2, [r0, #16]
+ 423 001c 1360     		str	r3, [r2]
+ 424 001e 0269     		ldr	r2, [r0, #16]
+ 425 0020 5360     		str	r3, [r2, #4]
+ 426 0022 0269     		ldr	r2, [r0, #16]
+ 427 0024 9360     		str	r3, [r2, #8]
+ 428 0026 0269     		ldr	r2, [r0, #16]
+ 429 0028 D360     		str	r3, [r2, #12]
+ 430 002a 4269     		ldr	r2, [r0, #20]
+ 431 002c 1360     		str	r3, [r2]
+ 432 002e 4269     		ldr	r2, [r0, #20]
+ 433 0030 5360     		str	r3, [r2, #4]
+ 434 0032 4269     		ldr	r2, [r0, #20]
+ 435 0034 9360     		str	r3, [r2, #8]
+ 436 0036 4269     		ldr	r2, [r0, #20]
+ 437 0038 D360     		str	r3, [r2, #12]
+ 438 003a 7047     		bx	lr
+ 440              		.section	.text.FSMC_NORSRAMCmd,"ax",%progbits
+ 441              		.align	1
+ 442              		.global	FSMC_NORSRAMCmd
+ 443              		.syntax unified
+ 444              		.thumb
+ 445              		.thumb_func
+ 447              	FSMC_NORSRAMCmd:
+ 448              		@ args = 0, pretend = 0, frame = 0
+ 449              		@ frame_needed = 0, uses_anonymous_args = 0
+ 450              		@ link register save eliminated.
+ 451 0000 41B1     		cbz	r1, .L25
+ 452 0002 4FF02042 		mov	r2, #-1610612736
+ 453 0006 52F82030 		ldr	r3, [r2, r0, lsl #2]
+ 454 000a 43F00103 		orr	r3, r3, #1
+ 455 000e 42F82030 		str	r3, [r2, r0, lsl #2]
+ 456 0012 7047     		bx	lr
+ 457              	.L25:
+ 458 0014 4FF02042 		mov	r2, #-1610612736
+ 459 0018 52F82010 		ldr	r1, [r2, r0, lsl #2]
+ 460 001c 024B     		ldr	r3, .L27
+ 461 001e 0B40     		ands	r3, r3, r1
+ 462 0020 42F82030 		str	r3, [r2, r0, lsl #2]
+ 463 0024 7047     		bx	lr
+ 464              	.L28:
+ 465 0026 00BF     		.align	2
+ 466              	.L27:
+ 467 0028 FEFF0F00 		.word	1048574
+ 469              		.section	.text.FSMC_NANDCmd,"ax",%progbits
+ 470              		.align	1
+ 471              		.global	FSMC_NANDCmd
+ 472              		.syntax unified
+ 473              		.thumb
+ 474              		.thumb_func
+ 476              	FSMC_NANDCmd:
+ 477              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 9
+
+
+ 478              		@ frame_needed = 0, uses_anonymous_args = 0
+ 479              		@ link register save eliminated.
+ 480 0000 89B1     		cbz	r1, .L30
+ 481 0002 1028     		cmp	r0, #16
+ 482 0004 08D0     		beq	.L34
+ 483 0006 4FF02042 		mov	r2, #-1610612736
+ 484 000a D2F88030 		ldr	r3, [r2, #128]
+ 485 000e 43F00403 		orr	r3, r3, #4
+ 486 0012 C2F88030 		str	r3, [r2, #128]
+ 487 0016 7047     		bx	lr
+ 488              	.L34:
+ 489 0018 4FF02042 		mov	r2, #-1610612736
+ 490 001c 136E     		ldr	r3, [r2, #96]
+ 491 001e 43F00403 		orr	r3, r3, #4
+ 492 0022 1366     		str	r3, [r2, #96]
+ 493 0024 7047     		bx	lr
+ 494              	.L30:
+ 495 0026 1028     		cmp	r0, #16
+ 496 0028 08D0     		beq	.L35
+ 497 002a 4FF02042 		mov	r2, #-1610612736
+ 498 002e D2F88010 		ldr	r1, [r2, #128]
+ 499 0032 064B     		ldr	r3, .L36
+ 500 0034 0B40     		ands	r3, r3, r1
+ 501 0036 C2F88030 		str	r3, [r2, #128]
+ 502 003a 7047     		bx	lr
+ 503              	.L35:
+ 504 003c 4FF02042 		mov	r2, #-1610612736
+ 505 0040 116E     		ldr	r1, [r2, #96]
+ 506 0042 024B     		ldr	r3, .L36
+ 507 0044 0B40     		ands	r3, r3, r1
+ 508 0046 1366     		str	r3, [r2, #96]
+ 509 0048 7047     		bx	lr
+ 510              	.L37:
+ 511 004a 00BF     		.align	2
+ 512              	.L36:
+ 513 004c FBFF0F00 		.word	1048571
+ 515              		.section	.text.FSMC_PCCARDCmd,"ax",%progbits
+ 516              		.align	1
+ 517              		.global	FSMC_PCCARDCmd
+ 518              		.syntax unified
+ 519              		.thumb
+ 520              		.thumb_func
+ 522              	FSMC_PCCARDCmd:
+ 523              		@ args = 0, pretend = 0, frame = 0
+ 524              		@ frame_needed = 0, uses_anonymous_args = 0
+ 525              		@ link register save eliminated.
+ 526 0000 40B1     		cbz	r0, .L39
+ 527 0002 4FF02042 		mov	r2, #-1610612736
+ 528 0006 D2F8A030 		ldr	r3, [r2, #160]
+ 529 000a 43F00403 		orr	r3, r3, #4
+ 530 000e C2F8A030 		str	r3, [r2, #160]
+ 531 0012 7047     		bx	lr
+ 532              	.L39:
+ 533 0014 4FF02042 		mov	r2, #-1610612736
+ 534 0018 D2F8A010 		ldr	r1, [r2, #160]
+ 535 001c 024B     		ldr	r3, .L41
+ 536 001e 0B40     		ands	r3, r3, r1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 10
+
+
+ 537 0020 C2F8A030 		str	r3, [r2, #160]
+ 538 0024 7047     		bx	lr
+ 539              	.L42:
+ 540 0026 00BF     		.align	2
+ 541              	.L41:
+ 542 0028 FBFF0F00 		.word	1048571
+ 544              		.section	.text.FSMC_NANDECCCmd,"ax",%progbits
+ 545              		.align	1
+ 546              		.global	FSMC_NANDECCCmd
+ 547              		.syntax unified
+ 548              		.thumb
+ 549              		.thumb_func
+ 551              	FSMC_NANDECCCmd:
+ 552              		@ args = 0, pretend = 0, frame = 0
+ 553              		@ frame_needed = 0, uses_anonymous_args = 0
+ 554              		@ link register save eliminated.
+ 555 0000 89B1     		cbz	r1, .L44
+ 556 0002 1028     		cmp	r0, #16
+ 557 0004 08D0     		beq	.L48
+ 558 0006 4FF02042 		mov	r2, #-1610612736
+ 559 000a D2F88030 		ldr	r3, [r2, #128]
+ 560 000e 43F04003 		orr	r3, r3, #64
+ 561 0012 C2F88030 		str	r3, [r2, #128]
+ 562 0016 7047     		bx	lr
+ 563              	.L48:
+ 564 0018 4FF02042 		mov	r2, #-1610612736
+ 565 001c 136E     		ldr	r3, [r2, #96]
+ 566 001e 43F04003 		orr	r3, r3, #64
+ 567 0022 1366     		str	r3, [r2, #96]
+ 568 0024 7047     		bx	lr
+ 569              	.L44:
+ 570 0026 1028     		cmp	r0, #16
+ 571 0028 08D0     		beq	.L49
+ 572 002a 4FF02042 		mov	r2, #-1610612736
+ 573 002e D2F88010 		ldr	r1, [r2, #128]
+ 574 0032 064B     		ldr	r3, .L50
+ 575 0034 0B40     		ands	r3, r3, r1
+ 576 0036 C2F88030 		str	r3, [r2, #128]
+ 577 003a 7047     		bx	lr
+ 578              	.L49:
+ 579 003c 4FF02042 		mov	r2, #-1610612736
+ 580 0040 116E     		ldr	r1, [r2, #96]
+ 581 0042 024B     		ldr	r3, .L50
+ 582 0044 0B40     		ands	r3, r3, r1
+ 583 0046 1366     		str	r3, [r2, #96]
+ 584 0048 7047     		bx	lr
+ 585              	.L51:
+ 586 004a 00BF     		.align	2
+ 587              	.L50:
+ 588 004c BFFF0F00 		.word	1048511
+ 590              		.section	.text.FSMC_GetECC,"ax",%progbits
+ 591              		.align	1
+ 592              		.global	FSMC_GetECC
+ 593              		.syntax unified
+ 594              		.thumb
+ 595              		.thumb_func
+ 597              	FSMC_GetECC:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 11
+
+
+ 598              		@ args = 0, pretend = 0, frame = 0
+ 599              		@ frame_needed = 0, uses_anonymous_args = 0
+ 600              		@ link register save eliminated.
+ 601 0000 1028     		cmp	r0, #16
+ 602 0002 04D0     		beq	.L55
+ 603 0004 4FF02043 		mov	r3, #-1610612736
+ 604 0008 D3F89400 		ldr	r0, [r3, #148]
+ 605 000c 7047     		bx	lr
+ 606              	.L55:
+ 607 000e 4FF02043 		mov	r3, #-1610612736
+ 608 0012 586F     		ldr	r0, [r3, #116]
+ 609 0014 7047     		bx	lr
+ 611              		.section	.text.FSMC_ITConfig,"ax",%progbits
+ 612              		.align	1
+ 613              		.global	FSMC_ITConfig
+ 614              		.syntax unified
+ 615              		.thumb
+ 616              		.thumb_func
+ 618              	FSMC_ITConfig:
+ 619              		@ args = 0, pretend = 0, frame = 0
+ 620              		@ frame_needed = 0, uses_anonymous_args = 0
+ 621              		@ link register save eliminated.
+ 622 0000 D2B1     		cbz	r2, .L57
+ 623 0002 1028     		cmp	r0, #16
+ 624 0004 0AD0     		beq	.L63
+ 625 0006 B0F5807F 		cmp	r0, #256
+ 626 000a 0DD0     		beq	.L64
+ 627 000c 4FF02042 		mov	r2, #-1610612736
+ 628 0010 D2F8A430 		ldr	r3, [r2, #164]
+ 629 0014 0B43     		orrs	r3, r3, r1
+ 630 0016 C2F8A430 		str	r3, [r2, #164]
+ 631 001a 7047     		bx	lr
+ 632              	.L63:
+ 633 001c 4FF02042 		mov	r2, #-1610612736
+ 634 0020 536E     		ldr	r3, [r2, #100]
+ 635 0022 0B43     		orrs	r3, r3, r1
+ 636 0024 5366     		str	r3, [r2, #100]
+ 637 0026 7047     		bx	lr
+ 638              	.L64:
+ 639 0028 4FF02042 		mov	r2, #-1610612736
+ 640 002c D2F88430 		ldr	r3, [r2, #132]
+ 641 0030 0B43     		orrs	r3, r3, r1
+ 642 0032 C2F88430 		str	r3, [r2, #132]
+ 643 0036 7047     		bx	lr
+ 644              	.L57:
+ 645 0038 1028     		cmp	r0, #16
+ 646 003a 0BD0     		beq	.L65
+ 647 003c B0F5807F 		cmp	r0, #256
+ 648 0040 0FD0     		beq	.L66
+ 649 0042 4FF02042 		mov	r2, #-1610612736
+ 650 0046 D2F8A430 		ldr	r3, [r2, #164]
+ 651 004a 23EA0103 		bic	r3, r3, r1
+ 652 004e C2F8A430 		str	r3, [r2, #164]
+ 653 0052 7047     		bx	lr
+ 654              	.L65:
+ 655 0054 4FF02042 		mov	r2, #-1610612736
+ 656 0058 536E     		ldr	r3, [r2, #100]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 12
+
+
+ 657 005a 23EA0103 		bic	r3, r3, r1
+ 658 005e 5366     		str	r3, [r2, #100]
+ 659 0060 7047     		bx	lr
+ 660              	.L66:
+ 661 0062 4FF02042 		mov	r2, #-1610612736
+ 662 0066 D2F88430 		ldr	r3, [r2, #132]
+ 663 006a 23EA0103 		bic	r3, r3, r1
+ 664 006e C2F88430 		str	r3, [r2, #132]
+ 665 0072 7047     		bx	lr
+ 667              		.section	.text.FSMC_GetFlagStatus,"ax",%progbits
+ 668              		.align	1
+ 669              		.global	FSMC_GetFlagStatus
+ 670              		.syntax unified
+ 671              		.thumb
+ 672              		.thumb_func
+ 674              	FSMC_GetFlagStatus:
+ 675              		@ args = 0, pretend = 0, frame = 0
+ 676              		@ frame_needed = 0, uses_anonymous_args = 0
+ 677              		@ link register save eliminated.
+ 678 0000 1028     		cmp	r0, #16
+ 679 0002 0AD0     		beq	.L73
+ 680 0004 B0F5807F 		cmp	r0, #256
+ 681 0008 0BD0     		beq	.L74
+ 682 000a 4FF02043 		mov	r3, #-1610612736
+ 683 000e D3F8A430 		ldr	r3, [r3, #164]
+ 684              	.L69:
+ 685 0012 0B42     		tst	r3, r1
+ 686 0014 0AD0     		beq	.L72
+ 687 0016 0120     		movs	r0, #1
+ 688 0018 7047     		bx	lr
+ 689              	.L73:
+ 690 001a 4FF02043 		mov	r3, #-1610612736
+ 691 001e 5B6E     		ldr	r3, [r3, #100]
+ 692 0020 F7E7     		b	.L69
+ 693              	.L74:
+ 694 0022 4FF02043 		mov	r3, #-1610612736
+ 695 0026 D3F88430 		ldr	r3, [r3, #132]
+ 696 002a F2E7     		b	.L69
+ 697              	.L72:
+ 698 002c 0020     		movs	r0, #0
+ 699 002e 7047     		bx	lr
+ 701              		.section	.text.FSMC_ClearFlag,"ax",%progbits
+ 702              		.align	1
+ 703              		.global	FSMC_ClearFlag
+ 704              		.syntax unified
+ 705              		.thumb
+ 706              		.thumb_func
+ 708              	FSMC_ClearFlag:
+ 709              		@ args = 0, pretend = 0, frame = 0
+ 710              		@ frame_needed = 0, uses_anonymous_args = 0
+ 711              		@ link register save eliminated.
+ 712 0000 1028     		cmp	r0, #16
+ 713 0002 0BD0     		beq	.L79
+ 714 0004 B0F5807F 		cmp	r0, #256
+ 715 0008 0FD0     		beq	.L80
+ 716 000a 4FF02042 		mov	r2, #-1610612736
+ 717 000e D2F8A430 		ldr	r3, [r2, #164]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 13
+
+
+ 718 0012 23EA0103 		bic	r3, r3, r1
+ 719 0016 C2F8A430 		str	r3, [r2, #164]
+ 720 001a 7047     		bx	lr
+ 721              	.L79:
+ 722 001c 4FF02042 		mov	r2, #-1610612736
+ 723 0020 536E     		ldr	r3, [r2, #100]
+ 724 0022 23EA0103 		bic	r3, r3, r1
+ 725 0026 5366     		str	r3, [r2, #100]
+ 726 0028 7047     		bx	lr
+ 727              	.L80:
+ 728 002a 4FF02042 		mov	r2, #-1610612736
+ 729 002e D2F88430 		ldr	r3, [r2, #132]
+ 730 0032 23EA0103 		bic	r3, r3, r1
+ 731 0036 C2F88430 		str	r3, [r2, #132]
+ 732 003a 7047     		bx	lr
+ 734              		.section	.text.FSMC_GetITStatus,"ax",%progbits
+ 735              		.align	1
+ 736              		.global	FSMC_GetITStatus
+ 737              		.syntax unified
+ 738              		.thumb
+ 739              		.thumb_func
+ 741              	FSMC_GetITStatus:
+ 742              		@ args = 0, pretend = 0, frame = 0
+ 743              		@ frame_needed = 0, uses_anonymous_args = 0
+ 744              		@ link register save eliminated.
+ 745 0000 1028     		cmp	r0, #16
+ 746 0002 0DD0     		beq	.L88
+ 747 0004 B0F5807F 		cmp	r0, #256
+ 748 0008 0ED0     		beq	.L89
+ 749 000a 4FF02043 		mov	r3, #-1610612736
+ 750 000e D3F8A430 		ldr	r3, [r3, #164]
+ 751              	.L83:
+ 752 0012 03EAD102 		and	r2, r3, r1, lsr #3
+ 753 0016 0B42     		tst	r3, r1
+ 754 0018 0BD0     		beq	.L86
+ 755 001a 62B9     		cbnz	r2, .L87
+ 756 001c 0020     		movs	r0, #0
+ 757 001e 7047     		bx	lr
+ 758              	.L88:
+ 759 0020 4FF02043 		mov	r3, #-1610612736
+ 760 0024 5B6E     		ldr	r3, [r3, #100]
+ 761 0026 F4E7     		b	.L83
+ 762              	.L89:
+ 763 0028 4FF02043 		mov	r3, #-1610612736
+ 764 002c D3F88430 		ldr	r3, [r3, #132]
+ 765 0030 EFE7     		b	.L83
+ 766              	.L86:
+ 767 0032 0020     		movs	r0, #0
+ 768 0034 7047     		bx	lr
+ 769              	.L87:
+ 770 0036 0120     		movs	r0, #1
+ 771 0038 7047     		bx	lr
+ 773              		.section	.text.FSMC_ClearITPendingBit,"ax",%progbits
+ 774              		.align	1
+ 775              		.global	FSMC_ClearITPendingBit
+ 776              		.syntax unified
+ 777              		.thumb
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 14
+
+
+ 778              		.thumb_func
+ 780              	FSMC_ClearITPendingBit:
+ 781              		@ args = 0, pretend = 0, frame = 0
+ 782              		@ frame_needed = 0, uses_anonymous_args = 0
+ 783              		@ link register save eliminated.
+ 784 0000 1028     		cmp	r0, #16
+ 785 0002 0BD0     		beq	.L94
+ 786 0004 B0F5807F 		cmp	r0, #256
+ 787 0008 0FD0     		beq	.L95
+ 788 000a 4FF02042 		mov	r2, #-1610612736
+ 789 000e D2F8A430 		ldr	r3, [r2, #164]
+ 790 0012 23EAD103 		bic	r3, r3, r1, lsr #3
+ 791 0016 C2F8A430 		str	r3, [r2, #164]
+ 792 001a 7047     		bx	lr
+ 793              	.L94:
+ 794 001c 4FF02042 		mov	r2, #-1610612736
+ 795 0020 536E     		ldr	r3, [r2, #100]
+ 796 0022 23EAD103 		bic	r3, r3, r1, lsr #3
+ 797 0026 5366     		str	r3, [r2, #100]
+ 798 0028 7047     		bx	lr
+ 799              	.L95:
+ 800 002a 4FF02042 		mov	r2, #-1610612736
+ 801 002e D2F88430 		ldr	r3, [r2, #132]
+ 802 0032 23EAD103 		bic	r3, r3, r1, lsr #3
+ 803 0036 C2F88430 		str	r3, [r2, #132]
+ 804 003a 7047     		bx	lr
+ 806              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f10x_fsmc.c
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:16     .text.FSMC_NORSRAMDeInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:22     .text.FSMC_NORSRAMDeInit:00000000 FSMC_NORSRAMDeInit
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:47     .text.FSMC_NANDDeInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:53     .text.FSMC_NANDDeInit:00000000 FSMC_NANDDeInit
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:80     .text.FSMC_PCCARDDeInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:86     .text.FSMC_PCCARDDeInit:00000000 FSMC_PCCARDDeInit
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:102    .text.FSMC_NORSRAMInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:108    .text.FSMC_NORSRAMInit:00000000 FSMC_NORSRAMInit
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:195    .text.FSMC_NANDInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:201    .text.FSMC_NANDInit:00000000 FSMC_NANDInit
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:252    .text.FSMC_PCCARDInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:258    .text.FSMC_PCCARDInit:00000000 FSMC_PCCARDInit
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:300    .text.FSMC_NORSRAMStructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:306    .text.FSMC_NORSRAMStructInit:00000000 FSMC_NORSRAMStructInit
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:360    .text.FSMC_NANDStructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:366    .text.FSMC_NANDStructInit:00000000 FSMC_NANDStructInit
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:399    .text.FSMC_PCCARDStructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:405    .text.FSMC_PCCARDStructInit:00000000 FSMC_PCCARDStructInit
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:441    .text.FSMC_NORSRAMCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:447    .text.FSMC_NORSRAMCmd:00000000 FSMC_NORSRAMCmd
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:467    .text.FSMC_NORSRAMCmd:00000028 $d
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:470    .text.FSMC_NANDCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:476    .text.FSMC_NANDCmd:00000000 FSMC_NANDCmd
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:513    .text.FSMC_NANDCmd:0000004c $d
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:516    .text.FSMC_PCCARDCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:522    .text.FSMC_PCCARDCmd:00000000 FSMC_PCCARDCmd
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:542    .text.FSMC_PCCARDCmd:00000028 $d
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:545    .text.FSMC_NANDECCCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:551    .text.FSMC_NANDECCCmd:00000000 FSMC_NANDECCCmd
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:588    .text.FSMC_NANDECCCmd:0000004c $d
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:591    .text.FSMC_GetECC:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:597    .text.FSMC_GetECC:00000000 FSMC_GetECC
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:612    .text.FSMC_ITConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:618    .text.FSMC_ITConfig:00000000 FSMC_ITConfig
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:668    .text.FSMC_GetFlagStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:674    .text.FSMC_GetFlagStatus:00000000 FSMC_GetFlagStatus
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:702    .text.FSMC_ClearFlag:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:708    .text.FSMC_ClearFlag:00000000 FSMC_ClearFlag
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:735    .text.FSMC_GetITStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:741    .text.FSMC_GetITStatus:00000000 FSMC_GetITStatus
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:774    .text.FSMC_ClearITPendingBit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccYTuGD9.s:780    .text.FSMC_ClearITPendingBit:00000000 FSMC_ClearITPendingBit
+
+NO UNDEFINED SYMBOLS

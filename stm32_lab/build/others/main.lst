@@ -1,0 +1,49 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccj4z5SF.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"main.c"
+  14              		.text
+  15              		.section	.text.main,"ax",%progbits
+  16              		.align	1
+  17              		.global	main
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	main:
+  23              		@ Volatile: function does not return.
+  24              		@ args = 0, pretend = 0, frame = 0
+  25              		@ frame_needed = 0, uses_anonymous_args = 0
+  26 0000 08B5     		push	{r3, lr}
+  27 0002 FFF7FEFF 		bl	delay_init
+  28 0006 4FF49670 		mov	r0, #300
+  29 000a FFF7FEFF 		bl	delay_ms
+  30 000e FFF7FEFF 		bl	Uart_Init
+  31 0012 FFF7FEFF 		bl	LedInit
+  32              	.L2:
+  33 0016 FEE7     		b	.L2
+  35              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccj4z5SF.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\UXP\AppData\Local\Temp\ccj4z5SF.s:16     .text.main:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccj4z5SF.s:22     .text.main:00000000 main
+
+UNDEFINED SYMBOLS
+delay_init
+delay_ms
+Uart_Init
+LedInit

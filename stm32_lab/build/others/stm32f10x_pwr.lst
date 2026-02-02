@@ -1,0 +1,267 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f10x_pwr.c"
+  14              		.text
+  15              		.section	.text.PWR_DeInit,"ax",%progbits
+  16              		.align	1
+  17              		.global	PWR_DeInit
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	PWR_DeInit:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 08B5     		push	{r3, lr}
+  26 0002 0121     		movs	r1, #1
+  27 0004 4FF08050 		mov	r0, #268435456
+  28 0008 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  29 000c 0021     		movs	r1, #0
+  30 000e 4FF08050 		mov	r0, #268435456
+  31 0012 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
+  32 0016 08BD     		pop	{r3, pc}
+  34              		.section	.text.PWR_BackupAccessCmd,"ax",%progbits
+  35              		.align	1
+  36              		.global	PWR_BackupAccessCmd
+  37              		.syntax unified
+  38              		.thumb
+  39              		.thumb_func
+  41              	PWR_BackupAccessCmd:
+  42              		@ args = 0, pretend = 0, frame = 0
+  43              		@ frame_needed = 0, uses_anonymous_args = 0
+  44              		@ link register save eliminated.
+  45 0000 014B     		ldr	r3, .L4
+  46 0002 1862     		str	r0, [r3, #32]
+  47 0004 7047     		bx	lr
+  48              	.L5:
+  49 0006 00BF     		.align	2
+  50              	.L4:
+  51 0008 00000E42 		.word	1108213760
+  53              		.section	.text.PWR_PVDCmd,"ax",%progbits
+  54              		.align	1
+  55              		.global	PWR_PVDCmd
+  56              		.syntax unified
+  57              		.thumb
+  58              		.thumb_func
+  60              	PWR_PVDCmd:
+  61              		@ args = 0, pretend = 0, frame = 0
+  62              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 2
+
+
+  63              		@ link register save eliminated.
+  64 0000 014B     		ldr	r3, .L7
+  65 0002 1861     		str	r0, [r3, #16]
+  66 0004 7047     		bx	lr
+  67              	.L8:
+  68 0006 00BF     		.align	2
+  69              	.L7:
+  70 0008 00000E42 		.word	1108213760
+  72              		.section	.text.PWR_PVDLevelConfig,"ax",%progbits
+  73              		.align	1
+  74              		.global	PWR_PVDLevelConfig
+  75              		.syntax unified
+  76              		.thumb
+  77              		.thumb_func
+  79              	PWR_PVDLevelConfig:
+  80              		@ args = 0, pretend = 0, frame = 0
+  81              		@ frame_needed = 0, uses_anonymous_args = 0
+  82              		@ link register save eliminated.
+  83 0000 034A     		ldr	r2, .L10
+  84 0002 1368     		ldr	r3, [r2]
+  85 0004 23F0E003 		bic	r3, r3, #224
+  86 0008 0343     		orrs	r3, r3, r0
+  87 000a 1360     		str	r3, [r2]
+  88 000c 7047     		bx	lr
+  89              	.L11:
+  90 000e 00BF     		.align	2
+  91              	.L10:
+  92 0010 00700040 		.word	1073770496
+  94              		.section	.text.PWR_WakeUpPinCmd,"ax",%progbits
+  95              		.align	1
+  96              		.global	PWR_WakeUpPinCmd
+  97              		.syntax unified
+  98              		.thumb
+  99              		.thumb_func
+ 101              	PWR_WakeUpPinCmd:
+ 102              		@ args = 0, pretend = 0, frame = 0
+ 103              		@ frame_needed = 0, uses_anonymous_args = 0
+ 104              		@ link register save eliminated.
+ 105 0000 014B     		ldr	r3, .L13
+ 106 0002 C3F8A000 		str	r0, [r3, #160]
+ 107 0006 7047     		bx	lr
+ 108              	.L14:
+ 109              		.align	2
+ 110              	.L13:
+ 111 0008 00000E42 		.word	1108213760
+ 113              		.section	.text.PWR_EnterSTOPMode,"ax",%progbits
+ 114              		.align	1
+ 115              		.global	PWR_EnterSTOPMode
+ 116              		.syntax unified
+ 117              		.thumb
+ 118              		.thumb_func
+ 120              	PWR_EnterSTOPMode:
+ 121              		@ args = 0, pretend = 0, frame = 0
+ 122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 123              		@ link register save eliminated.
+ 124 0000 0A4A     		ldr	r2, .L19
+ 125 0002 1368     		ldr	r3, [r2]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 3
+
+
+ 126 0004 23F00303 		bic	r3, r3, #3
+ 127 0008 0343     		orrs	r3, r3, r0
+ 128 000a 1360     		str	r3, [r2]
+ 129 000c 084A     		ldr	r2, .L19+4
+ 130 000e 1369     		ldr	r3, [r2, #16]
+ 131 0010 43F00403 		orr	r3, r3, #4
+ 132 0014 1361     		str	r3, [r2, #16]
+ 133 0016 0129     		cmp	r1, #1
+ 134 0018 06D0     		beq	.L18
+ 135              		.syntax unified
+ 136              	@ 1212 "..\Core/core_cm3.h" 1
+ 137 001a 20BF     		wfe
+ 138              	@ 0 "" 2
+ 139              		.thumb
+ 140              		.syntax unified
+ 141              	.L17:
+ 142 001c 044A     		ldr	r2, .L19+4
+ 143 001e 1369     		ldr	r3, [r2, #16]
+ 144 0020 23F00403 		bic	r3, r3, #4
+ 145 0024 1361     		str	r3, [r2, #16]
+ 146 0026 7047     		bx	lr
+ 147              	.L18:
+ 148              		.syntax unified
+ 149              	@ 1211 "..\Core/core_cm3.h" 1
+ 150 0028 30BF     		wfi
+ 151              	@ 0 "" 2
+ 152              		.thumb
+ 153              		.syntax unified
+ 154 002a F7E7     		b	.L17
+ 155              	.L20:
+ 156              		.align	2
+ 157              	.L19:
+ 158 002c 00700040 		.word	1073770496
+ 159 0030 00ED00E0 		.word	-536810240
+ 161              		.section	.text.PWR_EnterSTANDBYMode,"ax",%progbits
+ 162              		.align	1
+ 163              		.global	PWR_EnterSTANDBYMode
+ 164              		.syntax unified
+ 165              		.thumb
+ 166              		.thumb_func
+ 168              	PWR_EnterSTANDBYMode:
+ 169              		@ args = 0, pretend = 0, frame = 0
+ 170              		@ frame_needed = 0, uses_anonymous_args = 0
+ 171              		@ link register save eliminated.
+ 172 0000 054A     		ldr	r2, .L22
+ 173 0002 1368     		ldr	r3, [r2]
+ 174 0004 43F00203 		orr	r3, r3, #2
+ 175 0008 1360     		str	r3, [r2]
+ 176 000a 044A     		ldr	r2, .L22+4
+ 177 000c 1369     		ldr	r3, [r2, #16]
+ 178 000e 43F00403 		orr	r3, r3, #4
+ 179 0012 1361     		str	r3, [r2, #16]
+ 180              		.syntax unified
+ 181              	@ 1211 "..\Core/core_cm3.h" 1
+ 182 0014 30BF     		wfi
+ 183              	@ 0 "" 2
+ 184              		.thumb
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 4
+
+
+ 185              		.syntax unified
+ 186 0016 7047     		bx	lr
+ 187              	.L23:
+ 188              		.align	2
+ 189              	.L22:
+ 190 0018 00700040 		.word	1073770496
+ 191 001c 00ED00E0 		.word	-536810240
+ 193              		.section	.text.PWR_GetFlagStatus,"ax",%progbits
+ 194              		.align	1
+ 195              		.global	PWR_GetFlagStatus
+ 196              		.syntax unified
+ 197              		.thumb
+ 198              		.thumb_func
+ 200              	PWR_GetFlagStatus:
+ 201              		@ args = 0, pretend = 0, frame = 0
+ 202              		@ frame_needed = 0, uses_anonymous_args = 0
+ 203              		@ link register save eliminated.
+ 204 0000 034B     		ldr	r3, .L27
+ 205 0002 5B68     		ldr	r3, [r3, #4]
+ 206 0004 0342     		tst	r3, r0
+ 207 0006 01D0     		beq	.L26
+ 208 0008 0120     		movs	r0, #1
+ 209 000a 7047     		bx	lr
+ 210              	.L26:
+ 211 000c 0020     		movs	r0, #0
+ 212 000e 7047     		bx	lr
+ 213              	.L28:
+ 214              		.align	2
+ 215              	.L27:
+ 216 0010 00700040 		.word	1073770496
+ 218              		.section	.text.PWR_ClearFlag,"ax",%progbits
+ 219              		.align	1
+ 220              		.global	PWR_ClearFlag
+ 221              		.syntax unified
+ 222              		.thumb
+ 223              		.thumb_func
+ 225              	PWR_ClearFlag:
+ 226              		@ args = 0, pretend = 0, frame = 0
+ 227              		@ frame_needed = 0, uses_anonymous_args = 0
+ 228              		@ link register save eliminated.
+ 229 0000 024A     		ldr	r2, .L30
+ 230 0002 1368     		ldr	r3, [r2]
+ 231 0004 43EA8003 		orr	r3, r3, r0, lsl #2
+ 232 0008 1360     		str	r3, [r2]
+ 233 000a 7047     		bx	lr
+ 234              	.L31:
+ 235              		.align	2
+ 236              	.L30:
+ 237 000c 00700040 		.word	1073770496
+ 239              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f10x_pwr.c
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:16     .text.PWR_DeInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:22     .text.PWR_DeInit:00000000 PWR_DeInit
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:35     .text.PWR_BackupAccessCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:41     .text.PWR_BackupAccessCmd:00000000 PWR_BackupAccessCmd
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:51     .text.PWR_BackupAccessCmd:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:54     .text.PWR_PVDCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:60     .text.PWR_PVDCmd:00000000 PWR_PVDCmd
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:70     .text.PWR_PVDCmd:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:73     .text.PWR_PVDLevelConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:79     .text.PWR_PVDLevelConfig:00000000 PWR_PVDLevelConfig
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:92     .text.PWR_PVDLevelConfig:00000010 $d
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:95     .text.PWR_WakeUpPinCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:101    .text.PWR_WakeUpPinCmd:00000000 PWR_WakeUpPinCmd
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:111    .text.PWR_WakeUpPinCmd:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:114    .text.PWR_EnterSTOPMode:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:120    .text.PWR_EnterSTOPMode:00000000 PWR_EnterSTOPMode
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:158    .text.PWR_EnterSTOPMode:0000002c $d
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:162    .text.PWR_EnterSTANDBYMode:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:168    .text.PWR_EnterSTANDBYMode:00000000 PWR_EnterSTANDBYMode
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:190    .text.PWR_EnterSTANDBYMode:00000018 $d
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:194    .text.PWR_GetFlagStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:200    .text.PWR_GetFlagStatus:00000000 PWR_GetFlagStatus
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:216    .text.PWR_GetFlagStatus:00000010 $d
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:219    .text.PWR_ClearFlag:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:225    .text.PWR_ClearFlag:00000000 PWR_ClearFlag
+C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:237    .text.PWR_ClearFlag:0000000c $d
+
+UNDEFINED SYMBOLS
+RCC_APB1PeriphResetCmd

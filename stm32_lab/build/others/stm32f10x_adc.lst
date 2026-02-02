@@ -1,0 +1,939 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f10x_adc.c"
+  14              		.text
+  15              		.section	.text.ADC_DeInit,"ax",%progbits
+  16              		.align	1
+  17              		.global	ADC_DeInit
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	ADC_DeInit:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 08B5     		push	{r3, lr}
+  26 0002 154B     		ldr	r3, .L9
+  27 0004 9842     		cmp	r0, r3
+  28 0006 06D0     		beq	.L6
+  29 0008 144B     		ldr	r3, .L9+4
+  30 000a 9842     		cmp	r0, r3
+  31 000c 0ED0     		beq	.L7
+  32 000e 144B     		ldr	r3, .L9+8
+  33 0010 9842     		cmp	r0, r3
+  34 0012 16D0     		beq	.L8
+  35              	.L1:
+  36 0014 08BD     		pop	{r3, pc}
+  37              	.L6:
+  38 0016 0121     		movs	r1, #1
+  39 0018 4FF40070 		mov	r0, #512
+  40 001c FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  41 0020 0021     		movs	r1, #0
+  42 0022 4FF40070 		mov	r0, #512
+  43 0026 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  44 002a F3E7     		b	.L1
+  45              	.L7:
+  46 002c 0121     		movs	r1, #1
+  47 002e 4FF48060 		mov	r0, #1024
+  48 0032 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  49 0036 0021     		movs	r1, #0
+  50 0038 4FF48060 		mov	r0, #1024
+  51 003c FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  52 0040 E8E7     		b	.L1
+  53              	.L8:
+  54 0042 0121     		movs	r1, #1
+  55 0044 4FF40040 		mov	r0, #32768
+  56 0048 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  57 004c 0021     		movs	r1, #0
+  58 004e 4FF40040 		mov	r0, #32768
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 2
+
+
+  59 0052 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
+  60 0056 DDE7     		b	.L1
+  61              	.L10:
+  62              		.align	2
+  63              	.L9:
+  64 0058 00240140 		.word	1073816576
+  65 005c 00280140 		.word	1073817600
+  66 0060 003C0140 		.word	1073822720
+  68              		.section	.text.ADC_Init,"ax",%progbits
+  69              		.align	1
+  70              		.global	ADC_Init
+  71              		.syntax unified
+  72              		.thumb
+  73              		.thumb_func
+  75              	ADC_Init:
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78              		@ link register save eliminated.
+  79 0000 10B4     		push	{r4}
+  80 0002 4268     		ldr	r2, [r0, #4]
+  81 0004 22F47022 		bic	r2, r2, #983040
+  82 0008 22F48072 		bic	r2, r2, #256
+  83 000c 0B68     		ldr	r3, [r1]
+  84 000e 91F804C0 		ldrb	ip, [r1, #4]	@ zero_extendqisi2
+  85 0012 43EA0C23 		orr	r3, r3, ip, lsl #8
+  86 0016 1343     		orrs	r3, r3, r2
+  87 0018 4360     		str	r3, [r0, #4]
+  88 001a 8368     		ldr	r3, [r0, #8]
+  89 001c 0A4A     		ldr	r2, .L13
+  90 001e 1A40     		ands	r2, r2, r3
+  91 0020 CB68     		ldr	r3, [r1, #12]
+  92 0022 8C68     		ldr	r4, [r1, #8]
+  93 0024 2343     		orrs	r3, r3, r4
+  94 0026 91F805C0 		ldrb	ip, [r1, #5]	@ zero_extendqisi2
+  95 002a 43EA4C03 		orr	r3, r3, ip, lsl #1
+  96 002e 1343     		orrs	r3, r3, r2
+  97 0030 8360     		str	r3, [r0, #8]
+  98 0032 C36A     		ldr	r3, [r0, #44]
+  99 0034 23F47003 		bic	r3, r3, #15728640
+ 100 0038 0A7C     		ldrb	r2, [r1, #16]	@ zero_extendqisi2
+ 101 003a 013A     		subs	r2, r2, #1
+ 102 003c D2B2     		uxtb	r2, r2
+ 103 003e 43EA0253 		orr	r3, r3, r2, lsl #20
+ 104 0042 C362     		str	r3, [r0, #44]
+ 105 0044 10BC     		pop	{r4}
+ 106 0046 7047     		bx	lr
+ 107              	.L14:
+ 108              		.align	2
+ 109              	.L13:
+ 110 0048 FDF7F1FF 		.word	-919555
+ 112              		.section	.text.ADC_StructInit,"ax",%progbits
+ 113              		.align	1
+ 114              		.global	ADC_StructInit
+ 115              		.syntax unified
+ 116              		.thumb
+ 117              		.thumb_func
+ 119              	ADC_StructInit:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 3
+
+
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122              		@ link register save eliminated.
+ 123 0000 0023     		movs	r3, #0
+ 124 0002 0360     		str	r3, [r0]
+ 125 0004 0371     		strb	r3, [r0, #4]
+ 126 0006 4371     		strb	r3, [r0, #5]
+ 127 0008 8360     		str	r3, [r0, #8]
+ 128 000a C360     		str	r3, [r0, #12]
+ 129 000c 0123     		movs	r3, #1
+ 130 000e 0374     		strb	r3, [r0, #16]
+ 131 0010 7047     		bx	lr
+ 133              		.section	.text.ADC_Cmd,"ax",%progbits
+ 134              		.align	1
+ 135              		.global	ADC_Cmd
+ 136              		.syntax unified
+ 137              		.thumb
+ 138              		.thumb_func
+ 140              	ADC_Cmd:
+ 141              		@ args = 0, pretend = 0, frame = 0
+ 142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 143              		@ link register save eliminated.
+ 144 0000 21B1     		cbz	r1, .L17
+ 145 0002 8368     		ldr	r3, [r0, #8]
+ 146 0004 43F00103 		orr	r3, r3, #1
+ 147 0008 8360     		str	r3, [r0, #8]
+ 148 000a 7047     		bx	lr
+ 149              	.L17:
+ 150 000c 8368     		ldr	r3, [r0, #8]
+ 151 000e 23F00103 		bic	r3, r3, #1
+ 152 0012 8360     		str	r3, [r0, #8]
+ 153 0014 7047     		bx	lr
+ 155              		.section	.text.ADC_DMACmd,"ax",%progbits
+ 156              		.align	1
+ 157              		.global	ADC_DMACmd
+ 158              		.syntax unified
+ 159              		.thumb
+ 160              		.thumb_func
+ 162              	ADC_DMACmd:
+ 163              		@ args = 0, pretend = 0, frame = 0
+ 164              		@ frame_needed = 0, uses_anonymous_args = 0
+ 165              		@ link register save eliminated.
+ 166 0000 21B1     		cbz	r1, .L20
+ 167 0002 8368     		ldr	r3, [r0, #8]
+ 168 0004 43F48073 		orr	r3, r3, #256
+ 169 0008 8360     		str	r3, [r0, #8]
+ 170 000a 7047     		bx	lr
+ 171              	.L20:
+ 172 000c 8368     		ldr	r3, [r0, #8]
+ 173 000e 23F48073 		bic	r3, r3, #256
+ 174 0012 8360     		str	r3, [r0, #8]
+ 175 0014 7047     		bx	lr
+ 177              		.section	.text.ADC_ITConfig,"ax",%progbits
+ 178              		.align	1
+ 179              		.global	ADC_ITConfig
+ 180              		.syntax unified
+ 181              		.thumb
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 4
+
+
+ 182              		.thumb_func
+ 184              	ADC_ITConfig:
+ 185              		@ args = 0, pretend = 0, frame = 0
+ 186              		@ frame_needed = 0, uses_anonymous_args = 0
+ 187              		@ link register save eliminated.
+ 188 0000 C9B2     		uxtb	r1, r1
+ 189 0002 1AB1     		cbz	r2, .L23
+ 190 0004 4368     		ldr	r3, [r0, #4]
+ 191 0006 1943     		orrs	r1, r1, r3
+ 192 0008 4160     		str	r1, [r0, #4]
+ 193 000a 7047     		bx	lr
+ 194              	.L23:
+ 195 000c 4368     		ldr	r3, [r0, #4]
+ 196 000e 23EA0103 		bic	r3, r3, r1
+ 197 0012 4360     		str	r3, [r0, #4]
+ 198 0014 7047     		bx	lr
+ 200              		.section	.text.ADC_ResetCalibration,"ax",%progbits
+ 201              		.align	1
+ 202              		.global	ADC_ResetCalibration
+ 203              		.syntax unified
+ 204              		.thumb
+ 205              		.thumb_func
+ 207              	ADC_ResetCalibration:
+ 208              		@ args = 0, pretend = 0, frame = 0
+ 209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 210              		@ link register save eliminated.
+ 211 0000 8368     		ldr	r3, [r0, #8]
+ 212 0002 43F00803 		orr	r3, r3, #8
+ 213 0006 8360     		str	r3, [r0, #8]
+ 214 0008 7047     		bx	lr
+ 216              		.section	.text.ADC_GetResetCalibrationStatus,"ax",%progbits
+ 217              		.align	1
+ 218              		.global	ADC_GetResetCalibrationStatus
+ 219              		.syntax unified
+ 220              		.thumb
+ 221              		.thumb_func
+ 223              	ADC_GetResetCalibrationStatus:
+ 224              		@ args = 0, pretend = 0, frame = 0
+ 225              		@ frame_needed = 0, uses_anonymous_args = 0
+ 226              		@ link register save eliminated.
+ 227 0000 8368     		ldr	r3, [r0, #8]
+ 228 0002 13F0080F 		tst	r3, #8
+ 229 0006 01D0     		beq	.L28
+ 230 0008 0120     		movs	r0, #1
+ 231 000a 7047     		bx	lr
+ 232              	.L28:
+ 233 000c 0020     		movs	r0, #0
+ 234 000e 7047     		bx	lr
+ 236              		.section	.text.ADC_StartCalibration,"ax",%progbits
+ 237              		.align	1
+ 238              		.global	ADC_StartCalibration
+ 239              		.syntax unified
+ 240              		.thumb
+ 241              		.thumb_func
+ 243              	ADC_StartCalibration:
+ 244              		@ args = 0, pretend = 0, frame = 0
+ 245              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 5
+
+
+ 246              		@ link register save eliminated.
+ 247 0000 8368     		ldr	r3, [r0, #8]
+ 248 0002 43F00403 		orr	r3, r3, #4
+ 249 0006 8360     		str	r3, [r0, #8]
+ 250 0008 7047     		bx	lr
+ 252              		.section	.text.ADC_GetCalibrationStatus,"ax",%progbits
+ 253              		.align	1
+ 254              		.global	ADC_GetCalibrationStatus
+ 255              		.syntax unified
+ 256              		.thumb
+ 257              		.thumb_func
+ 259              	ADC_GetCalibrationStatus:
+ 260              		@ args = 0, pretend = 0, frame = 0
+ 261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 262              		@ link register save eliminated.
+ 263 0000 8368     		ldr	r3, [r0, #8]
+ 264 0002 13F0040F 		tst	r3, #4
+ 265 0006 01D0     		beq	.L32
+ 266 0008 0120     		movs	r0, #1
+ 267 000a 7047     		bx	lr
+ 268              	.L32:
+ 269 000c 0020     		movs	r0, #0
+ 270 000e 7047     		bx	lr
+ 272              		.section	.text.ADC_SoftwareStartConvCmd,"ax",%progbits
+ 273              		.align	1
+ 274              		.global	ADC_SoftwareStartConvCmd
+ 275              		.syntax unified
+ 276              		.thumb
+ 277              		.thumb_func
+ 279              	ADC_SoftwareStartConvCmd:
+ 280              		@ args = 0, pretend = 0, frame = 0
+ 281              		@ frame_needed = 0, uses_anonymous_args = 0
+ 282              		@ link register save eliminated.
+ 283 0000 21B1     		cbz	r1, .L34
+ 284 0002 8368     		ldr	r3, [r0, #8]
+ 285 0004 43F4A003 		orr	r3, r3, #5242880
+ 286 0008 8360     		str	r3, [r0, #8]
+ 287 000a 7047     		bx	lr
+ 288              	.L34:
+ 289 000c 8368     		ldr	r3, [r0, #8]
+ 290 000e 23F4A003 		bic	r3, r3, #5242880
+ 291 0012 8360     		str	r3, [r0, #8]
+ 292 0014 7047     		bx	lr
+ 294              		.section	.text.ADC_GetSoftwareStartConvStatus,"ax",%progbits
+ 295              		.align	1
+ 296              		.global	ADC_GetSoftwareStartConvStatus
+ 297              		.syntax unified
+ 298              		.thumb
+ 299              		.thumb_func
+ 301              	ADC_GetSoftwareStartConvStatus:
+ 302              		@ args = 0, pretend = 0, frame = 0
+ 303              		@ frame_needed = 0, uses_anonymous_args = 0
+ 304              		@ link register save eliminated.
+ 305 0000 8368     		ldr	r3, [r0, #8]
+ 306 0002 13F4800F 		tst	r3, #4194304
+ 307 0006 01D0     		beq	.L38
+ 308 0008 0120     		movs	r0, #1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 6
+
+
+ 309 000a 7047     		bx	lr
+ 310              	.L38:
+ 311 000c 0020     		movs	r0, #0
+ 312 000e 7047     		bx	lr
+ 314              		.section	.text.ADC_DiscModeChannelCountConfig,"ax",%progbits
+ 315              		.align	1
+ 316              		.global	ADC_DiscModeChannelCountConfig
+ 317              		.syntax unified
+ 318              		.thumb
+ 319              		.thumb_func
+ 321              	ADC_DiscModeChannelCountConfig:
+ 322              		@ args = 0, pretend = 0, frame = 0
+ 323              		@ frame_needed = 0, uses_anonymous_args = 0
+ 324              		@ link register save eliminated.
+ 325 0000 4368     		ldr	r3, [r0, #4]
+ 326 0002 23F46043 		bic	r3, r3, #57344
+ 327 0006 0139     		subs	r1, r1, #1
+ 328 0008 43EA4133 		orr	r3, r3, r1, lsl #13
+ 329 000c 4360     		str	r3, [r0, #4]
+ 330 000e 7047     		bx	lr
+ 332              		.section	.text.ADC_DiscModeCmd,"ax",%progbits
+ 333              		.align	1
+ 334              		.global	ADC_DiscModeCmd
+ 335              		.syntax unified
+ 336              		.thumb
+ 337              		.thumb_func
+ 339              	ADC_DiscModeCmd:
+ 340              		@ args = 0, pretend = 0, frame = 0
+ 341              		@ frame_needed = 0, uses_anonymous_args = 0
+ 342              		@ link register save eliminated.
+ 343 0000 21B1     		cbz	r1, .L41
+ 344 0002 4368     		ldr	r3, [r0, #4]
+ 345 0004 43F40063 		orr	r3, r3, #2048
+ 346 0008 4360     		str	r3, [r0, #4]
+ 347 000a 7047     		bx	lr
+ 348              	.L41:
+ 349 000c 4368     		ldr	r3, [r0, #4]
+ 350 000e 23F40063 		bic	r3, r3, #2048
+ 351 0012 4360     		str	r3, [r0, #4]
+ 352 0014 7047     		bx	lr
+ 354              		.section	.text.ADC_RegularChannelConfig,"ax",%progbits
+ 355              		.align	1
+ 356              		.global	ADC_RegularChannelConfig
+ 357              		.syntax unified
+ 358              		.thumb
+ 359              		.thumb_func
+ 361              	ADC_RegularChannelConfig:
+ 362              		@ args = 0, pretend = 0, frame = 0
+ 363              		@ frame_needed = 0, uses_anonymous_args = 0
+ 364 0000 10B5     		push	{r4, lr}
+ 365 0002 0929     		cmp	r1, #9
+ 366 0004 1ED9     		bls	.L44
+ 367 0006 C468     		ldr	r4, [r0, #12]
+ 368 0008 A1F10A0C 		sub	ip, r1, #10
+ 369 000c 0CEB4C0C 		add	ip, ip, ip, lsl #1
+ 370 0010 4FF0070E 		mov	lr, #7
+ 371 0014 0EFA0CFE 		lsl	lr, lr, ip
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 7
+
+
+ 372 0018 24EA0E04 		bic	r4, r4, lr
+ 373 001c 03FA0CFC 		lsl	ip, r3, ip
+ 374 0020 44EA0C04 		orr	r4, r4, ip
+ 375 0024 C460     		str	r4, [r0, #12]
+ 376              	.L45:
+ 377 0026 062A     		cmp	r2, #6
+ 378 0028 1BD8     		bhi	.L46
+ 379 002a 436B     		ldr	r3, [r0, #52]
+ 380 002c 013A     		subs	r2, r2, #1
+ 381 002e 02EB8202 		add	r2, r2, r2, lsl #2
+ 382 0032 1F24     		movs	r4, #31
+ 383 0034 9440     		lsls	r4, r4, r2
+ 384 0036 23EA0403 		bic	r3, r3, r4
+ 385 003a 01FA02F2 		lsl	r2, r1, r2
+ 386 003e 1343     		orrs	r3, r3, r2
+ 387 0040 4363     		str	r3, [r0, #52]
+ 388              	.L43:
+ 389 0042 10BD     		pop	{r4, pc}
+ 390              	.L44:
+ 391 0044 0469     		ldr	r4, [r0, #16]
+ 392 0046 01EB410E 		add	lr, r1, r1, lsl #1
+ 393 004a 4FF0070C 		mov	ip, #7
+ 394 004e 0CFA0EFC 		lsl	ip, ip, lr
+ 395 0052 24EA0C0C 		bic	ip, r4, ip
+ 396 0056 03FA0EF3 		lsl	r3, r3, lr
+ 397 005a 4CEA0303 		orr	r3, ip, r3
+ 398 005e 0361     		str	r3, [r0, #16]
+ 399 0060 E1E7     		b	.L45
+ 400              	.L46:
+ 401 0062 0C2A     		cmp	r2, #12
+ 402 0064 0CD8     		bhi	.L48
+ 403 0066 036B     		ldr	r3, [r0, #48]
+ 404 0068 073A     		subs	r2, r2, #7
+ 405 006a 02EB8202 		add	r2, r2, r2, lsl #2
+ 406 006e 1F24     		movs	r4, #31
+ 407 0070 9440     		lsls	r4, r4, r2
+ 408 0072 23EA0403 		bic	r3, r3, r4
+ 409 0076 01FA02F2 		lsl	r2, r1, r2
+ 410 007a 1343     		orrs	r3, r3, r2
+ 411 007c 0363     		str	r3, [r0, #48]
+ 412 007e E0E7     		b	.L43
+ 413              	.L48:
+ 414 0080 C36A     		ldr	r3, [r0, #44]
+ 415 0082 0D3A     		subs	r2, r2, #13
+ 416 0084 02EB8202 		add	r2, r2, r2, lsl #2
+ 417 0088 1F24     		movs	r4, #31
+ 418 008a 9440     		lsls	r4, r4, r2
+ 419 008c 23EA0403 		bic	r3, r3, r4
+ 420 0090 9140     		lsls	r1, r1, r2
+ 421 0092 0B43     		orrs	r3, r3, r1
+ 422 0094 C362     		str	r3, [r0, #44]
+ 423 0096 D4E7     		b	.L43
+ 425              		.section	.text.ADC_ExternalTrigConvCmd,"ax",%progbits
+ 426              		.align	1
+ 427              		.global	ADC_ExternalTrigConvCmd
+ 428              		.syntax unified
+ 429              		.thumb
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 8
+
+
+ 430              		.thumb_func
+ 432              	ADC_ExternalTrigConvCmd:
+ 433              		@ args = 0, pretend = 0, frame = 0
+ 434              		@ frame_needed = 0, uses_anonymous_args = 0
+ 435              		@ link register save eliminated.
+ 436 0000 21B1     		cbz	r1, .L51
+ 437 0002 8368     		ldr	r3, [r0, #8]
+ 438 0004 43F48013 		orr	r3, r3, #1048576
+ 439 0008 8360     		str	r3, [r0, #8]
+ 440 000a 7047     		bx	lr
+ 441              	.L51:
+ 442 000c 8368     		ldr	r3, [r0, #8]
+ 443 000e 23F48013 		bic	r3, r3, #1048576
+ 444 0012 8360     		str	r3, [r0, #8]
+ 445 0014 7047     		bx	lr
+ 447              		.section	.text.ADC_GetConversionValue,"ax",%progbits
+ 448              		.align	1
+ 449              		.global	ADC_GetConversionValue
+ 450              		.syntax unified
+ 451              		.thumb
+ 452              		.thumb_func
+ 454              	ADC_GetConversionValue:
+ 455              		@ args = 0, pretend = 0, frame = 0
+ 456              		@ frame_needed = 0, uses_anonymous_args = 0
+ 457              		@ link register save eliminated.
+ 458 0000 C06C     		ldr	r0, [r0, #76]
+ 459 0002 80B2     		uxth	r0, r0
+ 460 0004 7047     		bx	lr
+ 462              		.section	.text.ADC_GetDualModeConversionValue,"ax",%progbits
+ 463              		.align	1
+ 464              		.global	ADC_GetDualModeConversionValue
+ 465              		.syntax unified
+ 466              		.thumb
+ 467              		.thumb_func
+ 469              	ADC_GetDualModeConversionValue:
+ 470              		@ args = 0, pretend = 0, frame = 0
+ 471              		@ frame_needed = 0, uses_anonymous_args = 0
+ 472              		@ link register save eliminated.
+ 473 0000 014B     		ldr	r3, .L55
+ 474 0002 D3F84C04 		ldr	r0, [r3, #1100]
+ 475 0006 7047     		bx	lr
+ 476              	.L56:
+ 477              		.align	2
+ 478              	.L55:
+ 479 0008 00200140 		.word	1073815552
+ 481              		.section	.text.ADC_AutoInjectedConvCmd,"ax",%progbits
+ 482              		.align	1
+ 483              		.global	ADC_AutoInjectedConvCmd
+ 484              		.syntax unified
+ 485              		.thumb
+ 486              		.thumb_func
+ 488              	ADC_AutoInjectedConvCmd:
+ 489              		@ args = 0, pretend = 0, frame = 0
+ 490              		@ frame_needed = 0, uses_anonymous_args = 0
+ 491              		@ link register save eliminated.
+ 492 0000 21B1     		cbz	r1, .L58
+ 493 0002 4368     		ldr	r3, [r0, #4]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 9
+
+
+ 494 0004 43F48063 		orr	r3, r3, #1024
+ 495 0008 4360     		str	r3, [r0, #4]
+ 496 000a 7047     		bx	lr
+ 497              	.L58:
+ 498 000c 4368     		ldr	r3, [r0, #4]
+ 499 000e 23F48063 		bic	r3, r3, #1024
+ 500 0012 4360     		str	r3, [r0, #4]
+ 501 0014 7047     		bx	lr
+ 503              		.section	.text.ADC_InjectedDiscModeCmd,"ax",%progbits
+ 504              		.align	1
+ 505              		.global	ADC_InjectedDiscModeCmd
+ 506              		.syntax unified
+ 507              		.thumb
+ 508              		.thumb_func
+ 510              	ADC_InjectedDiscModeCmd:
+ 511              		@ args = 0, pretend = 0, frame = 0
+ 512              		@ frame_needed = 0, uses_anonymous_args = 0
+ 513              		@ link register save eliminated.
+ 514 0000 21B1     		cbz	r1, .L61
+ 515 0002 4368     		ldr	r3, [r0, #4]
+ 516 0004 43F48053 		orr	r3, r3, #4096
+ 517 0008 4360     		str	r3, [r0, #4]
+ 518 000a 7047     		bx	lr
+ 519              	.L61:
+ 520 000c 4368     		ldr	r3, [r0, #4]
+ 521 000e 23F48053 		bic	r3, r3, #4096
+ 522 0012 4360     		str	r3, [r0, #4]
+ 523 0014 7047     		bx	lr
+ 525              		.section	.text.ADC_ExternalTrigInjectedConvConfig,"ax",%progbits
+ 526              		.align	1
+ 527              		.global	ADC_ExternalTrigInjectedConvConfig
+ 528              		.syntax unified
+ 529              		.thumb
+ 530              		.thumb_func
+ 532              	ADC_ExternalTrigInjectedConvConfig:
+ 533              		@ args = 0, pretend = 0, frame = 0
+ 534              		@ frame_needed = 0, uses_anonymous_args = 0
+ 535              		@ link register save eliminated.
+ 536 0000 8368     		ldr	r3, [r0, #8]
+ 537 0002 23F4E043 		bic	r3, r3, #28672
+ 538 0006 0B43     		orrs	r3, r3, r1
+ 539 0008 8360     		str	r3, [r0, #8]
+ 540 000a 7047     		bx	lr
+ 542              		.section	.text.ADC_ExternalTrigInjectedConvCmd,"ax",%progbits
+ 543              		.align	1
+ 544              		.global	ADC_ExternalTrigInjectedConvCmd
+ 545              		.syntax unified
+ 546              		.thumb
+ 547              		.thumb_func
+ 549              	ADC_ExternalTrigInjectedConvCmd:
+ 550              		@ args = 0, pretend = 0, frame = 0
+ 551              		@ frame_needed = 0, uses_anonymous_args = 0
+ 552              		@ link register save eliminated.
+ 553 0000 21B1     		cbz	r1, .L65
+ 554 0002 8368     		ldr	r3, [r0, #8]
+ 555 0004 43F40043 		orr	r3, r3, #32768
+ 556 0008 8360     		str	r3, [r0, #8]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 10
+
+
+ 557 000a 7047     		bx	lr
+ 558              	.L65:
+ 559 000c 8368     		ldr	r3, [r0, #8]
+ 560 000e 23F40043 		bic	r3, r3, #32768
+ 561 0012 8360     		str	r3, [r0, #8]
+ 562 0014 7047     		bx	lr
+ 564              		.section	.text.ADC_SoftwareStartInjectedConvCmd,"ax",%progbits
+ 565              		.align	1
+ 566              		.global	ADC_SoftwareStartInjectedConvCmd
+ 567              		.syntax unified
+ 568              		.thumb
+ 569              		.thumb_func
+ 571              	ADC_SoftwareStartInjectedConvCmd:
+ 572              		@ args = 0, pretend = 0, frame = 0
+ 573              		@ frame_needed = 0, uses_anonymous_args = 0
+ 574              		@ link register save eliminated.
+ 575 0000 21B1     		cbz	r1, .L68
+ 576 0002 8368     		ldr	r3, [r0, #8]
+ 577 0004 43F40213 		orr	r3, r3, #2129920
+ 578 0008 8360     		str	r3, [r0, #8]
+ 579 000a 7047     		bx	lr
+ 580              	.L68:
+ 581 000c 8368     		ldr	r3, [r0, #8]
+ 582 000e 23F40213 		bic	r3, r3, #2129920
+ 583 0012 8360     		str	r3, [r0, #8]
+ 584 0014 7047     		bx	lr
+ 586              		.section	.text.ADC_GetSoftwareStartInjectedConvCmdStatus,"ax",%progbits
+ 587              		.align	1
+ 588              		.global	ADC_GetSoftwareStartInjectedConvCmdStatus
+ 589              		.syntax unified
+ 590              		.thumb
+ 591              		.thumb_func
+ 593              	ADC_GetSoftwareStartInjectedConvCmdStatus:
+ 594              		@ args = 0, pretend = 0, frame = 0
+ 595              		@ frame_needed = 0, uses_anonymous_args = 0
+ 596              		@ link register save eliminated.
+ 597 0000 8368     		ldr	r3, [r0, #8]
+ 598 0002 13F4001F 		tst	r3, #2097152
+ 599 0006 01D0     		beq	.L72
+ 600 0008 0120     		movs	r0, #1
+ 601 000a 7047     		bx	lr
+ 602              	.L72:
+ 603 000c 0020     		movs	r0, #0
+ 604 000e 7047     		bx	lr
+ 606              		.section	.text.ADC_InjectedChannelConfig,"ax",%progbits
+ 607              		.align	1
+ 608              		.global	ADC_InjectedChannelConfig
+ 609              		.syntax unified
+ 610              		.thumb
+ 611              		.thumb_func
+ 613              	ADC_InjectedChannelConfig:
+ 614              		@ args = 0, pretend = 0, frame = 0
+ 615              		@ frame_needed = 0, uses_anonymous_args = 0
+ 616              		@ link register save eliminated.
+ 617 0000 30B4     		push	{r4, r5}
+ 618 0002 0929     		cmp	r1, #9
+ 619 0004 21D9     		bls	.L74
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 11
+
+
+ 620 0006 C568     		ldr	r5, [r0, #12]
+ 621 0008 A1F10A04 		sub	r4, r1, #10
+ 622 000c 04EB4404 		add	r4, r4, r4, lsl #1
+ 623 0010 4FF0070C 		mov	ip, #7
+ 624 0014 0CFA04FC 		lsl	ip, ip, r4
+ 625 0018 25EA0C0C 		bic	ip, r5, ip
+ 626 001c 03FA04F4 		lsl	r4, r3, r4
+ 627 0020 4CEA0404 		orr	r4, ip, r4
+ 628 0024 C460     		str	r4, [r0, #12]
+ 629              	.L75:
+ 630 0026 846B     		ldr	r4, [r0, #56]
+ 631 0028 C4F30153 		ubfx	r3, r4, #20, #2
+ 632 002c D31A     		subs	r3, r2, r3
+ 633 002e DBB2     		uxtb	r3, r3
+ 634 0030 0233     		adds	r3, r3, #2
+ 635 0032 DBB2     		uxtb	r3, r3
+ 636 0034 03EB8303 		add	r3, r3, r3, lsl #2
+ 637 0038 1F22     		movs	r2, #31
+ 638 003a 9A40     		lsls	r2, r2, r3
+ 639 003c 24EA0204 		bic	r4, r4, r2
+ 640 0040 9940     		lsls	r1, r1, r3
+ 641 0042 0C43     		orrs	r4, r4, r1
+ 642 0044 8463     		str	r4, [r0, #56]
+ 643 0046 30BC     		pop	{r4, r5}
+ 644 0048 7047     		bx	lr
+ 645              	.L74:
+ 646 004a 0469     		ldr	r4, [r0, #16]
+ 647 004c 01EB410C 		add	ip, r1, r1, lsl #1
+ 648 0050 0725     		movs	r5, #7
+ 649 0052 05FA0CF5 		lsl	r5, r5, ip
+ 650 0056 24EA0504 		bic	r4, r4, r5
+ 651 005a 03FA0CF3 		lsl	r3, r3, ip
+ 652 005e 2343     		orrs	r3, r3, r4
+ 653 0060 0361     		str	r3, [r0, #16]
+ 654 0062 E0E7     		b	.L75
+ 656              		.section	.text.ADC_InjectedSequencerLengthConfig,"ax",%progbits
+ 657              		.align	1
+ 658              		.global	ADC_InjectedSequencerLengthConfig
+ 659              		.syntax unified
+ 660              		.thumb
+ 661              		.thumb_func
+ 663              	ADC_InjectedSequencerLengthConfig:
+ 664              		@ args = 0, pretend = 0, frame = 0
+ 665              		@ frame_needed = 0, uses_anonymous_args = 0
+ 666              		@ link register save eliminated.
+ 667 0000 836B     		ldr	r3, [r0, #56]
+ 668 0002 23F44013 		bic	r3, r3, #3145728
+ 669 0006 0139     		subs	r1, r1, #1
+ 670 0008 43EA0153 		orr	r3, r3, r1, lsl #20
+ 671 000c 8363     		str	r3, [r0, #56]
+ 672 000e 7047     		bx	lr
+ 674              		.section	.text.ADC_SetInjectedOffset,"ax",%progbits
+ 675              		.align	1
+ 676              		.global	ADC_SetInjectedOffset
+ 677              		.syntax unified
+ 678              		.thumb
+ 679              		.thumb_func
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 12
+
+
+ 681              	ADC_SetInjectedOffset:
+ 682              		@ args = 0, pretend = 0, frame = 8
+ 683              		@ frame_needed = 0, uses_anonymous_args = 0
+ 684              		@ link register save eliminated.
+ 685 0000 82B0     		sub	sp, sp, #8
+ 686 0002 0023     		movs	r3, #0
+ 687 0004 0193     		str	r3, [sp, #4]
+ 688 0006 0190     		str	r0, [sp, #4]
+ 689 0008 019B     		ldr	r3, [sp, #4]
+ 690 000a 1944     		add	r1, r1, r3
+ 691 000c 0191     		str	r1, [sp, #4]
+ 692 000e 019B     		ldr	r3, [sp, #4]
+ 693 0010 1A60     		str	r2, [r3]
+ 694 0012 02B0     		add	sp, sp, #8
+ 695              		@ sp needed
+ 696 0014 7047     		bx	lr
+ 698              		.section	.text.ADC_GetInjectedConversionValue,"ax",%progbits
+ 699              		.align	1
+ 700              		.global	ADC_GetInjectedConversionValue
+ 701              		.syntax unified
+ 702              		.thumb
+ 703              		.thumb_func
+ 705              	ADC_GetInjectedConversionValue:
+ 706              		@ args = 0, pretend = 0, frame = 8
+ 707              		@ frame_needed = 0, uses_anonymous_args = 0
+ 708              		@ link register save eliminated.
+ 709 0000 82B0     		sub	sp, sp, #8
+ 710 0002 0023     		movs	r3, #0
+ 711 0004 0193     		str	r3, [sp, #4]
+ 712 0006 0190     		str	r0, [sp, #4]
+ 713 0008 019B     		ldr	r3, [sp, #4]
+ 714 000a 1944     		add	r1, r1, r3
+ 715 000c 2831     		adds	r1, r1, #40
+ 716 000e 0191     		str	r1, [sp, #4]
+ 717 0010 019B     		ldr	r3, [sp, #4]
+ 718 0012 1868     		ldr	r0, [r3]
+ 719 0014 80B2     		uxth	r0, r0
+ 720 0016 02B0     		add	sp, sp, #8
+ 721              		@ sp needed
+ 722 0018 7047     		bx	lr
+ 724              		.section	.text.ADC_AnalogWatchdogCmd,"ax",%progbits
+ 725              		.align	1
+ 726              		.global	ADC_AnalogWatchdogCmd
+ 727              		.syntax unified
+ 728              		.thumb
+ 729              		.thumb_func
+ 731              	ADC_AnalogWatchdogCmd:
+ 732              		@ args = 0, pretend = 0, frame = 0
+ 733              		@ frame_needed = 0, uses_anonymous_args = 0
+ 734              		@ link register save eliminated.
+ 735 0000 4368     		ldr	r3, [r0, #4]
+ 736 0002 23F44003 		bic	r3, r3, #12582912
+ 737 0006 23F40073 		bic	r3, r3, #512
+ 738 000a 0B43     		orrs	r3, r3, r1
+ 739 000c 4360     		str	r3, [r0, #4]
+ 740 000e 7047     		bx	lr
+ 742              		.section	.text.ADC_AnalogWatchdogThresholdsConfig,"ax",%progbits
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 13
+
+
+ 743              		.align	1
+ 744              		.global	ADC_AnalogWatchdogThresholdsConfig
+ 745              		.syntax unified
+ 746              		.thumb
+ 747              		.thumb_func
+ 749              	ADC_AnalogWatchdogThresholdsConfig:
+ 750              		@ args = 0, pretend = 0, frame = 0
+ 751              		@ frame_needed = 0, uses_anonymous_args = 0
+ 752              		@ link register save eliminated.
+ 753 0000 4162     		str	r1, [r0, #36]
+ 754 0002 8262     		str	r2, [r0, #40]
+ 755 0004 7047     		bx	lr
+ 757              		.section	.text.ADC_AnalogWatchdogSingleChannelConfig,"ax",%progbits
+ 758              		.align	1
+ 759              		.global	ADC_AnalogWatchdogSingleChannelConfig
+ 760              		.syntax unified
+ 761              		.thumb
+ 762              		.thumb_func
+ 764              	ADC_AnalogWatchdogSingleChannelConfig:
+ 765              		@ args = 0, pretend = 0, frame = 0
+ 766              		@ frame_needed = 0, uses_anonymous_args = 0
+ 767              		@ link register save eliminated.
+ 768 0000 4368     		ldr	r3, [r0, #4]
+ 769 0002 23F01F03 		bic	r3, r3, #31
+ 770 0006 1943     		orrs	r1, r1, r3
+ 771 0008 4160     		str	r1, [r0, #4]
+ 772 000a 7047     		bx	lr
+ 774              		.section	.text.ADC_TempSensorVrefintCmd,"ax",%progbits
+ 775              		.align	1
+ 776              		.global	ADC_TempSensorVrefintCmd
+ 777              		.syntax unified
+ 778              		.thumb
+ 779              		.thumb_func
+ 781              	ADC_TempSensorVrefintCmd:
+ 782              		@ args = 0, pretend = 0, frame = 0
+ 783              		@ frame_needed = 0, uses_anonymous_args = 0
+ 784              		@ link register save eliminated.
+ 785 0000 28B1     		cbz	r0, .L86
+ 786 0002 064A     		ldr	r2, .L88
+ 787 0004 9368     		ldr	r3, [r2, #8]
+ 788 0006 43F40003 		orr	r3, r3, #8388608
+ 789 000a 9360     		str	r3, [r2, #8]
+ 790 000c 7047     		bx	lr
+ 791              	.L86:
+ 792 000e 034A     		ldr	r2, .L88
+ 793 0010 9368     		ldr	r3, [r2, #8]
+ 794 0012 23F40003 		bic	r3, r3, #8388608
+ 795 0016 9360     		str	r3, [r2, #8]
+ 796 0018 7047     		bx	lr
+ 797              	.L89:
+ 798 001a 00BF     		.align	2
+ 799              	.L88:
+ 800 001c 00240140 		.word	1073816576
+ 802              		.section	.text.ADC_GetFlagStatus,"ax",%progbits
+ 803              		.align	1
+ 804              		.global	ADC_GetFlagStatus
+ 805              		.syntax unified
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 14
+
+
+ 806              		.thumb
+ 807              		.thumb_func
+ 809              	ADC_GetFlagStatus:
+ 810              		@ args = 0, pretend = 0, frame = 0
+ 811              		@ frame_needed = 0, uses_anonymous_args = 0
+ 812              		@ link register save eliminated.
+ 813 0000 0368     		ldr	r3, [r0]
+ 814 0002 1942     		tst	r1, r3
+ 815 0004 01D0     		beq	.L92
+ 816 0006 0120     		movs	r0, #1
+ 817 0008 7047     		bx	lr
+ 818              	.L92:
+ 819 000a 0020     		movs	r0, #0
+ 820 000c 7047     		bx	lr
+ 822              		.section	.text.ADC_ClearFlag,"ax",%progbits
+ 823              		.align	1
+ 824              		.global	ADC_ClearFlag
+ 825              		.syntax unified
+ 826              		.thumb
+ 827              		.thumb_func
+ 829              	ADC_ClearFlag:
+ 830              		@ args = 0, pretend = 0, frame = 0
+ 831              		@ frame_needed = 0, uses_anonymous_args = 0
+ 832              		@ link register save eliminated.
+ 833 0000 C943     		mvns	r1, r1
+ 834 0002 0160     		str	r1, [r0]
+ 835 0004 7047     		bx	lr
+ 837              		.section	.text.ADC_GetITStatus,"ax",%progbits
+ 838              		.align	1
+ 839              		.global	ADC_GetITStatus
+ 840              		.syntax unified
+ 841              		.thumb
+ 842              		.thumb_func
+ 844              	ADC_GetITStatus:
+ 845              		@ args = 0, pretend = 0, frame = 0
+ 846              		@ frame_needed = 0, uses_anonymous_args = 0
+ 847              		@ link register save eliminated.
+ 848 0000 4368     		ldr	r3, [r0, #4]
+ 849 0002 CAB2     		uxtb	r2, r1
+ 850 0004 1340     		ands	r3, r3, r2
+ 851 0006 0268     		ldr	r2, [r0]
+ 852 0008 12EA1122 		ands	r2, r2, r1, lsr #8
+ 853 000c 02D0     		beq	.L96
+ 854 000e 1BB9     		cbnz	r3, .L97
+ 855 0010 0020     		movs	r0, #0
+ 856 0012 7047     		bx	lr
+ 857              	.L96:
+ 858 0014 0020     		movs	r0, #0
+ 859 0016 7047     		bx	lr
+ 860              	.L97:
+ 861 0018 0120     		movs	r0, #1
+ 862 001a 7047     		bx	lr
+ 864              		.section	.text.ADC_ClearITPendingBit,"ax",%progbits
+ 865              		.align	1
+ 866              		.global	ADC_ClearITPendingBit
+ 867              		.syntax unified
+ 868              		.thumb
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 15
+
+
+ 869              		.thumb_func
+ 871              	ADC_ClearITPendingBit:
+ 872              		@ args = 0, pretend = 0, frame = 0
+ 873              		@ frame_needed = 0, uses_anonymous_args = 0
+ 874              		@ link register save eliminated.
+ 875 0000 6FEA1121 		mvn	r1, r1, lsr #8
+ 876 0004 0160     		str	r1, [r0]
+ 877 0006 7047     		bx	lr
+ 879              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f10x_adc.c
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:16     .text.ADC_DeInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:22     .text.ADC_DeInit:00000000 ADC_DeInit
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:64     .text.ADC_DeInit:00000058 $d
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:69     .text.ADC_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:75     .text.ADC_Init:00000000 ADC_Init
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:110    .text.ADC_Init:00000048 $d
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:113    .text.ADC_StructInit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:119    .text.ADC_StructInit:00000000 ADC_StructInit
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:134    .text.ADC_Cmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:140    .text.ADC_Cmd:00000000 ADC_Cmd
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:156    .text.ADC_DMACmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:162    .text.ADC_DMACmd:00000000 ADC_DMACmd
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:178    .text.ADC_ITConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:184    .text.ADC_ITConfig:00000000 ADC_ITConfig
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:201    .text.ADC_ResetCalibration:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:207    .text.ADC_ResetCalibration:00000000 ADC_ResetCalibration
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:217    .text.ADC_GetResetCalibrationStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:223    .text.ADC_GetResetCalibrationStatus:00000000 ADC_GetResetCalibrationStatus
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:237    .text.ADC_StartCalibration:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:243    .text.ADC_StartCalibration:00000000 ADC_StartCalibration
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:253    .text.ADC_GetCalibrationStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:259    .text.ADC_GetCalibrationStatus:00000000 ADC_GetCalibrationStatus
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:273    .text.ADC_SoftwareStartConvCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:279    .text.ADC_SoftwareStartConvCmd:00000000 ADC_SoftwareStartConvCmd
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:295    .text.ADC_GetSoftwareStartConvStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:301    .text.ADC_GetSoftwareStartConvStatus:00000000 ADC_GetSoftwareStartConvStatus
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:315    .text.ADC_DiscModeChannelCountConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:321    .text.ADC_DiscModeChannelCountConfig:00000000 ADC_DiscModeChannelCountConfig
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:333    .text.ADC_DiscModeCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:339    .text.ADC_DiscModeCmd:00000000 ADC_DiscModeCmd
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:355    .text.ADC_RegularChannelConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:361    .text.ADC_RegularChannelConfig:00000000 ADC_RegularChannelConfig
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:426    .text.ADC_ExternalTrigConvCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:432    .text.ADC_ExternalTrigConvCmd:00000000 ADC_ExternalTrigConvCmd
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:448    .text.ADC_GetConversionValue:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:454    .text.ADC_GetConversionValue:00000000 ADC_GetConversionValue
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:463    .text.ADC_GetDualModeConversionValue:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:469    .text.ADC_GetDualModeConversionValue:00000000 ADC_GetDualModeConversionValue
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:479    .text.ADC_GetDualModeConversionValue:00000008 $d
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:482    .text.ADC_AutoInjectedConvCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:488    .text.ADC_AutoInjectedConvCmd:00000000 ADC_AutoInjectedConvCmd
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:504    .text.ADC_InjectedDiscModeCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:510    .text.ADC_InjectedDiscModeCmd:00000000 ADC_InjectedDiscModeCmd
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:526    .text.ADC_ExternalTrigInjectedConvConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:532    .text.ADC_ExternalTrigInjectedConvConfig:00000000 ADC_ExternalTrigInjectedConvConfig
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:543    .text.ADC_ExternalTrigInjectedConvCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:549    .text.ADC_ExternalTrigInjectedConvCmd:00000000 ADC_ExternalTrigInjectedConvCmd
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:565    .text.ADC_SoftwareStartInjectedConvCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:571    .text.ADC_SoftwareStartInjectedConvCmd:00000000 ADC_SoftwareStartInjectedConvCmd
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:587    .text.ADC_GetSoftwareStartInjectedConvCmdStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:593    .text.ADC_GetSoftwareStartInjectedConvCmdStatus:00000000 ADC_GetSoftwareStartInjectedConvCmdStatus
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:607    .text.ADC_InjectedChannelConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:613    .text.ADC_InjectedChannelConfig:00000000 ADC_InjectedChannelConfig
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:657    .text.ADC_InjectedSequencerLengthConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:663    .text.ADC_InjectedSequencerLengthConfig:00000000 ADC_InjectedSequencerLengthConfig
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 17
+
+
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:675    .text.ADC_SetInjectedOffset:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:681    .text.ADC_SetInjectedOffset:00000000 ADC_SetInjectedOffset
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:699    .text.ADC_GetInjectedConversionValue:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:705    .text.ADC_GetInjectedConversionValue:00000000 ADC_GetInjectedConversionValue
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:725    .text.ADC_AnalogWatchdogCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:731    .text.ADC_AnalogWatchdogCmd:00000000 ADC_AnalogWatchdogCmd
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:743    .text.ADC_AnalogWatchdogThresholdsConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:749    .text.ADC_AnalogWatchdogThresholdsConfig:00000000 ADC_AnalogWatchdogThresholdsConfig
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:758    .text.ADC_AnalogWatchdogSingleChannelConfig:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:764    .text.ADC_AnalogWatchdogSingleChannelConfig:00000000 ADC_AnalogWatchdogSingleChannelConfig
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:775    .text.ADC_TempSensorVrefintCmd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:781    .text.ADC_TempSensorVrefintCmd:00000000 ADC_TempSensorVrefintCmd
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:800    .text.ADC_TempSensorVrefintCmd:0000001c $d
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:803    .text.ADC_GetFlagStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:809    .text.ADC_GetFlagStatus:00000000 ADC_GetFlagStatus
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:823    .text.ADC_ClearFlag:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:829    .text.ADC_ClearFlag:00000000 ADC_ClearFlag
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:838    .text.ADC_GetITStatus:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:844    .text.ADC_GetITStatus:00000000 ADC_GetITStatus
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:865    .text.ADC_ClearITPendingBit:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:871    .text.ADC_ClearITPendingBit:00000000 ADC_ClearITPendingBit
+
+UNDEFINED SYMBOLS
+RCC_APB2PeriphResetCmd
