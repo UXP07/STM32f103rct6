@@ -86,6 +86,17 @@ void USART1_IRQHandler(void)
     }
 }
 
+// int fputc(int ch, FILE *f)
+// {
+//     while(USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) == RESET);
+//     USART_SendData(DEBUG_USART, (uint16_t)ch);
+//     return ch;
+// }
+
+
+#if LAB_USART_CODE
+
+
 void lab_usart_send(void)
 {
     delay_init();
@@ -98,3 +109,4 @@ void lab_usart_send(void)
     }
 }
 
+#endif

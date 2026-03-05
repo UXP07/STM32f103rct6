@@ -1,0 +1,270 @@
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"syscalls.c"
+  14              		.text
+  15              		.section	.text._close,"ax",%progbits
+  16              		.align	1
+  17              		.global	_close
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	_close:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25              		@ link register save eliminated.
+  26 0000 4FF0FF30 		mov	r0, #-1
+  27 0004 7047     		bx	lr
+  29              		.section	.text._write,"ax",%progbits
+  30              		.align	1
+  31              		.global	_write
+  32              		.syntax unified
+  33              		.thumb
+  34              		.thumb_func
+  36              	_write:
+  37              		@ args = 0, pretend = 0, frame = 0
+  38              		@ frame_needed = 0, uses_anonymous_args = 0
+  39 0000 70B5     		push	{r4, r5, r6, lr}
+  40 0002 0E46     		mov	r6, r1
+  41 0004 1546     		mov	r5, r2
+  42 0006 0024     		movs	r4, #0
+  43 0008 0AE0     		b	.L3
+  44              	.L4:
+  45 000a 8021     		movs	r1, #128
+  46 000c 0648     		ldr	r0, .L6
+  47 000e FFF7FEFF 		bl	USART_GetFlagStatus
+  48 0012 0028     		cmp	r0, #0
+  49 0014 F9D0     		beq	.L4
+  50 0016 315D     		ldrb	r1, [r6, r4]	@ zero_extendqisi2
+  51 0018 0348     		ldr	r0, .L6
+  52 001a FFF7FEFF 		bl	USART_SendData
+  53 001e 0134     		adds	r4, r4, #1
+  54              	.L3:
+  55 0020 AC42     		cmp	r4, r5
+  56 0022 F2DB     		blt	.L4
+  57 0024 2846     		mov	r0, r5
+  58 0026 70BD     		pop	{r4, r5, r6, pc}
+  59              	.L7:
+  60              		.align	2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s 			page 2
+
+
+  61              	.L6:
+  62 0028 00380140 		.word	1073821696
+  64              		.section	.text._read,"ax",%progbits
+  65              		.align	1
+  66              		.global	_read
+  67              		.syntax unified
+  68              		.thumb
+  69              		.thumb_func
+  71              	_read:
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74 0000 70B5     		push	{r4, r5, r6, lr}
+  75 0002 0E46     		mov	r6, r1
+  76 0004 1546     		mov	r5, r2
+  77 0006 0024     		movs	r4, #0
+  78              	.L9:
+  79 0008 AC42     		cmp	r4, r5
+  80 000a 0FDA     		bge	.L8
+  81              	.L10:
+  82 000c 2021     		movs	r1, #32
+  83 000e 0848     		ldr	r0, .L15
+  84 0010 FFF7FEFF 		bl	USART_GetFlagStatus
+  85 0014 0028     		cmp	r0, #0
+  86 0016 F9D0     		beq	.L10
+  87 0018 0548     		ldr	r0, .L15
+  88 001a FFF7FEFF 		bl	USART_ReceiveData
+  89 001e 0A28     		cmp	r0, #10
+  90 0020 02D0     		beq	.L14
+  91 0022 3055     		strb	r0, [r6, r4]
+  92 0024 0134     		adds	r4, r4, #1
+  93 0026 EFE7     		b	.L9
+  94              	.L14:
+  95 0028 0023     		movs	r3, #0
+  96 002a 3355     		strb	r3, [r6, r4]
+  97              	.L8:
+  98 002c 2046     		mov	r0, r4
+  99 002e 70BD     		pop	{r4, r5, r6, pc}
+ 100              	.L16:
+ 101              		.align	2
+ 102              	.L15:
+ 103 0030 00380140 		.word	1073821696
+ 105              		.section	.text._lseek,"ax",%progbits
+ 106              		.align	1
+ 107              		.global	_lseek
+ 108              		.syntax unified
+ 109              		.thumb
+ 110              		.thumb_func
+ 112              	_lseek:
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              		@ link register save eliminated.
+ 116 0000 0020     		movs	r0, #0
+ 117 0002 7047     		bx	lr
+ 119              		.section	.text._fstat,"ax",%progbits
+ 120              		.align	1
+ 121              		.global	_fstat
+ 122              		.syntax unified
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s 			page 3
+
+
+ 123              		.thumb
+ 124              		.thumb_func
+ 126              	_fstat:
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
+ 130 0000 4FF40053 		mov	r3, #8192
+ 131 0004 4B60     		str	r3, [r1, #4]
+ 132 0006 0020     		movs	r0, #0
+ 133 0008 7047     		bx	lr
+ 135              		.section	.text._isatty,"ax",%progbits
+ 136              		.align	1
+ 137              		.global	_isatty
+ 138              		.syntax unified
+ 139              		.thumb
+ 140              		.thumb_func
+ 142              	_isatty:
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145              		@ link register save eliminated.
+ 146 0000 0120     		movs	r0, #1
+ 147 0002 7047     		bx	lr
+ 149              		.section	.text._exit,"ax",%progbits
+ 150              		.align	1
+ 151              		.global	_exit
+ 152              		.syntax unified
+ 153              		.thumb
+ 154              		.thumb_func
+ 156              	_exit:
+ 157              		@ Volatile: function does not return.
+ 158              		@ args = 0, pretend = 0, frame = 0
+ 159              		@ frame_needed = 0, uses_anonymous_args = 0
+ 160              		@ link register save eliminated.
+ 161              	.L21:
+ 162 0000 FEE7     		b	.L21
+ 164              		.section	.text._kill,"ax",%progbits
+ 165              		.align	1
+ 166              		.global	_kill
+ 167              		.syntax unified
+ 168              		.thumb
+ 169              		.thumb_func
+ 171              	_kill:
+ 172              		@ args = 0, pretend = 0, frame = 0
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174 0000 08B5     		push	{r3, lr}
+ 175 0002 FFF7FEFF 		bl	__errno
+ 176 0006 1623     		movs	r3, #22
+ 177 0008 0360     		str	r3, [r0]
+ 178 000a 4FF0FF30 		mov	r0, #-1
+ 179 000e 08BD     		pop	{r3, pc}
+ 181              		.section	.text._getpid,"ax",%progbits
+ 182              		.align	1
+ 183              		.global	_getpid
+ 184              		.syntax unified
+ 185              		.thumb
+ 186              		.thumb_func
+ 188              	_getpid:
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s 			page 4
+
+
+ 189              		@ args = 0, pretend = 0, frame = 0
+ 190              		@ frame_needed = 0, uses_anonymous_args = 0
+ 191              		@ link register save eliminated.
+ 192 0000 0120     		movs	r0, #1
+ 193 0002 7047     		bx	lr
+ 195              		.section	.text._sbrk,"ax",%progbits
+ 196              		.align	1
+ 197              		.global	_sbrk
+ 198              		.syntax unified
+ 199              		.thumb
+ 200              		.thumb_func
+ 202              	_sbrk:
+ 203              		@ args = 0, pretend = 0, frame = 0
+ 204              		@ frame_needed = 0, uses_anonymous_args = 0
+ 205              		@ link register save eliminated.
+ 206 0000 0346     		mov	r3, r0
+ 207 0002 084A     		ldr	r2, .L30
+ 208 0004 1268     		ldr	r2, [r2]
+ 209 0006 32B1     		cbz	r2, .L29
+ 210              	.L26:
+ 211 0008 064A     		ldr	r2, .L30
+ 212 000a 1068     		ldr	r0, [r2]
+ 213 000c 0344     		add	r3, r3, r0
+ 214 000e 064A     		ldr	r2, .L30+4
+ 215 0010 9342     		cmp	r3, r2
+ 216 0012 04D9     		bls	.L27
+ 217              	.L28:
+ 218 0014 FEE7     		b	.L28
+ 219              	.L29:
+ 220 0016 034A     		ldr	r2, .L30
+ 221 0018 0449     		ldr	r1, .L30+8
+ 222 001a 1160     		str	r1, [r2]
+ 223 001c F4E7     		b	.L26
+ 224              	.L27:
+ 225 001e 014A     		ldr	r2, .L30
+ 226 0020 1360     		str	r3, [r2]
+ 227 0022 7047     		bx	lr
+ 228              	.L31:
+ 229              		.align	2
+ 230              	.L30:
+ 231 0024 00000000 		.word	.LANCHOR0
+ 232 0028 00000000 		.word	_estack
+ 233 002c 00000000 		.word	_end
+ 235              		.section	.bss.heap_end.0,"aw",%nobits
+ 236              		.align	2
+ 237              		.set	.LANCHOR0,. + 0
+ 240              	heap_end.0:
+ 241 0000 00000000 		.space	4
+ 242              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 syscalls.c
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:16     .text._close:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:22     .text._close:00000000 _close
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:30     .text._write:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:36     .text._write:00000000 _write
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:62     .text._write:00000028 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:65     .text._read:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:71     .text._read:00000000 _read
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:103    .text._read:00000030 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:106    .text._lseek:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:112    .text._lseek:00000000 _lseek
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:120    .text._fstat:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:126    .text._fstat:00000000 _fstat
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:136    .text._isatty:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:142    .text._isatty:00000000 _isatty
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:150    .text._exit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:156    .text._exit:00000000 _exit
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:165    .text._kill:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:171    .text._kill:00000000 _kill
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:182    .text._getpid:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:188    .text._getpid:00000000 _getpid
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:196    .text._sbrk:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:202    .text._sbrk:00000000 _sbrk
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:231    .text._sbrk:00000024 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:236    .bss.heap_end.0:00000000 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccKdC0Ka.s:240    .bss.heap_end.0:00000000 heap_end.0
+
+UNDEFINED SYMBOLS
+USART_GetFlagStatus
+USART_SendData
+USART_ReceiveData
+__errno
+_estack
+_end

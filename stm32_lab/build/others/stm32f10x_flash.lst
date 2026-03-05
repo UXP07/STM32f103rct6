@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -46,9 +46,9 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
   46              		@ frame_needed = 0, uses_anonymous_args = 0
   47              		@ link register save eliminated.
   48 0000 044B     		ldr	r3, .L5
-  49 0002 1A68     		ldr	r2, [r3]
-  50 0004 22F00802 		bic	r2, r2, #8
-  51 0008 1A60     		str	r2, [r3]
+  49 0002 1968     		ldr	r1, [r3]
+  50 0004 21F00801 		bic	r1, r1, #8
+  51 0008 1960     		str	r1, [r3]
   52 000a 1A68     		ldr	r2, [r3]
   53 000c 0243     		orrs	r2, r2, r0
   54 000e 1A60     		str	r2, [r3]
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
   58              	.L5:
   59 0014 00200240 		.word	1073881088
   61              		.section	.text.FLASH_PrefetchBufferCmd,"ax",%progbits
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 2
 
 
   62              		.align	1
@@ -71,9 +71,9 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
   70              		@ frame_needed = 0, uses_anonymous_args = 0
   71              		@ link register save eliminated.
   72 0000 044B     		ldr	r3, .L8
-  73 0002 1A68     		ldr	r2, [r3]
-  74 0004 22F01002 		bic	r2, r2, #16
-  75 0008 1A60     		str	r2, [r3]
+  73 0002 1968     		ldr	r1, [r3]
+  74 0004 21F01001 		bic	r1, r1, #16
+  75 0008 1960     		str	r1, [r3]
   76 000a 1A68     		ldr	r2, [r3]
   77 000c 0243     		orrs	r2, r2, r0
   78 000e 1A60     		str	r2, [r3]
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
  121 0004 5A60     		str	r2, [r3, #4]
  122 0006 02F18832 		add	r2, r2, #-2004318072
  123 000a 5A60     		str	r2, [r3, #4]
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 3
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 3
 
 
  124 000c 7047     		bx	lr
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
  184 0000 014B     		ldr	r3, .L23
  185 0002 D869     		ldr	r0, [r3, #28]
  186 0004 8008     		lsrs	r0, r0, #2
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 4
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 4
 
 
  187 0006 7047     		bx	lr
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
  247              		@ link register save eliminated.
  248 0000 044B     		ldr	r3, .L36
  249 0002 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 5
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 5
 
 
  250 0004 13F0200F 		tst	r3, #32
@@ -265,14 +265,14 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
  273 0000 21B1     		cbz	r1, .L39
  274 0002 054A     		ldr	r2, .L41
  275 0004 1369     		ldr	r3, [r2, #16]
- 276 0006 0343     		orrs	r3, r3, r0
- 277 0008 1361     		str	r3, [r2, #16]
+ 276 0006 1843     		orrs	r0, r0, r3
+ 277 0008 1061     		str	r0, [r2, #16]
  278 000a 7047     		bx	lr
  279              	.L39:
  280 000c 024A     		ldr	r2, .L41
  281 000e 1369     		ldr	r3, [r2, #16]
- 282 0010 23EA0003 		bic	r3, r3, r0
- 283 0014 1361     		str	r3, [r2, #16]
+ 282 0010 23EA0000 		bic	r0, r3, r0
+ 283 0014 1061     		str	r0, [r2, #16]
  284 0016 7047     		bx	lr
  285              	.L42:
  286              		.align	2
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
  308 000e 7047     		bx	lr
  309              	.L48:
  310 0010 044B     		ldr	r3, .L49
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 6
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 6
 
 
  311 0012 DB69     		ldr	r3, [r3, #28]
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
  369 0020 7047     		bx	lr
  370              	.L56:
  371 0022 0120     		movs	r0, #1
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 7
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 7
 
 
  372 0024 7047     		bx	lr
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
  430              	FLASH_WaitForLastOperation:
  431              		@ args = 0, pretend = 0, frame = 0
  432              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 8
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 8
 
 
  433 0000 10B5     		push	{r4, lr}
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
  489              		.align	2
  490              	.L80:
  491 003c 00200240 		.word	1073881088
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 9
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 9
 
 
  493              		.section	.text.FLASH_EraseAllPages,"ax",%progbits
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
  550              	.L90:
  551 0016 10BD     		pop	{r4, pc}
  552              	.L92:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 10
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 10
 
 
  553 0018 0024     		movs	r4, #0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
  607 0094 23016745 		.word	1164378403
  608 0098 00F8FF1F 		.word	536868864
  610              		.section	.text.FLASH_ProgramWord,"ax",%progbits
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 11
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 11
 
 
  611              		.align	1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
  666 0066 D7E7     		b	.L99
  667              	.L105:
  668              		.align	2
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 12
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 12
 
 
  669              	.L104:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
  727              	.L113:
  728 0012 38BD     		pop	{r3, r4, r5, pc}
  729              	.L115:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 13
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 13
 
 
  730 0014 0C4B     		ldr	r3, .L116
@@ -729,409 +729,410 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 1
  735 0020 1A69     		ldr	r2, [r3, #16]
  736 0022 42F01002 		orr	r2, r2, #16
  737 0026 1A61     		str	r2, [r3, #16]
- 738 0028 2C80     		strh	r4, [r5]	@ movhi
- 739 002a 4FF40050 		mov	r0, #8192
- 740 002e FFF7FEFF 		bl	FLASH_WaitForLastOperation
- 741 0032 0528     		cmp	r0, #5
- 742 0034 EDD0     		beq	.L113
- 743 0036 044A     		ldr	r2, .L116
- 744 0038 1369     		ldr	r3, [r2, #16]
- 745 003a 23F01003 		bic	r3, r3, #16
- 746 003e DB04     		lsls	r3, r3, #19
- 747 0040 DB0C     		lsrs	r3, r3, #19
- 748 0042 1361     		str	r3, [r2, #16]
- 749 0044 E5E7     		b	.L113
- 750              	.L117:
- 751 0046 00BF     		.align	2
- 752              	.L116:
- 753 0048 00200240 		.word	1073881088
- 754 004c 23016745 		.word	1164378403
- 756              		.section	.text.FLASH_EnableWriteProtection,"ax",%progbits
- 757              		.align	1
- 758              		.global	FLASH_EnableWriteProtection
- 759              		.syntax unified
- 760              		.thumb
- 761              		.thumb_func
- 763              	FLASH_EnableWriteProtection:
- 764              		@ args = 0, pretend = 0, frame = 0
- 765              		@ frame_needed = 0, uses_anonymous_args = 0
- 766 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 767 0002 C043     		mvns	r0, r0
- 768 0004 C7B2     		uxtb	r7, r0
- 769 0006 C0F30726 		ubfx	r6, r0, #8, #8
- 770 000a C0F30745 		ubfx	r5, r0, #16, #8
- 771 000e 040E     		lsrs	r4, r0, #24
- 772 0010 4FF40050 		mov	r0, #8192
- 773 0014 FFF7FEFF 		bl	FLASH_WaitForLastOperation
- 774 0018 0428     		cmp	r0, #4
- 775 001a 00D0     		beq	.L125
- 776              	.L119:
- 777 001c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 778              	.L125:
- 779 001e 1F4B     		ldr	r3, .L130
- 780 0020 1F4A     		ldr	r2, .L130+4
- 781 0022 9A60     		str	r2, [r3, #8]
- 782 0024 02F18832 		add	r2, r2, #-2004318072
- 783 0028 9A60     		str	r2, [r3, #8]
- 784 002a 1A69     		ldr	r2, [r3, #16]
- 785 002c 42F01002 		orr	r2, r2, #16
- 786 0030 1A61     		str	r2, [r3, #16]
- 787 0032 FF2F     		cmp	r7, #255
- 788 0034 0DD1     		bne	.L126
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 14
+ 738 0028 A1B2     		uxth	r1, r4
+ 739 002a 2980     		strh	r1, [r5]	@ movhi
+ 740 002c 4FF40050 		mov	r0, #8192
+ 741 0030 FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 742 0034 0528     		cmp	r0, #5
+ 743 0036 ECD0     		beq	.L113
+ 744 0038 034A     		ldr	r2, .L116
+ 745 003a 1369     		ldr	r3, [r2, #16]
+ 746 003c 23F01003 		bic	r3, r3, #16
+ 747 0040 DB04     		lsls	r3, r3, #19
+ 748 0042 DB0C     		lsrs	r3, r3, #19
+ 749 0044 1361     		str	r3, [r2, #16]
+ 750 0046 E4E7     		b	.L113
+ 751              	.L117:
+ 752              		.align	2
+ 753              	.L116:
+ 754 0048 00200240 		.word	1073881088
+ 755 004c 23016745 		.word	1164378403
+ 757              		.section	.text.FLASH_EnableWriteProtection,"ax",%progbits
+ 758              		.align	1
+ 759              		.global	FLASH_EnableWriteProtection
+ 760              		.syntax unified
+ 761              		.thumb
+ 762              		.thumb_func
+ 764              	FLASH_EnableWriteProtection:
+ 765              		@ args = 0, pretend = 0, frame = 0
+ 766              		@ frame_needed = 0, uses_anonymous_args = 0
+ 767 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 768 0002 C043     		mvns	r0, r0
+ 769 0004 C7B2     		uxtb	r7, r0
+ 770 0006 C0F30726 		ubfx	r6, r0, #8, #8
+ 771 000a C0F30745 		ubfx	r5, r0, #16, #8
+ 772 000e 040E     		lsrs	r4, r0, #24
+ 773 0010 4FF40050 		mov	r0, #8192
+ 774 0014 FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 775 0018 0428     		cmp	r0, #4
+ 776 001a 00D0     		beq	.L125
+ 777              	.L119:
+ 778 001c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 779              	.L125:
+ 780 001e 1F4B     		ldr	r3, .L130
+ 781 0020 1F4A     		ldr	r2, .L130+4
+ 782 0022 9A60     		str	r2, [r3, #8]
+ 783 0024 02F18832 		add	r2, r2, #-2004318072
+ 784 0028 9A60     		str	r2, [r3, #8]
+ 785 002a 1A69     		ldr	r2, [r3, #16]
+ 786 002c 42F01002 		orr	r2, r2, #16
+ 787 0030 1A61     		str	r2, [r3, #16]
+ 788 0032 FF2F     		cmp	r7, #255
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 14
 
 
- 789              	.L120:
- 790 0036 0428     		cmp	r0, #4
- 791 0038 12D0     		beq	.L127
- 792              	.L121:
- 793 003a 0428     		cmp	r0, #4
- 794 003c 24D0     		beq	.L128
- 795              	.L123:
- 796 003e 0528     		cmp	r0, #5
- 797 0040 ECD0     		beq	.L119
- 798 0042 164A     		ldr	r2, .L130
- 799 0044 1369     		ldr	r3, [r2, #16]
- 800 0046 23F01003 		bic	r3, r3, #16
- 801 004a DB04     		lsls	r3, r3, #19
- 802 004c DB0C     		lsrs	r3, r3, #19
- 803 004e 1361     		str	r3, [r2, #16]
- 804 0050 E4E7     		b	.L119
- 805              	.L126:
- 806 0052 144B     		ldr	r3, .L130+8
- 807 0054 1F81     		strh	r7, [r3, #8]	@ movhi
- 808 0056 4FF40050 		mov	r0, #8192
- 809 005a FFF7FEFF 		bl	FLASH_WaitForLastOperation
- 810 005e EAE7     		b	.L120
- 811              	.L127:
- 812 0060 FF2E     		cmp	r6, #255
- 813 0062 0AD1     		bne	.L129
- 814              	.L122:
- 815 0064 0428     		cmp	r0, #4
- 816 0066 EAD1     		bne	.L123
- 817 0068 FF2D     		cmp	r5, #255
- 818 006a E6D0     		beq	.L121
- 819 006c 0D4B     		ldr	r3, .L130+8
- 820 006e 9D81     		strh	r5, [r3, #12]	@ movhi
- 821 0070 4FF40050 		mov	r0, #8192
- 822 0074 FFF7FEFF 		bl	FLASH_WaitForLastOperation
- 823 0078 DFE7     		b	.L121
- 824              	.L129:
- 825 007a 0A4B     		ldr	r3, .L130+8
- 826 007c 5E81     		strh	r6, [r3, #10]	@ movhi
- 827 007e 4FF40050 		mov	r0, #8192
- 828 0082 FFF7FEFF 		bl	FLASH_WaitForLastOperation
- 829 0086 EDE7     		b	.L122
- 830              	.L128:
- 831 0088 FF2C     		cmp	r4, #255
- 832 008a D8D0     		beq	.L123
- 833 008c 054B     		ldr	r3, .L130+8
- 834 008e DC81     		strh	r4, [r3, #14]	@ movhi
- 835 0090 4FF40050 		mov	r0, #8192
- 836 0094 FFF7FEFF 		bl	FLASH_WaitForLastOperation
- 837 0098 D1E7     		b	.L123
- 838              	.L131:
- 839 009a 00BF     		.align	2
- 840              	.L130:
- 841 009c 00200240 		.word	1073881088
- 842 00a0 23016745 		.word	1164378403
- 843 00a4 00F8FF1F 		.word	536868864
- 845              		.section	.text.FLASH_ReadOutProtection,"ax",%progbits
- 846              		.align	1
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 15
+ 789 0034 0FD1     		bne	.L126
+ 790              	.L120:
+ 791 0036 0428     		cmp	r0, #4
+ 792 0038 14D0     		beq	.L127
+ 793              	.L121:
+ 794 003a 0428     		cmp	r0, #4
+ 795 003c 1BD0     		beq	.L128
+ 796              	.L122:
+ 797 003e 0428     		cmp	r0, #4
+ 798 0040 22D0     		beq	.L129
+ 799              	.L123:
+ 800 0042 0528     		cmp	r0, #5
+ 801 0044 EAD0     		beq	.L119
+ 802 0046 154A     		ldr	r2, .L130
+ 803 0048 1369     		ldr	r3, [r2, #16]
+ 804 004a 23F01003 		bic	r3, r3, #16
+ 805 004e DB04     		lsls	r3, r3, #19
+ 806 0050 DB0C     		lsrs	r3, r3, #19
+ 807 0052 1361     		str	r3, [r2, #16]
+ 808 0054 E2E7     		b	.L119
+ 809              	.L126:
+ 810 0056 134B     		ldr	r3, .L130+8
+ 811 0058 1F81     		strh	r7, [r3, #8]	@ movhi
+ 812 005a 4FF40050 		mov	r0, #8192
+ 813 005e FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 814 0062 E8E7     		b	.L120
+ 815              	.L127:
+ 816 0064 FF2E     		cmp	r6, #255
+ 817 0066 E8D0     		beq	.L121
+ 818 0068 0E4B     		ldr	r3, .L130+8
+ 819 006a 5E81     		strh	r6, [r3, #10]	@ movhi
+ 820 006c 4FF40050 		mov	r0, #8192
+ 821 0070 FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 822 0074 E1E7     		b	.L121
+ 823              	.L128:
+ 824 0076 FF2D     		cmp	r5, #255
+ 825 0078 E1D0     		beq	.L122
+ 826 007a 0A4B     		ldr	r3, .L130+8
+ 827 007c 9D81     		strh	r5, [r3, #12]	@ movhi
+ 828 007e 4FF40050 		mov	r0, #8192
+ 829 0082 FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 830 0086 DAE7     		b	.L122
+ 831              	.L129:
+ 832 0088 FF2C     		cmp	r4, #255
+ 833 008a DAD0     		beq	.L123
+ 834 008c 054B     		ldr	r3, .L130+8
+ 835 008e DC81     		strh	r4, [r3, #14]	@ movhi
+ 836 0090 4FF40050 		mov	r0, #8192
+ 837 0094 FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 838 0098 D3E7     		b	.L123
+ 839              	.L131:
+ 840 009a 00BF     		.align	2
+ 841              	.L130:
+ 842 009c 00200240 		.word	1073881088
+ 843 00a0 23016745 		.word	1164378403
+ 844 00a4 00F8FF1F 		.word	536868864
+ 846              		.section	.text.FLASH_ReadOutProtection,"ax",%progbits
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 15
 
 
- 847              		.global	FLASH_ReadOutProtection
- 848              		.syntax unified
- 849              		.thumb
- 850              		.thumb_func
- 852              	FLASH_ReadOutProtection:
- 853              		@ args = 0, pretend = 0, frame = 0
- 854              		@ frame_needed = 0, uses_anonymous_args = 0
- 855 0000 10B5     		push	{r4, lr}
- 856 0002 0446     		mov	r4, r0
- 857 0004 4FF43020 		mov	r0, #720896
- 858 0008 FFF7FEFF 		bl	FLASH_WaitForLastOperation
- 859 000c 0428     		cmp	r0, #4
- 860 000e 00D0     		beq	.L138
- 861              	.L133:
- 862 0010 10BD     		pop	{r4, pc}
- 863              	.L138:
- 864 0012 1F4B     		ldr	r3, .L140
- 865 0014 1F4A     		ldr	r2, .L140+4
- 866 0016 9A60     		str	r2, [r3, #8]
- 867 0018 02F18832 		add	r2, r2, #-2004318072
- 868 001c 9A60     		str	r2, [r3, #8]
- 869 001e 1A69     		ldr	r2, [r3, #16]
- 870 0020 42F02002 		orr	r2, r2, #32
- 871 0024 1A61     		str	r2, [r3, #16]
- 872 0026 1A69     		ldr	r2, [r3, #16]
- 873 0028 42F04002 		orr	r2, r2, #64
- 874 002c 1A61     		str	r2, [r3, #16]
- 875 002e 4FF43020 		mov	r0, #720896
- 876 0032 FFF7FEFF 		bl	FLASH_WaitForLastOperation
- 877 0036 0428     		cmp	r0, #4
- 878 0038 09D0     		beq	.L139
- 879 003a 0528     		cmp	r0, #5
- 880 003c E8D0     		beq	.L133
- 881 003e 144A     		ldr	r2, .L140
- 882 0040 1369     		ldr	r3, [r2, #16]
- 883 0042 23F02003 		bic	r3, r3, #32
- 884 0046 DB04     		lsls	r3, r3, #19
- 885 0048 DB0C     		lsrs	r3, r3, #19
- 886 004a 1361     		str	r3, [r2, #16]
- 887 004c E0E7     		b	.L133
- 888              	.L139:
- 889 004e 104B     		ldr	r3, .L140
- 890 0050 1A69     		ldr	r2, [r3, #16]
- 891 0052 22F02002 		bic	r2, r2, #32
- 892 0056 D204     		lsls	r2, r2, #19
- 893 0058 D20C     		lsrs	r2, r2, #19
- 894 005a 1A61     		str	r2, [r3, #16]
- 895 005c 1A69     		ldr	r2, [r3, #16]
- 896 005e 42F01002 		orr	r2, r2, #16
- 897 0062 1A61     		str	r2, [r3, #16]
- 898 0064 84B1     		cbz	r4, .L135
- 899 0066 0C4B     		ldr	r3, .L140+8
- 900 0068 0022     		movs	r2, #0
- 901 006a 1A80     		strh	r2, [r3]	@ movhi
- 902              	.L136:
- 903 006c 4FF43020 		mov	r0, #720896
- 904 0070 FFF7FEFF 		bl	FLASH_WaitForLastOperation
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 16
+ 847              		.align	1
+ 848              		.global	FLASH_ReadOutProtection
+ 849              		.syntax unified
+ 850              		.thumb
+ 851              		.thumb_func
+ 853              	FLASH_ReadOutProtection:
+ 854              		@ args = 0, pretend = 0, frame = 0
+ 855              		@ frame_needed = 0, uses_anonymous_args = 0
+ 856 0000 10B5     		push	{r4, lr}
+ 857 0002 0446     		mov	r4, r0
+ 858 0004 4FF43020 		mov	r0, #720896
+ 859 0008 FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 860 000c 0428     		cmp	r0, #4
+ 861 000e 00D0     		beq	.L138
+ 862              	.L133:
+ 863 0010 10BD     		pop	{r4, pc}
+ 864              	.L138:
+ 865 0012 1F4B     		ldr	r3, .L140
+ 866 0014 1F4A     		ldr	r2, .L140+4
+ 867 0016 9A60     		str	r2, [r3, #8]
+ 868 0018 02F18832 		add	r2, r2, #-2004318072
+ 869 001c 9A60     		str	r2, [r3, #8]
+ 870 001e 1A69     		ldr	r2, [r3, #16]
+ 871 0020 42F02002 		orr	r2, r2, #32
+ 872 0024 1A61     		str	r2, [r3, #16]
+ 873 0026 1A69     		ldr	r2, [r3, #16]
+ 874 0028 42F04002 		orr	r2, r2, #64
+ 875 002c 1A61     		str	r2, [r3, #16]
+ 876 002e 4FF43020 		mov	r0, #720896
+ 877 0032 FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 878 0036 0428     		cmp	r0, #4
+ 879 0038 09D0     		beq	.L139
+ 880 003a 0528     		cmp	r0, #5
+ 881 003c E8D0     		beq	.L133
+ 882 003e 144A     		ldr	r2, .L140
+ 883 0040 1369     		ldr	r3, [r2, #16]
+ 884 0042 23F02003 		bic	r3, r3, #32
+ 885 0046 DB04     		lsls	r3, r3, #19
+ 886 0048 DB0C     		lsrs	r3, r3, #19
+ 887 004a 1361     		str	r3, [r2, #16]
+ 888 004c E0E7     		b	.L133
+ 889              	.L139:
+ 890 004e 104B     		ldr	r3, .L140
+ 891 0050 1A69     		ldr	r2, [r3, #16]
+ 892 0052 22F02002 		bic	r2, r2, #32
+ 893 0056 D204     		lsls	r2, r2, #19
+ 894 0058 D20C     		lsrs	r2, r2, #19
+ 895 005a 1A61     		str	r2, [r3, #16]
+ 896 005c 1A69     		ldr	r2, [r3, #16]
+ 897 005e 42F01002 		orr	r2, r2, #16
+ 898 0062 1A61     		str	r2, [r3, #16]
+ 899 0064 84B1     		cbz	r4, .L135
+ 900 0066 0C4B     		ldr	r3, .L140+8
+ 901 0068 0022     		movs	r2, #0
+ 902 006a 1A80     		strh	r2, [r3]	@ movhi
+ 903              	.L136:
+ 904 006c 4FF43020 		mov	r0, #720896
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 16
 
 
- 905 0074 0528     		cmp	r0, #5
- 906 0076 CBD0     		beq	.L133
- 907 0078 054A     		ldr	r2, .L140
- 908 007a 1369     		ldr	r3, [r2, #16]
- 909 007c 23F01003 		bic	r3, r3, #16
- 910 0080 DB04     		lsls	r3, r3, #19
- 911 0082 DB0C     		lsrs	r3, r3, #19
- 912 0084 1361     		str	r3, [r2, #16]
- 913 0086 C3E7     		b	.L133
- 914              	.L135:
- 915 0088 034B     		ldr	r3, .L140+8
- 916 008a A522     		movs	r2, #165
- 917 008c 1A80     		strh	r2, [r3]	@ movhi
- 918 008e EDE7     		b	.L136
- 919              	.L141:
- 920              		.align	2
- 921              	.L140:
- 922 0090 00200240 		.word	1073881088
- 923 0094 23016745 		.word	1164378403
- 924 0098 00F8FF1F 		.word	536868864
- 926              		.section	.text.FLASH_UserOptionByteConfig,"ax",%progbits
- 927              		.align	1
- 928              		.global	FLASH_UserOptionByteConfig
- 929              		.syntax unified
- 930              		.thumb
- 931              		.thumb_func
- 933              	FLASH_UserOptionByteConfig:
- 934              		@ args = 0, pretend = 0, frame = 0
- 935              		@ frame_needed = 0, uses_anonymous_args = 0
- 936 0000 70B5     		push	{r4, r5, r6, lr}
- 937 0002 0446     		mov	r4, r0
- 938 0004 0D46     		mov	r5, r1
- 939 0006 1646     		mov	r6, r2
- 940 0008 134B     		ldr	r3, .L146
- 941 000a 1448     		ldr	r0, .L146+4
- 942 000c 9860     		str	r0, [r3, #8]
- 943 000e 00F18830 		add	r0, r0, #-2004318072
- 944 0012 9860     		str	r0, [r3, #8]
- 945 0014 4FF40050 		mov	r0, #8192
- 946 0018 FFF7FEFF 		bl	FLASH_WaitForLastOperation
- 947 001c 0428     		cmp	r0, #4
- 948 001e 00D0     		beq	.L145
- 949              	.L143:
- 950 0020 70BD     		pop	{r4, r5, r6, pc}
- 951              	.L145:
- 952 0022 0D4A     		ldr	r2, .L146
- 953 0024 1369     		ldr	r3, [r2, #16]
- 954 0026 43F01003 		orr	r3, r3, #16
- 955 002a 1361     		str	r3, [r2, #16]
- 956 002c 46EA0502 		orr	r2, r6, r5
- 957 0030 1443     		orrs	r4, r4, r2
- 958 0032 44F0F804 		orr	r4, r4, #248
- 959 0036 0A4B     		ldr	r3, .L146+8
- 960 0038 5C80     		strh	r4, [r3, #2]	@ movhi
- 961 003a 4FF40050 		mov	r0, #8192
- 962 003e FFF7FEFF 		bl	FLASH_WaitForLastOperation
- 963 0042 0528     		cmp	r0, #5
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 17
+ 905 0070 FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 906 0074 0528     		cmp	r0, #5
+ 907 0076 CBD0     		beq	.L133
+ 908 0078 054A     		ldr	r2, .L140
+ 909 007a 1369     		ldr	r3, [r2, #16]
+ 910 007c 23F01003 		bic	r3, r3, #16
+ 911 0080 DB04     		lsls	r3, r3, #19
+ 912 0082 DB0C     		lsrs	r3, r3, #19
+ 913 0084 1361     		str	r3, [r2, #16]
+ 914 0086 C3E7     		b	.L133
+ 915              	.L135:
+ 916 0088 034B     		ldr	r3, .L140+8
+ 917 008a A522     		movs	r2, #165
+ 918 008c 1A80     		strh	r2, [r3]	@ movhi
+ 919 008e EDE7     		b	.L136
+ 920              	.L141:
+ 921              		.align	2
+ 922              	.L140:
+ 923 0090 00200240 		.word	1073881088
+ 924 0094 23016745 		.word	1164378403
+ 925 0098 00F8FF1F 		.word	536868864
+ 927              		.section	.text.FLASH_UserOptionByteConfig,"ax",%progbits
+ 928              		.align	1
+ 929              		.global	FLASH_UserOptionByteConfig
+ 930              		.syntax unified
+ 931              		.thumb
+ 932              		.thumb_func
+ 934              	FLASH_UserOptionByteConfig:
+ 935              		@ args = 0, pretend = 0, frame = 0
+ 936              		@ frame_needed = 0, uses_anonymous_args = 0
+ 937 0000 70B5     		push	{r4, r5, r6, lr}
+ 938 0002 0446     		mov	r4, r0
+ 939 0004 0D46     		mov	r5, r1
+ 940 0006 1646     		mov	r6, r2
+ 941 0008 134B     		ldr	r3, .L146
+ 942 000a 1448     		ldr	r0, .L146+4
+ 943 000c 9860     		str	r0, [r3, #8]
+ 944 000e 00F18830 		add	r0, r0, #-2004318072
+ 945 0012 9860     		str	r0, [r3, #8]
+ 946 0014 4FF40050 		mov	r0, #8192
+ 947 0018 FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ 948 001c 0428     		cmp	r0, #4
+ 949 001e 00D0     		beq	.L145
+ 950              	.L143:
+ 951 0020 70BD     		pop	{r4, r5, r6, pc}
+ 952              	.L145:
+ 953 0022 0D4A     		ldr	r2, .L146
+ 954 0024 1369     		ldr	r3, [r2, #16]
+ 955 0026 43F01003 		orr	r3, r3, #16
+ 956 002a 1361     		str	r3, [r2, #16]
+ 957 002c 46EA0502 		orr	r2, r6, r5
+ 958 0030 1443     		orrs	r4, r4, r2
+ 959 0032 44F0F804 		orr	r4, r4, #248
+ 960 0036 0A4B     		ldr	r3, .L146+8
+ 961 0038 5C80     		strh	r4, [r3, #2]	@ movhi
+ 962 003a 4FF40050 		mov	r0, #8192
+ 963 003e FFF7FEFF 		bl	FLASH_WaitForLastOperation
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 17
 
 
- 964 0044 ECD0     		beq	.L143
- 965 0046 044A     		ldr	r2, .L146
- 966 0048 1369     		ldr	r3, [r2, #16]
- 967 004a 23F01003 		bic	r3, r3, #16
- 968 004e DB04     		lsls	r3, r3, #19
- 969 0050 DB0C     		lsrs	r3, r3, #19
- 970 0052 1361     		str	r3, [r2, #16]
- 971 0054 E4E7     		b	.L143
- 972              	.L147:
- 973 0056 00BF     		.align	2
- 974              	.L146:
- 975 0058 00200240 		.word	1073881088
- 976 005c 23016745 		.word	1164378403
- 977 0060 00F8FF1F 		.word	536868864
- 979              		.section	.text.FLASH_WaitForLastBank1Operation,"ax",%progbits
- 980              		.align	1
- 981              		.global	FLASH_WaitForLastBank1Operation
- 982              		.syntax unified
- 983              		.thumb
- 984              		.thumb_func
- 986              	FLASH_WaitForLastBank1Operation:
- 987              		@ args = 0, pretend = 0, frame = 0
- 988              		@ frame_needed = 0, uses_anonymous_args = 0
- 989 0000 10B5     		push	{r4, lr}
- 990 0002 0446     		mov	r4, r0
- 991 0004 FFF7FEFF 		bl	FLASH_GetBank1Status
- 992 0008 02E0     		b	.L149
- 993              	.L151:
- 994 000a FFF7FEFF 		bl	FLASH_GetBank1Status
- 995 000e 013C     		subs	r4, r4, #1
- 996              	.L149:
- 997 0010 0128     		cmp	r0, #1
- 998 0012 01D1     		bne	.L150
- 999 0014 002C     		cmp	r4, #0
- 1000 0016 F8D1     		bne	.L151
- 1001              	.L150:
- 1002 0018 04B1     		cbz	r4, .L155
- 1003              	.L152:
- 1004 001a 10BD     		pop	{r4, pc}
- 1005              	.L155:
- 1006 001c 0520     		movs	r0, #5
- 1007 001e FCE7     		b	.L152
- 1009              		.section	.text.FLASH_EraseAllBank1Pages,"ax",%progbits
- 1010              		.align	1
- 1011              		.global	FLASH_EraseAllBank1Pages
- 1012              		.syntax unified
- 1013              		.thumb
- 1014              		.thumb_func
- 1016              	FLASH_EraseAllBank1Pages:
- 1017              		@ args = 0, pretend = 0, frame = 0
- 1018              		@ frame_needed = 0, uses_anonymous_args = 0
- 1019 0000 10B5     		push	{r4, lr}
- 1020 0002 4FF43020 		mov	r0, #720896
- 1021 0006 FFF7FEFF 		bl	FLASH_WaitForLastBank1Operation
- 1022 000a 0428     		cmp	r0, #4
- 1023 000c 00D0     		beq	.L159
- 1024              	.L157:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 18
+ 964 0042 0528     		cmp	r0, #5
+ 965 0044 ECD0     		beq	.L143
+ 966 0046 044A     		ldr	r2, .L146
+ 967 0048 1369     		ldr	r3, [r2, #16]
+ 968 004a 23F01003 		bic	r3, r3, #16
+ 969 004e DB04     		lsls	r3, r3, #19
+ 970 0050 DB0C     		lsrs	r3, r3, #19
+ 971 0052 1361     		str	r3, [r2, #16]
+ 972 0054 E4E7     		b	.L143
+ 973              	.L147:
+ 974 0056 00BF     		.align	2
+ 975              	.L146:
+ 976 0058 00200240 		.word	1073881088
+ 977 005c 23016745 		.word	1164378403
+ 978 0060 00F8FF1F 		.word	536868864
+ 980              		.section	.text.FLASH_WaitForLastBank1Operation,"ax",%progbits
+ 981              		.align	1
+ 982              		.global	FLASH_WaitForLastBank1Operation
+ 983              		.syntax unified
+ 984              		.thumb
+ 985              		.thumb_func
+ 987              	FLASH_WaitForLastBank1Operation:
+ 988              		@ args = 0, pretend = 0, frame = 0
+ 989              		@ frame_needed = 0, uses_anonymous_args = 0
+ 990 0000 10B5     		push	{r4, lr}
+ 991 0002 0446     		mov	r4, r0
+ 992 0004 FFF7FEFF 		bl	FLASH_GetBank1Status
+ 993 0008 02E0     		b	.L149
+ 994              	.L151:
+ 995 000a FFF7FEFF 		bl	FLASH_GetBank1Status
+ 996 000e 013C     		subs	r4, r4, #1
+ 997              	.L149:
+ 998 0010 0128     		cmp	r0, #1
+ 999 0012 01D1     		bne	.L150
+ 1000 0014 002C     		cmp	r4, #0
+ 1001 0016 F8D1     		bne	.L151
+ 1002              	.L150:
+ 1003 0018 04B1     		cbz	r4, .L155
+ 1004              	.L152:
+ 1005 001a 10BD     		pop	{r4, pc}
+ 1006              	.L155:
+ 1007 001c 0520     		movs	r0, #5
+ 1008 001e FCE7     		b	.L152
+ 1010              		.section	.text.FLASH_EraseAllBank1Pages,"ax",%progbits
+ 1011              		.align	1
+ 1012              		.global	FLASH_EraseAllBank1Pages
+ 1013              		.syntax unified
+ 1014              		.thumb
+ 1015              		.thumb_func
+ 1017              	FLASH_EraseAllBank1Pages:
+ 1018              		@ args = 0, pretend = 0, frame = 0
+ 1019              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1020 0000 10B5     		push	{r4, lr}
+ 1021 0002 4FF43020 		mov	r0, #720896
+ 1022 0006 FFF7FEFF 		bl	FLASH_WaitForLastBank1Operation
+ 1023 000a 0428     		cmp	r0, #4
+ 1024 000c 00D0     		beq	.L159
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 18
 
 
- 1025 000e 10BD     		pop	{r4, pc}
- 1026              	.L159:
- 1027 0010 094C     		ldr	r4, .L160
- 1028 0012 2369     		ldr	r3, [r4, #16]
- 1029 0014 43F00403 		orr	r3, r3, #4
- 1030 0018 2361     		str	r3, [r4, #16]
- 1031 001a 2369     		ldr	r3, [r4, #16]
- 1032 001c 43F04003 		orr	r3, r3, #64
- 1033 0020 2361     		str	r3, [r4, #16]
- 1034 0022 4FF43020 		mov	r0, #720896
- 1035 0026 FFF7FEFF 		bl	FLASH_WaitForLastBank1Operation
- 1036 002a 2369     		ldr	r3, [r4, #16]
- 1037 002c 23F00403 		bic	r3, r3, #4
- 1038 0030 DB04     		lsls	r3, r3, #19
- 1039 0032 DB0C     		lsrs	r3, r3, #19
- 1040 0034 2361     		str	r3, [r4, #16]
- 1041 0036 EAE7     		b	.L157
- 1042              	.L161:
- 1043              		.align	2
- 1044              	.L160:
- 1045 0038 00200240 		.word	1073881088
- 1047              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 19
+ 1025              	.L157:
+ 1026 000e 10BD     		pop	{r4, pc}
+ 1027              	.L159:
+ 1028 0010 094C     		ldr	r4, .L160
+ 1029 0012 2369     		ldr	r3, [r4, #16]
+ 1030 0014 43F00403 		orr	r3, r3, #4
+ 1031 0018 2361     		str	r3, [r4, #16]
+ 1032 001a 2369     		ldr	r3, [r4, #16]
+ 1033 001c 43F04003 		orr	r3, r3, #64
+ 1034 0020 2361     		str	r3, [r4, #16]
+ 1035 0022 4FF43020 		mov	r0, #720896
+ 1036 0026 FFF7FEFF 		bl	FLASH_WaitForLastBank1Operation
+ 1037 002a 2369     		ldr	r3, [r4, #16]
+ 1038 002c 23F00403 		bic	r3, r3, #4
+ 1039 0030 DB04     		lsls	r3, r3, #19
+ 1040 0032 DB0C     		lsrs	r3, r3, #19
+ 1041 0034 2361     		str	r3, [r4, #16]
+ 1042 0036 EAE7     		b	.L157
+ 1043              	.L161:
+ 1044              		.align	2
+ 1045              	.L160:
+ 1046 0038 00200240 		.word	1073881088
+ 1048              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 19
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f10x_flash.c
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:16     .text.FLASH_SetLatency:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:22     .text.FLASH_SetLatency:00000000 FLASH_SetLatency
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:35     .text.FLASH_SetLatency:00000010 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:38     .text.FLASH_HalfCycleAccessCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:44     .text.FLASH_HalfCycleAccessCmd:00000000 FLASH_HalfCycleAccessCmd
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:59     .text.FLASH_HalfCycleAccessCmd:00000014 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:62     .text.FLASH_PrefetchBufferCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:68     .text.FLASH_PrefetchBufferCmd:00000000 FLASH_PrefetchBufferCmd
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:83     .text.FLASH_PrefetchBufferCmd:00000014 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:86     .text.FLASH_Unlock:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:92     .text.FLASH_Unlock:00000000 FLASH_Unlock
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:105    .text.FLASH_Unlock:00000010 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:109    .text.FLASH_UnlockBank1:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:115    .text.FLASH_UnlockBank1:00000000 FLASH_UnlockBank1
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:128    .text.FLASH_UnlockBank1:00000010 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:132    .text.FLASH_Lock:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:138    .text.FLASH_Lock:00000000 FLASH_Lock
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:150    .text.FLASH_Lock:0000000c $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:153    .text.FLASH_LockBank1:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:159    .text.FLASH_LockBank1:00000000 FLASH_LockBank1
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:171    .text.FLASH_LockBank1:0000000c $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:174    .text.FLASH_GetUserOptionByte:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:180    .text.FLASH_GetUserOptionByte:00000000 FLASH_GetUserOptionByte
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:191    .text.FLASH_GetUserOptionByte:00000008 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:194    .text.FLASH_GetWriteProtectionOptionByte:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:200    .text.FLASH_GetWriteProtectionOptionByte:00000000 FLASH_GetWriteProtectionOptionByte
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:210    .text.FLASH_GetWriteProtectionOptionByte:00000008 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:213    .text.FLASH_GetReadOutProtectionStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:219    .text.FLASH_GetReadOutProtectionStatus:00000000 FLASH_GetReadOutProtectionStatus
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:235    .text.FLASH_GetReadOutProtectionStatus:00000014 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:238    .text.FLASH_GetPrefetchBufferStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:244    .text.FLASH_GetPrefetchBufferStatus:00000000 FLASH_GetPrefetchBufferStatus
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:260    .text.FLASH_GetPrefetchBufferStatus:00000014 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:263    .text.FLASH_ITConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:269    .text.FLASH_ITConfig:00000000 FLASH_ITConfig
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:288    .text.FLASH_ITConfig:00000018 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:291    .text.FLASH_GetFlagStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:297    .text.FLASH_GetFlagStatus:00000000 FLASH_GetFlagStatus
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:324    .text.FLASH_GetFlagStatus:00000024 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:327    .text.FLASH_ClearFlag:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:333    .text.FLASH_ClearFlag:00000000 FLASH_ClearFlag
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:343    .text.FLASH_ClearFlag:00000008 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:346    .text.FLASH_GetStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:352    .text.FLASH_GetStatus:00000000 FLASH_GetStatus
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:382    .text.FLASH_GetStatus:00000030 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:385    .text.FLASH_GetBank1Status:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:391    .text.FLASH_GetBank1Status:00000000 FLASH_GetBank1Status
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:421    .text.FLASH_GetBank1Status:00000030 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:424    .text.FLASH_WaitForLastOperation:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:430    .text.FLASH_WaitForLastOperation:00000000 FLASH_WaitForLastOperation
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:454    .text.FLASH_ErasePage:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:460    .text.FLASH_ErasePage:00000000 FLASH_ErasePage
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:491    .text.FLASH_ErasePage:0000003c $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:494    .text.FLASH_EraseAllPages:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:500    .text.FLASH_EraseAllPages:00000000 FLASH_EraseAllPages
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s 			page 20
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:16     .text.FLASH_SetLatency:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:22     .text.FLASH_SetLatency:00000000 FLASH_SetLatency
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:35     .text.FLASH_SetLatency:00000010 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:38     .text.FLASH_HalfCycleAccessCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:44     .text.FLASH_HalfCycleAccessCmd:00000000 FLASH_HalfCycleAccessCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:59     .text.FLASH_HalfCycleAccessCmd:00000014 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:62     .text.FLASH_PrefetchBufferCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:68     .text.FLASH_PrefetchBufferCmd:00000000 FLASH_PrefetchBufferCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:83     .text.FLASH_PrefetchBufferCmd:00000014 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:86     .text.FLASH_Unlock:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:92     .text.FLASH_Unlock:00000000 FLASH_Unlock
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:105    .text.FLASH_Unlock:00000010 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:109    .text.FLASH_UnlockBank1:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:115    .text.FLASH_UnlockBank1:00000000 FLASH_UnlockBank1
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:128    .text.FLASH_UnlockBank1:00000010 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:132    .text.FLASH_Lock:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:138    .text.FLASH_Lock:00000000 FLASH_Lock
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:150    .text.FLASH_Lock:0000000c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:153    .text.FLASH_LockBank1:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:159    .text.FLASH_LockBank1:00000000 FLASH_LockBank1
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:171    .text.FLASH_LockBank1:0000000c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:174    .text.FLASH_GetUserOptionByte:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:180    .text.FLASH_GetUserOptionByte:00000000 FLASH_GetUserOptionByte
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:191    .text.FLASH_GetUserOptionByte:00000008 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:194    .text.FLASH_GetWriteProtectionOptionByte:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:200    .text.FLASH_GetWriteProtectionOptionByte:00000000 FLASH_GetWriteProtectionOptionByte
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:210    .text.FLASH_GetWriteProtectionOptionByte:00000008 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:213    .text.FLASH_GetReadOutProtectionStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:219    .text.FLASH_GetReadOutProtectionStatus:00000000 FLASH_GetReadOutProtectionStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:235    .text.FLASH_GetReadOutProtectionStatus:00000014 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:238    .text.FLASH_GetPrefetchBufferStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:244    .text.FLASH_GetPrefetchBufferStatus:00000000 FLASH_GetPrefetchBufferStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:260    .text.FLASH_GetPrefetchBufferStatus:00000014 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:263    .text.FLASH_ITConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:269    .text.FLASH_ITConfig:00000000 FLASH_ITConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:288    .text.FLASH_ITConfig:00000018 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:291    .text.FLASH_GetFlagStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:297    .text.FLASH_GetFlagStatus:00000000 FLASH_GetFlagStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:324    .text.FLASH_GetFlagStatus:00000024 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:327    .text.FLASH_ClearFlag:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:333    .text.FLASH_ClearFlag:00000000 FLASH_ClearFlag
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:343    .text.FLASH_ClearFlag:00000008 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:346    .text.FLASH_GetStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:352    .text.FLASH_GetStatus:00000000 FLASH_GetStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:382    .text.FLASH_GetStatus:00000030 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:385    .text.FLASH_GetBank1Status:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:391    .text.FLASH_GetBank1Status:00000000 FLASH_GetBank1Status
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:421    .text.FLASH_GetBank1Status:00000030 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:424    .text.FLASH_WaitForLastOperation:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:430    .text.FLASH_WaitForLastOperation:00000000 FLASH_WaitForLastOperation
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:454    .text.FLASH_ErasePage:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:460    .text.FLASH_ErasePage:00000000 FLASH_ErasePage
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:491    .text.FLASH_ErasePage:0000003c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:494    .text.FLASH_EraseAllPages:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:500    .text.FLASH_EraseAllPages:00000000 FLASH_EraseAllPages
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s 			page 20
 
 
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:529    .text.FLASH_EraseAllPages:00000038 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:532    .text.FLASH_EraseOptionBytes:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:538    .text.FLASH_EraseOptionBytes:00000000 FLASH_EraseOptionBytes
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:606    .text.FLASH_EraseOptionBytes:00000090 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:611    .text.FLASH_ProgramWord:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:617    .text.FLASH_ProgramWord:00000000 FLASH_ProgramWord
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:670    .text.FLASH_ProgramWord:00000068 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:673    .text.FLASH_ProgramHalfWord:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:679    .text.FLASH_ProgramHalfWord:00000000 FLASH_ProgramHalfWord
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:708    .text.FLASH_ProgramHalfWord:00000038 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:711    .text.FLASH_ProgramOptionByteData:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:717    .text.FLASH_ProgramOptionByteData:00000000 FLASH_ProgramOptionByteData
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:753    .text.FLASH_ProgramOptionByteData:00000048 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:757    .text.FLASH_EnableWriteProtection:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:763    .text.FLASH_EnableWriteProtection:00000000 FLASH_EnableWriteProtection
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:841    .text.FLASH_EnableWriteProtection:0000009c $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:846    .text.FLASH_ReadOutProtection:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:852    .text.FLASH_ReadOutProtection:00000000 FLASH_ReadOutProtection
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:922    .text.FLASH_ReadOutProtection:00000090 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:927    .text.FLASH_UserOptionByteConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:933    .text.FLASH_UserOptionByteConfig:00000000 FLASH_UserOptionByteConfig
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:975    .text.FLASH_UserOptionByteConfig:00000058 $d
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:980    .text.FLASH_WaitForLastBank1Operation:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:986    .text.FLASH_WaitForLastBank1Operation:00000000 FLASH_WaitForLastBank1Operation
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:1010   .text.FLASH_EraseAllBank1Pages:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:1016   .text.FLASH_EraseAllBank1Pages:00000000 FLASH_EraseAllBank1Pages
-C:\Users\UXP\AppData\Local\Temp\ccpHxnLa.s:1045   .text.FLASH_EraseAllBank1Pages:00000038 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:529    .text.FLASH_EraseAllPages:00000038 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:532    .text.FLASH_EraseOptionBytes:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:538    .text.FLASH_EraseOptionBytes:00000000 FLASH_EraseOptionBytes
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:606    .text.FLASH_EraseOptionBytes:00000090 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:611    .text.FLASH_ProgramWord:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:617    .text.FLASH_ProgramWord:00000000 FLASH_ProgramWord
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:670    .text.FLASH_ProgramWord:00000068 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:673    .text.FLASH_ProgramHalfWord:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:679    .text.FLASH_ProgramHalfWord:00000000 FLASH_ProgramHalfWord
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:708    .text.FLASH_ProgramHalfWord:00000038 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:711    .text.FLASH_ProgramOptionByteData:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:717    .text.FLASH_ProgramOptionByteData:00000000 FLASH_ProgramOptionByteData
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:754    .text.FLASH_ProgramOptionByteData:00000048 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:758    .text.FLASH_EnableWriteProtection:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:764    .text.FLASH_EnableWriteProtection:00000000 FLASH_EnableWriteProtection
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:842    .text.FLASH_EnableWriteProtection:0000009c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:847    .text.FLASH_ReadOutProtection:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:853    .text.FLASH_ReadOutProtection:00000000 FLASH_ReadOutProtection
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:923    .text.FLASH_ReadOutProtection:00000090 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:928    .text.FLASH_UserOptionByteConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:934    .text.FLASH_UserOptionByteConfig:00000000 FLASH_UserOptionByteConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:976    .text.FLASH_UserOptionByteConfig:00000058 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:981    .text.FLASH_WaitForLastBank1Operation:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:987    .text.FLASH_WaitForLastBank1Operation:00000000 FLASH_WaitForLastBank1Operation
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:1011   .text.FLASH_EraseAllBank1Pages:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:1017   .text.FLASH_EraseAllBank1Pages:00000000 FLASH_EraseAllBank1Pages
+C:\Users\wxpwx\AppData\Local\Temp\ccLVTRig.s:1046   .text.FLASH_EraseAllBank1Pages:00000038 $d
 
 NO UNDEFINED SYMBOLS

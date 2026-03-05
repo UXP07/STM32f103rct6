@@ -1,0 +1,262 @@
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lab_dma.c"
+  14              		.text
+  15              		.section	.text.Dma_m2m_Init,"ax",%progbits
+  16              		.align	1
+  17              		.global	Dma_m2m_Init
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	Dma_m2m_Init:
+  23              		@ args = 0, pretend = 0, frame = 48
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 70B5     		push	{r4, r5, r6, lr}
+  26 0002 8CB0     		sub	sp, sp, #48
+  27 0004 0446     		mov	r4, r0
+  28 0006 0E46     		mov	r6, r1
+  29 0008 1546     		mov	r5, r2
+  30 000a 0121     		movs	r1, #1
+  31 000c 0846     		mov	r0, r1
+  32 000e FFF7FEFF 		bl	RCC_AHBPeriphClockCmd
+  33 0012 1048     		ldr	r0, .L3
+  34 0014 FFF7FEFF 		bl	DMA_DeInit
+  35 0018 0296     		str	r6, [sp, #8]
+  36 001a 0195     		str	r5, [sp, #4]
+  37 001c 1023     		movs	r3, #16
+  38 001e 0393     		str	r3, [sp, #12]
+  39 0020 0C23     		movs	r3, #12
+  40 0022 0493     		str	r3, [sp, #16]
+  41 0024 4023     		movs	r3, #64
+  42 0026 0593     		str	r3, [sp, #20]
+  43 0028 8023     		movs	r3, #128
+  44 002a 0693     		str	r3, [sp, #24]
+  45 002c 4FF40073 		mov	r3, #512
+  46 0030 0793     		str	r3, [sp, #28]
+  47 0032 4FF40063 		mov	r3, #2048
+  48 0036 0893     		str	r3, [sp, #32]
+  49 0038 0023     		movs	r3, #0
+  50 003a 0993     		str	r3, [sp, #36]
+  51 003c 4FF48043 		mov	r3, #16384
+  52 0040 0B93     		str	r3, [sp, #44]
+  53 0042 4FF44053 		mov	r3, #12288
+  54 0046 0A93     		str	r3, [sp, #40]
+  55 0048 01A9     		add	r1, sp, #4
+  56 004a 2046     		mov	r0, r4
+  57 004c FFF7FEFF 		bl	DMA_Init
+  58 0050 0CB0     		add	sp, sp, #48
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s 			page 2
+
+
+  59              		@ sp needed
+  60 0052 70BD     		pop	{r4, r5, r6, pc}
+  61              	.L4:
+  62              		.align	2
+  63              	.L3:
+  64 0054 44000240 		.word	1073872964
+  66              		.section	.text.NVIC_DMA_Configuration,"ax",%progbits
+  67              		.align	1
+  68              		.global	NVIC_DMA_Configuration
+  69              		.syntax unified
+  70              		.thumb
+  71              		.thumb_func
+  73              	NVIC_DMA_Configuration:
+  74              		@ args = 0, pretend = 0, frame = 8
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+  76 0000 00B5     		push	{lr}
+  77 0002 83B0     		sub	sp, sp, #12
+  78 0004 4FF4A060 		mov	r0, #1280
+  79 0008 FFF7FEFF 		bl	NVIC_PriorityGroupConfig
+  80 000c 0E23     		movs	r3, #14
+  81 000e 8DF80430 		strb	r3, [sp, #4]
+  82 0012 0223     		movs	r3, #2
+  83 0014 8DF80530 		strb	r3, [sp, #5]
+  84 0018 0123     		movs	r3, #1
+  85 001a 8DF80630 		strb	r3, [sp, #6]
+  86 001e 8DF80730 		strb	r3, [sp, #7]
+  87 0022 01A8     		add	r0, sp, #4
+  88 0024 FFF7FEFF 		bl	NVIC_Init
+  89 0028 03B0     		add	sp, sp, #12
+  90              		@ sp needed
+  91 002a 5DF804FB 		ldr	pc, [sp], #4
+  93              		.section	.text.Dma_m2p_Init,"ax",%progbits
+  94              		.align	1
+  95              		.global	Dma_m2p_Init
+  96              		.syntax unified
+  97              		.thumb
+  98              		.thumb_func
+ 100              	Dma_m2p_Init:
+ 101              		@ args = 0, pretend = 0, frame = 48
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103 0000 70B5     		push	{r4, r5, r6, lr}
+ 104 0002 8CB0     		sub	sp, sp, #48
+ 105 0004 0446     		mov	r4, r0
+ 106 0006 0D46     		mov	r5, r1
+ 107 0008 0121     		movs	r1, #1
+ 108 000a 0846     		mov	r0, r1
+ 109 000c FFF7FEFF 		bl	RCC_AHBPeriphClockCmd
+ 110 0010 134E     		ldr	r6, .L9
+ 111 0012 3046     		mov	r0, r6
+ 112 0014 FFF7FEFF 		bl	DMA_DeInit
+ 113 0018 0295     		str	r5, [sp, #8]
+ 114 001a 124B     		ldr	r3, .L9+4
+ 115 001c 0193     		str	r3, [sp, #4]
+ 116 001e 1023     		movs	r3, #16
+ 117 0020 0393     		str	r3, [sp, #12]
+ 118 0022 0C23     		movs	r3, #12
+ 119 0024 0493     		str	r3, [sp, #16]
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s 			page 3
+
+
+ 120 0026 0023     		movs	r3, #0
+ 121 0028 0593     		str	r3, [sp, #20]
+ 122 002a 8025     		movs	r5, #128
+ 123 002c 0695     		str	r5, [sp, #24]
+ 124 002e 0793     		str	r3, [sp, #28]
+ 125 0030 0893     		str	r3, [sp, #32]
+ 126 0032 0993     		str	r3, [sp, #36]
+ 127 0034 0B93     		str	r3, [sp, #44]
+ 128 0036 4FF44053 		mov	r3, #12288
+ 129 003a 0A93     		str	r3, [sp, #40]
+ 130 003c 01A9     		add	r1, sp, #4
+ 131 003e 2046     		mov	r0, r4
+ 132 0040 FFF7FEFF 		bl	DMA_Init
+ 133 0044 0122     		movs	r2, #1
+ 134 0046 0221     		movs	r1, #2
+ 135 0048 3046     		mov	r0, r6
+ 136 004a FFF7FEFF 		bl	DMA_ITConfig
+ 137 004e FFF7FEFF 		bl	NVIC_DMA_Configuration
+ 138 0052 0122     		movs	r2, #1
+ 139 0054 2946     		mov	r1, r5
+ 140 0056 0448     		ldr	r0, .L9+8
+ 141 0058 FFF7FEFF 		bl	USART_DMACmd
+ 142 005c 0CB0     		add	sp, sp, #48
+ 143              		@ sp needed
+ 144 005e 70BD     		pop	{r4, r5, r6, pc}
+ 145              	.L10:
+ 146              		.align	2
+ 147              	.L9:
+ 148 0060 44000240 		.word	1073872964
+ 149 0064 04380140 		.word	1073821700
+ 150 0068 00380140 		.word	1073821696
+ 152              		.section	.text.Dma_Rework,"ax",%progbits
+ 153              		.align	1
+ 154              		.global	Dma_Rework
+ 155              		.syntax unified
+ 156              		.thumb
+ 157              		.thumb_func
+ 159              	Dma_Rework:
+ 160              		@ args = 0, pretend = 0, frame = 0
+ 161              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162 0000 10B5     		push	{r4, lr}
+ 163 0002 074C     		ldr	r4, .L13
+ 164 0004 0021     		movs	r1, #0
+ 165 0006 2046     		mov	r0, r4
+ 166 0008 FFF7FEFF 		bl	DMA_Cmd
+ 167 000c 0C21     		movs	r1, #12
+ 168 000e 2046     		mov	r0, r4
+ 169 0010 FFF7FEFF 		bl	DMA_SetCurrDataCounter
+ 170 0014 0121     		movs	r1, #1
+ 171 0016 2046     		mov	r0, r4
+ 172 0018 FFF7FEFF 		bl	DMA_Cmd
+ 173 001c 10BD     		pop	{r4, pc}
+ 174              	.L14:
+ 175 001e 00BF     		.align	2
+ 176              	.L13:
+ 177 0020 44000240 		.word	1073872964
+ 179              		.section	.rodata.DMA1_Channel4_IRQHandler.str1.4,"aMS",%progbits,1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s 			page 4
+
+
+ 180              		.align	2
+ 181              	.LC0:
+ 182 0000 6572726F 		.ascii	"error\000"
+ 182      7200
+ 183              		.section	.text.DMA1_Channel4_IRQHandler,"ax",%progbits
+ 184              		.align	1
+ 185              		.global	DMA1_Channel4_IRQHandler
+ 186              		.syntax unified
+ 187              		.thumb
+ 188              		.thumb_func
+ 190              	DMA1_Channel4_IRQHandler:
+ 191              		@ args = 0, pretend = 0, frame = 0
+ 192              		@ frame_needed = 0, uses_anonymous_args = 0
+ 193 0000 08B5     		push	{r3, lr}
+ 194 0002 4FF40050 		mov	r0, #8192
+ 195 0006 FFF7FEFF 		bl	DMA_GetITStatus
+ 196 000a 88B1     		cbz	r0, .L16
+ 197 000c 4FF40050 		mov	r0, #8192
+ 198 0010 FFF7FEFF 		bl	DMA_ClearITPendingBit
+ 199 0014 084B     		ldr	r3, .L20
+ 200 0016 1B68     		ldr	r3, [r3]
+ 201 0018 2BB1     		cbz	r3, .L17
+ 202 001a 013B     		subs	r3, r3, #1
+ 203 001c 064A     		ldr	r2, .L20
+ 204 001e 1360     		str	r3, [r2]
+ 205 0020 FFF7FEFF 		bl	Dma_Rework
+ 206 0024 07E0     		b	.L15
+ 207              	.L17:
+ 208 0026 0021     		movs	r1, #0
+ 209 0028 0448     		ldr	r0, .L20+4
+ 210 002a FFF7FEFF 		bl	DMA_Cmd
+ 211 002e 02E0     		b	.L15
+ 212              	.L16:
+ 213 0030 0348     		ldr	r0, .L20+8
+ 214 0032 FFF7FEFF 		bl	puts
+ 215              	.L15:
+ 216 0036 08BD     		pop	{r3, pc}
+ 217              	.L21:
+ 218              		.align	2
+ 219              	.L20:
+ 220 0038 00000000 		.word	count
+ 221 003c 44000240 		.word	1073872964
+ 222 0040 00000000 		.word	.LC0
+ 224              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lab_dma.c
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:16     .text.Dma_m2m_Init:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:22     .text.Dma_m2m_Init:00000000 Dma_m2m_Init
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:64     .text.Dma_m2m_Init:00000054 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:67     .text.NVIC_DMA_Configuration:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:73     .text.NVIC_DMA_Configuration:00000000 NVIC_DMA_Configuration
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:94     .text.Dma_m2p_Init:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:100    .text.Dma_m2p_Init:00000000 Dma_m2p_Init
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:148    .text.Dma_m2p_Init:00000060 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:153    .text.Dma_Rework:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:159    .text.Dma_Rework:00000000 Dma_Rework
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:177    .text.Dma_Rework:00000020 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:180    .rodata.DMA1_Channel4_IRQHandler.str1.4:00000000 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:184    .text.DMA1_Channel4_IRQHandler:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:190    .text.DMA1_Channel4_IRQHandler:00000000 DMA1_Channel4_IRQHandler
+C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:220    .text.DMA1_Channel4_IRQHandler:00000038 $d
+
+UNDEFINED SYMBOLS
+RCC_AHBPeriphClockCmd
+DMA_DeInit
+DMA_Init
+NVIC_PriorityGroupConfig
+NVIC_Init
+DMA_ITConfig
+USART_DMACmd
+DMA_Cmd
+DMA_SetCurrDataCounter
+DMA_GetITStatus
+DMA_ClearITPendingBit
+puts
+count

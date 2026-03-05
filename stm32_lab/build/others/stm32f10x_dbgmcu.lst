@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc4qcQNn.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s 			page 1
   59              		.thumb
   60              		.thumb_func
   62              	DBGMCU_Config:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s 			page 2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc4qcQNn.s 			page 2
 
 
   63              		@ args = 0, pretend = 0, frame = 0
@@ -67,33 +67,33 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s 			page 1
   66 0000 21B1     		cbz	r1, .L8
   67 0002 054A     		ldr	r2, .L10
   68 0004 5368     		ldr	r3, [r2, #4]
-  69 0006 0343     		orrs	r3, r3, r0
-  70 0008 5360     		str	r3, [r2, #4]
+  69 0006 1843     		orrs	r0, r0, r3
+  70 0008 5060     		str	r0, [r2, #4]
   71 000a 7047     		bx	lr
   72              	.L8:
   73 000c 024A     		ldr	r2, .L10
   74 000e 5368     		ldr	r3, [r2, #4]
-  75 0010 23EA0003 		bic	r3, r3, r0
-  76 0014 5360     		str	r3, [r2, #4]
+  75 0010 23EA0000 		bic	r0, r3, r0
+  76 0014 5060     		str	r0, [r2, #4]
   77 0016 7047     		bx	lr
   78              	.L11:
   79              		.align	2
   80              	.L10:
   81 0018 002004E0 		.word	-536600576
-  83              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s 			page 3
+  83              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc4qcQNn.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f10x_dbgmcu.c
-C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s:16     .text.DBGMCU_GetREVID:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s:22     .text.DBGMCU_GetREVID:00000000 DBGMCU_GetREVID
-C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s:33     .text.DBGMCU_GetREVID:00000008 $d
-C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s:36     .text.DBGMCU_GetDEVID:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s:42     .text.DBGMCU_GetDEVID:00000000 DBGMCU_GetDEVID
-C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s:53     .text.DBGMCU_GetDEVID:0000000c $d
-C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s:56     .text.DBGMCU_Config:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s:62     .text.DBGMCU_Config:00000000 DBGMCU_Config
-C:\Users\UXP\AppData\Local\Temp\ccqpHaVL.s:81     .text.DBGMCU_Config:00000018 $d
+C:\Users\wxpwx\AppData\Local\Temp\cc4qcQNn.s:16     .text.DBGMCU_GetREVID:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc4qcQNn.s:22     .text.DBGMCU_GetREVID:00000000 DBGMCU_GetREVID
+C:\Users\wxpwx\AppData\Local\Temp\cc4qcQNn.s:33     .text.DBGMCU_GetREVID:00000008 $d
+C:\Users\wxpwx\AppData\Local\Temp\cc4qcQNn.s:36     .text.DBGMCU_GetDEVID:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc4qcQNn.s:42     .text.DBGMCU_GetDEVID:00000000 DBGMCU_GetDEVID
+C:\Users\wxpwx\AppData\Local\Temp\cc4qcQNn.s:53     .text.DBGMCU_GetDEVID:0000000c $d
+C:\Users\wxpwx\AppData\Local\Temp\cc4qcQNn.s:56     .text.DBGMCU_Config:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc4qcQNn.s:62     .text.DBGMCU_Config:00000000 DBGMCU_Config
+C:\Users\wxpwx\AppData\Local\Temp\cc4qcQNn.s:81     .text.DBGMCU_Config:00000018 $d
 
 NO UNDEFINED SYMBOLS

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
   56 0048 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
   57 004c 0021     		movs	r1, #0
   58 004e 4FF40040 		mov	r0, #32768
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 2
 
 
   59 0052 FFF7FEFF 		bl	RCC_APB2PeriphResetCmd
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  116              		.thumb
  117              		.thumb_func
  119              	ADC_StructInit:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 3
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 3
 
 
  120              		@ args = 0, pretend = 0, frame = 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  179              		.global	ADC_ITConfig
  180              		.syntax unified
  181              		.thumb
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 4
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 4
 
 
  182              		.thumb_func
@@ -194,8 +194,8 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  193 000a 7047     		bx	lr
  194              	.L23:
  195 000c 4368     		ldr	r3, [r0, #4]
- 196 000e 23EA0103 		bic	r3, r3, r1
- 197 0012 4360     		str	r3, [r0, #4]
+ 196 000e 23EA0101 		bic	r1, r3, r1
+ 197 0012 4160     		str	r1, [r0, #4]
  198 0014 7047     		bx	lr
  200              		.section	.text.ADC_ResetCalibration,"ax",%progbits
  201              		.align	1
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  243              	ADC_StartCalibration:
  244              		@ args = 0, pretend = 0, frame = 0
  245              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 5
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 5
 
 
  246              		@ link register save eliminated.
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  306 0002 13F4800F 		tst	r3, #4194304
  307 0006 01D0     		beq	.L38
  308 0008 0120     		movs	r0, #1
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 6
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 6
 
 
  309 000a 7047     		bx	lr
@@ -352,73 +352,73 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  363              		@ frame_needed = 0, uses_anonymous_args = 0
  364 0000 10B5     		push	{r4, lr}
  365 0002 0929     		cmp	r1, #9
- 366 0004 1ED9     		bls	.L44
+ 366 0004 1DD9     		bls	.L44
  367 0006 C468     		ldr	r4, [r0, #12]
  368 0008 A1F10A0C 		sub	ip, r1, #10
  369 000c 0CEB4C0C 		add	ip, ip, ip, lsl #1
  370 0010 4FF0070E 		mov	lr, #7
  371 0014 0EFA0CFE 		lsl	lr, lr, ip
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 7
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 7
 
 
  372 0018 24EA0E04 		bic	r4, r4, lr
- 373 001c 03FA0CFC 		lsl	ip, r3, ip
- 374 0020 44EA0C04 		orr	r4, r4, ip
- 375 0024 C460     		str	r4, [r0, #12]
+ 373 001c 03FA0CF3 		lsl	r3, r3, ip
+ 374 0020 2343     		orrs	r3, r3, r4
+ 375 0022 C360     		str	r3, [r0, #12]
  376              	.L45:
- 377 0026 062A     		cmp	r2, #6
- 378 0028 1BD8     		bhi	.L46
- 379 002a 436B     		ldr	r3, [r0, #52]
- 380 002c 013A     		subs	r2, r2, #1
- 381 002e 02EB8202 		add	r2, r2, r2, lsl #2
- 382 0032 1F24     		movs	r4, #31
- 383 0034 9440     		lsls	r4, r4, r2
- 384 0036 23EA0403 		bic	r3, r3, r4
- 385 003a 01FA02F2 		lsl	r2, r1, r2
- 386 003e 1343     		orrs	r3, r3, r2
- 387 0040 4363     		str	r3, [r0, #52]
+ 377 0024 062A     		cmp	r2, #6
+ 378 0026 1BD8     		bhi	.L46
+ 379 0028 436B     		ldr	r3, [r0, #52]
+ 380 002a 013A     		subs	r2, r2, #1
+ 381 002c 02EB8202 		add	r2, r2, r2, lsl #2
+ 382 0030 1F24     		movs	r4, #31
+ 383 0032 9440     		lsls	r4, r4, r2
+ 384 0034 23EA0403 		bic	r3, r3, r4
+ 385 0038 01FA02F2 		lsl	r2, r1, r2
+ 386 003c 1A43     		orrs	r2, r2, r3
+ 387 003e 4263     		str	r2, [r0, #52]
  388              	.L43:
- 389 0042 10BD     		pop	{r4, pc}
+ 389 0040 10BD     		pop	{r4, pc}
  390              	.L44:
- 391 0044 0469     		ldr	r4, [r0, #16]
- 392 0046 01EB410E 		add	lr, r1, r1, lsl #1
- 393 004a 4FF0070C 		mov	ip, #7
- 394 004e 0CFA0EFC 		lsl	ip, ip, lr
- 395 0052 24EA0C0C 		bic	ip, r4, ip
- 396 0056 03FA0EF3 		lsl	r3, r3, lr
- 397 005a 4CEA0303 		orr	r3, ip, r3
- 398 005e 0361     		str	r3, [r0, #16]
- 399 0060 E1E7     		b	.L45
+ 391 0042 0469     		ldr	r4, [r0, #16]
+ 392 0044 01EB410E 		add	lr, r1, r1, lsl #1
+ 393 0048 4FF0070C 		mov	ip, #7
+ 394 004c 0CFA0EFC 		lsl	ip, ip, lr
+ 395 0050 24EA0C0C 		bic	ip, r4, ip
+ 396 0054 03FA0EF3 		lsl	r3, r3, lr
+ 397 0058 4CEA0303 		orr	r3, ip, r3
+ 398 005c 0361     		str	r3, [r0, #16]
+ 399 005e E1E7     		b	.L45
  400              	.L46:
- 401 0062 0C2A     		cmp	r2, #12
- 402 0064 0CD8     		bhi	.L48
- 403 0066 036B     		ldr	r3, [r0, #48]
- 404 0068 073A     		subs	r2, r2, #7
- 405 006a 02EB8202 		add	r2, r2, r2, lsl #2
- 406 006e 1F24     		movs	r4, #31
- 407 0070 9440     		lsls	r4, r4, r2
- 408 0072 23EA0403 		bic	r3, r3, r4
- 409 0076 01FA02F2 		lsl	r2, r1, r2
- 410 007a 1343     		orrs	r3, r3, r2
- 411 007c 0363     		str	r3, [r0, #48]
- 412 007e E0E7     		b	.L43
+ 401 0060 0C2A     		cmp	r2, #12
+ 402 0062 0CD8     		bhi	.L48
+ 403 0064 036B     		ldr	r3, [r0, #48]
+ 404 0066 073A     		subs	r2, r2, #7
+ 405 0068 02EB8202 		add	r2, r2, r2, lsl #2
+ 406 006c 1F24     		movs	r4, #31
+ 407 006e 9440     		lsls	r4, r4, r2
+ 408 0070 23EA0403 		bic	r3, r3, r4
+ 409 0074 01FA02F2 		lsl	r2, r1, r2
+ 410 0078 1A43     		orrs	r2, r2, r3
+ 411 007a 0263     		str	r2, [r0, #48]
+ 412 007c E0E7     		b	.L43
  413              	.L48:
- 414 0080 C36A     		ldr	r3, [r0, #44]
- 415 0082 0D3A     		subs	r2, r2, #13
- 416 0084 02EB8202 		add	r2, r2, r2, lsl #2
- 417 0088 1F24     		movs	r4, #31
- 418 008a 9440     		lsls	r4, r4, r2
- 419 008c 23EA0403 		bic	r3, r3, r4
- 420 0090 9140     		lsls	r1, r1, r2
- 421 0092 0B43     		orrs	r3, r3, r1
- 422 0094 C362     		str	r3, [r0, #44]
- 423 0096 D4E7     		b	.L43
+ 414 007e C36A     		ldr	r3, [r0, #44]
+ 415 0080 0D3A     		subs	r2, r2, #13
+ 416 0082 02EB8202 		add	r2, r2, r2, lsl #2
+ 417 0086 1F24     		movs	r4, #31
+ 418 0088 9440     		lsls	r4, r4, r2
+ 419 008a 23EA0403 		bic	r3, r3, r4
+ 420 008e 01FA02F2 		lsl	r2, r1, r2
+ 421 0092 1A43     		orrs	r2, r2, r3
+ 422 0094 C262     		str	r2, [r0, #44]
+ 423 0096 D3E7     		b	.L43
  425              		.section	.text.ADC_ExternalTrigConvCmd,"ax",%progbits
  426              		.align	1
  427              		.global	ADC_ExternalTrigConvCmd
  428              		.syntax unified
  429              		.thumb
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 8
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 8
 
 
  430              		.thumb_func
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  491              		@ link register save eliminated.
  492 0000 21B1     		cbz	r1, .L58
  493 0002 4368     		ldr	r3, [r0, #4]
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 9
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 9
 
 
  494 0004 43F48063 		orr	r3, r3, #1024
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  554 0002 8368     		ldr	r3, [r0, #8]
  555 0004 43F40043 		orr	r3, r3, #32768
  556 0008 8360     		str	r3, [r0, #8]
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 10
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 10
 
 
  557 000a 7047     		bx	lr
@@ -597,8 +597,8 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  616              		@ link register save eliminated.
  617 0000 30B4     		push	{r4, r5}
  618 0002 0929     		cmp	r1, #9
- 619 0004 21D9     		bls	.L74
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 11
+ 619 0004 20D9     		bls	.L74
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 11
 
 
  620 0006 C568     		ldr	r5, [r0, #12]
@@ -607,35 +607,35 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  623 0010 4FF0070C 		mov	ip, #7
  624 0014 0CFA04FC 		lsl	ip, ip, r4
  625 0018 25EA0C0C 		bic	ip, r5, ip
- 626 001c 03FA04F4 		lsl	r4, r3, r4
- 627 0020 4CEA0404 		orr	r4, ip, r4
- 628 0024 C460     		str	r4, [r0, #12]
+ 626 001c A340     		lsls	r3, r3, r4
+ 627 001e 4CEA0303 		orr	r3, ip, r3
+ 628 0022 C360     		str	r3, [r0, #12]
  629              	.L75:
- 630 0026 846B     		ldr	r4, [r0, #56]
- 631 0028 C4F30153 		ubfx	r3, r4, #20, #2
- 632 002c D31A     		subs	r3, r2, r3
- 633 002e DBB2     		uxtb	r3, r3
- 634 0030 0233     		adds	r3, r3, #2
- 635 0032 DBB2     		uxtb	r3, r3
- 636 0034 03EB8303 		add	r3, r3, r3, lsl #2
- 637 0038 1F22     		movs	r2, #31
- 638 003a 9A40     		lsls	r2, r2, r3
- 639 003c 24EA0204 		bic	r4, r4, r2
- 640 0040 9940     		lsls	r1, r1, r3
- 641 0042 0C43     		orrs	r4, r4, r1
- 642 0044 8463     		str	r4, [r0, #56]
- 643 0046 30BC     		pop	{r4, r5}
- 644 0048 7047     		bx	lr
+ 630 0024 846B     		ldr	r4, [r0, #56]
+ 631 0026 C4F30153 		ubfx	r3, r4, #20, #2
+ 632 002a D31A     		subs	r3, r2, r3
+ 633 002c DBB2     		uxtb	r3, r3
+ 634 002e 0233     		adds	r3, r3, #2
+ 635 0030 DBB2     		uxtb	r3, r3
+ 636 0032 03EB8303 		add	r3, r3, r3, lsl #2
+ 637 0036 1F22     		movs	r2, #31
+ 638 0038 9A40     		lsls	r2, r2, r3
+ 639 003a 24EA0204 		bic	r4, r4, r2
+ 640 003e 9940     		lsls	r1, r1, r3
+ 641 0040 2143     		orrs	r1, r1, r4
+ 642 0042 8163     		str	r1, [r0, #56]
+ 643 0044 30BC     		pop	{r4, r5}
+ 644 0046 7047     		bx	lr
  645              	.L74:
- 646 004a 0469     		ldr	r4, [r0, #16]
- 647 004c 01EB410C 		add	ip, r1, r1, lsl #1
- 648 0050 0725     		movs	r5, #7
- 649 0052 05FA0CF5 		lsl	r5, r5, ip
- 650 0056 24EA0504 		bic	r4, r4, r5
- 651 005a 03FA0CF3 		lsl	r3, r3, ip
- 652 005e 2343     		orrs	r3, r3, r4
- 653 0060 0361     		str	r3, [r0, #16]
- 654 0062 E0E7     		b	.L75
+ 646 0048 0469     		ldr	r4, [r0, #16]
+ 647 004a 01EB410C 		add	ip, r1, r1, lsl #1
+ 648 004e 0725     		movs	r5, #7
+ 649 0050 05FA0CF5 		lsl	r5, r5, ip
+ 650 0054 24EA0504 		bic	r4, r4, r5
+ 651 0058 03FA0CF3 		lsl	r3, r3, ip
+ 652 005c 2343     		orrs	r3, r3, r4
+ 653 005e 0361     		str	r3, [r0, #16]
+ 654 0060 E0E7     		b	.L75
  656              		.section	.text.ADC_InjectedSequencerLengthConfig,"ax",%progbits
  657              		.align	1
  658              		.global	ADC_InjectedSequencerLengthConfig
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  677              		.syntax unified
  678              		.thumb
  679              		.thumb_func
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 12
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 12
 
 
  681              	ADC_SetInjectedOffset:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  739 000c 4360     		str	r3, [r0, #4]
  740 000e 7047     		bx	lr
  742              		.section	.text.ADC_AnalogWatchdogThresholdsConfig,"ax",%progbits
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 13
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 13
 
 
  743              		.align	1
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  803              		.align	1
  804              		.global	ADC_GetFlagStatus
  805              		.syntax unified
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 14
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 14
 
 
  806              		.thumb
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  866              		.global	ADC_ClearITPendingBit
  867              		.syntax unified
  868              		.thumb
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 15
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 15
 
 
  869              		.thumb_func
@@ -849,91 +849,91 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 1
  875 0000 6FEA1121 		mvn	r1, r1, lsr #8
  876 0004 0160     		str	r1, [r0]
  877 0006 7047     		bx	lr
- 879              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 16
+ 879              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f10x_adc.c
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:16     .text.ADC_DeInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:22     .text.ADC_DeInit:00000000 ADC_DeInit
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:64     .text.ADC_DeInit:00000058 $d
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:69     .text.ADC_Init:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:75     .text.ADC_Init:00000000 ADC_Init
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:110    .text.ADC_Init:00000048 $d
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:113    .text.ADC_StructInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:119    .text.ADC_StructInit:00000000 ADC_StructInit
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:134    .text.ADC_Cmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:140    .text.ADC_Cmd:00000000 ADC_Cmd
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:156    .text.ADC_DMACmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:162    .text.ADC_DMACmd:00000000 ADC_DMACmd
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:178    .text.ADC_ITConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:184    .text.ADC_ITConfig:00000000 ADC_ITConfig
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:201    .text.ADC_ResetCalibration:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:207    .text.ADC_ResetCalibration:00000000 ADC_ResetCalibration
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:217    .text.ADC_GetResetCalibrationStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:223    .text.ADC_GetResetCalibrationStatus:00000000 ADC_GetResetCalibrationStatus
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:237    .text.ADC_StartCalibration:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:243    .text.ADC_StartCalibration:00000000 ADC_StartCalibration
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:253    .text.ADC_GetCalibrationStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:259    .text.ADC_GetCalibrationStatus:00000000 ADC_GetCalibrationStatus
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:273    .text.ADC_SoftwareStartConvCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:279    .text.ADC_SoftwareStartConvCmd:00000000 ADC_SoftwareStartConvCmd
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:295    .text.ADC_GetSoftwareStartConvStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:301    .text.ADC_GetSoftwareStartConvStatus:00000000 ADC_GetSoftwareStartConvStatus
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:315    .text.ADC_DiscModeChannelCountConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:321    .text.ADC_DiscModeChannelCountConfig:00000000 ADC_DiscModeChannelCountConfig
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:333    .text.ADC_DiscModeCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:339    .text.ADC_DiscModeCmd:00000000 ADC_DiscModeCmd
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:355    .text.ADC_RegularChannelConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:361    .text.ADC_RegularChannelConfig:00000000 ADC_RegularChannelConfig
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:426    .text.ADC_ExternalTrigConvCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:432    .text.ADC_ExternalTrigConvCmd:00000000 ADC_ExternalTrigConvCmd
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:448    .text.ADC_GetConversionValue:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:454    .text.ADC_GetConversionValue:00000000 ADC_GetConversionValue
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:463    .text.ADC_GetDualModeConversionValue:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:469    .text.ADC_GetDualModeConversionValue:00000000 ADC_GetDualModeConversionValue
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:479    .text.ADC_GetDualModeConversionValue:00000008 $d
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:482    .text.ADC_AutoInjectedConvCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:488    .text.ADC_AutoInjectedConvCmd:00000000 ADC_AutoInjectedConvCmd
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:504    .text.ADC_InjectedDiscModeCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:510    .text.ADC_InjectedDiscModeCmd:00000000 ADC_InjectedDiscModeCmd
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:526    .text.ADC_ExternalTrigInjectedConvConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:532    .text.ADC_ExternalTrigInjectedConvConfig:00000000 ADC_ExternalTrigInjectedConvConfig
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:543    .text.ADC_ExternalTrigInjectedConvCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:549    .text.ADC_ExternalTrigInjectedConvCmd:00000000 ADC_ExternalTrigInjectedConvCmd
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:565    .text.ADC_SoftwareStartInjectedConvCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:571    .text.ADC_SoftwareStartInjectedConvCmd:00000000 ADC_SoftwareStartInjectedConvCmd
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:587    .text.ADC_GetSoftwareStartInjectedConvCmdStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:593    .text.ADC_GetSoftwareStartInjectedConvCmdStatus:00000000 ADC_GetSoftwareStartInjectedConvCmdStatus
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:607    .text.ADC_InjectedChannelConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:613    .text.ADC_InjectedChannelConfig:00000000 ADC_InjectedChannelConfig
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:657    .text.ADC_InjectedSequencerLengthConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:663    .text.ADC_InjectedSequencerLengthConfig:00000000 ADC_InjectedSequencerLengthConfig
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s 			page 17
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:16     .text.ADC_DeInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:22     .text.ADC_DeInit:00000000 ADC_DeInit
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:64     .text.ADC_DeInit:00000058 $d
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:69     .text.ADC_Init:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:75     .text.ADC_Init:00000000 ADC_Init
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:110    .text.ADC_Init:00000048 $d
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:113    .text.ADC_StructInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:119    .text.ADC_StructInit:00000000 ADC_StructInit
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:134    .text.ADC_Cmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:140    .text.ADC_Cmd:00000000 ADC_Cmd
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:156    .text.ADC_DMACmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:162    .text.ADC_DMACmd:00000000 ADC_DMACmd
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:178    .text.ADC_ITConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:184    .text.ADC_ITConfig:00000000 ADC_ITConfig
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:201    .text.ADC_ResetCalibration:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:207    .text.ADC_ResetCalibration:00000000 ADC_ResetCalibration
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:217    .text.ADC_GetResetCalibrationStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:223    .text.ADC_GetResetCalibrationStatus:00000000 ADC_GetResetCalibrationStatus
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:237    .text.ADC_StartCalibration:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:243    .text.ADC_StartCalibration:00000000 ADC_StartCalibration
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:253    .text.ADC_GetCalibrationStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:259    .text.ADC_GetCalibrationStatus:00000000 ADC_GetCalibrationStatus
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:273    .text.ADC_SoftwareStartConvCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:279    .text.ADC_SoftwareStartConvCmd:00000000 ADC_SoftwareStartConvCmd
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:295    .text.ADC_GetSoftwareStartConvStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:301    .text.ADC_GetSoftwareStartConvStatus:00000000 ADC_GetSoftwareStartConvStatus
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:315    .text.ADC_DiscModeChannelCountConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:321    .text.ADC_DiscModeChannelCountConfig:00000000 ADC_DiscModeChannelCountConfig
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:333    .text.ADC_DiscModeCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:339    .text.ADC_DiscModeCmd:00000000 ADC_DiscModeCmd
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:355    .text.ADC_RegularChannelConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:361    .text.ADC_RegularChannelConfig:00000000 ADC_RegularChannelConfig
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:426    .text.ADC_ExternalTrigConvCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:432    .text.ADC_ExternalTrigConvCmd:00000000 ADC_ExternalTrigConvCmd
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:448    .text.ADC_GetConversionValue:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:454    .text.ADC_GetConversionValue:00000000 ADC_GetConversionValue
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:463    .text.ADC_GetDualModeConversionValue:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:469    .text.ADC_GetDualModeConversionValue:00000000 ADC_GetDualModeConversionValue
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:479    .text.ADC_GetDualModeConversionValue:00000008 $d
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:482    .text.ADC_AutoInjectedConvCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:488    .text.ADC_AutoInjectedConvCmd:00000000 ADC_AutoInjectedConvCmd
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:504    .text.ADC_InjectedDiscModeCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:510    .text.ADC_InjectedDiscModeCmd:00000000 ADC_InjectedDiscModeCmd
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:526    .text.ADC_ExternalTrigInjectedConvConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:532    .text.ADC_ExternalTrigInjectedConvConfig:00000000 ADC_ExternalTrigInjectedConvConfig
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:543    .text.ADC_ExternalTrigInjectedConvCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:549    .text.ADC_ExternalTrigInjectedConvCmd:00000000 ADC_ExternalTrigInjectedConvCmd
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:565    .text.ADC_SoftwareStartInjectedConvCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:571    .text.ADC_SoftwareStartInjectedConvCmd:00000000 ADC_SoftwareStartInjectedConvCmd
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:587    .text.ADC_GetSoftwareStartInjectedConvCmdStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:593    .text.ADC_GetSoftwareStartInjectedConvCmdStatus:00000000 ADC_GetSoftwareStartInjectedConvCmdStatus
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:607    .text.ADC_InjectedChannelConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:613    .text.ADC_InjectedChannelConfig:00000000 ADC_InjectedChannelConfig
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:657    .text.ADC_InjectedSequencerLengthConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:663    .text.ADC_InjectedSequencerLengthConfig:00000000 ADC_InjectedSequencerLengthConfig
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s 			page 17
 
 
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:675    .text.ADC_SetInjectedOffset:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:681    .text.ADC_SetInjectedOffset:00000000 ADC_SetInjectedOffset
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:699    .text.ADC_GetInjectedConversionValue:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:705    .text.ADC_GetInjectedConversionValue:00000000 ADC_GetInjectedConversionValue
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:725    .text.ADC_AnalogWatchdogCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:731    .text.ADC_AnalogWatchdogCmd:00000000 ADC_AnalogWatchdogCmd
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:743    .text.ADC_AnalogWatchdogThresholdsConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:749    .text.ADC_AnalogWatchdogThresholdsConfig:00000000 ADC_AnalogWatchdogThresholdsConfig
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:758    .text.ADC_AnalogWatchdogSingleChannelConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:764    .text.ADC_AnalogWatchdogSingleChannelConfig:00000000 ADC_AnalogWatchdogSingleChannelConfig
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:775    .text.ADC_TempSensorVrefintCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:781    .text.ADC_TempSensorVrefintCmd:00000000 ADC_TempSensorVrefintCmd
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:800    .text.ADC_TempSensorVrefintCmd:0000001c $d
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:803    .text.ADC_GetFlagStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:809    .text.ADC_GetFlagStatus:00000000 ADC_GetFlagStatus
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:823    .text.ADC_ClearFlag:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:829    .text.ADC_ClearFlag:00000000 ADC_ClearFlag
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:838    .text.ADC_GetITStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:844    .text.ADC_GetITStatus:00000000 ADC_GetITStatus
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:865    .text.ADC_ClearITPendingBit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccl3AXnm.s:871    .text.ADC_ClearITPendingBit:00000000 ADC_ClearITPendingBit
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:675    .text.ADC_SetInjectedOffset:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:681    .text.ADC_SetInjectedOffset:00000000 ADC_SetInjectedOffset
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:699    .text.ADC_GetInjectedConversionValue:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:705    .text.ADC_GetInjectedConversionValue:00000000 ADC_GetInjectedConversionValue
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:725    .text.ADC_AnalogWatchdogCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:731    .text.ADC_AnalogWatchdogCmd:00000000 ADC_AnalogWatchdogCmd
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:743    .text.ADC_AnalogWatchdogThresholdsConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:749    .text.ADC_AnalogWatchdogThresholdsConfig:00000000 ADC_AnalogWatchdogThresholdsConfig
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:758    .text.ADC_AnalogWatchdogSingleChannelConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:764    .text.ADC_AnalogWatchdogSingleChannelConfig:00000000 ADC_AnalogWatchdogSingleChannelConfig
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:775    .text.ADC_TempSensorVrefintCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:781    .text.ADC_TempSensorVrefintCmd:00000000 ADC_TempSensorVrefintCmd
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:800    .text.ADC_TempSensorVrefintCmd:0000001c $d
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:803    .text.ADC_GetFlagStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:809    .text.ADC_GetFlagStatus:00000000 ADC_GetFlagStatus
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:823    .text.ADC_ClearFlag:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:829    .text.ADC_ClearFlag:00000000 ADC_ClearFlag
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:838    .text.ADC_GetITStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:844    .text.ADC_GetITStatus:00000000 ADC_GetITStatus
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:865    .text.ADC_ClearITPendingBit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\cc20RPFa.s:871    .text.ADC_ClearITPendingBit:00000000 ADC_ClearITPendingBit
 
 UNDEFINED SYMBOLS
 RCC_APB2PeriphResetCmd

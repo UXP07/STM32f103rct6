@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -24,175 +24,156 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s 			page 1
   22              	NVIC_EXTI_Configuration:
   23              		@ args = 0, pretend = 0, frame = 8
   24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25 0000 10B5     		push	{r4, lr}
-  26 0002 82B0     		sub	sp, sp, #8
+  25 0000 00B5     		push	{lr}
+  26 0002 83B0     		sub	sp, sp, #12
   27 0004 1723     		movs	r3, #23
   28 0006 8DF80430 		strb	r3, [sp, #4]
   29 000a 0123     		movs	r3, #1
   30 000c 8DF80530 		strb	r3, [sp, #5]
   31 0010 8DF80630 		strb	r3, [sp, #6]
   32 0014 8DF80730 		strb	r3, [sp, #7]
-  33 0018 01AC     		add	r4, sp, #4
-  34 001a 2046     		mov	r0, r4
-  35 001c FFF7FEFF 		bl	NVIC_Init
-  36 0020 2823     		movs	r3, #40
-  37 0022 8DF80430 		strb	r3, [sp, #4]
-  38 0026 2046     		mov	r0, r4
-  39 0028 FFF7FEFF 		bl	NVIC_Init
-  40 002c 02B0     		add	sp, sp, #8
-  41              		@ sp needed
-  42 002e 10BD     		pop	{r4, pc}
-  44              		.section	.text.EXTI_Configuration,"ax",%progbits
-  45              		.align	1
-  46              		.global	EXTI_Configuration
-  47              		.syntax unified
-  48              		.thumb
-  49              		.thumb_func
-  51              	EXTI_Configuration:
-  52              		@ args = 0, pretend = 0, frame = 16
-  53              		@ frame_needed = 0, uses_anonymous_args = 0
-  54 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
-  55 0004 84B0     		sub	sp, sp, #16
-  56 0006 0121     		movs	r1, #1
-  57 0008 1520     		movs	r0, #21
-  58 000a FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
-  59 000e 2024     		movs	r4, #32
-  60 0010 ADF80440 		strh	r4, [sp, #4]	@ movhi
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s 			page 2
+  33 0018 01A8     		add	r0, sp, #4
+  34 001a FFF7FEFF 		bl	NVIC_Init
+  35 001e 2823     		movs	r3, #40
+  36 0020 8DF80430 		strb	r3, [sp, #4]
+  37 0024 01A8     		add	r0, sp, #4
+  38 0026 FFF7FEFF 		bl	NVIC_Init
+  39 002a 03B0     		add	sp, sp, #12
+  40              		@ sp needed
+  41 002c 5DF804FB 		ldr	pc, [sp], #4
+  43              		.section	.text.EXTI_Configuration,"ax",%progbits
+  44              		.align	1
+  45              		.global	EXTI_Configuration
+  46              		.syntax unified
+  47              		.thumb
+  48              		.thumb_func
+  50              	EXTI_Configuration:
+  51              		@ args = 0, pretend = 0, frame = 16
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+  54 0004 84B0     		sub	sp, sp, #16
+  55 0006 0121     		movs	r1, #1
+  56 0008 1520     		movs	r0, #21
+  57 000a FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+  58 000e 2024     		movs	r4, #32
+  59 0010 ADF80440 		strh	r4, [sp, #4]	@ movhi
+  60 0014 4FF04808 		mov	r8, #72
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s 			page 2
 
 
-  61 0014 4FF0480A 		mov	r10, #72
-  62 0018 8DF807A0 		strb	r10, [sp, #7]
-  63 001c 0DF10409 		add	r9, sp, #4
-  64 0020 4946     		mov	r1, r9
-  65 0022 1948     		ldr	r0, .L5
-  66 0024 FFF7FEFF 		bl	GPIO_Init
-  67 0028 0521     		movs	r1, #5
-  68 002a 0220     		movs	r0, #2
-  69 002c FFF7FEFF 		bl	GPIO_EXTILineConfig
-  70 0030 0294     		str	r4, [sp, #8]
-  71 0032 0024     		movs	r4, #0
-  72 0034 8DF80C40 		strb	r4, [sp, #12]
-  73 0038 0827     		movs	r7, #8
-  74 003a 8DF80D70 		strb	r7, [sp, #13]
-  75 003e 0126     		movs	r6, #1
-  76 0040 8DF80E60 		strb	r6, [sp, #14]
-  77 0044 0DEB0705 		add	r5, sp, r7
-  78 0048 2846     		mov	r0, r5
-  79 004a FFF7FEFF 		bl	EXTI_Init
-  80 004e 4FF40048 		mov	r8, #32768
-  81 0052 ADF80480 		strh	r8, [sp, #4]	@ movhi
-  82 0056 8DF807A0 		strb	r10, [sp, #7]
-  83 005a 4946     		mov	r1, r9
-  84 005c 0B48     		ldr	r0, .L5+4
-  85 005e FFF7FEFF 		bl	GPIO_Init
-  86 0062 0F21     		movs	r1, #15
-  87 0064 2046     		mov	r0, r4
-  88 0066 FFF7FEFF 		bl	GPIO_EXTILineConfig
-  89 006a CDF80880 		str	r8, [sp, #8]
-  90 006e 8DF80C40 		strb	r4, [sp, #12]
-  91 0072 8DF80D70 		strb	r7, [sp, #13]
-  92 0076 8DF80E60 		strb	r6, [sp, #14]
-  93 007a 2846     		mov	r0, r5
-  94 007c FFF7FEFF 		bl	EXTI_Init
-  95 0080 04B0     		add	sp, sp, #16
-  96              		@ sp needed
-  97 0082 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
-  98              	.L6:
-  99 0086 00BF     		.align	2
- 100              	.L5:
- 101 0088 00100140 		.word	1073811456
- 102 008c 00080140 		.word	1073809408
- 104              		.section	.text.EXTI9_5_IRQHandler,"ax",%progbits
- 105              		.align	1
- 106              		.global	EXTI9_5_IRQHandler
- 107              		.syntax unified
- 108              		.thumb
- 109              		.thumb_func
- 111              	EXTI9_5_IRQHandler:
- 112              		@ args = 0, pretend = 0, frame = 0
- 113              		@ frame_needed = 0, uses_anonymous_args = 0
- 114 0000 08B5     		push	{r3, lr}
- 115 0002 2020     		movs	r0, #32
- 116 0004 FFF7FEFF 		bl	EXTI_GetFlagStatus
- 117 0008 00B9     		cbnz	r0, .L10
- 118              	.L7:
- 119 000a 08BD     		pop	{r3, pc}
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s 			page 3
+  61 0018 8DF80780 		strb	r8, [sp, #7]
+  62 001c 01A9     		add	r1, sp, #4
+  63 001e 1848     		ldr	r0, .L5
+  64 0020 FFF7FEFF 		bl	GPIO_Init
+  65 0024 0521     		movs	r1, #5
+  66 0026 0220     		movs	r0, #2
+  67 0028 FFF7FEFF 		bl	GPIO_EXTILineConfig
+  68 002c 0294     		str	r4, [sp, #8]
+  69 002e 0024     		movs	r4, #0
+  70 0030 8DF80C40 		strb	r4, [sp, #12]
+  71 0034 0826     		movs	r6, #8
+  72 0036 8DF80D60 		strb	r6, [sp, #13]
+  73 003a 0125     		movs	r5, #1
+  74 003c 8DF80E50 		strb	r5, [sp, #14]
+  75 0040 0DEB0600 		add	r0, sp, r6
+  76 0044 FFF7FEFF 		bl	EXTI_Init
+  77 0048 4FF40047 		mov	r7, #32768
+  78 004c ADF80470 		strh	r7, [sp, #4]	@ movhi
+  79 0050 8DF80780 		strb	r8, [sp, #7]
+  80 0054 01A9     		add	r1, sp, #4
+  81 0056 0B48     		ldr	r0, .L5+4
+  82 0058 FFF7FEFF 		bl	GPIO_Init
+  83 005c 0F21     		movs	r1, #15
+  84 005e 2046     		mov	r0, r4
+  85 0060 FFF7FEFF 		bl	GPIO_EXTILineConfig
+  86 0064 0297     		str	r7, [sp, #8]
+  87 0066 8DF80C40 		strb	r4, [sp, #12]
+  88 006a 8DF80D60 		strb	r6, [sp, #13]
+  89 006e 8DF80E50 		strb	r5, [sp, #14]
+  90 0072 0DEB0600 		add	r0, sp, r6
+  91 0076 FFF7FEFF 		bl	EXTI_Init
+  92 007a 04B0     		add	sp, sp, #16
+  93              		@ sp needed
+  94 007c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+  95              	.L6:
+  96              		.align	2
+  97              	.L5:
+  98 0080 00100140 		.word	1073811456
+  99 0084 00080140 		.word	1073809408
+ 101              		.section	.text.EXTI9_5_IRQHandler,"ax",%progbits
+ 102              		.align	1
+ 103              		.global	EXTI9_5_IRQHandler
+ 104              		.syntax unified
+ 105              		.thumb
+ 106              		.thumb_func
+ 108              	EXTI9_5_IRQHandler:
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111 0000 08B5     		push	{r3, lr}
+ 112 0002 2020     		movs	r0, #32
+ 113 0004 FFF7FEFF 		bl	EXTI_GetFlagStatus
+ 114 0008 00B9     		cbnz	r0, .L10
+ 115              	.L7:
+ 116 000a 08BD     		pop	{r3, pc}
+ 117              	.L10:
+ 118 000c 044A     		ldr	r2, .L11
+ 119 000e D368     		ldr	r3, [r2, #12]
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s 			page 3
 
 
- 120              	.L10:
- 121 000c 044A     		ldr	r2, .L11
- 122 000e D368     		ldr	r3, [r2, #12]
- 123 0010 83F48073 		eor	r3, r3, #256
- 124 0014 D360     		str	r3, [r2, #12]
- 125 0016 2020     		movs	r0, #32
- 126 0018 FFF7FEFF 		bl	EXTI_ClearITPendingBit
- 127 001c F5E7     		b	.L7
- 128              	.L12:
- 129 001e 00BF     		.align	2
- 130              	.L11:
- 131 0020 00080140 		.word	1073809408
- 133              		.section	.text.EXTI15_10_IRQHandler,"ax",%progbits
- 134              		.align	1
- 135              		.global	EXTI15_10_IRQHandler
- 136              		.syntax unified
- 137              		.thumb
- 138              		.thumb_func
- 140              	EXTI15_10_IRQHandler:
- 141              		@ args = 0, pretend = 0, frame = 0
- 142              		@ frame_needed = 0, uses_anonymous_args = 0
- 143 0000 08B5     		push	{r3, lr}
- 144 0002 4FF40040 		mov	r0, #32768
- 145 0006 FFF7FEFF 		bl	EXTI_GetFlagStatus
- 146 000a 00B9     		cbnz	r0, .L16
- 147              	.L13:
- 148 000c 08BD     		pop	{r3, pc}
- 149              	.L16:
- 150 000e 054A     		ldr	r2, .L17
- 151 0010 D368     		ldr	r3, [r2, #12]
- 152 0012 83F48073 		eor	r3, r3, #256
- 153 0016 D360     		str	r3, [r2, #12]
- 154 0018 4FF40040 		mov	r0, #32768
- 155 001c FFF7FEFF 		bl	EXTI_ClearITPendingBit
- 156 0020 F4E7     		b	.L13
- 157              	.L18:
- 158 0022 00BF     		.align	2
- 159              	.L17:
- 160 0024 00080140 		.word	1073809408
- 162              		.section	.text.lab_exti,"ax",%progbits
- 163              		.align	1
- 164              		.global	lab_exti
- 165              		.syntax unified
- 166              		.thumb
- 167              		.thumb_func
- 169              	lab_exti:
- 170              		@ args = 0, pretend = 0, frame = 0
- 171              		@ frame_needed = 0, uses_anonymous_args = 0
- 172 0000 08B5     		push	{r3, lr}
- 173 0002 FFF7FEFF 		bl	LedInit
- 174 0006 FFF7FEFF 		bl	EXTI_Configuration
- 175 000a FFF7FEFF 		bl	NVIC_EXTI_Configuration
- 176 000e 08BD     		pop	{r3, pc}
- 178              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s 			page 4
+ 120 0010 83F48073 		eor	r3, r3, #256
+ 121 0014 D360     		str	r3, [r2, #12]
+ 122 0016 2020     		movs	r0, #32
+ 123 0018 FFF7FEFF 		bl	EXTI_ClearITPendingBit
+ 124 001c F5E7     		b	.L7
+ 125              	.L12:
+ 126 001e 00BF     		.align	2
+ 127              	.L11:
+ 128 0020 00080140 		.word	1073809408
+ 130              		.section	.text.EXTI15_10_IRQHandler,"ax",%progbits
+ 131              		.align	1
+ 132              		.global	EXTI15_10_IRQHandler
+ 133              		.syntax unified
+ 134              		.thumb
+ 135              		.thumb_func
+ 137              	EXTI15_10_IRQHandler:
+ 138              		@ args = 0, pretend = 0, frame = 0
+ 139              		@ frame_needed = 0, uses_anonymous_args = 0
+ 140 0000 08B5     		push	{r3, lr}
+ 141 0002 4FF40040 		mov	r0, #32768
+ 142 0006 FFF7FEFF 		bl	EXTI_GetFlagStatus
+ 143 000a 00B9     		cbnz	r0, .L16
+ 144              	.L13:
+ 145 000c 08BD     		pop	{r3, pc}
+ 146              	.L16:
+ 147 000e 054A     		ldr	r2, .L17
+ 148 0010 D368     		ldr	r3, [r2, #12]
+ 149 0012 83F48073 		eor	r3, r3, #256
+ 150 0016 D360     		str	r3, [r2, #12]
+ 151 0018 4FF40040 		mov	r0, #32768
+ 152 001c FFF7FEFF 		bl	EXTI_ClearITPendingBit
+ 153 0020 F4E7     		b	.L13
+ 154              	.L18:
+ 155 0022 00BF     		.align	2
+ 156              	.L17:
+ 157 0024 00080140 		.word	1073809408
+ 159              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lab_exti.c
-C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s:16     .text.NVIC_EXTI_Configuration:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s:22     .text.NVIC_EXTI_Configuration:00000000 NVIC_EXTI_Configuration
-C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s:45     .text.EXTI_Configuration:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s:51     .text.EXTI_Configuration:00000000 EXTI_Configuration
-C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s:101    .text.EXTI_Configuration:00000088 $d
-C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s:105    .text.EXTI9_5_IRQHandler:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s:111    .text.EXTI9_5_IRQHandler:00000000 EXTI9_5_IRQHandler
-C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s:131    .text.EXTI9_5_IRQHandler:00000020 $d
-C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s:134    .text.EXTI15_10_IRQHandler:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s:140    .text.EXTI15_10_IRQHandler:00000000 EXTI15_10_IRQHandler
-C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s:160    .text.EXTI15_10_IRQHandler:00000024 $d
-C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s:163    .text.lab_exti:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccJrmtsh.s:169    .text.lab_exti:00000000 lab_exti
+C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s:16     .text.NVIC_EXTI_Configuration:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s:22     .text.NVIC_EXTI_Configuration:00000000 NVIC_EXTI_Configuration
+C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s:44     .text.EXTI_Configuration:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s:50     .text.EXTI_Configuration:00000000 EXTI_Configuration
+C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s:98     .text.EXTI_Configuration:00000080 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s:102    .text.EXTI9_5_IRQHandler:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s:108    .text.EXTI9_5_IRQHandler:00000000 EXTI9_5_IRQHandler
+C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s:128    .text.EXTI9_5_IRQHandler:00000020 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s:131    .text.EXTI15_10_IRQHandler:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s:137    .text.EXTI15_10_IRQHandler:00000000 EXTI15_10_IRQHandler
+C:\Users\wxpwx\AppData\Local\Temp\ccoNdj4q.s:157    .text.EXTI15_10_IRQHandler:00000024 $d
 
 UNDEFINED SYMBOLS
 NVIC_Init
@@ -202,4 +183,3 @@ GPIO_EXTILineConfig
 EXTI_Init
 EXTI_GetFlagStatus
 EXTI_ClearITPendingBit
-LedInit

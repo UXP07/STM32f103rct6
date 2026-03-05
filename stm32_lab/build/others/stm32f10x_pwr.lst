@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 1
   60              	PWR_PVDCmd:
   61              		@ args = 0, pretend = 0, frame = 0
   62              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s 			page 2
 
 
   63              		@ link register save eliminated.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 1
  123              		@ link register save eliminated.
  124 0000 0A4A     		ldr	r2, .L19
  125 0002 1368     		ldr	r3, [r2]
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 3
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s 			page 3
 
 
  126 0004 23F00303 		bic	r3, r3, #3
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 1
  182 0014 30BF     		wfi
  183              	@ 0 "" 2
  184              		.thumb
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 4
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s 			page 4
 
 
  185              		.syntax unified
@@ -230,38 +230,38 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 1
  235              		.align	2
  236              	.L30:
  237 000c 00700040 		.word	1073770496
- 239              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s 			page 5
+ 239              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f10x_pwr.c
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:16     .text.PWR_DeInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:22     .text.PWR_DeInit:00000000 PWR_DeInit
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:35     .text.PWR_BackupAccessCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:41     .text.PWR_BackupAccessCmd:00000000 PWR_BackupAccessCmd
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:51     .text.PWR_BackupAccessCmd:00000008 $d
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:54     .text.PWR_PVDCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:60     .text.PWR_PVDCmd:00000000 PWR_PVDCmd
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:70     .text.PWR_PVDCmd:00000008 $d
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:73     .text.PWR_PVDLevelConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:79     .text.PWR_PVDLevelConfig:00000000 PWR_PVDLevelConfig
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:92     .text.PWR_PVDLevelConfig:00000010 $d
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:95     .text.PWR_WakeUpPinCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:101    .text.PWR_WakeUpPinCmd:00000000 PWR_WakeUpPinCmd
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:111    .text.PWR_WakeUpPinCmd:00000008 $d
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:114    .text.PWR_EnterSTOPMode:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:120    .text.PWR_EnterSTOPMode:00000000 PWR_EnterSTOPMode
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:158    .text.PWR_EnterSTOPMode:0000002c $d
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:162    .text.PWR_EnterSTANDBYMode:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:168    .text.PWR_EnterSTANDBYMode:00000000 PWR_EnterSTANDBYMode
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:190    .text.PWR_EnterSTANDBYMode:00000018 $d
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:194    .text.PWR_GetFlagStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:200    .text.PWR_GetFlagStatus:00000000 PWR_GetFlagStatus
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:216    .text.PWR_GetFlagStatus:00000010 $d
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:219    .text.PWR_ClearFlag:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:225    .text.PWR_ClearFlag:00000000 PWR_ClearFlag
-C:\Users\UXP\AppData\Local\Temp\cc64Xrlo.s:237    .text.PWR_ClearFlag:0000000c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:16     .text.PWR_DeInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:22     .text.PWR_DeInit:00000000 PWR_DeInit
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:35     .text.PWR_BackupAccessCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:41     .text.PWR_BackupAccessCmd:00000000 PWR_BackupAccessCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:51     .text.PWR_BackupAccessCmd:00000008 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:54     .text.PWR_PVDCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:60     .text.PWR_PVDCmd:00000000 PWR_PVDCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:70     .text.PWR_PVDCmd:00000008 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:73     .text.PWR_PVDLevelConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:79     .text.PWR_PVDLevelConfig:00000000 PWR_PVDLevelConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:92     .text.PWR_PVDLevelConfig:00000010 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:95     .text.PWR_WakeUpPinCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:101    .text.PWR_WakeUpPinCmd:00000000 PWR_WakeUpPinCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:111    .text.PWR_WakeUpPinCmd:00000008 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:114    .text.PWR_EnterSTOPMode:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:120    .text.PWR_EnterSTOPMode:00000000 PWR_EnterSTOPMode
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:158    .text.PWR_EnterSTOPMode:0000002c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:162    .text.PWR_EnterSTANDBYMode:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:168    .text.PWR_EnterSTANDBYMode:00000000 PWR_EnterSTANDBYMode
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:190    .text.PWR_EnterSTANDBYMode:00000018 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:194    .text.PWR_GetFlagStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:200    .text.PWR_GetFlagStatus:00000000 PWR_GetFlagStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:216    .text.PWR_GetFlagStatus:00000010 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:219    .text.PWR_ClearFlag:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:225    .text.PWR_ClearFlag:00000000 PWR_ClearFlag
+C:\Users\wxpwx\AppData\Local\Temp\ccb7ixSS.s:237    .text.PWR_ClearFlag:0000000c $d
 
 UNDEFINED SYMBOLS
 RCC_APB1PeriphResetCmd

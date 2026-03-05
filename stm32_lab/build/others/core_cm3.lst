@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 1
   59              		.syntax unified
   60              		.thumb
   61              		.thumb_func
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s 			page 2
 
 
   63              	__get_MSP:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 1
  123              	__set_BASEPRI:
  124              		@ args = 0, pretend = 0, frame = 0
  125              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 3
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s 			page 3
 
 
  126              		@ link register save eliminated.
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 1
  186 0000 EFF31380 		MRS r0, faultmask
  187              	@ 0 "" 2
  188              		.thumb
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 4
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s 			page 4
 
 
  189              		.syntax unified
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 1
  250              		.align	1
  251              		.global	__REV
  252              		.syntax unified
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 5
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s 			page 5
 
 
  253              		.thumb
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 1
  314              		@ args = 0, pretend = 0, frame = 0
  315              		@ frame_needed = 0, uses_anonymous_args = 0
  316              		@ link register save eliminated.
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 6
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s 			page 6
 
 
  317              		.syntax unified
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 1
  377              	@ 719 "../Core/core_cm3.c" 1
  378 0000 50E8000F 		ldrex r0, [r0]
  379              	@ 0 "" 2
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 7
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s 			page 7
 
 
  380              		.thumb
@@ -417,58 +417,58 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 1
  439              		.thumb
  440              		.syntax unified
  441 0004 7047     		bx	lr
- 443              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 8
+ 443              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s 			page 8
 
 
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s 			page 9
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 core_cm3.c
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:16     .text.__get_PSP:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:22     .text.__get_PSP:00000000 __get_PSP
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:37     .text.__set_PSP:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:43     .text.__set_PSP:00000000 __set_PSP
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:57     .text.__get_MSP:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:63     .text.__get_MSP:00000000 __get_MSP
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:78     .text.__set_MSP:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:84     .text.__set_MSP:00000000 __set_MSP
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:98     .text.__get_BASEPRI:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:104    .text.__get_BASEPRI:00000000 __get_BASEPRI
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:117    .text.__set_BASEPRI:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:123    .text.__set_BASEPRI:00000000 __set_BASEPRI
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:136    .text.__get_PRIMASK:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:142    .text.__get_PRIMASK:00000000 __get_PRIMASK
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:155    .text.__set_PRIMASK:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:161    .text.__set_PRIMASK:00000000 __set_PRIMASK
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:174    .text.__get_FAULTMASK:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:180    .text.__get_FAULTMASK:00000000 __get_FAULTMASK
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:193    .text.__set_FAULTMASK:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:199    .text.__set_FAULTMASK:00000000 __set_FAULTMASK
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:212    .text.__get_CONTROL:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:218    .text.__get_CONTROL:00000000 __get_CONTROL
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:231    .text.__set_CONTROL:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:237    .text.__set_CONTROL:00000000 __set_CONTROL
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:250    .text.__REV:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:256    .text.__REV:00000000 __REV
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:269    .text.__REV16:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:275    .text.__REV16:00000000 __REV16
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:288    .text.__REVSH:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:294    .text.__REVSH:00000000 __REVSH
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:307    .text.__RBIT:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:313    .text.__RBIT:00000000 __RBIT
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:326    .text.__LDREXB:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:332    .text.__LDREXB:00000000 __LDREXB
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:346    .text.__LDREXH:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:352    .text.__LDREXH:00000000 __LDREXH
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:366    .text.__LDREXW:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:372    .text.__LDREXW:00000000 __LDREXW
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:385    .text.__STREXB:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:391    .text.__STREXB:00000000 __STREXB
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:405    .text.__STREXH:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:411    .text.__STREXH:00000000 __STREXH
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:425    .text.__STREXW:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccu4Xc0R.s:431    .text.__STREXW:00000000 __STREXW
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:16     .text.__get_PSP:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:22     .text.__get_PSP:00000000 __get_PSP
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:37     .text.__set_PSP:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:43     .text.__set_PSP:00000000 __set_PSP
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:57     .text.__get_MSP:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:63     .text.__get_MSP:00000000 __get_MSP
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:78     .text.__set_MSP:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:84     .text.__set_MSP:00000000 __set_MSP
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:98     .text.__get_BASEPRI:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:104    .text.__get_BASEPRI:00000000 __get_BASEPRI
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:117    .text.__set_BASEPRI:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:123    .text.__set_BASEPRI:00000000 __set_BASEPRI
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:136    .text.__get_PRIMASK:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:142    .text.__get_PRIMASK:00000000 __get_PRIMASK
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:155    .text.__set_PRIMASK:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:161    .text.__set_PRIMASK:00000000 __set_PRIMASK
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:174    .text.__get_FAULTMASK:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:180    .text.__get_FAULTMASK:00000000 __get_FAULTMASK
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:193    .text.__set_FAULTMASK:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:199    .text.__set_FAULTMASK:00000000 __set_FAULTMASK
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:212    .text.__get_CONTROL:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:218    .text.__get_CONTROL:00000000 __get_CONTROL
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:231    .text.__set_CONTROL:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:237    .text.__set_CONTROL:00000000 __set_CONTROL
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:250    .text.__REV:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:256    .text.__REV:00000000 __REV
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:269    .text.__REV16:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:275    .text.__REV16:00000000 __REV16
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:288    .text.__REVSH:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:294    .text.__REVSH:00000000 __REVSH
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:307    .text.__RBIT:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:313    .text.__RBIT:00000000 __RBIT
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:326    .text.__LDREXB:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:332    .text.__LDREXB:00000000 __LDREXB
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:346    .text.__LDREXH:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:352    .text.__LDREXH:00000000 __LDREXH
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:366    .text.__LDREXW:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:372    .text.__LDREXW:00000000 __LDREXW
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:385    .text.__STREXB:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:391    .text.__STREXB:00000000 __STREXB
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:405    .text.__STREXH:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:411    .text.__STREXH:00000000 __STREXH
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:425    .text.__STREXW:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccDQhYke.s:431    .text.__STREXW:00000000 __STREXW
 
 NO UNDEFINED SYMBOLS

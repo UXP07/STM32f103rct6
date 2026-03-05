@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s 			page 1
   56 003e 33D0     		beq	.L20
   57 0040 324B     		ldr	r3, .L26+28
   58 0042 9842     		cmp	r0, r3
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s 			page 2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s 			page 2
 
 
   59 0044 36D0     		beq	.L21
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s 			page 1
  113 00ac 43F07063 		orr	r3, r3, #251658240
  114 00b0 5360     		str	r3, [r2, #4]
  115 00b2 7047     		bx	lr
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s 			page 3
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s 			page 3
 
 
  116              	.L21:
@@ -178,281 +178,282 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s 			page 1
  172              		@ args = 0, pretend = 0, frame = 0
  173              		@ frame_needed = 0, uses_anonymous_args = 0
  174              		@ link register save eliminated.
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s 			page 4
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s 			page 4
 
 
  175 0000 10B4     		push	{r4}
  176 0002 0268     		ldr	r2, [r0]
- 177 0004 6FF30E12 		bfc	r2, #4, #11
- 178 0008 8B68     		ldr	r3, [r1, #8]
- 179 000a 0C6A     		ldr	r4, [r1, #32]
- 180 000c 2343     		orrs	r3, r3, r4
- 181 000e 0C69     		ldr	r4, [r1, #16]
- 182 0010 2343     		orrs	r3, r3, r4
- 183 0012 4C69     		ldr	r4, [r1, #20]
- 184 0014 2343     		orrs	r3, r3, r4
- 185 0016 8C69     		ldr	r4, [r1, #24]
- 186 0018 2343     		orrs	r3, r3, r4
- 187 001a CC69     		ldr	r4, [r1, #28]
- 188 001c 2343     		orrs	r3, r3, r4
- 189 001e 4C6A     		ldr	r4, [r1, #36]
- 190 0020 2343     		orrs	r3, r3, r4
- 191 0022 8C6A     		ldr	r4, [r1, #40]
- 192 0024 2343     		orrs	r3, r3, r4
- 193 0026 1343     		orrs	r3, r3, r2
- 194 0028 0360     		str	r3, [r0]
- 195 002a CB68     		ldr	r3, [r1, #12]
- 196 002c 4360     		str	r3, [r0, #4]
- 197 002e 0B68     		ldr	r3, [r1]
- 198 0030 8360     		str	r3, [r0, #8]
- 199 0032 4B68     		ldr	r3, [r1, #4]
- 200 0034 C360     		str	r3, [r0, #12]
- 201 0036 10BC     		pop	{r4}
- 202 0038 7047     		bx	lr
- 204              		.section	.text.DMA_StructInit,"ax",%progbits
- 205              		.align	1
- 206              		.global	DMA_StructInit
- 207              		.syntax unified
- 208              		.thumb
- 209              		.thumb_func
- 211              	DMA_StructInit:
- 212              		@ args = 0, pretend = 0, frame = 0
- 213              		@ frame_needed = 0, uses_anonymous_args = 0
- 214              		@ link register save eliminated.
- 215 0000 0023     		movs	r3, #0
- 216 0002 0360     		str	r3, [r0]
- 217 0004 4360     		str	r3, [r0, #4]
- 218 0006 8360     		str	r3, [r0, #8]
- 219 0008 C360     		str	r3, [r0, #12]
- 220 000a 0361     		str	r3, [r0, #16]
- 221 000c 4361     		str	r3, [r0, #20]
- 222 000e 8361     		str	r3, [r0, #24]
- 223 0010 C361     		str	r3, [r0, #28]
- 224 0012 0362     		str	r3, [r0, #32]
- 225 0014 4362     		str	r3, [r0, #36]
- 226 0016 8362     		str	r3, [r0, #40]
- 227 0018 7047     		bx	lr
- 229              		.section	.text.DMA_Cmd,"ax",%progbits
- 230              		.align	1
- 231              		.global	DMA_Cmd
- 232              		.syntax unified
- 233              		.thumb
- 234              		.thumb_func
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s 			page 5
+ 177 0004 22F4FF42 		bic	r2, r2, #32640
+ 178 0008 22F07002 		bic	r2, r2, #112
+ 179 000c 8B68     		ldr	r3, [r1, #8]
+ 180 000e 0C6A     		ldr	r4, [r1, #32]
+ 181 0010 2343     		orrs	r3, r3, r4
+ 182 0012 0C69     		ldr	r4, [r1, #16]
+ 183 0014 2343     		orrs	r3, r3, r4
+ 184 0016 4C69     		ldr	r4, [r1, #20]
+ 185 0018 2343     		orrs	r3, r3, r4
+ 186 001a 8C69     		ldr	r4, [r1, #24]
+ 187 001c 2343     		orrs	r3, r3, r4
+ 188 001e CC69     		ldr	r4, [r1, #28]
+ 189 0020 2343     		orrs	r3, r3, r4
+ 190 0022 4C6A     		ldr	r4, [r1, #36]
+ 191 0024 2343     		orrs	r3, r3, r4
+ 192 0026 8C6A     		ldr	r4, [r1, #40]
+ 193 0028 2343     		orrs	r3, r3, r4
+ 194 002a 1343     		orrs	r3, r3, r2
+ 195 002c 0360     		str	r3, [r0]
+ 196 002e CB68     		ldr	r3, [r1, #12]
+ 197 0030 4360     		str	r3, [r0, #4]
+ 198 0032 0B68     		ldr	r3, [r1]
+ 199 0034 8360     		str	r3, [r0, #8]
+ 200 0036 4B68     		ldr	r3, [r1, #4]
+ 201 0038 C360     		str	r3, [r0, #12]
+ 202 003a 10BC     		pop	{r4}
+ 203 003c 7047     		bx	lr
+ 205              		.section	.text.DMA_StructInit,"ax",%progbits
+ 206              		.align	1
+ 207              		.global	DMA_StructInit
+ 208              		.syntax unified
+ 209              		.thumb
+ 210              		.thumb_func
+ 212              	DMA_StructInit:
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              		@ link register save eliminated.
+ 216 0000 0023     		movs	r3, #0
+ 217 0002 0360     		str	r3, [r0]
+ 218 0004 4360     		str	r3, [r0, #4]
+ 219 0006 8360     		str	r3, [r0, #8]
+ 220 0008 C360     		str	r3, [r0, #12]
+ 221 000a 0361     		str	r3, [r0, #16]
+ 222 000c 4361     		str	r3, [r0, #20]
+ 223 000e 8361     		str	r3, [r0, #24]
+ 224 0010 C361     		str	r3, [r0, #28]
+ 225 0012 0362     		str	r3, [r0, #32]
+ 226 0014 4362     		str	r3, [r0, #36]
+ 227 0016 8362     		str	r3, [r0, #40]
+ 228 0018 7047     		bx	lr
+ 230              		.section	.text.DMA_Cmd,"ax",%progbits
+ 231              		.align	1
+ 232              		.global	DMA_Cmd
+ 233              		.syntax unified
+ 234              		.thumb
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s 			page 5
 
 
- 236              	DMA_Cmd:
- 237              		@ args = 0, pretend = 0, frame = 0
- 238              		@ frame_needed = 0, uses_anonymous_args = 0
- 239              		@ link register save eliminated.
- 240 0000 21B1     		cbz	r1, .L32
- 241 0002 0368     		ldr	r3, [r0]
- 242 0004 43F00103 		orr	r3, r3, #1
- 243 0008 0360     		str	r3, [r0]
- 244 000a 7047     		bx	lr
- 245              	.L32:
- 246 000c 0368     		ldr	r3, [r0]
- 247 000e 23F00103 		bic	r3, r3, #1
- 248 0012 1B04     		lsls	r3, r3, #16
- 249 0014 1B0C     		lsrs	r3, r3, #16
- 250 0016 0360     		str	r3, [r0]
- 251 0018 7047     		bx	lr
- 253              		.section	.text.DMA_ITConfig,"ax",%progbits
- 254              		.align	1
- 255              		.global	DMA_ITConfig
- 256              		.syntax unified
- 257              		.thumb
- 258              		.thumb_func
- 260              	DMA_ITConfig:
- 261              		@ args = 0, pretend = 0, frame = 0
- 262              		@ frame_needed = 0, uses_anonymous_args = 0
- 263              		@ link register save eliminated.
- 264 0000 1AB1     		cbz	r2, .L35
- 265 0002 0368     		ldr	r3, [r0]
- 266 0004 0B43     		orrs	r3, r3, r1
- 267 0006 0360     		str	r3, [r0]
- 268 0008 7047     		bx	lr
- 269              	.L35:
- 270 000a 0368     		ldr	r3, [r0]
- 271 000c 23EA0103 		bic	r3, r3, r1
- 272 0010 0360     		str	r3, [r0]
- 273 0012 7047     		bx	lr
- 275              		.section	.text.DMA_SetCurrDataCounter,"ax",%progbits
- 276              		.align	1
- 277              		.global	DMA_SetCurrDataCounter
- 278              		.syntax unified
- 279              		.thumb
- 280              		.thumb_func
- 282              	DMA_SetCurrDataCounter:
- 283              		@ args = 0, pretend = 0, frame = 0
- 284              		@ frame_needed = 0, uses_anonymous_args = 0
- 285              		@ link register save eliminated.
- 286 0000 4160     		str	r1, [r0, #4]
- 287 0002 7047     		bx	lr
- 289              		.section	.text.DMA_GetCurrDataCounter,"ax",%progbits
- 290              		.align	1
- 291              		.global	DMA_GetCurrDataCounter
- 292              		.syntax unified
- 293              		.thumb
- 294              		.thumb_func
- 296              	DMA_GetCurrDataCounter:
- 297              		@ args = 0, pretend = 0, frame = 0
- 298              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s 			page 6
+ 235              		.thumb_func
+ 237              	DMA_Cmd:
+ 238              		@ args = 0, pretend = 0, frame = 0
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240              		@ link register save eliminated.
+ 241 0000 21B1     		cbz	r1, .L32
+ 242 0002 0368     		ldr	r3, [r0]
+ 243 0004 43F00103 		orr	r3, r3, #1
+ 244 0008 0360     		str	r3, [r0]
+ 245 000a 7047     		bx	lr
+ 246              	.L32:
+ 247 000c 0368     		ldr	r3, [r0]
+ 248 000e 23F00103 		bic	r3, r3, #1
+ 249 0012 1B04     		lsls	r3, r3, #16
+ 250 0014 1B0C     		lsrs	r3, r3, #16
+ 251 0016 0360     		str	r3, [r0]
+ 252 0018 7047     		bx	lr
+ 254              		.section	.text.DMA_ITConfig,"ax",%progbits
+ 255              		.align	1
+ 256              		.global	DMA_ITConfig
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 261              	DMA_ITConfig:
+ 262              		@ args = 0, pretend = 0, frame = 0
+ 263              		@ frame_needed = 0, uses_anonymous_args = 0
+ 264              		@ link register save eliminated.
+ 265 0000 1AB1     		cbz	r2, .L35
+ 266 0002 0368     		ldr	r3, [r0]
+ 267 0004 1943     		orrs	r1, r1, r3
+ 268 0006 0160     		str	r1, [r0]
+ 269 0008 7047     		bx	lr
+ 270              	.L35:
+ 271 000a 0368     		ldr	r3, [r0]
+ 272 000c 23EA0101 		bic	r1, r3, r1
+ 273 0010 0160     		str	r1, [r0]
+ 274 0012 7047     		bx	lr
+ 276              		.section	.text.DMA_SetCurrDataCounter,"ax",%progbits
+ 277              		.align	1
+ 278              		.global	DMA_SetCurrDataCounter
+ 279              		.syntax unified
+ 280              		.thumb
+ 281              		.thumb_func
+ 283              	DMA_SetCurrDataCounter:
+ 284              		@ args = 0, pretend = 0, frame = 0
+ 285              		@ frame_needed = 0, uses_anonymous_args = 0
+ 286              		@ link register save eliminated.
+ 287 0000 4160     		str	r1, [r0, #4]
+ 288 0002 7047     		bx	lr
+ 290              		.section	.text.DMA_GetCurrDataCounter,"ax",%progbits
+ 291              		.align	1
+ 292              		.global	DMA_GetCurrDataCounter
+ 293              		.syntax unified
+ 294              		.thumb
+ 295              		.thumb_func
+ 297              	DMA_GetCurrDataCounter:
+ 298              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s 			page 6
 
 
- 299              		@ link register save eliminated.
- 300 0000 4068     		ldr	r0, [r0, #4]
- 301 0002 80B2     		uxth	r0, r0
- 302 0004 7047     		bx	lr
- 304              		.section	.text.DMA_GetFlagStatus,"ax",%progbits
- 305              		.align	1
- 306              		.global	DMA_GetFlagStatus
- 307              		.syntax unified
- 308              		.thumb
- 309              		.thumb_func
- 311              	DMA_GetFlagStatus:
- 312              		@ args = 0, pretend = 0, frame = 0
- 313              		@ frame_needed = 0, uses_anonymous_args = 0
- 314              		@ link register save eliminated.
- 315 0000 10F0805F 		tst	r0, #268435456
- 316 0004 05D0     		beq	.L40
- 317 0006 054B     		ldr	r3, .L44
- 318 0008 1B68     		ldr	r3, [r3]
- 319              	.L41:
- 320 000a 0342     		tst	r3, r0
- 321 000c 04D0     		beq	.L43
- 322 000e 0120     		movs	r0, #1
- 323 0010 7047     		bx	lr
- 324              	.L40:
- 325 0012 034B     		ldr	r3, .L44+4
- 326 0014 1B68     		ldr	r3, [r3]
- 327 0016 F8E7     		b	.L41
- 328              	.L43:
- 329 0018 0020     		movs	r0, #0
- 330 001a 7047     		bx	lr
- 331              	.L45:
- 332              		.align	2
- 333              	.L44:
- 334 001c 00040240 		.word	1073873920
- 335 0020 00000240 		.word	1073872896
- 337              		.section	.text.DMA_ClearFlag,"ax",%progbits
- 338              		.align	1
- 339              		.global	DMA_ClearFlag
- 340              		.syntax unified
- 341              		.thumb
- 342              		.thumb_func
- 344              	DMA_ClearFlag:
- 345              		@ args = 0, pretend = 0, frame = 0
- 346              		@ frame_needed = 0, uses_anonymous_args = 0
- 347              		@ link register save eliminated.
- 348 0000 10F0805F 		tst	r0, #268435456
- 349 0004 02D0     		beq	.L47
- 350 0006 034B     		ldr	r3, .L49
- 351 0008 5860     		str	r0, [r3, #4]
- 352 000a 7047     		bx	lr
- 353              	.L47:
- 354 000c 024B     		ldr	r3, .L49+4
- 355 000e 5860     		str	r0, [r3, #4]
- 356 0010 7047     		bx	lr
- 357              	.L50:
- 358 0012 00BF     		.align	2
- 359              	.L49:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s 			page 7
+ 299              		@ frame_needed = 0, uses_anonymous_args = 0
+ 300              		@ link register save eliminated.
+ 301 0000 4068     		ldr	r0, [r0, #4]
+ 302 0002 80B2     		uxth	r0, r0
+ 303 0004 7047     		bx	lr
+ 305              		.section	.text.DMA_GetFlagStatus,"ax",%progbits
+ 306              		.align	1
+ 307              		.global	DMA_GetFlagStatus
+ 308              		.syntax unified
+ 309              		.thumb
+ 310              		.thumb_func
+ 312              	DMA_GetFlagStatus:
+ 313              		@ args = 0, pretend = 0, frame = 0
+ 314              		@ frame_needed = 0, uses_anonymous_args = 0
+ 315              		@ link register save eliminated.
+ 316 0000 10F0805F 		tst	r0, #268435456
+ 317 0004 05D0     		beq	.L40
+ 318 0006 054B     		ldr	r3, .L44
+ 319 0008 1B68     		ldr	r3, [r3]
+ 320              	.L41:
+ 321 000a 0342     		tst	r3, r0
+ 322 000c 04D0     		beq	.L43
+ 323 000e 0120     		movs	r0, #1
+ 324 0010 7047     		bx	lr
+ 325              	.L40:
+ 326 0012 034B     		ldr	r3, .L44+4
+ 327 0014 1B68     		ldr	r3, [r3]
+ 328 0016 F8E7     		b	.L41
+ 329              	.L43:
+ 330 0018 0020     		movs	r0, #0
+ 331 001a 7047     		bx	lr
+ 332              	.L45:
+ 333              		.align	2
+ 334              	.L44:
+ 335 001c 00040240 		.word	1073873920
+ 336 0020 00000240 		.word	1073872896
+ 338              		.section	.text.DMA_ClearFlag,"ax",%progbits
+ 339              		.align	1
+ 340              		.global	DMA_ClearFlag
+ 341              		.syntax unified
+ 342              		.thumb
+ 343              		.thumb_func
+ 345              	DMA_ClearFlag:
+ 346              		@ args = 0, pretend = 0, frame = 0
+ 347              		@ frame_needed = 0, uses_anonymous_args = 0
+ 348              		@ link register save eliminated.
+ 349 0000 10F0805F 		tst	r0, #268435456
+ 350 0004 02D0     		beq	.L47
+ 351 0006 034B     		ldr	r3, .L49
+ 352 0008 5860     		str	r0, [r3, #4]
+ 353 000a 7047     		bx	lr
+ 354              	.L47:
+ 355 000c 024B     		ldr	r3, .L49+4
+ 356 000e 5860     		str	r0, [r3, #4]
+ 357 0010 7047     		bx	lr
+ 358              	.L50:
+ 359 0012 00BF     		.align	2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s 			page 7
 
 
- 360 0014 00040240 		.word	1073873920
- 361 0018 00000240 		.word	1073872896
- 363              		.section	.text.DMA_GetITStatus,"ax",%progbits
- 364              		.align	1
- 365              		.global	DMA_GetITStatus
- 366              		.syntax unified
- 367              		.thumb
- 368              		.thumb_func
- 370              	DMA_GetITStatus:
- 371              		@ args = 0, pretend = 0, frame = 0
- 372              		@ frame_needed = 0, uses_anonymous_args = 0
- 373              		@ link register save eliminated.
- 374 0000 10F0805F 		tst	r0, #268435456
- 375 0004 05D0     		beq	.L52
- 376 0006 054B     		ldr	r3, .L56
- 377 0008 1B68     		ldr	r3, [r3]
- 378              	.L53:
- 379 000a 0342     		tst	r3, r0
- 380 000c 04D0     		beq	.L55
- 381 000e 0120     		movs	r0, #1
- 382 0010 7047     		bx	lr
- 383              	.L52:
- 384 0012 034B     		ldr	r3, .L56+4
- 385 0014 1B68     		ldr	r3, [r3]
- 386 0016 F8E7     		b	.L53
- 387              	.L55:
- 388 0018 0020     		movs	r0, #0
- 389 001a 7047     		bx	lr
- 390              	.L57:
- 391              		.align	2
- 392              	.L56:
- 393 001c 00040240 		.word	1073873920
- 394 0020 00000240 		.word	1073872896
- 396              		.section	.text.DMA_ClearITPendingBit,"ax",%progbits
- 397              		.align	1
- 398              		.global	DMA_ClearITPendingBit
- 399              		.syntax unified
- 400              		.thumb
- 401              		.thumb_func
- 403              	DMA_ClearITPendingBit:
- 404              		@ args = 0, pretend = 0, frame = 0
- 405              		@ frame_needed = 0, uses_anonymous_args = 0
- 406              		@ link register save eliminated.
- 407 0000 10F0805F 		tst	r0, #268435456
- 408 0004 02D0     		beq	.L59
- 409 0006 034B     		ldr	r3, .L61
- 410 0008 5860     		str	r0, [r3, #4]
- 411 000a 7047     		bx	lr
- 412              	.L59:
- 413 000c 024B     		ldr	r3, .L61+4
- 414 000e 5860     		str	r0, [r3, #4]
- 415 0010 7047     		bx	lr
- 416              	.L62:
- 417 0012 00BF     		.align	2
- 418              	.L61:
- 419 0014 00040240 		.word	1073873920
- 420 0018 00000240 		.word	1073872896
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s 			page 8
+ 360              	.L49:
+ 361 0014 00040240 		.word	1073873920
+ 362 0018 00000240 		.word	1073872896
+ 364              		.section	.text.DMA_GetITStatus,"ax",%progbits
+ 365              		.align	1
+ 366              		.global	DMA_GetITStatus
+ 367              		.syntax unified
+ 368              		.thumb
+ 369              		.thumb_func
+ 371              	DMA_GetITStatus:
+ 372              		@ args = 0, pretend = 0, frame = 0
+ 373              		@ frame_needed = 0, uses_anonymous_args = 0
+ 374              		@ link register save eliminated.
+ 375 0000 10F0805F 		tst	r0, #268435456
+ 376 0004 05D0     		beq	.L52
+ 377 0006 054B     		ldr	r3, .L56
+ 378 0008 1B68     		ldr	r3, [r3]
+ 379              	.L53:
+ 380 000a 0342     		tst	r3, r0
+ 381 000c 04D0     		beq	.L55
+ 382 000e 0120     		movs	r0, #1
+ 383 0010 7047     		bx	lr
+ 384              	.L52:
+ 385 0012 034B     		ldr	r3, .L56+4
+ 386 0014 1B68     		ldr	r3, [r3]
+ 387 0016 F8E7     		b	.L53
+ 388              	.L55:
+ 389 0018 0020     		movs	r0, #0
+ 390 001a 7047     		bx	lr
+ 391              	.L57:
+ 392              		.align	2
+ 393              	.L56:
+ 394 001c 00040240 		.word	1073873920
+ 395 0020 00000240 		.word	1073872896
+ 397              		.section	.text.DMA_ClearITPendingBit,"ax",%progbits
+ 398              		.align	1
+ 399              		.global	DMA_ClearITPendingBit
+ 400              		.syntax unified
+ 401              		.thumb
+ 402              		.thumb_func
+ 404              	DMA_ClearITPendingBit:
+ 405              		@ args = 0, pretend = 0, frame = 0
+ 406              		@ frame_needed = 0, uses_anonymous_args = 0
+ 407              		@ link register save eliminated.
+ 408 0000 10F0805F 		tst	r0, #268435456
+ 409 0004 02D0     		beq	.L59
+ 410 0006 034B     		ldr	r3, .L61
+ 411 0008 5860     		str	r0, [r3, #4]
+ 412 000a 7047     		bx	lr
+ 413              	.L59:
+ 414 000c 024B     		ldr	r3, .L61+4
+ 415 000e 5860     		str	r0, [r3, #4]
+ 416 0010 7047     		bx	lr
+ 417              	.L62:
+ 418 0012 00BF     		.align	2
+ 419              	.L61:
+ 420 0014 00040240 		.word	1073873920
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s 			page 8
 
 
- 422              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s 			page 9
+ 421 0018 00000240 		.word	1073872896
+ 423              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f10x_dma.c
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:16     .text.DMA_DeInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:22     .text.DMA_DeInit:00000000 DMA_DeInit
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:149    .text.DMA_DeInit:000000f0 $d
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:165    .text.DMA_Init:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:171    .text.DMA_Init:00000000 DMA_Init
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:205    .text.DMA_StructInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:211    .text.DMA_StructInit:00000000 DMA_StructInit
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:230    .text.DMA_Cmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:236    .text.DMA_Cmd:00000000 DMA_Cmd
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:254    .text.DMA_ITConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:260    .text.DMA_ITConfig:00000000 DMA_ITConfig
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:276    .text.DMA_SetCurrDataCounter:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:282    .text.DMA_SetCurrDataCounter:00000000 DMA_SetCurrDataCounter
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:290    .text.DMA_GetCurrDataCounter:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:296    .text.DMA_GetCurrDataCounter:00000000 DMA_GetCurrDataCounter
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:305    .text.DMA_GetFlagStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:311    .text.DMA_GetFlagStatus:00000000 DMA_GetFlagStatus
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:334    .text.DMA_GetFlagStatus:0000001c $d
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:338    .text.DMA_ClearFlag:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:344    .text.DMA_ClearFlag:00000000 DMA_ClearFlag
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:360    .text.DMA_ClearFlag:00000014 $d
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:364    .text.DMA_GetITStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:370    .text.DMA_GetITStatus:00000000 DMA_GetITStatus
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:393    .text.DMA_GetITStatus:0000001c $d
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:397    .text.DMA_ClearITPendingBit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:403    .text.DMA_ClearITPendingBit:00000000 DMA_ClearITPendingBit
-C:\Users\UXP\AppData\Local\Temp\cccSkpwR.s:419    .text.DMA_ClearITPendingBit:00000014 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:16     .text.DMA_DeInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:22     .text.DMA_DeInit:00000000 DMA_DeInit
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:149    .text.DMA_DeInit:000000f0 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:165    .text.DMA_Init:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:171    .text.DMA_Init:00000000 DMA_Init
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:206    .text.DMA_StructInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:212    .text.DMA_StructInit:00000000 DMA_StructInit
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:231    .text.DMA_Cmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:237    .text.DMA_Cmd:00000000 DMA_Cmd
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:255    .text.DMA_ITConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:261    .text.DMA_ITConfig:00000000 DMA_ITConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:277    .text.DMA_SetCurrDataCounter:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:283    .text.DMA_SetCurrDataCounter:00000000 DMA_SetCurrDataCounter
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:291    .text.DMA_GetCurrDataCounter:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:297    .text.DMA_GetCurrDataCounter:00000000 DMA_GetCurrDataCounter
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:306    .text.DMA_GetFlagStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:312    .text.DMA_GetFlagStatus:00000000 DMA_GetFlagStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:335    .text.DMA_GetFlagStatus:0000001c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:339    .text.DMA_ClearFlag:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:345    .text.DMA_ClearFlag:00000000 DMA_ClearFlag
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:361    .text.DMA_ClearFlag:00000014 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:365    .text.DMA_GetITStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:371    .text.DMA_GetITStatus:00000000 DMA_GetITStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:394    .text.DMA_GetITStatus:0000001c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:398    .text.DMA_ClearITPendingBit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:404    .text.DMA_ClearITPendingBit:00000000 DMA_ClearITPendingBit
+C:\Users\wxpwx\AppData\Local\Temp\ccaO3yCu.s:420    .text.DMA_ClearITPendingBit:00000014 $d
 
 NO UNDEFINED SYMBOLS

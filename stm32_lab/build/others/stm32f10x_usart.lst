@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
   56 0044 4FF40030 		mov	r0, #131072
   57 0048 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
   58 004c E8E7     		b	.L1
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 2
 
 
   59              	.L10:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  115 001c 2889     		ldrh	r0, [r5, #8]
  116 001e 6A89     		ldrh	r2, [r5, #10]
  117 0020 0143     		orrs	r1, r1, r0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 3
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 3
 
 
  118 0022 0A43     		orrs	r2, r2, r1
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  172 00a0 2A68     		ldr	r2, [r5]
  173 00a2 5200     		lsls	r2, r2, #1
  174 00a4 B3FBF2F3 		udiv	r3, r3, r2
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 4
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 4
 
 
  175 00a8 DCE7     		b	.L19
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  233 0020 1343     		orrs	r3, r3, r2
  234 0022 0382     		strh	r3, [r0, #16]	@ movhi
  235 0024 10BD     		pop	{r4, pc}
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 5
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 5
 
 
  237              		.section	.text.USART_ClockStructInit,"ax",%progbits
@@ -293,20 +293,20 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  291 0000 C1F3421C 		ubfx	ip, r1, #5, #3
  292 0004 01F01F01 		and	r1, r1, #31
  293 0008 0123     		movs	r3, #1
- 294 000a 8B40     		lsls	r3, r3, r1
- 295 000c BCF1010F 		cmp	ip, #1
+ 294 000a 03FA01F1 		lsl	r1, r3, r1
+ 295 000e 9C45     		cmp	ip, r3
  296 0010 08D0     		beq	.L41
  297 0012 BCF1020F 		cmp	ip, #2
  298 0016 07D0     		beq	.L42
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 6
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 6
 
 
  299 0018 1430     		adds	r0, r0, #20
  300              	.L37:
  301 001a 3AB1     		cbz	r2, .L39
- 302 001c 0268     		ldr	r2, [r0]
- 303 001e 1343     		orrs	r3, r3, r2
- 304 0020 0360     		str	r3, [r0]
+ 302 001c 0368     		ldr	r3, [r0]
+ 303 001e 1943     		orrs	r1, r1, r3
+ 304 0020 0160     		str	r1, [r0]
  305 0022 7047     		bx	lr
  306              	.L41:
  307 0024 0C30     		adds	r0, r0, #12
@@ -315,9 +315,9 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  310 0028 1030     		adds	r0, r0, #16
  311 002a F6E7     		b	.L37
  312              	.L39:
- 313 002c 0268     		ldr	r2, [r0]
- 314 002e 22EA0303 		bic	r3, r2, r3
- 315 0032 0360     		str	r3, [r0]
+ 313 002c 0368     		ldr	r3, [r0]
+ 314 002e 23EA0101 		bic	r1, r3, r1
+ 315 0032 0160     		str	r1, [r0]
  316 0034 7047     		bx	lr
  318              		.section	.text.USART_DMACmd,"ax",%progbits
  319              		.align	1
@@ -332,8 +332,8 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  329 0000 22B1     		cbz	r2, .L44
  330 0002 838A     		ldrh	r3, [r0, #20]
  331 0004 9BB2     		uxth	r3, r3
- 332 0006 0B43     		orrs	r3, r3, r1
- 333 0008 8382     		strh	r3, [r0, #20]	@ movhi
+ 332 0006 1943     		orrs	r1, r1, r3
+ 333 0008 8182     		strh	r1, [r0, #20]	@ movhi
  334 000a 7047     		bx	lr
  335              	.L44:
  336 000c 838A     		ldrh	r3, [r0, #20]
@@ -358,12 +358,12 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  357 0008 9BB2     		uxth	r3, r3
  358 000a 0382     		strh	r3, [r0, #16]	@ movhi
  359 000c 038A     		ldrh	r3, [r0, #16]
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 7
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 7
 
 
  360 000e 9BB2     		uxth	r3, r3
- 361 0010 1943     		orrs	r1, r1, r3
- 362 0012 0182     		strh	r1, [r0, #16]	@ movhi
+ 361 0010 0B43     		orrs	r3, r3, r1
+ 362 0012 0382     		strh	r3, [r0, #16]	@ movhi
  363 0014 7047     		bx	lr
  365              		.section	.text.USART_WakeUpConfig,"ax",%progbits
  366              		.align	1
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  420              		@ args = 0, pretend = 0, frame = 0
  421              		@ frame_needed = 0, uses_anonymous_args = 0
  422              		@ link register save eliminated.
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 8
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 8
 
 
  423 0000 038A     		ldrh	r3, [r0, #16]
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  483              		@ frame_needed = 0, uses_anonymous_args = 0
  484              		@ link register save eliminated.
  485 0000 8088     		ldrh	r0, [r0, #4]
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 9
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 9
 
 
  486 0002 C0F30800 		ubfx	r0, r0, #0, #9
@@ -508,9 +508,9 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  514              		@ args = 0, pretend = 0, frame = 0
  515              		@ frame_needed = 0, uses_anonymous_args = 0
  516              		@ link register save eliminated.
- 517 0000 038B     		ldrh	r3, [r0, #24]
- 518 0002 DBB2     		uxtb	r3, r3
- 519 0004 0383     		strh	r3, [r0, #24]	@ movhi
+ 517 0000 028B     		ldrh	r2, [r0, #24]
+ 518 0002 D2B2     		uxtb	r2, r2
+ 519 0004 0283     		strh	r2, [r0, #24]	@ movhi
  520 0006 038B     		ldrh	r3, [r0, #24]
  521 0008 9BB2     		uxth	r3, r3
  522 000a 43EA0123 		orr	r3, r3, r1, lsl #8
@@ -526,19 +526,19 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  534              		@ args = 0, pretend = 0, frame = 0
  535              		@ frame_needed = 0, uses_anonymous_args = 0
  536              		@ link register save eliminated.
- 537 0000 038B     		ldrh	r3, [r0, #24]
- 538 0002 03F47F43 		and	r3, r3, #65280
- 539 0006 0383     		strh	r3, [r0, #24]	@ movhi
+ 537 0000 028B     		ldrh	r2, [r0, #24]
+ 538 0002 02F47F42 		and	r2, r2, #65280
+ 539 0006 0283     		strh	r2, [r0, #24]	@ movhi
  540 0008 038B     		ldrh	r3, [r0, #24]
  541 000a 9BB2     		uxth	r3, r3
- 542 000c 1943     		orrs	r1, r1, r3
- 543 000e 0183     		strh	r1, [r0, #24]	@ movhi
+ 542 000c 0B43     		orrs	r3, r3, r1
+ 543 000e 0383     		strh	r3, [r0, #24]	@ movhi
  544 0010 7047     		bx	lr
  546              		.section	.text.USART_SmartCardCmd,"ax",%progbits
  547              		.align	1
  548              		.global	USART_SmartCardCmd
  549              		.syntax unified
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 10
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 10
 
 
  550              		.thumb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  609 0004 9BB2     		uxth	r3, r3
  610 0006 43F00803 		orr	r3, r3, #8
  611 000a 8382     		strh	r3, [r0, #20]	@ movhi
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 11
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 11
 
 
  612 000c 7047     		bx	lr
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  671              		.align	1
  672              		.global	USART_IrDAConfig
  673              		.syntax unified
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 12
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 12
 
 
  674              		.thumb
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  733              	.L81:
  734 000a 0020     		movs	r0, #0
  735 000c 7047     		bx	lr
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 13
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 13
 
 
  737              		.section	.text.USART_ClearFlag,"ax",%progbits
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  794 003e 1340     		ands	r3, r3, r2
  795 0040 ECE7     		b	.L85
  796              	.L88:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 14
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 14
 
 
  797 0042 0020     		movs	r0, #0
@@ -804,75 +804,75 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 1
  819 000a 9BB2     		uxth	r3, r3
  820 000c 0380     		strh	r3, [r0]	@ movhi
  821 000e 7047     		bx	lr
- 823              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 15
+ 823              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f10x_usart.c
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:16     .text.USART_DeInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:22     .text.USART_DeInit:00000000 USART_DeInit
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:86     .text.USART_DeInit:00000090 $d
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:93     .text.USART_Init:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:99     .text.USART_Init:00000000 USART_Init
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:187    .text.USART_Init:000000bc $d
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:191    .text.USART_StructInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:197    .text.USART_StructInit:00000000 USART_StructInit
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:213    .text.USART_ClockInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:219    .text.USART_ClockInit:00000000 USART_ClockInit
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:238    .text.USART_ClockStructInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:244    .text.USART_ClockStructInit:00000000 USART_ClockStructInit
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:256    .text.USART_Cmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:262    .text.USART_Cmd:00000000 USART_Cmd
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:281    .text.USART_ITConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:287    .text.USART_ITConfig:00000000 USART_ITConfig
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:319    .text.USART_DMACmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:325    .text.USART_DMACmd:00000000 USART_DMACmd
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:344    .text.USART_SetAddress:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:350    .text.USART_SetAddress:00000000 USART_SetAddress
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:366    .text.USART_WakeUpConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:372    .text.USART_WakeUpConfig:00000000 USART_WakeUpConfig
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:388    .text.USART_ReceiverWakeUpCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:394    .text.USART_ReceiverWakeUpCmd:00000000 USART_ReceiverWakeUpCmd
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:413    .text.USART_LINBreakDetectLengthConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:419    .text.USART_LINBreakDetectLengthConfig:00000000 USART_LINBreakDetectLengthConfig
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:435    .text.USART_LINCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:441    .text.USART_LINCmd:00000000 USART_LINCmd
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:460    .text.USART_SendData:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:466    .text.USART_SendData:00000000 USART_SendData
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:475    .text.USART_ReceiveData:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:481    .text.USART_ReceiveData:00000000 USART_ReceiveData
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:490    .text.USART_SendBreak:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:496    .text.USART_SendBreak:00000000 USART_SendBreak
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:507    .text.USART_SetGuardTime:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:513    .text.USART_SetGuardTime:00000000 USART_SetGuardTime
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:527    .text.USART_SetPrescaler:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:533    .text.USART_SetPrescaler:00000000 USART_SetPrescaler
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:547    .text.USART_SmartCardCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:553    .text.USART_SmartCardCmd:00000000 USART_SmartCardCmd
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:572    .text.USART_SmartCardNACKCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:578    .text.USART_SmartCardNACKCmd:00000000 USART_SmartCardNACKCmd
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:597    .text.USART_HalfDuplexCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:603    .text.USART_HalfDuplexCmd:00000000 USART_HalfDuplexCmd
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:622    .text.USART_OverSampling8Cmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:628    .text.USART_OverSampling8Cmd:00000000 USART_OverSampling8Cmd
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:646    .text.USART_OneBitMethodCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:652    .text.USART_OneBitMethodCmd:00000000 USART_OneBitMethodCmd
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:671    .text.USART_IrDAConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:677    .text.USART_IrDAConfig:00000000 USART_IrDAConfig
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:693    .text.USART_IrDACmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:699    .text.USART_IrDACmd:00000000 USART_IrDACmd
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:718    .text.USART_GetFlagStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:724    .text.USART_GetFlagStatus:00000000 USART_GetFlagStatus
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:738    .text.USART_ClearFlag:00000000 $t
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s 			page 16
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:16     .text.USART_DeInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:22     .text.USART_DeInit:00000000 USART_DeInit
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:86     .text.USART_DeInit:00000090 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:93     .text.USART_Init:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:99     .text.USART_Init:00000000 USART_Init
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:187    .text.USART_Init:000000bc $d
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:191    .text.USART_StructInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:197    .text.USART_StructInit:00000000 USART_StructInit
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:213    .text.USART_ClockInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:219    .text.USART_ClockInit:00000000 USART_ClockInit
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:238    .text.USART_ClockStructInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:244    .text.USART_ClockStructInit:00000000 USART_ClockStructInit
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:256    .text.USART_Cmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:262    .text.USART_Cmd:00000000 USART_Cmd
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:281    .text.USART_ITConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:287    .text.USART_ITConfig:00000000 USART_ITConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:319    .text.USART_DMACmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:325    .text.USART_DMACmd:00000000 USART_DMACmd
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:344    .text.USART_SetAddress:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:350    .text.USART_SetAddress:00000000 USART_SetAddress
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:366    .text.USART_WakeUpConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:372    .text.USART_WakeUpConfig:00000000 USART_WakeUpConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:388    .text.USART_ReceiverWakeUpCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:394    .text.USART_ReceiverWakeUpCmd:00000000 USART_ReceiverWakeUpCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:413    .text.USART_LINBreakDetectLengthConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:419    .text.USART_LINBreakDetectLengthConfig:00000000 USART_LINBreakDetectLengthConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:435    .text.USART_LINCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:441    .text.USART_LINCmd:00000000 USART_LINCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:460    .text.USART_SendData:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:466    .text.USART_SendData:00000000 USART_SendData
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:475    .text.USART_ReceiveData:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:481    .text.USART_ReceiveData:00000000 USART_ReceiveData
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:490    .text.USART_SendBreak:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:496    .text.USART_SendBreak:00000000 USART_SendBreak
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:507    .text.USART_SetGuardTime:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:513    .text.USART_SetGuardTime:00000000 USART_SetGuardTime
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:527    .text.USART_SetPrescaler:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:533    .text.USART_SetPrescaler:00000000 USART_SetPrescaler
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:547    .text.USART_SmartCardCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:553    .text.USART_SmartCardCmd:00000000 USART_SmartCardCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:572    .text.USART_SmartCardNACKCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:578    .text.USART_SmartCardNACKCmd:00000000 USART_SmartCardNACKCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:597    .text.USART_HalfDuplexCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:603    .text.USART_HalfDuplexCmd:00000000 USART_HalfDuplexCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:622    .text.USART_OverSampling8Cmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:628    .text.USART_OverSampling8Cmd:00000000 USART_OverSampling8Cmd
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:646    .text.USART_OneBitMethodCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:652    .text.USART_OneBitMethodCmd:00000000 USART_OneBitMethodCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:671    .text.USART_IrDAConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:677    .text.USART_IrDAConfig:00000000 USART_IrDAConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:693    .text.USART_IrDACmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:699    .text.USART_IrDACmd:00000000 USART_IrDACmd
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:718    .text.USART_GetFlagStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:724    .text.USART_GetFlagStatus:00000000 USART_GetFlagStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:738    .text.USART_ClearFlag:00000000 $t
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s 			page 16
 
 
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:744    .text.USART_ClearFlag:00000000 USART_ClearFlag
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:754    .text.USART_GetITStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:760    .text.USART_GetITStatus:00000000 USART_GetITStatus
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:804    .text.USART_ClearITPendingBit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccPEddvY.s:810    .text.USART_ClearITPendingBit:00000000 USART_ClearITPendingBit
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:744    .text.USART_ClearFlag:00000000 USART_ClearFlag
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:754    .text.USART_GetITStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:760    .text.USART_GetITStatus:00000000 USART_GetITStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:804    .text.USART_ClearITPendingBit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccelELN8.s:810    .text.USART_ClearITPendingBit:00000000 USART_ClearITPendingBit
 
 UNDEFINED SYMBOLS
 RCC_APB2PeriphResetCmd

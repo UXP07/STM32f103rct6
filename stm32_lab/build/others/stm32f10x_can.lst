@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 1
   58 0024 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
   59 0028 0021     		movs	r1, #0
   60 002a 4FF00070 		mov	r0, #33554432
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 2
 
 
   61 002e FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 1
  117 0052 23F02003 		bic	r3, r3, #32
  118 0056 0360     		str	r3, [r0]
  119              	.L21:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 3
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 3
 
 
  120 0058 4B7A     		ldrb	r3, [r1, #9]	@ zero_extendqisi2
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 1
  174 00ca 0368     		ldr	r3, [r0]
  175 00cc 43F01003 		orr	r3, r3, #16
  176 00d0 0360     		str	r3, [r0]
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 4
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 4
 
 
  177 00d2 C8E7     		b	.L23
@@ -223,114 +223,114 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 1
  218              		@ args = 0, pretend = 0, frame = 0
  219              		@ frame_needed = 0, uses_anonymous_args = 0
  220 0000 10B5     		push	{r4, lr}
- 221 0002 827A     		ldrb	r2, [r0, #10]	@ zero_extendqisi2
- 222 0004 0123     		movs	r3, #1
- 223 0006 9340     		lsls	r3, r3, r2
- 224 0008 3F4A     		ldr	r2, .L51
- 225 000a D2F80012 		ldr	r1, [r2, #512]
- 226 000e 41F00101 		orr	r1, r1, #1
- 227 0012 C2F80012 		str	r1, [r2, #512]
- 228 0016 D2F81C12 		ldr	r1, [r2, #540]
- 229 001a 6FEA030C 		mvn	ip, r3
- 230 001e 21EA0301 		bic	r1, r1, r3
- 231 0022 C2F81C12 		str	r1, [r2, #540]
- 232 0026 027B     		ldrb	r2, [r0, #12]	@ zero_extendqisi2
- 233 0028 D2B9     		cbnz	r2, .L40
- 234 002a 374A     		ldr	r2, .L51
- 235 002c D2F80C12 		ldr	r1, [r2, #524]
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 5
+ 221 0002 837A     		ldrb	r3, [r0, #10]	@ zero_extendqisi2
+ 222 0004 0122     		movs	r2, #1
+ 223 0006 02FA03F3 		lsl	r3, r2, r3
+ 224 000a 3F4A     		ldr	r2, .L51
+ 225 000c D2F80012 		ldr	r1, [r2, #512]
+ 226 0010 41F00101 		orr	r1, r1, #1
+ 227 0014 C2F80012 		str	r1, [r2, #512]
+ 228 0018 D2F81C12 		ldr	r1, [r2, #540]
+ 229 001c 6FEA030C 		mvn	ip, r3
+ 230 0020 21EA0301 		bic	r1, r1, r3
+ 231 0024 C2F81C12 		str	r1, [r2, #540]
+ 232 0028 027B     		ldrb	r2, [r0, #12]	@ zero_extendqisi2
+ 233 002a D2B9     		cbnz	r2, .L40
+ 234 002c 364A     		ldr	r2, .L51
+ 235 002e D2F80C12 		ldr	r1, [r2, #524]
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 5
 
 
- 236 0030 0CEA0101 		and	r1, ip, r1
- 237 0034 C2F80C12 		str	r1, [r2, #524]
- 238 0038 B0F806E0 		ldrh	lr, [r0, #6]
- 239 003c 4488     		ldrh	r4, [r0, #2]
- 240 003e 817A     		ldrb	r1, [r0, #10]	@ zero_extendqisi2
- 241 0040 44EA0E44 		orr	r4, r4, lr, lsl #16
- 242 0044 4831     		adds	r1, r1, #72
- 243 0046 42F83140 		str	r4, [r2, r1, lsl #3]
- 244 004a 8488     		ldrh	r4, [r0, #4]
- 245 004c 0188     		ldrh	r1, [r0]
- 246 004e 90F80AE0 		ldrb	lr, [r0, #10]	@ zero_extendqisi2
- 247 0052 41EA0441 		orr	r1, r1, r4, lsl #16
- 248 0056 0EF1480E 		add	lr, lr, #72
- 249 005a 02EBCE02 		add	r2, r2, lr, lsl #3
- 250 005e 5160     		str	r1, [r2, #4]
+ 236 0032 0CEA0101 		and	r1, ip, r1
+ 237 0036 C2F80C12 		str	r1, [r2, #524]
+ 238 003a B0F806E0 		ldrh	lr, [r0, #6]
+ 239 003e 4488     		ldrh	r4, [r0, #2]
+ 240 0040 817A     		ldrb	r1, [r0, #10]	@ zero_extendqisi2
+ 241 0042 44EA0E44 		orr	r4, r4, lr, lsl #16
+ 242 0046 4831     		adds	r1, r1, #72
+ 243 0048 42F83140 		str	r4, [r2, r1, lsl #3]
+ 244 004c 8488     		ldrh	r4, [r0, #4]
+ 245 004e 0188     		ldrh	r1, [r0]
+ 246 0050 90F80AE0 		ldrb	lr, [r0, #10]	@ zero_extendqisi2
+ 247 0054 41EA0441 		orr	r1, r1, r4, lsl #16
+ 248 0058 0EF1480E 		add	lr, lr, #72
+ 249 005c 02EBCE02 		add	r2, r2, lr, lsl #3
+ 250 0060 5160     		str	r1, [r2, #4]
  251              	.L40:
- 252 0060 027B     		ldrb	r2, [r0, #12]	@ zero_extendqisi2
- 253 0062 012A     		cmp	r2, #1
- 254 0064 20D0     		beq	.L48
+ 252 0062 027B     		ldrb	r2, [r0, #12]	@ zero_extendqisi2
+ 253 0064 012A     		cmp	r2, #1
+ 254 0066 20D0     		beq	.L48
  255              	.L41:
- 256 0066 C27A     		ldrb	r2, [r0, #11]	@ zero_extendqisi2
- 257 0068 002A     		cmp	r2, #0
- 258 006a 37D1     		bne	.L42
- 259 006c 2649     		ldr	r1, .L51
- 260 006e D1F80422 		ldr	r2, [r1, #516]
- 261 0072 0CEA0202 		and	r2, ip, r2
- 262 0076 C1F80422 		str	r2, [r1, #516]
+ 256 0068 C27A     		ldrb	r2, [r0, #11]	@ zero_extendqisi2
+ 257 006a 002A     		cmp	r2, #0
+ 258 006c 37D1     		bne	.L42
+ 259 006e 2649     		ldr	r1, .L51
+ 260 0070 D1F80422 		ldr	r2, [r1, #516]
+ 261 0074 0CEA0202 		and	r2, ip, r2
+ 262 0078 C1F80422 		str	r2, [r1, #516]
  263              	.L43:
- 264 007a 0289     		ldrh	r2, [r0, #8]
- 265 007c 32B9     		cbnz	r2, .L44
- 266 007e 2249     		ldr	r1, .L51
- 267 0080 D1F81422 		ldr	r2, [r1, #532]
- 268 0084 0CEA0202 		and	r2, ip, r2
- 269 0088 C1F81422 		str	r2, [r1, #532]
+ 264 007c 0289     		ldrh	r2, [r0, #8]
+ 265 007e 32B9     		cbnz	r2, .L44
+ 266 0080 2149     		ldr	r1, .L51
+ 267 0082 D1F81422 		ldr	r2, [r1, #532]
+ 268 0086 0CEA0202 		and	r2, ip, r2
+ 269 008a C1F81422 		str	r2, [r1, #532]
  270              	.L44:
- 271 008c 0289     		ldrh	r2, [r0, #8]
- 272 008e 012A     		cmp	r2, #1
- 273 0090 2BD0     		beq	.L49
+ 271 008e 0289     		ldrh	r2, [r0, #8]
+ 272 0090 012A     		cmp	r2, #1
+ 273 0092 2BD0     		beq	.L49
  274              	.L45:
- 275 0092 427B     		ldrb	r2, [r0, #13]	@ zero_extendqisi2
- 276 0094 012A     		cmp	r2, #1
- 277 0096 2FD0     		beq	.L50
+ 275 0094 427B     		ldrb	r2, [r0, #13]	@ zero_extendqisi2
+ 276 0096 012A     		cmp	r2, #1
+ 277 0098 2FD0     		beq	.L50
  278              	.L46:
- 279 0098 1B4A     		ldr	r2, .L51
- 280 009a D2F80032 		ldr	r3, [r2, #512]
- 281 009e 23F00103 		bic	r3, r3, #1
- 282 00a2 C2F80032 		str	r3, [r2, #512]
- 283 00a6 10BD     		pop	{r4, pc}
+ 279 009a 1B4A     		ldr	r2, .L51
+ 280 009c D2F80032 		ldr	r3, [r2, #512]
+ 281 00a0 23F00103 		bic	r3, r3, #1
+ 282 00a4 C2F80032 		str	r3, [r2, #512]
+ 283 00a8 10BD     		pop	{r4, pc}
  284              	.L48:
- 285 00a8 174A     		ldr	r2, .L51
- 286 00aa D2F80C12 		ldr	r1, [r2, #524]
- 287 00ae 1943     		orrs	r1, r1, r3
- 288 00b0 C2F80C12 		str	r1, [r2, #524]
- 289 00b4 B0F800E0 		ldrh	lr, [r0]
- 290 00b8 4488     		ldrh	r4, [r0, #2]
- 291 00ba 817A     		ldrb	r1, [r0, #10]	@ zero_extendqisi2
- 292 00bc 44EA0E44 		orr	r4, r4, lr, lsl #16
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 6
+ 285 00aa 174A     		ldr	r2, .L51
+ 286 00ac D2F80C12 		ldr	r1, [r2, #524]
+ 287 00b0 1943     		orrs	r1, r1, r3
+ 288 00b2 C2F80C12 		str	r1, [r2, #524]
+ 289 00b6 B0F800E0 		ldrh	lr, [r0]
+ 290 00ba 4488     		ldrh	r4, [r0, #2]
+ 291 00bc 817A     		ldrb	r1, [r0, #10]	@ zero_extendqisi2
+ 292 00be 44EA0E44 		orr	r4, r4, lr, lsl #16
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 6
 
 
- 293 00c0 4831     		adds	r1, r1, #72
- 294 00c2 42F83140 		str	r4, [r2, r1, lsl #3]
- 295 00c6 B0F804E0 		ldrh	lr, [r0, #4]
- 296 00ca C188     		ldrh	r1, [r0, #6]
- 297 00cc 847A     		ldrb	r4, [r0, #10]	@ zero_extendqisi2
- 298 00ce 41EA0E41 		orr	r1, r1, lr, lsl #16
- 299 00d2 4834     		adds	r4, r4, #72
- 300 00d4 02EBC402 		add	r2, r2, r4, lsl #3
- 301 00d8 5160     		str	r1, [r2, #4]
- 302 00da C4E7     		b	.L41
+ 293 00c2 4831     		adds	r1, r1, #72
+ 294 00c4 42F83140 		str	r4, [r2, r1, lsl #3]
+ 295 00c8 B0F804E0 		ldrh	lr, [r0, #4]
+ 296 00cc C188     		ldrh	r1, [r0, #6]
+ 297 00ce 847A     		ldrb	r4, [r0, #10]	@ zero_extendqisi2
+ 298 00d0 41EA0E41 		orr	r1, r1, lr, lsl #16
+ 299 00d4 4834     		adds	r4, r4, #72
+ 300 00d6 02EBC402 		add	r2, r2, r4, lsl #3
+ 301 00da 5160     		str	r1, [r2, #4]
+ 302 00dc C4E7     		b	.L41
  303              	.L42:
- 304 00dc 0A49     		ldr	r1, .L51
- 305 00de D1F80422 		ldr	r2, [r1, #516]
- 306 00e2 1A43     		orrs	r2, r2, r3
- 307 00e4 C1F80422 		str	r2, [r1, #516]
- 308 00e8 C7E7     		b	.L43
+ 304 00de 0A49     		ldr	r1, .L51
+ 305 00e0 D1F80422 		ldr	r2, [r1, #516]
+ 306 00e4 1A43     		orrs	r2, r2, r3
+ 307 00e6 C1F80422 		str	r2, [r1, #516]
+ 308 00ea C7E7     		b	.L43
  309              	.L49:
- 310 00ea 0749     		ldr	r1, .L51
- 311 00ec D1F81422 		ldr	r2, [r1, #532]
- 312 00f0 1A43     		orrs	r2, r2, r3
- 313 00f2 C1F81422 		str	r2, [r1, #532]
- 314 00f6 CCE7     		b	.L45
+ 310 00ec 0649     		ldr	r1, .L51
+ 311 00ee D1F81422 		ldr	r2, [r1, #532]
+ 312 00f2 1A43     		orrs	r2, r2, r3
+ 313 00f4 C1F81422 		str	r2, [r1, #532]
+ 314 00f8 CCE7     		b	.L45
  315              	.L50:
- 316 00f8 0349     		ldr	r1, .L51
- 317 00fa D1F81C22 		ldr	r2, [r1, #540]
- 318 00fe 1343     		orrs	r3, r3, r2
- 319 0100 C1F81C32 		str	r3, [r1, #540]
- 320 0104 C8E7     		b	.L46
+ 316 00fa 0349     		ldr	r1, .L51
+ 317 00fc D1F81C22 		ldr	r2, [r1, #540]
+ 318 0100 1343     		orrs	r3, r3, r2
+ 319 0102 C1F81C32 		str	r3, [r1, #540]
+ 320 0106 C8E7     		b	.L46
  321              	.L52:
- 322 0106 00BF     		.align	2
+ 322              		.align	2
  323              	.L51:
  324 0108 00640040 		.word	1073767424
  326              		.section	.text.CAN_StructInit,"ax",%progbits
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 1
  349 0018 4371     		strb	r3, [r0, #5]
  350 001a 0123     		movs	r3, #1
  351 001c 0380     		strh	r3, [r0]	@ movhi
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 7
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 7
 
 
  352 001e 7047     		bx	lr
@@ -373,9 +373,9 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 1
  363              		@ frame_needed = 0, uses_anonymous_args = 0
  364              		@ link register save eliminated.
  365 0000 0D4B     		ldr	r3, .L55
- 366 0002 D3F80022 		ldr	r2, [r3, #512]
- 367 0006 42F00102 		orr	r2, r2, #1
- 368 000a C3F80022 		str	r2, [r3, #512]
+ 366 0002 D3F80012 		ldr	r1, [r3, #512]
+ 367 0006 41F00101 		orr	r1, r1, #1
+ 368 000a C3F80012 		str	r1, [r3, #512]
  369 000e D3F80022 		ldr	r2, [r3, #512]
  370 0012 22F47C52 		bic	r2, r2, #16128
  371 0016 22F00E02 		bic	r2, r2, #14
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 1
  411              		.thumb
  412              		.thumb_func
  414              	CAN_TTComModeCmd:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 8
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 8
 
 
  415              		@ args = 0, pretend = 0, frame = 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 1
  471              	.L64:
  472 0020 30B5     		push	{r4, r5, lr}
  473 0022 8646     		mov	lr, r0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 9
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 9
 
 
  474 0024 00F11802 		add	r2, r0, #24
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 1
  528 00b4 0120     		movs	r0, #1
  529 00b6 B3E7     		b	.L64
  530              	.L66:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 10
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 10
 
 
  531 00b8 00F11804 		add	r4, r0, #24
@@ -565,83 +565,83 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 1
  554              		@ frame_needed = 0, uses_anonymous_args = 0
  555              		@ link register save eliminated.
  556 0000 0129     		cmp	r1, #1
- 557 0002 18D0     		beq	.L75
+ 557 0002 19D0     		beq	.L75
  558 0004 0229     		cmp	r1, #2
- 559 0006 1AD0     		beq	.L76
- 560 0008 69BB     		cbnz	r1, .L80
- 561 000a 8368     		ldr	r3, [r0, #8]
- 562 000c 23F07B43 		bic	r3, r3, #-83886080
- 563 0010 23F47F03 		bic	r3, r3, #16711680
- 564 0014 23F47F43 		bic	r3, r3, #65280
- 565 0018 23F0FC03 		bic	r3, r3, #252
- 566              	.L78:
- 567 001c 1A4A     		ldr	r2, .L88
- 568 001e 9342     		cmp	r3, r2
- 569 0020 23D0     		beq	.L81
- 570 0022 14D8     		bhi	.L79
- 571 0024 194A     		ldr	r2, .L88+4
- 572 0026 9342     		cmp	r3, r2
- 573 0028 21D0     		beq	.L82
- 574 002a 0232     		adds	r2, r2, #2
- 575 002c 9342     		cmp	r3, r2
- 576 002e 20D0     		beq	.L83
- 577 0030 0BBB     		cbnz	r3, .L84
- 578 0032 0220     		movs	r0, #2
- 579 0034 7047     		bx	lr
- 580              	.L75:
- 581 0036 8268     		ldr	r2, [r0, #8]
- 582 0038 154B     		ldr	r3, .L88+8
- 583 003a 1340     		ands	r3, r3, r2
- 584 003c EEE7     		b	.L78
- 585              	.L76:
- 586 003e 8368     		ldr	r3, [r0, #8]
- 587 0040 23F06F43 		bic	r3, r3, #-285212672
- 588 0044 23F47C03 		bic	r3, r3, #16515072
- 589 0048 1B0C     		lsrs	r3, r3, #16
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 11
+ 559 0006 1BD0     		beq	.L76
+ 560 0008 09B1     		cbz	r1, .L88
+ 561 000a 0220     		movs	r0, #2
+ 562 000c 7047     		bx	lr
+ 563              	.L88:
+ 564 000e 8368     		ldr	r3, [r0, #8]
+ 565 0010 23F07B43 		bic	r3, r3, #-83886080
+ 566 0014 23F47F03 		bic	r3, r3, #16711680
+ 567 0018 23F47F43 		bic	r3, r3, #65280
+ 568 001c 23F0FC03 		bic	r3, r3, #252
+ 569              	.L78:
+ 570 0020 194A     		ldr	r2, .L91
+ 571 0022 9342     		cmp	r3, r2
+ 572 0024 25D0     		beq	.L81
+ 573 0026 16D8     		bhi	.L79
+ 574 0028 184A     		ldr	r2, .L91+4
+ 575 002a 9342     		cmp	r3, r2
+ 576 002c 23D0     		beq	.L82
+ 577 002e 0232     		adds	r2, r2, #2
+ 578 0030 9342     		cmp	r3, r2
+ 579 0032 0DD1     		bne	.L89
+ 580 0034 0120     		movs	r0, #1
+ 581 0036 7047     		bx	lr
+ 582              	.L75:
+ 583 0038 8268     		ldr	r2, [r0, #8]
+ 584 003a 154B     		ldr	r3, .L91+8
+ 585 003c 1340     		ands	r3, r3, r2
+ 586 003e EFE7     		b	.L78
+ 587              	.L76:
+ 588 0040 8368     		ldr	r3, [r0, #8]
+ 589 0042 23F06F43 		bic	r3, r3, #-285212672
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 11
 
 
- 590 004a 1B04     		lsls	r3, r3, #16
- 591 004c E6E7     		b	.L78
- 592              	.L79:
- 593 004e 114A     		ldr	r2, .L88+12
- 594 0050 9342     		cmp	r3, r2
- 595 0052 12D0     		beq	.L85
- 596 0054 02F50032 		add	r2, r2, #131072
- 597 0058 9342     		cmp	r3, r2
- 598 005a 10D0     		beq	.L86
- 599 005c 0C4A     		ldr	r2, .L88+8
- 600 005e 9342     		cmp	r3, r2
- 601 0060 0FD1     		bne	.L87
- 602 0062 0120     		movs	r0, #1
- 603 0064 7047     		bx	lr
- 604              	.L80:
- 605 0066 0220     		movs	r0, #2
- 606 0068 7047     		bx	lr
- 607              	.L81:
- 608 006a 0020     		movs	r0, #0
- 609 006c 7047     		bx	lr
- 610              	.L82:
- 611 006e 0020     		movs	r0, #0
+ 590 0046 23F47C03 		bic	r3, r3, #16515072
+ 591 004a 1B0C     		lsrs	r3, r3, #16
+ 592 004c 1B04     		lsls	r3, r3, #16
+ 593 004e E7E7     		b	.L78
+ 594              	.L89:
+ 595 0050 9BB9     		cbnz	r3, .L84
+ 596 0052 0220     		movs	r0, #2
+ 597 0054 7047     		bx	lr
+ 598              	.L79:
+ 599 0056 0F4A     		ldr	r2, .L91+12
+ 600 0058 9342     		cmp	r3, r2
+ 601 005a 10D0     		beq	.L85
+ 602 005c 02F50032 		add	r2, r2, #131072
+ 603 0060 9342     		cmp	r3, r2
+ 604 0062 01D1     		bne	.L90
+ 605 0064 0120     		movs	r0, #1
+ 606 0066 7047     		bx	lr
+ 607              	.L90:
+ 608 0068 094A     		ldr	r2, .L91+8
+ 609 006a 9342     		cmp	r3, r2
+ 610 006c 09D1     		bne	.L87
+ 611 006e 0120     		movs	r0, #1
  612 0070 7047     		bx	lr
- 613              	.L83:
- 614 0072 0120     		movs	r0, #1
+ 613              	.L81:
+ 614 0072 0020     		movs	r0, #0
  615 0074 7047     		bx	lr
- 616              	.L84:
+ 616              	.L82:
  617 0076 0020     		movs	r0, #0
  618 0078 7047     		bx	lr
- 619              	.L85:
+ 619              	.L84:
  620 007a 0020     		movs	r0, #0
  621 007c 7047     		bx	lr
- 622              	.L86:
- 623 007e 0120     		movs	r0, #1
+ 622              	.L85:
+ 623 007e 0020     		movs	r0, #0
  624 0080 7047     		bx	lr
  625              	.L87:
  626 0082 0020     		movs	r0, #0
  627 0084 7047     		bx	lr
- 628              	.L89:
+ 628              	.L92:
  629 0086 00BF     		.align	2
- 630              	.L88:
+ 630              	.L91:
  631 0088 00010008 		.word	134217984
  632 008c 01000004 		.word	67108865
  633 0090 00030008 		.word	134218496
@@ -657,866 +657,868 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 1
  645              		@ frame_needed = 0, uses_anonymous_args = 0
  646              		@ link register save eliminated.
  647 0000 0129     		cmp	r1, #1
- 648 0002 07D0     		beq	.L91
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 12
+ 648 0002 08D0     		beq	.L94
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 12
 
 
  649 0004 0229     		cmp	r1, #2
- 650 0006 0AD0     		beq	.L92
- 651 0008 69B9     		cbnz	r1, .L90
- 652 000a 8368     		ldr	r3, [r0, #8]
- 653 000c 43F08003 		orr	r3, r3, #128
- 654 0010 8360     		str	r3, [r0, #8]
- 655 0012 7047     		bx	lr
- 656              	.L91:
- 657 0014 8368     		ldr	r3, [r0, #8]
- 658 0016 43F40043 		orr	r3, r3, #32768
- 659 001a 8360     		str	r3, [r0, #8]
- 660 001c 7047     		bx	lr
- 661              	.L92:
- 662 001e 8368     		ldr	r3, [r0, #8]
- 663 0020 43F40003 		orr	r3, r3, #8388608
- 664 0024 8360     		str	r3, [r0, #8]
- 665              	.L90:
- 666 0026 7047     		bx	lr
- 668              		.section	.text.CAN_Receive,"ax",%progbits
- 669              		.align	1
- 670              		.global	CAN_Receive
- 671              		.syntax unified
- 672              		.thumb
- 673              		.thumb_func
- 675              	CAN_Receive:
- 676              		@ args = 0, pretend = 0, frame = 0
- 677              		@ frame_needed = 0, uses_anonymous_args = 0
- 678              		@ link register save eliminated.
- 679 0000 10B4     		push	{r4}
- 680 0002 01F11B03 		add	r3, r1, #27
- 681 0006 1B01     		lsls	r3, r3, #4
- 682 0008 C358     		ldr	r3, [r0, r3]
- 683 000a 03F00403 		and	r3, r3, #4
- 684 000e 1372     		strb	r3, [r2, #8]
- 685 0010 002B     		cmp	r3, #0
- 686 0012 3ED1     		bne	.L95
- 687 0014 01F11B03 		add	r3, r1, #27
- 688 0018 1B01     		lsls	r3, r3, #4
- 689 001a C358     		ldr	r3, [r0, r3]
- 690 001c 5B0D     		lsrs	r3, r3, #21
- 691 001e 1360     		str	r3, [r2]
- 692              	.L96:
- 693 0020 01F11B03 		add	r3, r1, #27
- 694 0024 1C01     		lsls	r4, r3, #4
- 695 0026 00EB0313 		add	r3, r0, r3, lsl #4
- 696 002a 0459     		ldr	r4, [r0, r4]
- 697 002c 04F00204 		and	r4, r4, #2
- 698 0030 5472     		strb	r4, [r2, #9]
- 699 0032 5C68     		ldr	r4, [r3, #4]
- 700 0034 04F00F04 		and	r4, r4, #15
- 701 0038 9472     		strb	r4, [r2, #10]
- 702 003a 5B68     		ldr	r3, [r3, #4]
- 703 003c 1B0A     		lsrs	r3, r3, #8
- 704 003e D374     		strb	r3, [r2, #19]
- 705 0040 00EB0113 		add	r3, r0, r1, lsl #4
- 706 0044 D3F8B841 		ldr	r4, [r3, #440]
- 707 0048 D472     		strb	r4, [r2, #11]
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 13
+ 650 0006 0BD0     		beq	.L95
+ 651 0008 01B1     		cbz	r1, .L97
+ 652              	.L93:
+ 653 000a 7047     		bx	lr
+ 654              	.L97:
+ 655 000c 8368     		ldr	r3, [r0, #8]
+ 656 000e 43F08003 		orr	r3, r3, #128
+ 657 0012 8360     		str	r3, [r0, #8]
+ 658 0014 7047     		bx	lr
+ 659              	.L94:
+ 660 0016 8368     		ldr	r3, [r0, #8]
+ 661 0018 43F40043 		orr	r3, r3, #32768
+ 662 001c 8360     		str	r3, [r0, #8]
+ 663 001e 7047     		bx	lr
+ 664              	.L95:
+ 665 0020 8368     		ldr	r3, [r0, #8]
+ 666 0022 43F40003 		orr	r3, r3, #8388608
+ 667 0026 8360     		str	r3, [r0, #8]
+ 668 0028 EFE7     		b	.L93
+ 670              		.section	.text.CAN_Receive,"ax",%progbits
+ 671              		.align	1
+ 672              		.global	CAN_Receive
+ 673              		.syntax unified
+ 674              		.thumb
+ 675              		.thumb_func
+ 677              	CAN_Receive:
+ 678              		@ args = 0, pretend = 0, frame = 0
+ 679              		@ frame_needed = 0, uses_anonymous_args = 0
+ 680              		@ link register save eliminated.
+ 681 0000 10B4     		push	{r4}
+ 682 0002 01F11B03 		add	r3, r1, #27
+ 683 0006 1B01     		lsls	r3, r3, #4
+ 684 0008 C358     		ldr	r3, [r0, r3]
+ 685 000a 03F00403 		and	r3, r3, #4
+ 686 000e 1372     		strb	r3, [r2, #8]
+ 687 0010 002B     		cmp	r3, #0
+ 688 0012 3ED1     		bne	.L99
+ 689 0014 01F11B03 		add	r3, r1, #27
+ 690 0018 1B01     		lsls	r3, r3, #4
+ 691 001a C358     		ldr	r3, [r0, r3]
+ 692 001c 5B0D     		lsrs	r3, r3, #21
+ 693 001e 1360     		str	r3, [r2]
+ 694              	.L100:
+ 695 0020 01F11B03 		add	r3, r1, #27
+ 696 0024 1C01     		lsls	r4, r3, #4
+ 697 0026 00EB0313 		add	r3, r0, r3, lsl #4
+ 698 002a 0459     		ldr	r4, [r0, r4]
+ 699 002c 04F00204 		and	r4, r4, #2
+ 700 0030 5472     		strb	r4, [r2, #9]
+ 701 0032 5C68     		ldr	r4, [r3, #4]
+ 702 0034 04F00F04 		and	r4, r4, #15
+ 703 0038 9472     		strb	r4, [r2, #10]
+ 704 003a 5B68     		ldr	r3, [r3, #4]
+ 705 003c 1B0A     		lsrs	r3, r3, #8
+ 706 003e D374     		strb	r3, [r2, #19]
+ 707 0040 00EB0113 		add	r3, r0, r1, lsl #4
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 13
 
 
- 708 004a D3F8B841 		ldr	r4, [r3, #440]
- 709 004e 240A     		lsrs	r4, r4, #8
- 710 0050 1473     		strb	r4, [r2, #12]
- 711 0052 D3F8B841 		ldr	r4, [r3, #440]
- 712 0056 240C     		lsrs	r4, r4, #16
- 713 0058 5473     		strb	r4, [r2, #13]
- 714 005a D3F8B841 		ldr	r4, [r3, #440]
- 715 005e 240E     		lsrs	r4, r4, #24
- 716 0060 9473     		strb	r4, [r2, #14]
- 717 0062 D3F8BC41 		ldr	r4, [r3, #444]
- 718 0066 D473     		strb	r4, [r2, #15]
- 719 0068 D3F8BC41 		ldr	r4, [r3, #444]
- 720 006c 240A     		lsrs	r4, r4, #8
- 721 006e 1474     		strb	r4, [r2, #16]
- 722 0070 D3F8BC41 		ldr	r4, [r3, #444]
- 723 0074 4FEA144C 		lsr	ip, r4, #16
- 724 0078 82F811C0 		strb	ip, [r2, #17]
- 725 007c D3F8BC31 		ldr	r3, [r3, #444]
- 726 0080 1B0E     		lsrs	r3, r3, #24
- 727 0082 9374     		strb	r3, [r2, #18]
- 728 0084 61B9     		cbnz	r1, .L97
- 729 0086 C368     		ldr	r3, [r0, #12]
- 730 0088 43F02003 		orr	r3, r3, #32
- 731 008c C360     		str	r3, [r0, #12]
- 732              	.L94:
- 733 008e 10BC     		pop	{r4}
- 734 0090 7047     		bx	lr
- 735              	.L95:
- 736 0092 01F11B03 		add	r3, r1, #27
- 737 0096 1B01     		lsls	r3, r3, #4
- 738 0098 C358     		ldr	r3, [r0, r3]
- 739 009a DB08     		lsrs	r3, r3, #3
- 740 009c 5360     		str	r3, [r2, #4]
- 741 009e BFE7     		b	.L96
- 742              	.L97:
- 743 00a0 0369     		ldr	r3, [r0, #16]
- 744 00a2 43F02003 		orr	r3, r3, #32
- 745 00a6 0361     		str	r3, [r0, #16]
- 746 00a8 F1E7     		b	.L94
- 748              		.section	.text.CAN_FIFORelease,"ax",%progbits
- 749              		.align	1
- 750              		.global	CAN_FIFORelease
- 751              		.syntax unified
- 752              		.thumb
- 753              		.thumb_func
- 755              	CAN_FIFORelease:
- 756              		@ args = 0, pretend = 0, frame = 0
- 757              		@ frame_needed = 0, uses_anonymous_args = 0
- 758              		@ link register save eliminated.
- 759 0000 21B9     		cbnz	r1, .L101
- 760 0002 C368     		ldr	r3, [r0, #12]
- 761 0004 43F02003 		orr	r3, r3, #32
- 762 0008 C360     		str	r3, [r0, #12]
- 763 000a 7047     		bx	lr
- 764              	.L101:
- 765 000c 0369     		ldr	r3, [r0, #16]
- 766 000e 43F02003 		orr	r3, r3, #32
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 14
+ 708 0044 D3F8B841 		ldr	r4, [r3, #440]
+ 709 0048 D472     		strb	r4, [r2, #11]
+ 710 004a D3F8B841 		ldr	r4, [r3, #440]
+ 711 004e 240A     		lsrs	r4, r4, #8
+ 712 0050 1473     		strb	r4, [r2, #12]
+ 713 0052 D3F8B841 		ldr	r4, [r3, #440]
+ 714 0056 240C     		lsrs	r4, r4, #16
+ 715 0058 5473     		strb	r4, [r2, #13]
+ 716 005a D3F8B841 		ldr	r4, [r3, #440]
+ 717 005e 240E     		lsrs	r4, r4, #24
+ 718 0060 9473     		strb	r4, [r2, #14]
+ 719 0062 D3F8BC41 		ldr	r4, [r3, #444]
+ 720 0066 D473     		strb	r4, [r2, #15]
+ 721 0068 D3F8BC41 		ldr	r4, [r3, #444]
+ 722 006c 240A     		lsrs	r4, r4, #8
+ 723 006e 1474     		strb	r4, [r2, #16]
+ 724 0070 D3F8BC41 		ldr	r4, [r3, #444]
+ 725 0074 4FEA144C 		lsr	ip, r4, #16
+ 726 0078 82F811C0 		strb	ip, [r2, #17]
+ 727 007c D3F8BC31 		ldr	r3, [r3, #444]
+ 728 0080 1B0E     		lsrs	r3, r3, #24
+ 729 0082 9374     		strb	r3, [r2, #18]
+ 730 0084 61B9     		cbnz	r1, .L101
+ 731 0086 C368     		ldr	r3, [r0, #12]
+ 732 0088 43F02003 		orr	r3, r3, #32
+ 733 008c C360     		str	r3, [r0, #12]
+ 734              	.L98:
+ 735 008e 10BC     		pop	{r4}
+ 736 0090 7047     		bx	lr
+ 737              	.L99:
+ 738 0092 01F11B03 		add	r3, r1, #27
+ 739 0096 1B01     		lsls	r3, r3, #4
+ 740 0098 C358     		ldr	r3, [r0, r3]
+ 741 009a DB08     		lsrs	r3, r3, #3
+ 742 009c 5360     		str	r3, [r2, #4]
+ 743 009e BFE7     		b	.L100
+ 744              	.L101:
+ 745 00a0 0369     		ldr	r3, [r0, #16]
+ 746 00a2 43F02003 		orr	r3, r3, #32
+ 747 00a6 0361     		str	r3, [r0, #16]
+ 748 00a8 F1E7     		b	.L98
+ 750              		.section	.text.CAN_FIFORelease,"ax",%progbits
+ 751              		.align	1
+ 752              		.global	CAN_FIFORelease
+ 753              		.syntax unified
+ 754              		.thumb
+ 755              		.thumb_func
+ 757              	CAN_FIFORelease:
+ 758              		@ args = 0, pretend = 0, frame = 0
+ 759              		@ frame_needed = 0, uses_anonymous_args = 0
+ 760              		@ link register save eliminated.
+ 761 0000 21B9     		cbnz	r1, .L105
+ 762 0002 C368     		ldr	r3, [r0, #12]
+ 763 0004 43F02003 		orr	r3, r3, #32
+ 764 0008 C360     		str	r3, [r0, #12]
+ 765 000a 7047     		bx	lr
+ 766              	.L105:
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 14
 
 
- 767 0012 0361     		str	r3, [r0, #16]
- 768 0014 7047     		bx	lr
- 770              		.section	.text.CAN_MessagePending,"ax",%progbits
- 771              		.align	1
- 772              		.global	CAN_MessagePending
- 773              		.syntax unified
- 774              		.thumb
- 775              		.thumb_func
- 777              	CAN_MessagePending:
- 778              		@ args = 0, pretend = 0, frame = 0
- 779              		@ frame_needed = 0, uses_anonymous_args = 0
- 780              		@ link register save eliminated.
- 781 0000 19B9     		cbnz	r1, .L104
- 782 0002 C068     		ldr	r0, [r0, #12]
- 783 0004 00F00300 		and	r0, r0, #3
- 784 0008 7047     		bx	lr
- 785              	.L104:
- 786 000a 0129     		cmp	r1, #1
- 787 000c 01D0     		beq	.L107
- 788 000e 0020     		movs	r0, #0
- 789 0010 7047     		bx	lr
- 790              	.L107:
- 791 0012 0069     		ldr	r0, [r0, #16]
- 792 0014 00F00300 		and	r0, r0, #3
- 793 0018 7047     		bx	lr
- 795              		.section	.text.CAN_OperatingModeRequest,"ax",%progbits
- 796              		.align	1
- 797              		.global	CAN_OperatingModeRequest
- 798              		.syntax unified
- 799              		.thumb
- 800              		.thumb_func
- 802              	CAN_OperatingModeRequest:
- 803              		@ args = 0, pretend = 0, frame = 0
- 804              		@ frame_needed = 0, uses_anonymous_args = 0
- 805              		@ link register save eliminated.
- 806 0000 8C46     		mov	ip, r1
- 807 0002 B1B9     		cbnz	r1, .L109
- 808 0004 0368     		ldr	r3, [r0]
- 809 0006 23F00303 		bic	r3, r3, #3
- 810 000a 43F00103 		orr	r3, r3, #1
- 811 000e 0360     		str	r3, [r0]
- 812 0010 4FF6FF72 		movw	r2, #65535
- 813              	.L110:
- 814 0014 4368     		ldr	r3, [r0, #4]
- 815 0016 03F00303 		and	r3, r3, #3
- 816 001a 012B     		cmp	r3, #1
- 817 001c 02D0     		beq	.L111
- 818 001e 0AB1     		cbz	r2, .L111
- 819 0020 013A     		subs	r2, r2, #1
- 820 0022 F7E7     		b	.L110
- 821              	.L111:
- 822 0024 4368     		ldr	r3, [r0, #4]
- 823 0026 03F00303 		and	r3, r3, #3
- 824 002a 012B     		cmp	r3, #1
- 825 002c 33D0     		beq	.L121
- 826 002e 6046     		mov	r0, ip
- 827 0030 7047     		bx	lr
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 15
+ 767 000c 0369     		ldr	r3, [r0, #16]
+ 768 000e 43F02003 		orr	r3, r3, #32
+ 769 0012 0361     		str	r3, [r0, #16]
+ 770 0014 7047     		bx	lr
+ 772              		.section	.text.CAN_MessagePending,"ax",%progbits
+ 773              		.align	1
+ 774              		.global	CAN_MessagePending
+ 775              		.syntax unified
+ 776              		.thumb
+ 777              		.thumb_func
+ 779              	CAN_MessagePending:
+ 780              		@ args = 0, pretend = 0, frame = 0
+ 781              		@ frame_needed = 0, uses_anonymous_args = 0
+ 782              		@ link register save eliminated.
+ 783 0000 19B9     		cbnz	r1, .L108
+ 784 0002 C068     		ldr	r0, [r0, #12]
+ 785 0004 00F00300 		and	r0, r0, #3
+ 786 0008 7047     		bx	lr
+ 787              	.L108:
+ 788 000a 0129     		cmp	r1, #1
+ 789 000c 01D0     		beq	.L111
+ 790 000e 0020     		movs	r0, #0
+ 791 0010 7047     		bx	lr
+ 792              	.L111:
+ 793 0012 0069     		ldr	r0, [r0, #16]
+ 794 0014 00F00300 		and	r0, r0, #3
+ 795 0018 7047     		bx	lr
+ 797              		.section	.text.CAN_OperatingModeRequest,"ax",%progbits
+ 798              		.align	1
+ 799              		.global	CAN_OperatingModeRequest
+ 800              		.syntax unified
+ 801              		.thumb
+ 802              		.thumb_func
+ 804              	CAN_OperatingModeRequest:
+ 805              		@ args = 0, pretend = 0, frame = 0
+ 806              		@ frame_needed = 0, uses_anonymous_args = 0
+ 807              		@ link register save eliminated.
+ 808 0000 8C46     		mov	ip, r1
+ 809 0002 B1B9     		cbnz	r1, .L113
+ 810 0004 0368     		ldr	r3, [r0]
+ 811 0006 23F00303 		bic	r3, r3, #3
+ 812 000a 43F00103 		orr	r3, r3, #1
+ 813 000e 0360     		str	r3, [r0]
+ 814 0010 4FF6FF72 		movw	r2, #65535
+ 815              	.L114:
+ 816 0014 4368     		ldr	r3, [r0, #4]
+ 817 0016 03F00303 		and	r3, r3, #3
+ 818 001a 012B     		cmp	r3, #1
+ 819 001c 02D0     		beq	.L115
+ 820 001e 0AB1     		cbz	r2, .L115
+ 821 0020 013A     		subs	r2, r2, #1
+ 822 0022 F7E7     		b	.L114
+ 823              	.L115:
+ 824 0024 4368     		ldr	r3, [r0, #4]
+ 825 0026 03F00303 		and	r3, r3, #3
+ 826 002a 012B     		cmp	r3, #1
+ 827 002c 33D0     		beq	.L125
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 15
 
 
- 828              	.L109:
- 829 0032 0129     		cmp	r1, #1
- 830 0034 03D0     		beq	.L125
- 831 0036 0229     		cmp	r1, #2
- 832 0038 15D0     		beq	.L126
- 833 003a 0020     		movs	r0, #0
- 834 003c 7047     		bx	lr
- 835              	.L125:
- 836 003e 0368     		ldr	r3, [r0]
- 837 0040 23F00303 		bic	r3, r3, #3
- 838 0044 0360     		str	r3, [r0]
- 839 0046 4FF6FF73 		movw	r3, #65535
- 840 004a 00E0     		b	.L115
- 841              	.L117:
- 842 004c 013B     		subs	r3, r3, #1
- 843              	.L115:
- 844 004e 4268     		ldr	r2, [r0, #4]
- 845 0050 12F0030F 		tst	r2, #3
- 846 0054 01D0     		beq	.L116
- 847 0056 002B     		cmp	r3, #0
- 848 0058 F8D1     		bne	.L117
- 849              	.L116:
- 850 005a 4368     		ldr	r3, [r0, #4]
- 851 005c 13F0030F 		tst	r3, #3
- 852 0060 1BD0     		beq	.L122
- 853 0062 0020     		movs	r0, #0
- 854 0064 7047     		bx	lr
- 855              	.L126:
- 856 0066 0368     		ldr	r3, [r0]
- 857 0068 23F00303 		bic	r3, r3, #3
- 858 006c 43F00203 		orr	r3, r3, #2
- 859 0070 0360     		str	r3, [r0]
- 860 0072 4FF6FF72 		movw	r2, #65535
- 861 0076 00E0     		b	.L118
- 862              	.L120:
- 863 0078 013A     		subs	r2, r2, #1
- 864              	.L118:
- 865 007a 4368     		ldr	r3, [r0, #4]
- 866 007c 03F00303 		and	r3, r3, #3
- 867 0080 022B     		cmp	r3, #2
- 868 0082 01D0     		beq	.L119
- 869 0084 002A     		cmp	r2, #0
- 870 0086 F7D1     		bne	.L120
- 871              	.L119:
- 872 0088 4368     		ldr	r3, [r0, #4]
- 873 008a 03F00303 		and	r3, r3, #3
- 874 008e 022B     		cmp	r3, #2
- 875 0090 05D0     		beq	.L124
- 876 0092 0020     		movs	r0, #0
- 877 0094 7047     		bx	lr
- 878              	.L121:
- 879 0096 0120     		movs	r0, #1
- 880 0098 7047     		bx	lr
- 881              	.L122:
- 882 009a 6046     		mov	r0, ip
- 883 009c 7047     		bx	lr
- 884              	.L124:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 16
+ 828 002e 6046     		mov	r0, ip
+ 829 0030 7047     		bx	lr
+ 830              	.L113:
+ 831 0032 0129     		cmp	r1, #1
+ 832 0034 03D0     		beq	.L129
+ 833 0036 0229     		cmp	r1, #2
+ 834 0038 15D0     		beq	.L130
+ 835 003a 0020     		movs	r0, #0
+ 836 003c 7047     		bx	lr
+ 837              	.L129:
+ 838 003e 0368     		ldr	r3, [r0]
+ 839 0040 23F00303 		bic	r3, r3, #3
+ 840 0044 0360     		str	r3, [r0]
+ 841 0046 4FF6FF73 		movw	r3, #65535
+ 842 004a 00E0     		b	.L119
+ 843              	.L121:
+ 844 004c 013B     		subs	r3, r3, #1
+ 845              	.L119:
+ 846 004e 4268     		ldr	r2, [r0, #4]
+ 847 0050 12F0030F 		tst	r2, #3
+ 848 0054 01D0     		beq	.L120
+ 849 0056 002B     		cmp	r3, #0
+ 850 0058 F8D1     		bne	.L121
+ 851              	.L120:
+ 852 005a 4368     		ldr	r3, [r0, #4]
+ 853 005c 13F0030F 		tst	r3, #3
+ 854 0060 1BD0     		beq	.L126
+ 855 0062 0020     		movs	r0, #0
+ 856 0064 7047     		bx	lr
+ 857              	.L130:
+ 858 0066 0368     		ldr	r3, [r0]
+ 859 0068 23F00303 		bic	r3, r3, #3
+ 860 006c 43F00203 		orr	r3, r3, #2
+ 861 0070 0360     		str	r3, [r0]
+ 862 0072 4FF6FF72 		movw	r2, #65535
+ 863 0076 00E0     		b	.L122
+ 864              	.L124:
+ 865 0078 013A     		subs	r2, r2, #1
+ 866              	.L122:
+ 867 007a 4368     		ldr	r3, [r0, #4]
+ 868 007c 03F00303 		and	r3, r3, #3
+ 869 0080 022B     		cmp	r3, #2
+ 870 0082 01D0     		beq	.L123
+ 871 0084 002A     		cmp	r2, #0
+ 872 0086 F7D1     		bne	.L124
+ 873              	.L123:
+ 874 0088 4368     		ldr	r3, [r0, #4]
+ 875 008a 03F00303 		and	r3, r3, #3
+ 876 008e 022B     		cmp	r3, #2
+ 877 0090 05D0     		beq	.L128
+ 878 0092 0020     		movs	r0, #0
+ 879 0094 7047     		bx	lr
+ 880              	.L125:
+ 881 0096 0120     		movs	r0, #1
+ 882 0098 7047     		bx	lr
+ 883              	.L126:
+ 884 009a 6046     		mov	r0, ip
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 16
 
 
- 885 009e 0120     		movs	r0, #1
- 886 00a0 7047     		bx	lr
- 888              		.section	.text.CAN_Sleep,"ax",%progbits
- 889              		.align	1
- 890              		.global	CAN_Sleep
- 891              		.syntax unified
- 892              		.thumb
- 893              		.thumb_func
- 895              	CAN_Sleep:
- 896              		@ args = 0, pretend = 0, frame = 0
- 897              		@ frame_needed = 0, uses_anonymous_args = 0
- 898              		@ link register save eliminated.
- 899 0000 0368     		ldr	r3, [r0]
- 900 0002 23F00303 		bic	r3, r3, #3
- 901 0006 43F00203 		orr	r3, r3, #2
- 902 000a 0360     		str	r3, [r0]
- 903 000c 4368     		ldr	r3, [r0, #4]
- 904 000e 03F00303 		and	r3, r3, #3
- 905 0012 022B     		cmp	r3, #2
- 906 0014 01D0     		beq	.L129
- 907 0016 0020     		movs	r0, #0
- 908 0018 7047     		bx	lr
- 909              	.L129:
- 910 001a 0120     		movs	r0, #1
- 911 001c 7047     		bx	lr
- 913              		.section	.text.CAN_WakeUp,"ax",%progbits
- 914              		.align	1
- 915              		.global	CAN_WakeUp
- 916              		.syntax unified
- 917              		.thumb
- 918              		.thumb_func
- 920              	CAN_WakeUp:
- 921              		@ args = 0, pretend = 0, frame = 0
- 922              		@ frame_needed = 0, uses_anonymous_args = 0
- 923              		@ link register save eliminated.
- 924 0000 0368     		ldr	r3, [r0]
- 925 0002 23F00203 		bic	r3, r3, #2
- 926 0006 0360     		str	r3, [r0]
- 927 0008 4FF6FF73 		movw	r3, #65535
- 928              	.L131:
- 929 000c 4268     		ldr	r2, [r0, #4]
- 930 000e 12F0020F 		tst	r2, #2
- 931 0012 02D0     		beq	.L132
- 932 0014 0BB1     		cbz	r3, .L132
- 933 0016 013B     		subs	r3, r3, #1
- 934 0018 F8E7     		b	.L131
- 935              	.L132:
- 936 001a 4368     		ldr	r3, [r0, #4]
- 937 001c 13F0020F 		tst	r3, #2
- 938 0020 01D0     		beq	.L135
- 939 0022 0020     		movs	r0, #0
- 940 0024 7047     		bx	lr
- 941              	.L135:
- 942 0026 0120     		movs	r0, #1
- 943 0028 7047     		bx	lr
- 945              		.section	.text.CAN_GetLastErrorCode,"ax",%progbits
- 946              		.align	1
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 17
+ 885 009c 7047     		bx	lr
+ 886              	.L128:
+ 887 009e 0120     		movs	r0, #1
+ 888 00a0 7047     		bx	lr
+ 890              		.section	.text.CAN_Sleep,"ax",%progbits
+ 891              		.align	1
+ 892              		.global	CAN_Sleep
+ 893              		.syntax unified
+ 894              		.thumb
+ 895              		.thumb_func
+ 897              	CAN_Sleep:
+ 898              		@ args = 0, pretend = 0, frame = 0
+ 899              		@ frame_needed = 0, uses_anonymous_args = 0
+ 900              		@ link register save eliminated.
+ 901 0000 0368     		ldr	r3, [r0]
+ 902 0002 23F00303 		bic	r3, r3, #3
+ 903 0006 43F00203 		orr	r3, r3, #2
+ 904 000a 0360     		str	r3, [r0]
+ 905 000c 4368     		ldr	r3, [r0, #4]
+ 906 000e 03F00303 		and	r3, r3, #3
+ 907 0012 022B     		cmp	r3, #2
+ 908 0014 01D0     		beq	.L133
+ 909 0016 0020     		movs	r0, #0
+ 910 0018 7047     		bx	lr
+ 911              	.L133:
+ 912 001a 0120     		movs	r0, #1
+ 913 001c 7047     		bx	lr
+ 915              		.section	.text.CAN_WakeUp,"ax",%progbits
+ 916              		.align	1
+ 917              		.global	CAN_WakeUp
+ 918              		.syntax unified
+ 919              		.thumb
+ 920              		.thumb_func
+ 922              	CAN_WakeUp:
+ 923              		@ args = 0, pretend = 0, frame = 0
+ 924              		@ frame_needed = 0, uses_anonymous_args = 0
+ 925              		@ link register save eliminated.
+ 926 0000 0368     		ldr	r3, [r0]
+ 927 0002 23F00203 		bic	r3, r3, #2
+ 928 0006 0360     		str	r3, [r0]
+ 929 0008 4FF6FF73 		movw	r3, #65535
+ 930              	.L135:
+ 931 000c 4268     		ldr	r2, [r0, #4]
+ 932 000e 12F0020F 		tst	r2, #2
+ 933 0012 02D0     		beq	.L136
+ 934 0014 0BB1     		cbz	r3, .L136
+ 935 0016 013B     		subs	r3, r3, #1
+ 936 0018 F8E7     		b	.L135
+ 937              	.L136:
+ 938 001a 4368     		ldr	r3, [r0, #4]
+ 939 001c 13F0020F 		tst	r3, #2
+ 940 0020 01D0     		beq	.L139
+ 941 0022 0020     		movs	r0, #0
+ 942 0024 7047     		bx	lr
+ 943              	.L139:
+ 944 0026 0120     		movs	r0, #1
+ 945 0028 7047     		bx	lr
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 17
 
 
- 947              		.global	CAN_GetLastErrorCode
- 948              		.syntax unified
- 949              		.thumb
- 950              		.thumb_func
- 952              	CAN_GetLastErrorCode:
- 953              		@ args = 0, pretend = 0, frame = 0
- 954              		@ frame_needed = 0, uses_anonymous_args = 0
- 955              		@ link register save eliminated.
- 956 0000 8069     		ldr	r0, [r0, #24]
- 957 0002 00F07000 		and	r0, r0, #112
- 958 0006 7047     		bx	lr
- 960              		.section	.text.CAN_GetReceiveErrorCounter,"ax",%progbits
- 961              		.align	1
- 962              		.global	CAN_GetReceiveErrorCounter
- 963              		.syntax unified
- 964              		.thumb
- 965              		.thumb_func
- 967              	CAN_GetReceiveErrorCounter:
- 968              		@ args = 0, pretend = 0, frame = 0
- 969              		@ frame_needed = 0, uses_anonymous_args = 0
- 970              		@ link register save eliminated.
- 971 0000 8069     		ldr	r0, [r0, #24]
- 972 0002 000E     		lsrs	r0, r0, #24
- 973 0004 7047     		bx	lr
- 975              		.section	.text.CAN_GetLSBTransmitErrorCounter,"ax",%progbits
- 976              		.align	1
- 977              		.global	CAN_GetLSBTransmitErrorCounter
- 978              		.syntax unified
- 979              		.thumb
- 980              		.thumb_func
- 982              	CAN_GetLSBTransmitErrorCounter:
- 983              		@ args = 0, pretend = 0, frame = 0
- 984              		@ frame_needed = 0, uses_anonymous_args = 0
- 985              		@ link register save eliminated.
- 986 0000 8069     		ldr	r0, [r0, #24]
- 987 0002 C0F30740 		ubfx	r0, r0, #16, #8
- 988 0006 7047     		bx	lr
- 990              		.section	.text.CAN_ITConfig,"ax",%progbits
- 991              		.align	1
- 992              		.global	CAN_ITConfig
- 993              		.syntax unified
- 994              		.thumb
- 995              		.thumb_func
- 997              	CAN_ITConfig:
- 998              		@ args = 0, pretend = 0, frame = 0
- 999              		@ frame_needed = 0, uses_anonymous_args = 0
- 1000              		@ link register save eliminated.
- 1001 0000 1AB1     		cbz	r2, .L140
- 1002 0002 4369     		ldr	r3, [r0, #20]
- 1003 0004 0B43     		orrs	r3, r3, r1
- 1004 0006 4361     		str	r3, [r0, #20]
- 1005 0008 7047     		bx	lr
- 1006              	.L140:
- 1007 000a 4369     		ldr	r3, [r0, #20]
- 1008 000c 23EA0103 		bic	r3, r3, r1
- 1009 0010 4361     		str	r3, [r0, #20]
- 1010 0012 7047     		bx	lr
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 18
+ 947              		.section	.text.CAN_GetLastErrorCode,"ax",%progbits
+ 948              		.align	1
+ 949              		.global	CAN_GetLastErrorCode
+ 950              		.syntax unified
+ 951              		.thumb
+ 952              		.thumb_func
+ 954              	CAN_GetLastErrorCode:
+ 955              		@ args = 0, pretend = 0, frame = 0
+ 956              		@ frame_needed = 0, uses_anonymous_args = 0
+ 957              		@ link register save eliminated.
+ 958 0000 8069     		ldr	r0, [r0, #24]
+ 959 0002 00F07000 		and	r0, r0, #112
+ 960 0006 7047     		bx	lr
+ 962              		.section	.text.CAN_GetReceiveErrorCounter,"ax",%progbits
+ 963              		.align	1
+ 964              		.global	CAN_GetReceiveErrorCounter
+ 965              		.syntax unified
+ 966              		.thumb
+ 967              		.thumb_func
+ 969              	CAN_GetReceiveErrorCounter:
+ 970              		@ args = 0, pretend = 0, frame = 0
+ 971              		@ frame_needed = 0, uses_anonymous_args = 0
+ 972              		@ link register save eliminated.
+ 973 0000 8069     		ldr	r0, [r0, #24]
+ 974 0002 000E     		lsrs	r0, r0, #24
+ 975 0004 7047     		bx	lr
+ 977              		.section	.text.CAN_GetLSBTransmitErrorCounter,"ax",%progbits
+ 978              		.align	1
+ 979              		.global	CAN_GetLSBTransmitErrorCounter
+ 980              		.syntax unified
+ 981              		.thumb
+ 982              		.thumb_func
+ 984              	CAN_GetLSBTransmitErrorCounter:
+ 985              		@ args = 0, pretend = 0, frame = 0
+ 986              		@ frame_needed = 0, uses_anonymous_args = 0
+ 987              		@ link register save eliminated.
+ 988 0000 8069     		ldr	r0, [r0, #24]
+ 989 0002 C0F30740 		ubfx	r0, r0, #16, #8
+ 990 0006 7047     		bx	lr
+ 992              		.section	.text.CAN_ITConfig,"ax",%progbits
+ 993              		.align	1
+ 994              		.global	CAN_ITConfig
+ 995              		.syntax unified
+ 996              		.thumb
+ 997              		.thumb_func
+ 999              	CAN_ITConfig:
+ 1000              		@ args = 0, pretend = 0, frame = 0
+ 1001              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1002              		@ link register save eliminated.
+ 1003 0000 1AB1     		cbz	r2, .L144
+ 1004 0002 4369     		ldr	r3, [r0, #20]
+ 1005 0004 1943     		orrs	r1, r1, r3
+ 1006 0006 4161     		str	r1, [r0, #20]
+ 1007 0008 7047     		bx	lr
+ 1008              	.L144:
+ 1009 000a 4369     		ldr	r3, [r0, #20]
+ 1010 000c 23EA0101 		bic	r1, r3, r1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 18
 
 
- 1012              		.section	.text.CAN_GetFlagStatus,"ax",%progbits
- 1013              		.align	1
- 1014              		.global	CAN_GetFlagStatus
- 1015              		.syntax unified
- 1016              		.thumb
- 1017              		.thumb_func
- 1019              	CAN_GetFlagStatus:
- 1020              		@ args = 0, pretend = 0, frame = 0
- 1021              		@ frame_needed = 0, uses_anonymous_args = 0
- 1022              		@ link register save eliminated.
- 1023 0000 11F4700F 		tst	r1, #15728640
- 1024 0004 06D0     		beq	.L143
- 1025 0006 8369     		ldr	r3, [r0, #24]
- 1026 0008 0B40     		ands	r3, r3, r1
- 1027 000a C3F31303 		ubfx	r3, r3, #0, #20
- 1028 000e 33B3     		cbz	r3, .L148
- 1029 0010 0120     		movs	r0, #1
- 1030 0012 7047     		bx	lr
- 1031              	.L143:
- 1032 0014 11F0807F 		tst	r1, #16777216
- 1033 0018 06D0     		beq	.L145
- 1034 001a 4368     		ldr	r3, [r0, #4]
- 1035 001c 0B40     		ands	r3, r3, r1
- 1036 001e C3F31303 		ubfx	r3, r3, #0, #20
- 1037 0022 F3B1     		cbz	r3, .L149
- 1038 0024 0120     		movs	r0, #1
- 1039 0026 7047     		bx	lr
- 1040              	.L145:
- 1041 0028 11F0006F 		tst	r1, #134217728
- 1042 002c 06D0     		beq	.L146
- 1043 002e 8368     		ldr	r3, [r0, #8]
- 1044 0030 0B40     		ands	r3, r3, r1
- 1045 0032 C3F31303 		ubfx	r3, r3, #0, #20
- 1046 0036 B3B1     		cbz	r3, .L150
- 1047 0038 0120     		movs	r0, #1
- 1048 003a 7047     		bx	lr
- 1049              	.L146:
- 1050 003c 11F0007F 		tst	r1, #33554432
- 1051 0040 06D0     		beq	.L147
- 1052 0042 C368     		ldr	r3, [r0, #12]
- 1053 0044 0B40     		ands	r3, r3, r1
- 1054 0046 C3F31303 		ubfx	r3, r3, #0, #20
- 1055 004a 73B1     		cbz	r3, .L151
- 1056 004c 0120     		movs	r0, #1
- 1057 004e 7047     		bx	lr
- 1058              	.L147:
- 1059 0050 0369     		ldr	r3, [r0, #16]
- 1060 0052 0B40     		ands	r3, r3, r1
- 1061 0054 C3F31303 		ubfx	r3, r3, #0, #20
- 1062 0058 4BB1     		cbz	r3, .L152
- 1063 005a 0120     		movs	r0, #1
- 1064 005c 7047     		bx	lr
- 1065              	.L148:
- 1066 005e 0020     		movs	r0, #0
- 1067 0060 7047     		bx	lr
- 1068              	.L149:
- 1069 0062 0020     		movs	r0, #0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 19
+ 1011 0010 4161     		str	r1, [r0, #20]
+ 1012 0012 7047     		bx	lr
+ 1014              		.section	.text.CAN_GetFlagStatus,"ax",%progbits
+ 1015              		.align	1
+ 1016              		.global	CAN_GetFlagStatus
+ 1017              		.syntax unified
+ 1018              		.thumb
+ 1019              		.thumb_func
+ 1021              	CAN_GetFlagStatus:
+ 1022              		@ args = 0, pretend = 0, frame = 0
+ 1023              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1024              		@ link register save eliminated.
+ 1025 0000 11F4700F 		tst	r1, #15728640
+ 1026 0004 06D0     		beq	.L147
+ 1027 0006 8369     		ldr	r3, [r0, #24]
+ 1028 0008 1940     		ands	r1, r1, r3
+ 1029 000a C1F31301 		ubfx	r1, r1, #0, #20
+ 1030 000e 31B3     		cbz	r1, .L152
+ 1031 0010 0120     		movs	r0, #1
+ 1032 0012 7047     		bx	lr
+ 1033              	.L147:
+ 1034 0014 11F0807F 		tst	r1, #16777216
+ 1035 0018 06D0     		beq	.L149
+ 1036 001a 4368     		ldr	r3, [r0, #4]
+ 1037 001c 1940     		ands	r1, r1, r3
+ 1038 001e C1F31301 		ubfx	r1, r1, #0, #20
+ 1039 0022 F1B1     		cbz	r1, .L153
+ 1040 0024 0120     		movs	r0, #1
+ 1041 0026 7047     		bx	lr
+ 1042              	.L149:
+ 1043 0028 11F0006F 		tst	r1, #134217728
+ 1044 002c 06D0     		beq	.L150
+ 1045 002e 8368     		ldr	r3, [r0, #8]
+ 1046 0030 1940     		ands	r1, r1, r3
+ 1047 0032 C1F31301 		ubfx	r1, r1, #0, #20
+ 1048 0036 B1B1     		cbz	r1, .L154
+ 1049 0038 0120     		movs	r0, #1
+ 1050 003a 7047     		bx	lr
+ 1051              	.L150:
+ 1052 003c 11F0007F 		tst	r1, #33554432
+ 1053 0040 06D0     		beq	.L151
+ 1054 0042 C368     		ldr	r3, [r0, #12]
+ 1055 0044 1940     		ands	r1, r1, r3
+ 1056 0046 C1F31301 		ubfx	r1, r1, #0, #20
+ 1057 004a 71B1     		cbz	r1, .L155
+ 1058 004c 0120     		movs	r0, #1
+ 1059 004e 7047     		bx	lr
+ 1060              	.L151:
+ 1061 0050 0369     		ldr	r3, [r0, #16]
+ 1062 0052 1940     		ands	r1, r1, r3
+ 1063 0054 C1F31301 		ubfx	r1, r1, #0, #20
+ 1064 0058 49B1     		cbz	r1, .L156
+ 1065 005a 0120     		movs	r0, #1
+ 1066 005c 7047     		bx	lr
+ 1067              	.L152:
+ 1068 005e 0020     		movs	r0, #0
+ 1069 0060 7047     		bx	lr
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 19
 
 
- 1070 0064 7047     		bx	lr
- 1071              	.L150:
- 1072 0066 0020     		movs	r0, #0
- 1073 0068 7047     		bx	lr
- 1074              	.L151:
- 1075 006a 0020     		movs	r0, #0
- 1076 006c 7047     		bx	lr
- 1077              	.L152:
- 1078 006e 0020     		movs	r0, #0
- 1079 0070 7047     		bx	lr
- 1081              		.section	.text.CAN_ClearFlag,"ax",%progbits
- 1082              		.align	1
- 1083              		.global	CAN_ClearFlag
- 1084              		.syntax unified
- 1085              		.thumb
- 1086              		.thumb_func
- 1088              	CAN_ClearFlag:
- 1089              		@ args = 0, pretend = 0, frame = 0
- 1090              		@ frame_needed = 0, uses_anonymous_args = 0
- 1091              		@ link register save eliminated.
- 1092 0000 0C4B     		ldr	r3, .L160
- 1093 0002 9942     		cmp	r1, r3
- 1094 0004 06D0     		beq	.L159
- 1095 0006 C1F31303 		ubfx	r3, r1, #0, #20
- 1096 000a 11F0007F 		tst	r1, #33554432
- 1097 000e 04D0     		beq	.L156
- 1098 0010 C360     		str	r3, [r0, #12]
- 1099 0012 7047     		bx	lr
- 1100              	.L159:
- 1101 0014 0023     		movs	r3, #0
- 1102 0016 8361     		str	r3, [r0, #24]
- 1103 0018 7047     		bx	lr
- 1104              	.L156:
- 1105 001a 11F0806F 		tst	r1, #67108864
- 1106 001e 01D0     		beq	.L157
- 1107 0020 0361     		str	r3, [r0, #16]
- 1108 0022 7047     		bx	lr
- 1109              	.L157:
- 1110 0024 11F0006F 		tst	r1, #134217728
- 1111 0028 01D0     		beq	.L158
- 1112 002a 8360     		str	r3, [r0, #8]
- 1113 002c 7047     		bx	lr
- 1114              	.L158:
- 1115 002e 4360     		str	r3, [r0, #4]
- 1116 0030 7047     		bx	lr
- 1117              	.L161:
- 1118 0032 00BF     		.align	2
- 1119              	.L160:
- 1120 0034 7000F030 		.word	821035120
- 1122              		.section	.text.CAN_GetITStatus,"ax",%progbits
- 1123              		.align	1
- 1124              		.global	CAN_GetITStatus
- 1125              		.syntax unified
- 1126              		.thumb
- 1127              		.thumb_func
- 1129              	CAN_GetITStatus:
- 1130              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 20
+ 1070              	.L153:
+ 1071 0062 0020     		movs	r0, #0
+ 1072 0064 7047     		bx	lr
+ 1073              	.L154:
+ 1074 0066 0020     		movs	r0, #0
+ 1075 0068 7047     		bx	lr
+ 1076              	.L155:
+ 1077 006a 0020     		movs	r0, #0
+ 1078 006c 7047     		bx	lr
+ 1079              	.L156:
+ 1080 006e 0020     		movs	r0, #0
+ 1081 0070 7047     		bx	lr
+ 1083              		.section	.text.CAN_ClearFlag,"ax",%progbits
+ 1084              		.align	1
+ 1085              		.global	CAN_ClearFlag
+ 1086              		.syntax unified
+ 1087              		.thumb
+ 1088              		.thumb_func
+ 1090              	CAN_ClearFlag:
+ 1091              		@ args = 0, pretend = 0, frame = 0
+ 1092              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1093              		@ link register save eliminated.
+ 1094 0000 0C4B     		ldr	r3, .L164
+ 1095 0002 9942     		cmp	r1, r3
+ 1096 0004 06D0     		beq	.L163
+ 1097 0006 C1F31303 		ubfx	r3, r1, #0, #20
+ 1098 000a 11F0007F 		tst	r1, #33554432
+ 1099 000e 04D0     		beq	.L160
+ 1100 0010 C360     		str	r3, [r0, #12]
+ 1101 0012 7047     		bx	lr
+ 1102              	.L163:
+ 1103 0014 0023     		movs	r3, #0
+ 1104 0016 8361     		str	r3, [r0, #24]
+ 1105 0018 7047     		bx	lr
+ 1106              	.L160:
+ 1107 001a 11F0806F 		tst	r1, #67108864
+ 1108 001e 01D0     		beq	.L161
+ 1109 0020 0361     		str	r3, [r0, #16]
+ 1110 0022 7047     		bx	lr
+ 1111              	.L161:
+ 1112 0024 11F0006F 		tst	r1, #134217728
+ 1113 0028 01D0     		beq	.L162
+ 1114 002a 8360     		str	r3, [r0, #8]
+ 1115 002c 7047     		bx	lr
+ 1116              	.L162:
+ 1117 002e 4360     		str	r3, [r0, #4]
+ 1118 0030 7047     		bx	lr
+ 1119              	.L165:
+ 1120 0032 00BF     		.align	2
+ 1121              	.L164:
+ 1122 0034 7000F030 		.word	821035120
+ 1124              		.section	.text.CAN_GetITStatus,"ax",%progbits
+ 1125              		.align	1
+ 1126              		.global	CAN_GetITStatus
+ 1127              		.syntax unified
+ 1128              		.thumb
+ 1129              		.thumb_func
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 20
 
 
- 1131              		@ frame_needed = 0, uses_anonymous_args = 0
- 1132 0000 08B5     		push	{r3, lr}
- 1133 0002 4369     		ldr	r3, [r0, #20]
- 1134 0004 0B42     		tst	r3, r1
- 1135 0006 7DD0     		beq	.L182
- 1136 0008 B1F5807F 		cmp	r1, #256
- 1137 000c 66D0     		beq	.L164
- 1138 000e 21D8     		bhi	.L165
- 1139 0010 2029     		cmp	r1, #32
- 1140 0012 16D8     		bhi	.L166
- 1141 0014 0029     		cmp	r1, #0
- 1142 0016 77D0     		beq	.L183
- 1143 0018 0139     		subs	r1, r1, #1
- 1144 001a 1F29     		cmp	r1, #31
- 1145 001c 76D8     		bhi	.L184
- 1146 001e DFE801F0 		tbb	[pc, r1]
- 1147              	.L168:
- 1148 0022 3A       		.byte	(.L173-.L168)/2
- 1149 0023 3F       		.byte	(.L172-.L168)/2
- 1150 0024 75       		.byte	(.L184-.L168)/2
- 1151 0025 44       		.byte	(.L171-.L168)/2
- 1152 0026 75       		.byte	(.L184-.L168)/2
- 1153 0027 75       		.byte	(.L184-.L168)/2
- 1154 0028 75       		.byte	(.L184-.L168)/2
- 1155 0029 49       		.byte	(.L170-.L168)/2
- 1156 002a 75       		.byte	(.L184-.L168)/2
- 1157 002b 75       		.byte	(.L184-.L168)/2
- 1158 002c 75       		.byte	(.L184-.L168)/2
- 1159 002d 75       		.byte	(.L184-.L168)/2
- 1160 002e 75       		.byte	(.L184-.L168)/2
- 1161 002f 75       		.byte	(.L184-.L168)/2
- 1162 0030 75       		.byte	(.L184-.L168)/2
- 1163 0031 4E       		.byte	(.L169-.L168)/2
- 1164 0032 75       		.byte	(.L184-.L168)/2
- 1165 0033 75       		.byte	(.L184-.L168)/2
- 1166 0034 75       		.byte	(.L184-.L168)/2
- 1167 0035 75       		.byte	(.L184-.L168)/2
- 1168 0036 75       		.byte	(.L184-.L168)/2
- 1169 0037 75       		.byte	(.L184-.L168)/2
- 1170 0038 75       		.byte	(.L184-.L168)/2
- 1171 0039 75       		.byte	(.L184-.L168)/2
- 1172 003a 75       		.byte	(.L184-.L168)/2
- 1173 003b 75       		.byte	(.L184-.L168)/2
- 1174 003c 75       		.byte	(.L184-.L168)/2
- 1175 003d 75       		.byte	(.L184-.L168)/2
- 1176 003e 75       		.byte	(.L184-.L168)/2
- 1177 003f 75       		.byte	(.L184-.L168)/2
- 1178 0040 75       		.byte	(.L184-.L168)/2
- 1179 0041 53       		.byte	(.L167-.L168)/2
- 1180              		.p2align 1
- 1181              	.L166:
- 1182 0042 4029     		cmp	r1, #64
- 1183 0044 04D1     		bne	.L186
- 1184 0046 0069     		ldr	r0, [r0, #16]
- 1185 0048 1021     		movs	r1, #16
- 1186 004a FFF7FEFF 		bl	CheckITStatus
- 1187 004e 5AE0     		b	.L163
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 21
+ 1131              	CAN_GetITStatus:
+ 1132              		@ args = 0, pretend = 0, frame = 0
+ 1133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1134 0000 08B5     		push	{r3, lr}
+ 1135 0002 4369     		ldr	r3, [r0, #20]
+ 1136 0004 0B42     		tst	r3, r1
+ 1137 0006 7DD0     		beq	.L186
+ 1138 0008 B1F5807F 		cmp	r1, #256
+ 1139 000c 6BD0     		beq	.L168
+ 1140 000e 21D8     		bhi	.L169
+ 1141 0010 2029     		cmp	r1, #32
+ 1142 0012 16D8     		bhi	.L170
+ 1143 0014 0029     		cmp	r1, #0
+ 1144 0016 77D0     		beq	.L187
+ 1145 0018 0139     		subs	r1, r1, #1
+ 1146 001a 1F29     		cmp	r1, #31
+ 1147 001c 76D8     		bhi	.L188
+ 1148 001e DFE801F0 		tbb	[pc, r1]
+ 1149              	.L172:
+ 1150 0022 3F       		.byte	(.L177-.L172)/2
+ 1151 0023 44       		.byte	(.L176-.L172)/2
+ 1152 0024 75       		.byte	(.L188-.L172)/2
+ 1153 0025 49       		.byte	(.L175-.L172)/2
+ 1154 0026 75       		.byte	(.L188-.L172)/2
+ 1155 0027 75       		.byte	(.L188-.L172)/2
+ 1156 0028 75       		.byte	(.L188-.L172)/2
+ 1157 0029 4E       		.byte	(.L174-.L172)/2
+ 1158 002a 75       		.byte	(.L188-.L172)/2
+ 1159 002b 75       		.byte	(.L188-.L172)/2
+ 1160 002c 75       		.byte	(.L188-.L172)/2
+ 1161 002d 75       		.byte	(.L188-.L172)/2
+ 1162 002e 75       		.byte	(.L188-.L172)/2
+ 1163 002f 75       		.byte	(.L188-.L172)/2
+ 1164 0030 75       		.byte	(.L188-.L172)/2
+ 1165 0031 53       		.byte	(.L173-.L172)/2
+ 1166 0032 75       		.byte	(.L188-.L172)/2
+ 1167 0033 75       		.byte	(.L188-.L172)/2
+ 1168 0034 75       		.byte	(.L188-.L172)/2
+ 1169 0035 75       		.byte	(.L188-.L172)/2
+ 1170 0036 75       		.byte	(.L188-.L172)/2
+ 1171 0037 75       		.byte	(.L188-.L172)/2
+ 1172 0038 75       		.byte	(.L188-.L172)/2
+ 1173 0039 75       		.byte	(.L188-.L172)/2
+ 1174 003a 75       		.byte	(.L188-.L172)/2
+ 1175 003b 75       		.byte	(.L188-.L172)/2
+ 1176 003c 75       		.byte	(.L188-.L172)/2
+ 1177 003d 75       		.byte	(.L188-.L172)/2
+ 1178 003e 75       		.byte	(.L188-.L172)/2
+ 1179 003f 75       		.byte	(.L188-.L172)/2
+ 1180 0040 75       		.byte	(.L188-.L172)/2
+ 1181 0041 58       		.byte	(.L171-.L172)/2
+ 1182              		.p2align 1
+ 1183              	.L170:
+ 1184 0042 4029     		cmp	r1, #64
+ 1185 0044 04D1     		bne	.L190
+ 1186 0046 0069     		ldr	r0, [r0, #16]
+ 1187 0048 1021     		movs	r1, #16
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 21
 
 
- 1188              	.L186:
- 1189 0050 0020     		movs	r0, #0
- 1190 0052 58E0     		b	.L163
- 1191              	.L165:
- 1192 0054 B1F5004F 		cmp	r1, #32768
- 1193 0058 4FD0     		beq	.L175
- 1194 005a 0FD8     		bhi	.L176
- 1195 005c B1F5806F 		cmp	r1, #1024
- 1196 0060 41D0     		beq	.L177
- 1197 0062 B1F5006F 		cmp	r1, #2048
- 1198 0066 43D0     		beq	.L178
- 1199 0068 B1F5007F 		cmp	r1, #512
- 1200 006c 04D1     		bne	.L187
- 1201 006e 8069     		ldr	r0, [r0, #24]
- 1202 0070 0221     		movs	r1, #2
- 1203 0072 FFF7FEFF 		bl	CheckITStatus
- 1204 0076 46E0     		b	.L163
- 1205              	.L187:
- 1206 0078 0020     		movs	r0, #0
- 1207 007a 44E0     		b	.L163
- 1208              	.L176:
- 1209 007c B1F5803F 		cmp	r1, #65536
- 1210 0080 27D0     		beq	.L180
- 1211 0082 B1F5003F 		cmp	r1, #131072
- 1212 0086 04D1     		bne	.L188
- 1213 0088 4068     		ldr	r0, [r0, #4]
- 1214 008a 1021     		movs	r1, #16
- 1215 008c FFF7FEFF 		bl	CheckITStatus
- 1216 0090 39E0     		b	.L163
- 1217              	.L188:
- 1218 0092 0020     		movs	r0, #0
- 1219 0094 37E0     		b	.L163
- 1220              	.L173:
- 1221 0096 8068     		ldr	r0, [r0, #8]
- 1222 0098 1D49     		ldr	r1, .L189
- 1223 009a FFF7FEFF 		bl	CheckITStatus
- 1224 009e 32E0     		b	.L163
- 1225              	.L172:
- 1226 00a0 C068     		ldr	r0, [r0, #12]
- 1227 00a2 0321     		movs	r1, #3
- 1228 00a4 FFF7FEFF 		bl	CheckITStatus
- 1229 00a8 2DE0     		b	.L163
- 1230              	.L171:
- 1231 00aa C068     		ldr	r0, [r0, #12]
- 1232 00ac 0821     		movs	r1, #8
- 1233 00ae FFF7FEFF 		bl	CheckITStatus
- 1234 00b2 28E0     		b	.L163
- 1235              	.L170:
- 1236 00b4 C068     		ldr	r0, [r0, #12]
- 1237 00b6 1021     		movs	r1, #16
- 1238 00b8 FFF7FEFF 		bl	CheckITStatus
- 1239 00bc 23E0     		b	.L163
- 1240              	.L169:
- 1241 00be 0069     		ldr	r0, [r0, #16]
- 1242 00c0 0321     		movs	r1, #3
- 1243 00c2 FFF7FEFF 		bl	CheckITStatus
- 1244 00c6 1EE0     		b	.L163
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 22
+ 1188 004a FFF7FEFF 		bl	CheckITStatus
+ 1189 004e 5AE0     		b	.L167
+ 1190              	.L190:
+ 1191 0050 0020     		movs	r0, #0
+ 1192 0052 58E0     		b	.L167
+ 1193              	.L169:
+ 1194 0054 B1F5004F 		cmp	r1, #32768
+ 1195 0058 4FD0     		beq	.L179
+ 1196 005a 0AD9     		bls	.L191
+ 1197 005c B1F5803F 		cmp	r1, #65536
+ 1198 0060 3CD0     		beq	.L184
+ 1199 0062 B1F5003F 		cmp	r1, #131072
+ 1200 0066 19D1     		bne	.L192
+ 1201 0068 4068     		ldr	r0, [r0, #4]
+ 1202 006a 1021     		movs	r1, #16
+ 1203 006c FFF7FEFF 		bl	CheckITStatus
+ 1204 0070 49E0     		b	.L167
+ 1205              	.L191:
+ 1206 0072 B1F5806F 		cmp	r1, #1024
+ 1207 0076 3BD0     		beq	.L181
+ 1208 0078 B1F5006F 		cmp	r1, #2048
+ 1209 007c 04D1     		bne	.L193
+ 1210 007e 8069     		ldr	r0, [r0, #24]
+ 1211 0080 7021     		movs	r1, #112
+ 1212 0082 FFF7FEFF 		bl	CheckITStatus
+ 1213 0086 3EE0     		b	.L167
+ 1214              	.L193:
+ 1215 0088 B1F5007F 		cmp	r1, #512
+ 1216 008c 04D1     		bne	.L194
+ 1217 008e 8069     		ldr	r0, [r0, #24]
+ 1218 0090 0221     		movs	r1, #2
+ 1219 0092 FFF7FEFF 		bl	CheckITStatus
+ 1220 0096 36E0     		b	.L167
+ 1221              	.L194:
+ 1222 0098 0020     		movs	r0, #0
+ 1223 009a 34E0     		b	.L167
+ 1224              	.L192:
+ 1225 009c 0020     		movs	r0, #0
+ 1226 009e 32E0     		b	.L167
+ 1227              	.L177:
+ 1228 00a0 8068     		ldr	r0, [r0, #8]
+ 1229 00a2 1B49     		ldr	r1, .L195
+ 1230 00a4 FFF7FEFF 		bl	CheckITStatus
+ 1231 00a8 2DE0     		b	.L167
+ 1232              	.L176:
+ 1233 00aa C068     		ldr	r0, [r0, #12]
+ 1234 00ac 0321     		movs	r1, #3
+ 1235 00ae FFF7FEFF 		bl	CheckITStatus
+ 1236 00b2 28E0     		b	.L167
+ 1237              	.L175:
+ 1238 00b4 C068     		ldr	r0, [r0, #12]
+ 1239 00b6 0821     		movs	r1, #8
+ 1240 00b8 FFF7FEFF 		bl	CheckITStatus
+ 1241 00bc 23E0     		b	.L167
+ 1242              	.L174:
+ 1243 00be C068     		ldr	r0, [r0, #12]
+ 1244 00c0 1021     		movs	r1, #16
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 22
 
 
- 1245              	.L167:
- 1246 00c8 0069     		ldr	r0, [r0, #16]
- 1247 00ca 0821     		movs	r1, #8
- 1248 00cc FFF7FEFF 		bl	CheckITStatus
- 1249 00d0 19E0     		b	.L163
- 1250              	.L180:
- 1251 00d2 4068     		ldr	r0, [r0, #4]
- 1252 00d4 0821     		movs	r1, #8
- 1253 00d6 FFF7FEFF 		bl	CheckITStatus
- 1254 00da 14E0     		b	.L163
- 1255              	.L164:
- 1256 00dc 8069     		ldr	r0, [r0, #24]
- 1257 00de 0121     		movs	r1, #1
- 1258 00e0 FFF7FEFF 		bl	CheckITStatus
- 1259 00e4 0FE0     		b	.L163
- 1260              	.L177:
- 1261 00e6 8069     		ldr	r0, [r0, #24]
- 1262 00e8 0421     		movs	r1, #4
- 1263 00ea FFF7FEFF 		bl	CheckITStatus
- 1264 00ee 0AE0     		b	.L163
- 1265              	.L178:
- 1266 00f0 8069     		ldr	r0, [r0, #24]
- 1267 00f2 7021     		movs	r1, #112
- 1268 00f4 FFF7FEFF 		bl	CheckITStatus
- 1269 00f8 05E0     		b	.L163
- 1270              	.L175:
- 1271 00fa 4068     		ldr	r0, [r0, #4]
- 1272 00fc 0421     		movs	r1, #4
- 1273 00fe FFF7FEFF 		bl	CheckITStatus
- 1274 0102 00E0     		b	.L163
- 1275              	.L182:
- 1276 0104 0020     		movs	r0, #0
- 1277              	.L163:
- 1278 0106 08BD     		pop	{r3, pc}
- 1279              	.L183:
- 1280 0108 0020     		movs	r0, #0
- 1281 010a FCE7     		b	.L163
- 1282              	.L184:
- 1283 010c 0020     		movs	r0, #0
- 1284 010e FAE7     		b	.L163
- 1285              	.L190:
- 1286              		.align	2
- 1287              	.L189:
- 1288 0110 01010100 		.word	65793
- 1290              		.section	.text.CAN_ClearITPendingBit,"ax",%progbits
- 1291              		.align	1
- 1292              		.global	CAN_ClearITPendingBit
- 1293              		.syntax unified
- 1294              		.thumb
- 1295              		.thumb_func
- 1297              	CAN_ClearITPendingBit:
- 1298              		@ args = 0, pretend = 0, frame = 0
- 1299              		@ frame_needed = 0, uses_anonymous_args = 0
- 1300              		@ link register save eliminated.
- 1301 0000 B1F5007F 		cmp	r1, #512
- 1302 0004 4ED0     		beq	.L192
- 1303 0006 21D8     		bhi	.L193
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 23
+ 1245 00c2 FFF7FEFF 		bl	CheckITStatus
+ 1246 00c6 1EE0     		b	.L167
+ 1247              	.L173:
+ 1248 00c8 0069     		ldr	r0, [r0, #16]
+ 1249 00ca 0321     		movs	r1, #3
+ 1250 00cc FFF7FEFF 		bl	CheckITStatus
+ 1251 00d0 19E0     		b	.L167
+ 1252              	.L171:
+ 1253 00d2 0069     		ldr	r0, [r0, #16]
+ 1254 00d4 0821     		movs	r1, #8
+ 1255 00d6 FFF7FEFF 		bl	CheckITStatus
+ 1256 00da 14E0     		b	.L167
+ 1257              	.L184:
+ 1258 00dc 4068     		ldr	r0, [r0, #4]
+ 1259 00de 0821     		movs	r1, #8
+ 1260 00e0 FFF7FEFF 		bl	CheckITStatus
+ 1261 00e4 0FE0     		b	.L167
+ 1262              	.L168:
+ 1263 00e6 8069     		ldr	r0, [r0, #24]
+ 1264 00e8 0121     		movs	r1, #1
+ 1265 00ea FFF7FEFF 		bl	CheckITStatus
+ 1266 00ee 0AE0     		b	.L167
+ 1267              	.L181:
+ 1268 00f0 8069     		ldr	r0, [r0, #24]
+ 1269 00f2 0421     		movs	r1, #4
+ 1270 00f4 FFF7FEFF 		bl	CheckITStatus
+ 1271 00f8 05E0     		b	.L167
+ 1272              	.L179:
+ 1273 00fa 4068     		ldr	r0, [r0, #4]
+ 1274 00fc 0421     		movs	r1, #4
+ 1275 00fe FFF7FEFF 		bl	CheckITStatus
+ 1276 0102 00E0     		b	.L167
+ 1277              	.L186:
+ 1278 0104 0020     		movs	r0, #0
+ 1279              	.L167:
+ 1280 0106 08BD     		pop	{r3, pc}
+ 1281              	.L187:
+ 1282 0108 0020     		movs	r0, #0
+ 1283 010a FCE7     		b	.L167
+ 1284              	.L188:
+ 1285 010c 0020     		movs	r0, #0
+ 1286 010e FAE7     		b	.L167
+ 1287              	.L196:
+ 1288              		.align	2
+ 1289              	.L195:
+ 1290 0110 01010100 		.word	65793
+ 1292              		.section	.text.CAN_ClearITPendingBit,"ax",%progbits
+ 1293              		.align	1
+ 1294              		.global	CAN_ClearITPendingBit
+ 1295              		.syntax unified
+ 1296              		.thumb
+ 1297              		.thumb_func
+ 1299              	CAN_ClearITPendingBit:
+ 1300              		@ args = 0, pretend = 0, frame = 0
+ 1301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1302              		@ link register save eliminated.
+ 1303 0000 B1F5007F 		cmp	r1, #512
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 23
 
 
- 1304 0008 2029     		cmp	r1, #32
- 1305 000a 16D8     		bhi	.L194
- 1306 000c 0029     		cmp	r1, #0
- 1307 000e 53D0     		beq	.L191
- 1308 0010 0139     		subs	r1, r1, #1
- 1309 0012 1F29     		cmp	r1, #31
- 1310 0014 50D8     		bhi	.L191
- 1311 0016 DFE801F0 		tbb	[pc, r1]
- 1312              	.L197:
- 1313 001a 33       		.byte	(.L200-.L197)/2
- 1314 001b 4F       		.byte	(.L191-.L197)/2
- 1315 001c 4F       		.byte	(.L191-.L197)/2
- 1316 001d 36       		.byte	(.L199-.L197)/2
- 1317 001e 4F       		.byte	(.L191-.L197)/2
- 1318 001f 4F       		.byte	(.L191-.L197)/2
- 1319 0020 4F       		.byte	(.L191-.L197)/2
- 1320 0021 39       		.byte	(.L198-.L197)/2
- 1321 0022 4F       		.byte	(.L191-.L197)/2
- 1322 0023 4F       		.byte	(.L191-.L197)/2
- 1323 0024 4F       		.byte	(.L191-.L197)/2
- 1324 0025 4F       		.byte	(.L191-.L197)/2
- 1325 0026 4F       		.byte	(.L191-.L197)/2
- 1326 0027 4F       		.byte	(.L191-.L197)/2
- 1327 0028 4F       		.byte	(.L191-.L197)/2
- 1328 0029 4F       		.byte	(.L191-.L197)/2
- 1329 002a 4F       		.byte	(.L191-.L197)/2
- 1330 002b 4F       		.byte	(.L191-.L197)/2
- 1331 002c 4F       		.byte	(.L191-.L197)/2
- 1332 002d 4F       		.byte	(.L191-.L197)/2
- 1333 002e 4F       		.byte	(.L191-.L197)/2
- 1334 002f 4F       		.byte	(.L191-.L197)/2
- 1335 0030 4F       		.byte	(.L191-.L197)/2
- 1336 0031 4F       		.byte	(.L191-.L197)/2
- 1337 0032 4F       		.byte	(.L191-.L197)/2
- 1338 0033 4F       		.byte	(.L191-.L197)/2
- 1339 0034 4F       		.byte	(.L191-.L197)/2
- 1340 0035 4F       		.byte	(.L191-.L197)/2
- 1341 0036 4F       		.byte	(.L191-.L197)/2
- 1342 0037 4F       		.byte	(.L191-.L197)/2
- 1343 0038 4F       		.byte	(.L191-.L197)/2
- 1344 0039 3C       		.byte	(.L196-.L197)/2
- 1345              		.p2align 1
- 1346              	.L194:
- 1347 003a 4029     		cmp	r1, #64
- 1348 003c 2CD0     		beq	.L201
- 1349 003e B1F5807F 		cmp	r1, #256
- 1350 0042 02D1     		bne	.L210
- 1351 0044 0423     		movs	r3, #4
- 1352 0046 4360     		str	r3, [r0, #4]
- 1353 0048 7047     		bx	lr
- 1354              	.L210:
- 1355 004a 7047     		bx	lr
- 1356              	.L193:
- 1357 004c B1F5004F 		cmp	r1, #32768
- 1358 0050 2ED0     		beq	.L203
- 1359 0052 08D9     		bls	.L211
- 1360 0054 B1F5803F 		cmp	r1, #65536
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 24
+ 1304 0004 4ED0     		beq	.L198
+ 1305 0006 21D8     		bhi	.L199
+ 1306 0008 2029     		cmp	r1, #32
+ 1307 000a 16D8     		bhi	.L200
+ 1308 000c 0029     		cmp	r1, #0
+ 1309 000e 53D0     		beq	.L197
+ 1310 0010 0139     		subs	r1, r1, #1
+ 1311 0012 1F29     		cmp	r1, #31
+ 1312 0014 50D8     		bhi	.L197
+ 1313 0016 DFE801F0 		tbb	[pc, r1]
+ 1314              	.L203:
+ 1315 001a 33       		.byte	(.L206-.L203)/2
+ 1316 001b 4F       		.byte	(.L197-.L203)/2
+ 1317 001c 4F       		.byte	(.L197-.L203)/2
+ 1318 001d 36       		.byte	(.L205-.L203)/2
+ 1319 001e 4F       		.byte	(.L197-.L203)/2
+ 1320 001f 4F       		.byte	(.L197-.L203)/2
+ 1321 0020 4F       		.byte	(.L197-.L203)/2
+ 1322 0021 39       		.byte	(.L204-.L203)/2
+ 1323 0022 4F       		.byte	(.L197-.L203)/2
+ 1324 0023 4F       		.byte	(.L197-.L203)/2
+ 1325 0024 4F       		.byte	(.L197-.L203)/2
+ 1326 0025 4F       		.byte	(.L197-.L203)/2
+ 1327 0026 4F       		.byte	(.L197-.L203)/2
+ 1328 0027 4F       		.byte	(.L197-.L203)/2
+ 1329 0028 4F       		.byte	(.L197-.L203)/2
+ 1330 0029 4F       		.byte	(.L197-.L203)/2
+ 1331 002a 4F       		.byte	(.L197-.L203)/2
+ 1332 002b 4F       		.byte	(.L197-.L203)/2
+ 1333 002c 4F       		.byte	(.L197-.L203)/2
+ 1334 002d 4F       		.byte	(.L197-.L203)/2
+ 1335 002e 4F       		.byte	(.L197-.L203)/2
+ 1336 002f 4F       		.byte	(.L197-.L203)/2
+ 1337 0030 4F       		.byte	(.L197-.L203)/2
+ 1338 0031 4F       		.byte	(.L197-.L203)/2
+ 1339 0032 4F       		.byte	(.L197-.L203)/2
+ 1340 0033 4F       		.byte	(.L197-.L203)/2
+ 1341 0034 4F       		.byte	(.L197-.L203)/2
+ 1342 0035 4F       		.byte	(.L197-.L203)/2
+ 1343 0036 4F       		.byte	(.L197-.L203)/2
+ 1344 0037 4F       		.byte	(.L197-.L203)/2
+ 1345 0038 4F       		.byte	(.L197-.L203)/2
+ 1346 0039 3C       		.byte	(.L202-.L203)/2
+ 1347              		.p2align 1
+ 1348              	.L200:
+ 1349 003a 4029     		cmp	r1, #64
+ 1350 003c 2CD0     		beq	.L207
+ 1351 003e B1F5807F 		cmp	r1, #256
+ 1352 0042 02D1     		bne	.L215
+ 1353 0044 0423     		movs	r3, #4
+ 1354 0046 4360     		str	r3, [r0, #4]
+ 1355 0048 7047     		bx	lr
+ 1356              	.L215:
+ 1357 004a 7047     		bx	lr
+ 1358              	.L199:
+ 1359 004c B1F5004F 		cmp	r1, #32768
+ 1360 0050 2ED0     		beq	.L209
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 24
 
 
- 1361 0058 21D0     		beq	.L207
- 1362 005a B1F5003F 		cmp	r1, #131072
- 1363 005e 0ED1     		bne	.L212
- 1364 0060 1023     		movs	r3, #16
- 1365 0062 4360     		str	r3, [r0, #4]
- 1366 0064 7047     		bx	lr
- 1367              	.L211:
- 1368 0066 B1F5806F 		cmp	r1, #1024
- 1369 006a 1ED0     		beq	.L205
- 1370 006c B1F5006F 		cmp	r1, #2048
- 1371 0070 04D1     		bne	.L213
- 1372 0072 0023     		movs	r3, #0
- 1373 0074 8361     		str	r3, [r0, #24]
- 1374 0076 0423     		movs	r3, #4
- 1375 0078 4360     		str	r3, [r0, #4]
- 1376 007a 7047     		bx	lr
- 1377              	.L213:
- 1378 007c 7047     		bx	lr
- 1379              	.L212:
- 1380 007e 7047     		bx	lr
- 1381              	.L200:
- 1382 0080 0E4B     		ldr	r3, .L214
- 1383 0082 8360     		str	r3, [r0, #8]
- 1384 0084 7047     		bx	lr
- 1385              	.L199:
- 1386 0086 0823     		movs	r3, #8
- 1387 0088 C360     		str	r3, [r0, #12]
- 1388 008a 7047     		bx	lr
- 1389              	.L198:
- 1390 008c 1023     		movs	r3, #16
- 1391 008e C360     		str	r3, [r0, #12]
- 1392 0090 7047     		bx	lr
- 1393              	.L196:
- 1394 0092 0823     		movs	r3, #8
- 1395 0094 0361     		str	r3, [r0, #16]
- 1396 0096 7047     		bx	lr
- 1397              	.L201:
- 1398 0098 1023     		movs	r3, #16
- 1399 009a 0361     		str	r3, [r0, #16]
- 1400 009c 7047     		bx	lr
- 1401              	.L207:
- 1402 009e 0823     		movs	r3, #8
- 1403 00a0 4360     		str	r3, [r0, #4]
- 1404 00a2 7047     		bx	lr
- 1405              	.L192:
- 1406 00a4 0423     		movs	r3, #4
- 1407 00a6 4360     		str	r3, [r0, #4]
- 1408 00a8 7047     		bx	lr
- 1409              	.L205:
- 1410 00aa 0423     		movs	r3, #4
- 1411 00ac 4360     		str	r3, [r0, #4]
- 1412 00ae 7047     		bx	lr
- 1413              	.L203:
- 1414 00b0 0023     		movs	r3, #0
- 1415 00b2 8361     		str	r3, [r0, #24]
- 1416 00b4 0423     		movs	r3, #4
- 1417 00b6 4360     		str	r3, [r0, #4]
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 25
+ 1361 0052 08D9     		bls	.L216
+ 1362 0054 B1F5803F 		cmp	r1, #65536
+ 1363 0058 21D0     		beq	.L213
+ 1364 005a B1F5003F 		cmp	r1, #131072
+ 1365 005e 0ED1     		bne	.L217
+ 1366 0060 1023     		movs	r3, #16
+ 1367 0062 4360     		str	r3, [r0, #4]
+ 1368 0064 7047     		bx	lr
+ 1369              	.L216:
+ 1370 0066 B1F5806F 		cmp	r1, #1024
+ 1371 006a 1ED0     		beq	.L211
+ 1372 006c B1F5006F 		cmp	r1, #2048
+ 1373 0070 04D1     		bne	.L218
+ 1374 0072 0023     		movs	r3, #0
+ 1375 0074 8361     		str	r3, [r0, #24]
+ 1376 0076 0423     		movs	r3, #4
+ 1377 0078 4360     		str	r3, [r0, #4]
+ 1378 007a 7047     		bx	lr
+ 1379              	.L218:
+ 1380 007c 7047     		bx	lr
+ 1381              	.L217:
+ 1382 007e 7047     		bx	lr
+ 1383              	.L206:
+ 1384 0080 0E4B     		ldr	r3, .L219
+ 1385 0082 8360     		str	r3, [r0, #8]
+ 1386 0084 7047     		bx	lr
+ 1387              	.L205:
+ 1388 0086 0823     		movs	r3, #8
+ 1389 0088 C360     		str	r3, [r0, #12]
+ 1390 008a 7047     		bx	lr
+ 1391              	.L204:
+ 1392 008c 1023     		movs	r3, #16
+ 1393 008e C360     		str	r3, [r0, #12]
+ 1394 0090 7047     		bx	lr
+ 1395              	.L202:
+ 1396 0092 0823     		movs	r3, #8
+ 1397 0094 0361     		str	r3, [r0, #16]
+ 1398 0096 7047     		bx	lr
+ 1399              	.L207:
+ 1400 0098 1023     		movs	r3, #16
+ 1401 009a 0361     		str	r3, [r0, #16]
+ 1402 009c 7047     		bx	lr
+ 1403              	.L213:
+ 1404 009e 0823     		movs	r3, #8
+ 1405 00a0 4360     		str	r3, [r0, #4]
+ 1406 00a2 7047     		bx	lr
+ 1407              	.L198:
+ 1408 00a4 0423     		movs	r3, #4
+ 1409 00a6 4360     		str	r3, [r0, #4]
+ 1410 00a8 7047     		bx	lr
+ 1411              	.L211:
+ 1412 00aa 0423     		movs	r3, #4
+ 1413 00ac 4360     		str	r3, [r0, #4]
+ 1414 00ae 7047     		bx	lr
+ 1415              	.L209:
+ 1416 00b0 0023     		movs	r3, #0
+ 1417 00b2 8361     		str	r3, [r0, #24]
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 25
 
 
- 1418              	.L191:
- 1419 00b8 7047     		bx	lr
- 1420              	.L215:
- 1421 00ba 00BF     		.align	2
- 1422              	.L214:
- 1423 00bc 01010100 		.word	65793
- 1425              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 26
+ 1418 00b4 0423     		movs	r3, #4
+ 1419 00b6 4360     		str	r3, [r0, #4]
+ 1420              	.L197:
+ 1421 00b8 7047     		bx	lr
+ 1422              	.L220:
+ 1423 00ba 00BF     		.align	2
+ 1424              	.L219:
+ 1425 00bc 01010100 		.word	65793
+ 1427              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 26
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f10x_can.c
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:16     .text.CheckITStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:21     .text.CheckITStatus:00000000 CheckITStatus
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:34     .text.CAN_DeInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:40     .text.CAN_DeInit:00000000 CAN_DeInit
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:66     .text.CAN_DeInit:00000034 $d
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:69     .text.CAN_Init:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:75     .text.CAN_Init:00000000 CAN_Init
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:211    .text.CAN_FilterInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:217    .text.CAN_FilterInit:00000000 CAN_FilterInit
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:324    .text.CAN_FilterInit:00000108 $d
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:327    .text.CAN_StructInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:333    .text.CAN_StructInit:00000000 CAN_StructInit
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:355    .text.CAN_SlaveStartBank:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:361    .text.CAN_SlaveStartBank:00000000 CAN_SlaveStartBank
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:383    .text.CAN_SlaveStartBank:00000038 $d
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:386    .text.CAN_DBGFreeze:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:392    .text.CAN_DBGFreeze:00000000 CAN_DBGFreeze
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:408    .text.CAN_TTComModeCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:414    .text.CAN_TTComModeCmd:00000000 CAN_TTComModeCmd
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:448    .text.CAN_Transmit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:454    .text.CAN_Transmit:00000000 CAN_Transmit
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:546    .text.CAN_TransmitStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:552    .text.CAN_TransmitStatus:00000000 CAN_TransmitStatus
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:631    .text.CAN_TransmitStatus:00000088 $d
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:637    .text.CAN_CancelTransmit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:643    .text.CAN_CancelTransmit:00000000 CAN_CancelTransmit
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:669    .text.CAN_Receive:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:675    .text.CAN_Receive:00000000 CAN_Receive
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:749    .text.CAN_FIFORelease:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:755    .text.CAN_FIFORelease:00000000 CAN_FIFORelease
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:771    .text.CAN_MessagePending:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:777    .text.CAN_MessagePending:00000000 CAN_MessagePending
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:796    .text.CAN_OperatingModeRequest:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:802    .text.CAN_OperatingModeRequest:00000000 CAN_OperatingModeRequest
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:889    .text.CAN_Sleep:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:895    .text.CAN_Sleep:00000000 CAN_Sleep
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:914    .text.CAN_WakeUp:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:920    .text.CAN_WakeUp:00000000 CAN_WakeUp
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:946    .text.CAN_GetLastErrorCode:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:952    .text.CAN_GetLastErrorCode:00000000 CAN_GetLastErrorCode
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:961    .text.CAN_GetReceiveErrorCounter:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:967    .text.CAN_GetReceiveErrorCounter:00000000 CAN_GetReceiveErrorCounter
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:976    .text.CAN_GetLSBTransmitErrorCounter:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:982    .text.CAN_GetLSBTransmitErrorCounter:00000000 CAN_GetLSBTransmitErrorCounter
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:991    .text.CAN_ITConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:997    .text.CAN_ITConfig:00000000 CAN_ITConfig
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1013   .text.CAN_GetFlagStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1019   .text.CAN_GetFlagStatus:00000000 CAN_GetFlagStatus
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1082   .text.CAN_ClearFlag:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1088   .text.CAN_ClearFlag:00000000 CAN_ClearFlag
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1120   .text.CAN_ClearFlag:00000034 $d
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1123   .text.CAN_GetITStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1129   .text.CAN_GetITStatus:00000000 CAN_GetITStatus
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1148   .text.CAN_GetITStatus:00000022 $d
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1180   .text.CAN_GetITStatus:00000042 $t
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s 			page 27
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:16     .text.CheckITStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:21     .text.CheckITStatus:00000000 CheckITStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:34     .text.CAN_DeInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:40     .text.CAN_DeInit:00000000 CAN_DeInit
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:66     .text.CAN_DeInit:00000034 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:69     .text.CAN_Init:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:75     .text.CAN_Init:00000000 CAN_Init
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:211    .text.CAN_FilterInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:217    .text.CAN_FilterInit:00000000 CAN_FilterInit
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:324    .text.CAN_FilterInit:00000108 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:327    .text.CAN_StructInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:333    .text.CAN_StructInit:00000000 CAN_StructInit
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:355    .text.CAN_SlaveStartBank:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:361    .text.CAN_SlaveStartBank:00000000 CAN_SlaveStartBank
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:383    .text.CAN_SlaveStartBank:00000038 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:386    .text.CAN_DBGFreeze:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:392    .text.CAN_DBGFreeze:00000000 CAN_DBGFreeze
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:408    .text.CAN_TTComModeCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:414    .text.CAN_TTComModeCmd:00000000 CAN_TTComModeCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:448    .text.CAN_Transmit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:454    .text.CAN_Transmit:00000000 CAN_Transmit
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:546    .text.CAN_TransmitStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:552    .text.CAN_TransmitStatus:00000000 CAN_TransmitStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:631    .text.CAN_TransmitStatus:00000088 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:637    .text.CAN_CancelTransmit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:643    .text.CAN_CancelTransmit:00000000 CAN_CancelTransmit
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:671    .text.CAN_Receive:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:677    .text.CAN_Receive:00000000 CAN_Receive
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:751    .text.CAN_FIFORelease:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:757    .text.CAN_FIFORelease:00000000 CAN_FIFORelease
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:773    .text.CAN_MessagePending:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:779    .text.CAN_MessagePending:00000000 CAN_MessagePending
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:798    .text.CAN_OperatingModeRequest:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:804    .text.CAN_OperatingModeRequest:00000000 CAN_OperatingModeRequest
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:891    .text.CAN_Sleep:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:897    .text.CAN_Sleep:00000000 CAN_Sleep
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:916    .text.CAN_WakeUp:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:922    .text.CAN_WakeUp:00000000 CAN_WakeUp
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:948    .text.CAN_GetLastErrorCode:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:954    .text.CAN_GetLastErrorCode:00000000 CAN_GetLastErrorCode
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:963    .text.CAN_GetReceiveErrorCounter:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:969    .text.CAN_GetReceiveErrorCounter:00000000 CAN_GetReceiveErrorCounter
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:978    .text.CAN_GetLSBTransmitErrorCounter:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:984    .text.CAN_GetLSBTransmitErrorCounter:00000000 CAN_GetLSBTransmitErrorCounter
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:993    .text.CAN_ITConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:999    .text.CAN_ITConfig:00000000 CAN_ITConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1015   .text.CAN_GetFlagStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1021   .text.CAN_GetFlagStatus:00000000 CAN_GetFlagStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1084   .text.CAN_ClearFlag:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1090   .text.CAN_ClearFlag:00000000 CAN_ClearFlag
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1122   .text.CAN_ClearFlag:00000034 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1125   .text.CAN_GetITStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1131   .text.CAN_GetITStatus:00000000 CAN_GetITStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1150   .text.CAN_GetITStatus:00000022 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1182   .text.CAN_GetITStatus:00000042 $t
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s 			page 27
 
 
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1288   .text.CAN_GetITStatus:00000110 $d
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1291   .text.CAN_ClearITPendingBit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1297   .text.CAN_ClearITPendingBit:00000000 CAN_ClearITPendingBit
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1313   .text.CAN_ClearITPendingBit:0000001a $d
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1345   .text.CAN_ClearITPendingBit:0000003a $t
-C:\Users\UXP\AppData\Local\Temp\cc0n1B7A.s:1423   .text.CAN_ClearITPendingBit:000000bc $d
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1290   .text.CAN_GetITStatus:00000110 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1293   .text.CAN_ClearITPendingBit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1299   .text.CAN_ClearITPendingBit:00000000 CAN_ClearITPendingBit
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1315   .text.CAN_ClearITPendingBit:0000001a $d
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1347   .text.CAN_ClearITPendingBit:0000003a $t
+C:\Users\wxpwx\AppData\Local\Temp\ccpOCQSc.s:1425   .text.CAN_ClearITPendingBit:000000bc $d
 
 UNDEFINED SYMBOLS
 RCC_APB1PeriphResetCmd

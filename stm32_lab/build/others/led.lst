@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccO71Yo4.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccctJJVK.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -24,8 +24,8 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccO71Yo4.s 			page 1
   22              	LedInit:
   23              		@ args = 0, pretend = 0, frame = 8
   24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25 0000 70B5     		push	{r4, r5, r6, lr}
-  26 0002 82B0     		sub	sp, sp, #8
+  25 0000 30B5     		push	{r4, r5, lr}
+  26 0002 83B0     		sub	sp, sp, #12
   27 0004 0121     		movs	r1, #1
   28 0006 2420     		movs	r0, #36
   29 0008 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
@@ -35,42 +35,41 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccO71Yo4.s 			page 1
   33 0016 ADF80450 		strh	r5, [sp, #4]	@ movhi
   34 001a 0323     		movs	r3, #3
   35 001c 8DF80630 		strb	r3, [sp, #6]
-  36 0020 01AE     		add	r6, sp, #4
-  37 0022 0C4C     		ldr	r4, .L3
-  38 0024 3146     		mov	r1, r6
-  39 0026 2046     		mov	r0, r4
-  40 0028 FFF7FEFF 		bl	GPIO_Init
-  41 002c 2946     		mov	r1, r5
-  42 002e 2046     		mov	r0, r4
-  43 0030 FFF7FEFF 		bl	GPIO_SetBits
-  44 0034 0425     		movs	r5, #4
-  45 0036 ADF80450 		strh	r5, [sp, #4]	@ movhi
-  46 003a 04F54064 		add	r4, r4, #3072
-  47 003e 3146     		mov	r1, r6
-  48 0040 2046     		mov	r0, r4
-  49 0042 FFF7FEFF 		bl	GPIO_Init
-  50 0046 2946     		mov	r1, r5
-  51 0048 2046     		mov	r0, r4
-  52 004a FFF7FEFF 		bl	GPIO_SetBits
-  53 004e 02B0     		add	sp, sp, #8
-  54              		@ sp needed
-  55 0050 70BD     		pop	{r4, r5, r6, pc}
-  56              	.L4:
-  57 0052 00BF     		.align	2
-  58              	.L3:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccO71Yo4.s 			page 2
+  36 0020 0C4C     		ldr	r4, .L3
+  37 0022 01A9     		add	r1, sp, #4
+  38 0024 2046     		mov	r0, r4
+  39 0026 FFF7FEFF 		bl	GPIO_Init
+  40 002a 2946     		mov	r1, r5
+  41 002c 2046     		mov	r0, r4
+  42 002e FFF7FEFF 		bl	GPIO_SetBits
+  43 0032 0425     		movs	r5, #4
+  44 0034 ADF80450 		strh	r5, [sp, #4]	@ movhi
+  45 0038 04F54064 		add	r4, r4, #3072
+  46 003c 0DEB0501 		add	r1, sp, r5
+  47 0040 2046     		mov	r0, r4
+  48 0042 FFF7FEFF 		bl	GPIO_Init
+  49 0046 2946     		mov	r1, r5
+  50 0048 2046     		mov	r0, r4
+  51 004a FFF7FEFF 		bl	GPIO_SetBits
+  52 004e 03B0     		add	sp, sp, #12
+  53              		@ sp needed
+  54 0050 30BD     		pop	{r4, r5, pc}
+  55              	.L4:
+  56 0052 00BF     		.align	2
+  57              	.L3:
+  58 0054 00080140 		.word	1073809408
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccctJJVK.s 			page 2
 
 
-  59 0054 00080140 		.word	1073809408
-  61              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccO71Yo4.s 			page 3
+  60              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccctJJVK.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 led.c
-C:\Users\UXP\AppData\Local\Temp\ccO71Yo4.s:16     .text.LedInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccO71Yo4.s:22     .text.LedInit:00000000 LedInit
-C:\Users\UXP\AppData\Local\Temp\ccO71Yo4.s:59     .text.LedInit:00000054 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccctJJVK.s:16     .text.LedInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccctJJVK.s:22     .text.LedInit:00000000 LedInit
+C:\Users\wxpwx\AppData\Local\Temp\ccctJJVK.s:58     .text.LedInit:00000054 $d
 
 UNDEFINED SYMBOLS
 RCC_APB2PeriphClockCmd

@@ -70,6 +70,7 @@ void EXTI15_10_IRQHandler(void)
 }
 
 
+#if LAB_EXTI_CODE
 /**
  * @brief: This lab show that led will toggle when we press the key. 
  *         Of course you can config different situations in the handle function
@@ -80,3 +81,5 @@ void lab_exti(void)
     EXTI_Configuration();
     NVIC_EXTI_Configuration();
 }
+
+#endif

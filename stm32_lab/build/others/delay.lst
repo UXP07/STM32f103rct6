@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -45,8 +45,8 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s 			page 1
   43              	.L3:
   44 002c 00000000 		.word	SystemCoreClock
   45 0030 83DE1B43 		.word	1125899907
-  46 0034 00000000 		.word	fac_us
-  47 0038 00000000 		.word	fac_ms
+  46 0034 00000000 		.word	.LANCHOR0
+  47 0038 00000000 		.word	.LANCHOR1
   49              		.section	.text.delay_us,"ax",%progbits
   50              		.align	1
   51              		.global	delay_us
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s 			page 1
   58              		@ frame_needed = 0, uses_anonymous_args = 0
   59              		@ link register save eliminated.
   60 0000 0E4B     		ldr	r3, .L7
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s 			page 2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s 			page 2
 
 
   61 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
@@ -86,7 +86,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s 			page 1
   83              	.L8:
   84 003a 00BF     		.align	2
   85              	.L7:
-  86 003c 00000000 		.word	fac_us
+  86 003c 00000000 		.word	.LANCHOR0
   88              		.section	.text.delay_ms,"ax",%progbits
   89              		.align	1
   90              		.global	delay_ms
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s 			page 1
  117 002e 22F00102 		bic	r2, r2, #1
  118 0032 1A61     		str	r2, [r3, #16]
  119 0034 0022     		movs	r2, #0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s 			page 3
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s 			page 3
 
 
  120 0036 9A61     		str	r2, [r3, #24]
@@ -126,33 +126,35 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s 			page 1
  122              	.L12:
  123 003a 00BF     		.align	2
  124              	.L11:
- 125 003c 00000000 		.word	fac_ms
+ 125 003c 00000000 		.word	.LANCHOR1
  127              		.section	.bss.fac_ms,"aw",%nobits
  128              		.align	1
- 131              	fac_ms:
- 132 0000 0000     		.space	2
- 133              		.section	.bss.fac_us,"aw",%nobits
- 136              	fac_us:
- 137 0000 00       		.space	1
- 138              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s 			page 4
+ 129              		.set	.LANCHOR1,. + 0
+ 132              	fac_ms:
+ 133 0000 0000     		.space	2
+ 134              		.section	.bss.fac_us,"aw",%nobits
+ 135              		.set	.LANCHOR0,. + 0
+ 138              	fac_us:
+ 139 0000 00       		.space	1
+ 140              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 delay.c
-C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:16     .text.delay_init:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:22     .text.delay_init:00000000 delay_init
-C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:44     .text.delay_init:0000002c $d
-C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:136    .bss.fac_us:00000000 fac_us
-C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:131    .bss.fac_ms:00000000 fac_ms
-C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:50     .text.delay_us:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:56     .text.delay_us:00000000 delay_us
-C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:86     .text.delay_us:0000003c $d
-C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:89     .text.delay_ms:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:95     .text.delay_ms:00000000 delay_ms
-C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:125    .text.delay_ms:0000003c $d
-C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:128    .bss.fac_ms:00000000 $d
-C:\Users\UXP\AppData\Local\Temp\ccxy1tew.s:137    .bss.fac_us:00000000 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s:16     .text.delay_init:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s:22     .text.delay_init:00000000 delay_init
+C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s:44     .text.delay_init:0000002c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s:50     .text.delay_us:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s:56     .text.delay_us:00000000 delay_us
+C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s:86     .text.delay_us:0000003c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s:89     .text.delay_ms:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s:95     .text.delay_ms:00000000 delay_ms
+C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s:125    .text.delay_ms:0000003c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s:128    .bss.fac_ms:00000000 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s:132    .bss.fac_ms:00000000 fac_ms
+C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s:138    .bss.fac_us:00000000 fac_us
+C:\Users\wxpwx\AppData\Local\Temp\ccQtMNMg.s:139    .bss.fac_us:00000000 $d
 
 UNDEFINED SYMBOLS
 SysTick_CLKSourceConfig

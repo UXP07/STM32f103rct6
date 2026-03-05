@@ -1,5 +1,7 @@
 #include "main.h"
 
+uint8_t aSRC_Buffer[BUFFER_SIZE]= "Hello world\n";
+int count = 10;
 
 int main(void)
 {
@@ -8,16 +10,8 @@ int main(void)
     delay_ms(300);
     Uart_Init();
     LedInit();
-    // for(int i=0; i<100; i++)
-    // { 
-    //     Usart_SendString(USART1, "Hello I'm 32\n");
-    //     delay_ms(1000);
-    // }
-
-
-
-
-    
+    Dma_m2p_Init(DMA_CHANNEL, (uint32_t*)aSRC_Buffer);
+    Dma_Rework();
 
     while(1)
     {

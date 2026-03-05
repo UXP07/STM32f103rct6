@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -29,8 +29,8 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 1
   27 0002 064A     		ldr	r2, .L4
   28 0004 1388     		ldrh	r3, [r2]
   29 0006 9BB2     		uxth	r3, r3
-  30 0008 0343     		orrs	r3, r3, r0
-  31 000a 1380     		strh	r3, [r2]	@ movhi
+  30 0008 1843     		orrs	r0, r0, r3
+  31 000a 1080     		strh	r0, [r2]	@ movhi
   32 000c 7047     		bx	lr
   33              	.L2:
   34 000e 034B     		ldr	r3, .L4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 1
   58 0002 9388     		ldrh	r3, [r2, #4]
   59 0004 9BB2     		uxth	r3, r3
   60 0006 43F01003 		orr	r3, r3, #16
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s 			page 2
 
 
   61 000a 9380     		strh	r3, [r2, #4]	@ movhi
@@ -99,8 +99,8 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 1
  100              		@ frame_needed = 0, uses_anonymous_args = 0
  101              		@ link register save eliminated.
  102 0000 084B     		ldr	r3, .L15
- 103 0002 1A8B     		ldrh	r2, [r3, #24]
- 104 0004 92B2     		uxth	r2, r2
+ 103 0002 188B     		ldrh	r0, [r3, #24]
+ 104 0004 82B2     		uxth	r2, r0
  105 0006 988B     		ldrh	r0, [r3, #28]
  106 0008 80B2     		uxth	r0, r0
  107 000a 1B8B     		ldrh	r3, [r3, #24]
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 1
  119              	.L16:
  120              		.align	2
  121              	.L15:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 3
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s 			page 3
 
 
  122 0024 00280040 		.word	1073752064
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 1
  182              		@ args = 0, pretend = 0, frame = 0
  183              		@ frame_needed = 0, uses_anonymous_args = 0
  184 0000 10B5     		push	{r4, lr}
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 4
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s 			page 4
 
 
  185 0002 0446     		mov	r4, r0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 1
  243 000c 00280040 		.word	1073752064
  245              		.section	.text.RTC_WaitForSynchro,"ax",%progbits
  246              		.align	1
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 5
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s 			page 5
 
 
  247              		.global	RTC_WaitForSynchro
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 1
  306              		@ args = 0, pretend = 0, frame = 0
  307              		@ frame_needed = 0, uses_anonymous_args = 0
  308              		@ link register save eliminated.
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 6
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s 			page 6
 
 
  309 0000 034B     		ldr	r3, .L46
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 1
  367 0006 80B2     		uxth	r0, r0
  368 0008 1040     		ands	r0, r0, r2
  369 000a 9880     		strh	r0, [r3, #4]	@ movhi
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 7
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s 			page 7
 
 
  370 000c 7047     		bx	lr
@@ -366,53 +366,53 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 1
  372 000e 00BF     		.align	2
  373              	.L55:
  374 0010 00280040 		.word	1073752064
- 376              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s 			page 8
+ 376              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f10x_rtc.c
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:16     .text.RTC_ITConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:22     .text.RTC_ITConfig:00000000 RTC_ITConfig
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:44     .text.RTC_ITConfig:0000001c $d
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:47     .text.RTC_EnterConfigMode:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:53     .text.RTC_EnterConfigMode:00000000 RTC_EnterConfigMode
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:66     .text.RTC_EnterConfigMode:00000010 $d
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:69     .text.RTC_ExitConfigMode:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:75     .text.RTC_ExitConfigMode:00000000 RTC_ExitConfigMode
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:89     .text.RTC_ExitConfigMode:00000010 $d
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:92     .text.RTC_GetCounter:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:98     .text.RTC_GetCounter:00000000 RTC_GetCounter
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:122    .text.RTC_GetCounter:00000024 $d
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:125    .text.RTC_SetCounter:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:131    .text.RTC_SetCounter:00000000 RTC_SetCounter
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:147    .text.RTC_SetCounter:00000018 $d
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:150    .text.RTC_SetPrescaler:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:156    .text.RTC_SetPrescaler:00000000 RTC_SetPrescaler
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:172    .text.RTC_SetPrescaler:0000001c $d
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:175    .text.RTC_SetAlarm:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:181    .text.RTC_SetAlarm:00000000 RTC_SetAlarm
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:197    .text.RTC_SetAlarm:00000018 $d
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:200    .text.RTC_GetDivider:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:206    .text.RTC_GetDivider:00000000 RTC_GetDivider
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:221    .text.RTC_GetDivider:00000014 $d
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:224    .text.RTC_WaitForLastTask:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:230    .text.RTC_WaitForLastTask:00000000 RTC_WaitForLastTask
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:243    .text.RTC_WaitForLastTask:0000000c $d
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:246    .text.RTC_WaitForSynchro:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:252    .text.RTC_WaitForSynchro:00000000 RTC_WaitForSynchro
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:271    .text.RTC_WaitForSynchro:0000001c $d
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:274    .text.RTC_GetFlagStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:280    .text.RTC_GetFlagStatus:00000000 RTC_GetFlagStatus
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:296    .text.RTC_GetFlagStatus:00000010 $d
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:299    .text.RTC_ClearFlag:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:305    .text.RTC_ClearFlag:00000000 RTC_ClearFlag
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:319    .text.RTC_ClearFlag:00000010 $d
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:322    .text.RTC_GetITStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:328    .text.RTC_GetITStatus:00000000 RTC_GetITStatus
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:351    .text.RTC_GetITStatus:0000001c $d
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:354    .text.RTC_ClearITPendingBit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:360    .text.RTC_ClearITPendingBit:00000000 RTC_ClearITPendingBit
-C:\Users\UXP\AppData\Local\Temp\ccmbW1et.s:374    .text.RTC_ClearITPendingBit:00000010 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:16     .text.RTC_ITConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:22     .text.RTC_ITConfig:00000000 RTC_ITConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:44     .text.RTC_ITConfig:0000001c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:47     .text.RTC_EnterConfigMode:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:53     .text.RTC_EnterConfigMode:00000000 RTC_EnterConfigMode
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:66     .text.RTC_EnterConfigMode:00000010 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:69     .text.RTC_ExitConfigMode:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:75     .text.RTC_ExitConfigMode:00000000 RTC_ExitConfigMode
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:89     .text.RTC_ExitConfigMode:00000010 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:92     .text.RTC_GetCounter:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:98     .text.RTC_GetCounter:00000000 RTC_GetCounter
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:122    .text.RTC_GetCounter:00000024 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:125    .text.RTC_SetCounter:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:131    .text.RTC_SetCounter:00000000 RTC_SetCounter
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:147    .text.RTC_SetCounter:00000018 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:150    .text.RTC_SetPrescaler:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:156    .text.RTC_SetPrescaler:00000000 RTC_SetPrescaler
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:172    .text.RTC_SetPrescaler:0000001c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:175    .text.RTC_SetAlarm:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:181    .text.RTC_SetAlarm:00000000 RTC_SetAlarm
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:197    .text.RTC_SetAlarm:00000018 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:200    .text.RTC_GetDivider:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:206    .text.RTC_GetDivider:00000000 RTC_GetDivider
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:221    .text.RTC_GetDivider:00000014 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:224    .text.RTC_WaitForLastTask:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:230    .text.RTC_WaitForLastTask:00000000 RTC_WaitForLastTask
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:243    .text.RTC_WaitForLastTask:0000000c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:246    .text.RTC_WaitForSynchro:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:252    .text.RTC_WaitForSynchro:00000000 RTC_WaitForSynchro
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:271    .text.RTC_WaitForSynchro:0000001c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:274    .text.RTC_GetFlagStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:280    .text.RTC_GetFlagStatus:00000000 RTC_GetFlagStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:296    .text.RTC_GetFlagStatus:00000010 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:299    .text.RTC_ClearFlag:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:305    .text.RTC_ClearFlag:00000000 RTC_ClearFlag
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:319    .text.RTC_ClearFlag:00000010 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:322    .text.RTC_GetITStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:328    .text.RTC_GetITStatus:00000000 RTC_GetITStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:351    .text.RTC_GetITStatus:0000001c $d
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:354    .text.RTC_ClearITPendingBit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:360    .text.RTC_ClearITPendingBit:00000000 RTC_ClearITPendingBit
+C:\Users\wxpwx\AppData\Local\Temp\ccvtIPm4.s:374    .text.RTC_ClearITPendingBit:00000010 $d
 
 NO UNDEFINED SYMBOLS

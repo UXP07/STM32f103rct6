@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccuLn0N8.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccKGqPVZ.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -24,8 +24,8 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccuLn0N8.s 			page 1
   22              	KeyInit:
   23              		@ args = 0, pretend = 0, frame = 8
   24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25 0000 10B5     		push	{r4, lr}
-  26 0002 82B0     		sub	sp, sp, #8
+  25 0000 00B5     		push	{lr}
+  26 0002 83B0     		sub	sp, sp, #12
   27 0004 0121     		movs	r1, #1
   28 0006 1420     		movs	r0, #20
   29 0008 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
@@ -33,49 +33,48 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccuLn0N8.s 			page 1
   31 000e ADF80430 		strh	r3, [sp, #4]	@ movhi
   32 0012 0423     		movs	r3, #4
   33 0014 8DF80730 		strb	r3, [sp, #7]
-  34 0018 0DEB0304 		add	r4, sp, r3
-  35 001c 2146     		mov	r1, r4
-  36 001e 0648     		ldr	r0, .L3
-  37 0020 FFF7FEFF 		bl	GPIO_Init
-  38 0024 4FF40043 		mov	r3, #32768
-  39 0028 ADF80430 		strh	r3, [sp, #4]	@ movhi
-  40 002c 2146     		mov	r1, r4
-  41 002e 0348     		ldr	r0, .L3+4
-  42 0030 FFF7FEFF 		bl	GPIO_Init
-  43 0034 02B0     		add	sp, sp, #8
-  44              		@ sp needed
-  45 0036 10BD     		pop	{r4, pc}
-  46              	.L4:
-  47              		.align	2
-  48              	.L3:
-  49 0038 00100140 		.word	1073811456
-  50 003c 00080140 		.word	1073809408
-  52              		.section	.text.keyScan,"ax",%progbits
-  53              		.align	1
-  54              		.global	keyScan
-  55              		.syntax unified
-  56              		.thumb
-  57              		.thumb_func
-  59              	keyScan:
-  60              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccuLn0N8.s 			page 2
+  34 0018 0DEB0301 		add	r1, sp, r3
+  35 001c 0648     		ldr	r0, .L3
+  36 001e FFF7FEFF 		bl	GPIO_Init
+  37 0022 4FF40043 		mov	r3, #32768
+  38 0026 ADF80430 		strh	r3, [sp, #4]	@ movhi
+  39 002a 01A9     		add	r1, sp, #4
+  40 002c 0348     		ldr	r0, .L3+4
+  41 002e FFF7FEFF 		bl	GPIO_Init
+  42 0032 03B0     		add	sp, sp, #12
+  43              		@ sp needed
+  44 0034 5DF804FB 		ldr	pc, [sp], #4
+  45              	.L4:
+  46              		.align	2
+  47              	.L3:
+  48 0038 00100140 		.word	1073811456
+  49 003c 00080140 		.word	1073809408
+  51              		.section	.text.keyScan,"ax",%progbits
+  52              		.align	1
+  53              		.global	keyScan
+  54              		.syntax unified
+  55              		.thumb
+  56              		.thumb_func
+  58              	keyScan:
+  59              		@ args = 0, pretend = 0, frame = 0
+  60              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccKGqPVZ.s 			page 2
 
 
-  61              		@ frame_needed = 0, uses_anonymous_args = 0
-  62 0000 08B5     		push	{r3, lr}
-  63 0002 FFF7FEFF 		bl	GPIO_ReadInputDataBit
-  64 0006 08BD     		pop	{r3, pc}
-  66              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccuLn0N8.s 			page 3
+  61 0000 08B5     		push	{r3, lr}
+  62 0002 FFF7FEFF 		bl	GPIO_ReadInputDataBit
+  63 0006 08BD     		pop	{r3, pc}
+  65              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccKGqPVZ.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 key.c
-C:\Users\UXP\AppData\Local\Temp\ccuLn0N8.s:16     .text.KeyInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccuLn0N8.s:22     .text.KeyInit:00000000 KeyInit
-C:\Users\UXP\AppData\Local\Temp\ccuLn0N8.s:49     .text.KeyInit:00000038 $d
-C:\Users\UXP\AppData\Local\Temp\ccuLn0N8.s:53     .text.keyScan:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccuLn0N8.s:59     .text.keyScan:00000000 keyScan
+C:\Users\wxpwx\AppData\Local\Temp\ccKGqPVZ.s:16     .text.KeyInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccKGqPVZ.s:22     .text.KeyInit:00000000 KeyInit
+C:\Users\wxpwx\AppData\Local\Temp\ccKGqPVZ.s:48     .text.KeyInit:00000038 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccKGqPVZ.s:52     .text.keyScan:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccKGqPVZ.s:58     .text.keyScan:00000000 keyScan
 
 UNDEFINED SYMBOLS
 RCC_APB2PeriphClockCmd

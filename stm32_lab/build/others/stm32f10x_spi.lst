@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 1
   56 0048 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
   57 004c 0021     		movs	r1, #0
   58 004e 4FF40040 		mov	r0, #32768
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s 			page 2
 
 
   59 0052 FFF7FEFF 		bl	RCC_APB1PeriphResetCmd
@@ -79,8 +79,8 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 1
   76              		@ args = 0, pretend = 0, frame = 0
   77              		@ frame_needed = 0, uses_anonymous_args = 0
   78 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
-  79 0004 0288     		ldrh	r2, [r0]
-  80 0006 02F44152 		and	r2, r2, #12352
+  79 0004 0388     		ldrh	r3, [r0]
+  80 0006 03F44152 		and	r2, r3, #12352
   81 000a 0F88     		ldrh	r7, [r1]
   82 000c B1F80280 		ldrh	r8, [r1, #2]
   83 0010 8E88     		ldrh	r6, [r1, #4]
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 1
  117 0000 F0B5     		push	{r4, r5, r6, r7, lr}
  118 0002 87B0     		sub	sp, sp, #28
  119 0004 0546     		mov	r5, r0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 3
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s 			page 3
 
 
  120 0006 0C46     		mov	r4, r1
@@ -134,559 +134,561 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 1
  130 001e B6B2     		uxth	r6, r6
  131 0020 8B68     		ldr	r3, [r1, #8]
  132 0022 022B     		cmp	r3, #2
- 133 0024 32D0     		beq	.L18
+ 133 0024 43D0     		beq	.L19
  134 0026 8B88     		ldrh	r3, [r1, #4]
- 135 0028 23BB     		cbnz	r3, .L19
- 136 002a 0127     		movs	r7, #1
- 137              	.L15:
- 138 002c 01A8     		add	r0, sp, #4
- 139 002e FFF7FEFF 		bl	RCC_GetClocksFreq
- 140 0032 019B     		ldr	r3, [sp, #4]
- 141 0034 E288     		ldrh	r2, [r4, #6]
- 142 0036 B2F5007F 		cmp	r2, #512
- 143 003a 1DD0     		beq	.L22
- 144 003c 7F01     		lsls	r7, r7, #5
- 145 003e B3FBF7F3 		udiv	r3, r3, r7
- 146 0042 03EB8303 		add	r3, r3, r3, lsl #2
- 147 0046 5B00     		lsls	r3, r3, #1
- 148 0048 A268     		ldr	r2, [r4, #8]
- 149 004a B3FBF2F3 		udiv	r3, r3, r2
- 150 004e 0533     		adds	r3, r3, #5
- 151 0050 9BB2     		uxth	r3, r3
- 152              	.L17:
- 153 0052 184A     		ldr	r2, .L23
- 154 0054 A2FB0323 		umull	r2, r3, r2, r3
- 155 0058 C3F3C001 		ubfx	r1, r3, #3, #1
- 156 005c C1EBD303 		rsb	r3, r1, r3, lsr #3
- 157 0060 C3F34F03 		ubfx	r3, r3, #1, #16
- 158 0064 0902     		lsls	r1, r1, #8
- 159 0066 9A1E     		subs	r2, r3, #2
- 160 0068 92B2     		uxth	r2, r2
- 161 006a FD2A     		cmp	r2, #253
- 162 006c 10D9     		bls	.L14
- 163 006e 0021     		movs	r1, #0
- 164 0070 0223     		movs	r3, #2
- 165 0072 0DE0     		b	.L14
- 166              	.L19:
- 167 0074 0227     		movs	r7, #2
- 168 0076 D9E7     		b	.L15
- 169              	.L22:
- 170 0078 1B0A     		lsrs	r3, r3, #8
- 171 007a 03EB8303 		add	r3, r3, r3, lsl #2
- 172 007e 5B00     		lsls	r3, r3, #1
- 173 0080 A268     		ldr	r2, [r4, #8]
- 174 0082 B3FBF2F3 		udiv	r3, r3, r2
- 175 0086 0533     		adds	r3, r3, #5
- 176 0088 9BB2     		uxth	r3, r3
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 4
+ 135 0028 002B     		cmp	r3, #0
+ 136 002a 34D1     		bne	.L20
+ 137 002c 0127     		movs	r7, #1
+ 138              	.L15:
+ 139 002e 01A8     		add	r0, sp, #4
+ 140 0030 FFF7FEFF 		bl	RCC_GetClocksFreq
+ 141 0034 019B     		ldr	r3, [sp, #4]
+ 142 0036 E288     		ldrh	r2, [r4, #6]
+ 143 0038 B2F5007F 		cmp	r2, #512
+ 144 003c 2DD0     		beq	.L23
+ 145 003e 7F01     		lsls	r7, r7, #5
+ 146 0040 B3FBF7F3 		udiv	r3, r3, r7
+ 147 0044 03EB8303 		add	r3, r3, r3, lsl #2
+ 148 0048 5B00     		lsls	r3, r3, #1
+ 149 004a A268     		ldr	r2, [r4, #8]
+ 150 004c B3FBF2F3 		udiv	r3, r3, r2
+ 151 0050 0533     		adds	r3, r3, #5
+ 152 0052 9BB2     		uxth	r3, r3
+ 153              	.L17:
+ 154 0054 174A     		ldr	r2, .L24
+ 155 0056 A2FB0323 		umull	r2, r3, r2, r3
+ 156 005a C3F3C002 		ubfx	r2, r3, #3, #1
+ 157 005e C2EBD303 		rsb	r3, r2, r3, lsr #3
+ 158 0062 C3F34F03 		ubfx	r3, r3, #1, #16
+ 159 0066 1102     		lsls	r1, r2, #8
+ 160              	.L14:
+ 161 0068 9A1E     		subs	r2, r3, #2
+ 162 006a 92B2     		uxth	r2, r2
+ 163 006c FD2A     		cmp	r2, #253
+ 164 006e 01D9     		bls	.L18
+ 165 0070 0021     		movs	r1, #0
+ 166 0072 0223     		movs	r3, #2
+ 167              	.L18:
+ 168 0074 E288     		ldrh	r2, [r4, #6]
+ 169 0076 0A43     		orrs	r2, r2, r1
+ 170 0078 1343     		orrs	r3, r3, r2
+ 171 007a 2B84     		strh	r3, [r5, #32]	@ movhi
+ 172 007c 2388     		ldrh	r3, [r4]
+ 173 007e 6288     		ldrh	r2, [r4, #2]
+ 174 0080 A188     		ldrh	r1, [r4, #4]
+ 175 0082 A089     		ldrh	r0, [r4, #12]
+ 176 0084 0143     		orrs	r1, r1, r0
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s 			page 4
 
 
- 177 008a E2E7     		b	.L17
- 178              	.L18:
- 179 008c 0021     		movs	r1, #0
- 180 008e 0223     		movs	r3, #2
- 181              	.L14:
- 182 0090 E288     		ldrh	r2, [r4, #6]
- 183 0092 0A43     		orrs	r2, r2, r1
- 184 0094 1343     		orrs	r3, r3, r2
- 185 0096 2B84     		strh	r3, [r5, #32]	@ movhi
- 186 0098 2388     		ldrh	r3, [r4]
- 187 009a 6288     		ldrh	r2, [r4, #2]
- 188 009c A188     		ldrh	r1, [r4, #4]
- 189 009e A089     		ldrh	r0, [r4, #12]
- 190 00a0 0143     		orrs	r1, r1, r0
- 191 00a2 0A43     		orrs	r2, r2, r1
- 192 00a4 1343     		orrs	r3, r3, r2
- 193 00a6 3343     		orrs	r3, r3, r6
- 194 00a8 43F40063 		orr	r3, r3, #2048
- 195 00ac AB83     		strh	r3, [r5, #28]	@ movhi
- 196 00ae 07B0     		add	sp, sp, #28
- 197              		@ sp needed
- 198 00b0 F0BD     		pop	{r4, r5, r6, r7, pc}
- 199              	.L24:
- 200 00b2 00BF     		.align	2
- 201              	.L23:
- 202 00b4 CDCCCCCC 		.word	-858993459
- 204              		.section	.text.SPI_StructInit,"ax",%progbits
- 205              		.align	1
- 206              		.global	SPI_StructInit
- 207              		.syntax unified
- 208              		.thumb
- 209              		.thumb_func
- 211              	SPI_StructInit:
- 212              		@ args = 0, pretend = 0, frame = 0
- 213              		@ frame_needed = 0, uses_anonymous_args = 0
- 214              		@ link register save eliminated.
- 215 0000 0023     		movs	r3, #0
- 216 0002 0380     		strh	r3, [r0]	@ movhi
- 217 0004 4380     		strh	r3, [r0, #2]	@ movhi
- 218 0006 8380     		strh	r3, [r0, #4]	@ movhi
- 219 0008 C380     		strh	r3, [r0, #6]	@ movhi
- 220 000a 0381     		strh	r3, [r0, #8]	@ movhi
- 221 000c 4381     		strh	r3, [r0, #10]	@ movhi
- 222 000e 8381     		strh	r3, [r0, #12]	@ movhi
- 223 0010 C381     		strh	r3, [r0, #14]	@ movhi
- 224 0012 0723     		movs	r3, #7
- 225 0014 0382     		strh	r3, [r0, #16]	@ movhi
- 226 0016 7047     		bx	lr
- 228              		.section	.text.I2S_StructInit,"ax",%progbits
- 229              		.align	1
- 230              		.global	I2S_StructInit
- 231              		.syntax unified
- 232              		.thumb
- 233              		.thumb_func
- 235              	I2S_StructInit:
- 236              		@ args = 0, pretend = 0, frame = 0
- 237              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 5
+ 177 0086 0A43     		orrs	r2, r2, r1
+ 178 0088 1343     		orrs	r3, r3, r2
+ 179 008a 1E43     		orrs	r6, r6, r3
+ 180 008c 46F40066 		orr	r6, r6, #2048
+ 181 0090 AE83     		strh	r6, [r5, #28]	@ movhi
+ 182 0092 07B0     		add	sp, sp, #28
+ 183              		@ sp needed
+ 184 0094 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 185              	.L20:
+ 186 0096 0227     		movs	r7, #2
+ 187 0098 C9E7     		b	.L15
+ 188              	.L23:
+ 189 009a 1B0A     		lsrs	r3, r3, #8
+ 190 009c 03EB8303 		add	r3, r3, r3, lsl #2
+ 191 00a0 5B00     		lsls	r3, r3, #1
+ 192 00a2 A268     		ldr	r2, [r4, #8]
+ 193 00a4 B3FBF2F3 		udiv	r3, r3, r2
+ 194 00a8 0533     		adds	r3, r3, #5
+ 195 00aa 9BB2     		uxth	r3, r3
+ 196 00ac D2E7     		b	.L17
+ 197              	.L19:
+ 198 00ae 0021     		movs	r1, #0
+ 199 00b0 0223     		movs	r3, #2
+ 200 00b2 D9E7     		b	.L14
+ 201              	.L25:
+ 202              		.align	2
+ 203              	.L24:
+ 204 00b4 CDCCCCCC 		.word	-858993459
+ 206              		.section	.text.SPI_StructInit,"ax",%progbits
+ 207              		.align	1
+ 208              		.global	SPI_StructInit
+ 209              		.syntax unified
+ 210              		.thumb
+ 211              		.thumb_func
+ 213              	SPI_StructInit:
+ 214              		@ args = 0, pretend = 0, frame = 0
+ 215              		@ frame_needed = 0, uses_anonymous_args = 0
+ 216              		@ link register save eliminated.
+ 217 0000 0023     		movs	r3, #0
+ 218 0002 0380     		strh	r3, [r0]	@ movhi
+ 219 0004 4380     		strh	r3, [r0, #2]	@ movhi
+ 220 0006 8380     		strh	r3, [r0, #4]	@ movhi
+ 221 0008 C380     		strh	r3, [r0, #6]	@ movhi
+ 222 000a 0381     		strh	r3, [r0, #8]	@ movhi
+ 223 000c 4381     		strh	r3, [r0, #10]	@ movhi
+ 224 000e 8381     		strh	r3, [r0, #12]	@ movhi
+ 225 0010 C381     		strh	r3, [r0, #14]	@ movhi
+ 226 0012 0723     		movs	r3, #7
+ 227 0014 0382     		strh	r3, [r0, #16]	@ movhi
+ 228 0016 7047     		bx	lr
+ 230              		.section	.text.I2S_StructInit,"ax",%progbits
+ 231              		.align	1
+ 232              		.global	I2S_StructInit
+ 233              		.syntax unified
+ 234              		.thumb
+ 235              		.thumb_func
+ 237              	I2S_StructInit:
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s 			page 5
 
 
- 238              		@ link register save eliminated.
- 239 0000 0023     		movs	r3, #0
- 240 0002 0380     		strh	r3, [r0]	@ movhi
- 241 0004 4380     		strh	r3, [r0, #2]	@ movhi
- 242 0006 8380     		strh	r3, [r0, #4]	@ movhi
- 243 0008 C380     		strh	r3, [r0, #6]	@ movhi
- 244 000a 0222     		movs	r2, #2
- 245 000c 8260     		str	r2, [r0, #8]
- 246 000e 8381     		strh	r3, [r0, #12]	@ movhi
- 247 0010 7047     		bx	lr
- 249              		.section	.text.SPI_Cmd,"ax",%progbits
- 250              		.align	1
- 251              		.global	SPI_Cmd
- 252              		.syntax unified
- 253              		.thumb
- 254              		.thumb_func
- 256              	SPI_Cmd:
- 257              		@ args = 0, pretend = 0, frame = 0
- 258              		@ frame_needed = 0, uses_anonymous_args = 0
- 259              		@ link register save eliminated.
- 260 0000 29B1     		cbz	r1, .L28
- 261 0002 0388     		ldrh	r3, [r0]
- 262 0004 9BB2     		uxth	r3, r3
- 263 0006 43F04003 		orr	r3, r3, #64
- 264 000a 0380     		strh	r3, [r0]	@ movhi
- 265 000c 7047     		bx	lr
- 266              	.L28:
- 267 000e 0388     		ldrh	r3, [r0]
- 268 0010 9BB2     		uxth	r3, r3
- 269 0012 23F04003 		bic	r3, r3, #64
- 270 0016 9BB2     		uxth	r3, r3
- 271 0018 0380     		strh	r3, [r0]	@ movhi
- 272 001a 7047     		bx	lr
- 274              		.section	.text.I2S_Cmd,"ax",%progbits
- 275              		.align	1
- 276              		.global	I2S_Cmd
- 277              		.syntax unified
- 278              		.thumb
- 279              		.thumb_func
- 281              	I2S_Cmd:
- 282              		@ args = 0, pretend = 0, frame = 0
- 283              		@ frame_needed = 0, uses_anonymous_args = 0
- 284              		@ link register save eliminated.
- 285 0000 29B1     		cbz	r1, .L31
- 286 0002 838B     		ldrh	r3, [r0, #28]
- 287 0004 9BB2     		uxth	r3, r3
- 288 0006 43F48063 		orr	r3, r3, #1024
- 289 000a 8383     		strh	r3, [r0, #28]	@ movhi
- 290 000c 7047     		bx	lr
- 291              	.L31:
- 292 000e 838B     		ldrh	r3, [r0, #28]
- 293 0010 9BB2     		uxth	r3, r3
- 294 0012 23F48063 		bic	r3, r3, #1024
- 295 0016 9BB2     		uxth	r3, r3
- 296 0018 8383     		strh	r3, [r0, #28]	@ movhi
- 297 001a 7047     		bx	lr
- 299              		.section	.text.SPI_I2S_ITConfig,"ax",%progbits
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 6
+ 238              		@ args = 0, pretend = 0, frame = 0
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240              		@ link register save eliminated.
+ 241 0000 0023     		movs	r3, #0
+ 242 0002 0380     		strh	r3, [r0]	@ movhi
+ 243 0004 4380     		strh	r3, [r0, #2]	@ movhi
+ 244 0006 8380     		strh	r3, [r0, #4]	@ movhi
+ 245 0008 C380     		strh	r3, [r0, #6]	@ movhi
+ 246 000a 0222     		movs	r2, #2
+ 247 000c 8260     		str	r2, [r0, #8]
+ 248 000e 8381     		strh	r3, [r0, #12]	@ movhi
+ 249 0010 7047     		bx	lr
+ 251              		.section	.text.SPI_Cmd,"ax",%progbits
+ 252              		.align	1
+ 253              		.global	SPI_Cmd
+ 254              		.syntax unified
+ 255              		.thumb
+ 256              		.thumb_func
+ 258              	SPI_Cmd:
+ 259              		@ args = 0, pretend = 0, frame = 0
+ 260              		@ frame_needed = 0, uses_anonymous_args = 0
+ 261              		@ link register save eliminated.
+ 262 0000 29B1     		cbz	r1, .L29
+ 263 0002 0388     		ldrh	r3, [r0]
+ 264 0004 9BB2     		uxth	r3, r3
+ 265 0006 43F04003 		orr	r3, r3, #64
+ 266 000a 0380     		strh	r3, [r0]	@ movhi
+ 267 000c 7047     		bx	lr
+ 268              	.L29:
+ 269 000e 0388     		ldrh	r3, [r0]
+ 270 0010 9BB2     		uxth	r3, r3
+ 271 0012 23F04003 		bic	r3, r3, #64
+ 272 0016 9BB2     		uxth	r3, r3
+ 273 0018 0380     		strh	r3, [r0]	@ movhi
+ 274 001a 7047     		bx	lr
+ 276              		.section	.text.I2S_Cmd,"ax",%progbits
+ 277              		.align	1
+ 278              		.global	I2S_Cmd
+ 279              		.syntax unified
+ 280              		.thumb
+ 281              		.thumb_func
+ 283              	I2S_Cmd:
+ 284              		@ args = 0, pretend = 0, frame = 0
+ 285              		@ frame_needed = 0, uses_anonymous_args = 0
+ 286              		@ link register save eliminated.
+ 287 0000 29B1     		cbz	r1, .L32
+ 288 0002 838B     		ldrh	r3, [r0, #28]
+ 289 0004 9BB2     		uxth	r3, r3
+ 290 0006 43F48063 		orr	r3, r3, #1024
+ 291 000a 8383     		strh	r3, [r0, #28]	@ movhi
+ 292 000c 7047     		bx	lr
+ 293              	.L32:
+ 294 000e 838B     		ldrh	r3, [r0, #28]
+ 295 0010 9BB2     		uxth	r3, r3
+ 296 0012 23F48063 		bic	r3, r3, #1024
+ 297 0016 9BB2     		uxth	r3, r3
+ 298 0018 8383     		strh	r3, [r0, #28]	@ movhi
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s 			page 6
 
 
- 300              		.align	1
- 301              		.global	SPI_I2S_ITConfig
- 302              		.syntax unified
- 303              		.thumb
- 304              		.thumb_func
- 306              	SPI_I2S_ITConfig:
- 307              		@ args = 0, pretend = 0, frame = 0
- 308              		@ frame_needed = 0, uses_anonymous_args = 0
- 309              		@ link register save eliminated.
- 310 0000 0909     		lsrs	r1, r1, #4
- 311 0002 0123     		movs	r3, #1
- 312 0004 8B40     		lsls	r3, r3, r1
- 313 0006 9BB2     		uxth	r3, r3
- 314 0008 22B1     		cbz	r2, .L34
- 315 000a 8288     		ldrh	r2, [r0, #4]
- 316 000c 92B2     		uxth	r2, r2
- 317 000e 1343     		orrs	r3, r3, r2
- 318 0010 8380     		strh	r3, [r0, #4]	@ movhi
- 319 0012 7047     		bx	lr
- 320              	.L34:
- 321 0014 8288     		ldrh	r2, [r0, #4]
- 322 0016 DB43     		mvns	r3, r3
- 323 0018 9BB2     		uxth	r3, r3
- 324 001a 1340     		ands	r3, r3, r2
- 325 001c 8380     		strh	r3, [r0, #4]	@ movhi
- 326 001e 7047     		bx	lr
- 328              		.section	.text.SPI_I2S_DMACmd,"ax",%progbits
- 329              		.align	1
- 330              		.global	SPI_I2S_DMACmd
- 331              		.syntax unified
- 332              		.thumb
- 333              		.thumb_func
- 335              	SPI_I2S_DMACmd:
- 336              		@ args = 0, pretend = 0, frame = 0
- 337              		@ frame_needed = 0, uses_anonymous_args = 0
- 338              		@ link register save eliminated.
- 339 0000 22B1     		cbz	r2, .L37
- 340 0002 8388     		ldrh	r3, [r0, #4]
- 341 0004 9BB2     		uxth	r3, r3
- 342 0006 0B43     		orrs	r3, r3, r1
- 343 0008 8380     		strh	r3, [r0, #4]	@ movhi
- 344 000a 7047     		bx	lr
- 345              	.L37:
- 346 000c 8388     		ldrh	r3, [r0, #4]
- 347 000e C943     		mvns	r1, r1
- 348 0010 89B2     		uxth	r1, r1
- 349 0012 1940     		ands	r1, r1, r3
- 350 0014 8180     		strh	r1, [r0, #4]	@ movhi
- 351 0016 7047     		bx	lr
- 353              		.section	.text.SPI_I2S_SendData,"ax",%progbits
- 354              		.align	1
- 355              		.global	SPI_I2S_SendData
- 356              		.syntax unified
- 357              		.thumb
- 358              		.thumb_func
- 360              	SPI_I2S_SendData:
- 361              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 7
+ 299 001a 7047     		bx	lr
+ 301              		.section	.text.SPI_I2S_ITConfig,"ax",%progbits
+ 302              		.align	1
+ 303              		.global	SPI_I2S_ITConfig
+ 304              		.syntax unified
+ 305              		.thumb
+ 306              		.thumb_func
+ 308              	SPI_I2S_ITConfig:
+ 309              		@ args = 0, pretend = 0, frame = 0
+ 310              		@ frame_needed = 0, uses_anonymous_args = 0
+ 311              		@ link register save eliminated.
+ 312 0000 0B09     		lsrs	r3, r1, #4
+ 313 0002 0121     		movs	r1, #1
+ 314 0004 9940     		lsls	r1, r1, r3
+ 315 0006 89B2     		uxth	r1, r1
+ 316 0008 22B1     		cbz	r2, .L35
+ 317 000a 8388     		ldrh	r3, [r0, #4]
+ 318 000c 9BB2     		uxth	r3, r3
+ 319 000e 1943     		orrs	r1, r1, r3
+ 320 0010 8180     		strh	r1, [r0, #4]	@ movhi
+ 321 0012 7047     		bx	lr
+ 322              	.L35:
+ 323 0014 8388     		ldrh	r3, [r0, #4]
+ 324 0016 C943     		mvns	r1, r1
+ 325 0018 89B2     		uxth	r1, r1
+ 326 001a 1940     		ands	r1, r1, r3
+ 327 001c 8180     		strh	r1, [r0, #4]	@ movhi
+ 328 001e 7047     		bx	lr
+ 330              		.section	.text.SPI_I2S_DMACmd,"ax",%progbits
+ 331              		.align	1
+ 332              		.global	SPI_I2S_DMACmd
+ 333              		.syntax unified
+ 334              		.thumb
+ 335              		.thumb_func
+ 337              	SPI_I2S_DMACmd:
+ 338              		@ args = 0, pretend = 0, frame = 0
+ 339              		@ frame_needed = 0, uses_anonymous_args = 0
+ 340              		@ link register save eliminated.
+ 341 0000 22B1     		cbz	r2, .L38
+ 342 0002 8388     		ldrh	r3, [r0, #4]
+ 343 0004 9BB2     		uxth	r3, r3
+ 344 0006 1943     		orrs	r1, r1, r3
+ 345 0008 8180     		strh	r1, [r0, #4]	@ movhi
+ 346 000a 7047     		bx	lr
+ 347              	.L38:
+ 348 000c 8388     		ldrh	r3, [r0, #4]
+ 349 000e C943     		mvns	r1, r1
+ 350 0010 89B2     		uxth	r1, r1
+ 351 0012 1940     		ands	r1, r1, r3
+ 352 0014 8180     		strh	r1, [r0, #4]	@ movhi
+ 353 0016 7047     		bx	lr
+ 355              		.section	.text.SPI_I2S_SendData,"ax",%progbits
+ 356              		.align	1
+ 357              		.global	SPI_I2S_SendData
+ 358              		.syntax unified
+ 359              		.thumb
+ 360              		.thumb_func
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s 			page 7
 
 
- 362              		@ frame_needed = 0, uses_anonymous_args = 0
- 363              		@ link register save eliminated.
- 364 0000 8181     		strh	r1, [r0, #12]	@ movhi
- 365 0002 7047     		bx	lr
- 367              		.section	.text.SPI_I2S_ReceiveData,"ax",%progbits
- 368              		.align	1
- 369              		.global	SPI_I2S_ReceiveData
- 370              		.syntax unified
- 371              		.thumb
- 372              		.thumb_func
- 374              	SPI_I2S_ReceiveData:
- 375              		@ args = 0, pretend = 0, frame = 0
- 376              		@ frame_needed = 0, uses_anonymous_args = 0
- 377              		@ link register save eliminated.
- 378 0000 8089     		ldrh	r0, [r0, #12]
- 379 0002 80B2     		uxth	r0, r0
- 380 0004 7047     		bx	lr
- 382              		.section	.text.SPI_NSSInternalSoftwareConfig,"ax",%progbits
- 383              		.align	1
- 384              		.global	SPI_NSSInternalSoftwareConfig
- 385              		.syntax unified
- 386              		.thumb
- 387              		.thumb_func
- 389              	SPI_NSSInternalSoftwareConfig:
- 390              		@ args = 0, pretend = 0, frame = 0
- 391              		@ frame_needed = 0, uses_anonymous_args = 0
- 392              		@ link register save eliminated.
- 393 0000 4FF6FF63 		movw	r3, #65279
- 394 0004 9942     		cmp	r1, r3
- 395 0006 05D0     		beq	.L42
- 396 0008 0388     		ldrh	r3, [r0]
- 397 000a 9BB2     		uxth	r3, r3
- 398 000c 43F48073 		orr	r3, r3, #256
- 399 0010 0380     		strh	r3, [r0]	@ movhi
- 400 0012 7047     		bx	lr
- 401              	.L42:
- 402 0014 0388     		ldrh	r3, [r0]
- 403 0016 9BB2     		uxth	r3, r3
- 404 0018 23F48073 		bic	r3, r3, #256
- 405 001c 9BB2     		uxth	r3, r3
- 406 001e 0380     		strh	r3, [r0]	@ movhi
- 407 0020 7047     		bx	lr
- 409              		.section	.text.SPI_SSOutputCmd,"ax",%progbits
- 410              		.align	1
- 411              		.global	SPI_SSOutputCmd
- 412              		.syntax unified
- 413              		.thumb
- 414              		.thumb_func
- 416              	SPI_SSOutputCmd:
- 417              		@ args = 0, pretend = 0, frame = 0
- 418              		@ frame_needed = 0, uses_anonymous_args = 0
- 419              		@ link register save eliminated.
- 420 0000 29B1     		cbz	r1, .L45
- 421 0002 8388     		ldrh	r3, [r0, #4]
- 422 0004 9BB2     		uxth	r3, r3
- 423 0006 43F00403 		orr	r3, r3, #4
- 424 000a 8380     		strh	r3, [r0, #4]	@ movhi
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 8
+ 362              	SPI_I2S_SendData:
+ 363              		@ args = 0, pretend = 0, frame = 0
+ 364              		@ frame_needed = 0, uses_anonymous_args = 0
+ 365              		@ link register save eliminated.
+ 366 0000 8181     		strh	r1, [r0, #12]	@ movhi
+ 367 0002 7047     		bx	lr
+ 369              		.section	.text.SPI_I2S_ReceiveData,"ax",%progbits
+ 370              		.align	1
+ 371              		.global	SPI_I2S_ReceiveData
+ 372              		.syntax unified
+ 373              		.thumb
+ 374              		.thumb_func
+ 376              	SPI_I2S_ReceiveData:
+ 377              		@ args = 0, pretend = 0, frame = 0
+ 378              		@ frame_needed = 0, uses_anonymous_args = 0
+ 379              		@ link register save eliminated.
+ 380 0000 8089     		ldrh	r0, [r0, #12]
+ 381 0002 80B2     		uxth	r0, r0
+ 382 0004 7047     		bx	lr
+ 384              		.section	.text.SPI_NSSInternalSoftwareConfig,"ax",%progbits
+ 385              		.align	1
+ 386              		.global	SPI_NSSInternalSoftwareConfig
+ 387              		.syntax unified
+ 388              		.thumb
+ 389              		.thumb_func
+ 391              	SPI_NSSInternalSoftwareConfig:
+ 392              		@ args = 0, pretend = 0, frame = 0
+ 393              		@ frame_needed = 0, uses_anonymous_args = 0
+ 394              		@ link register save eliminated.
+ 395 0000 4FF6FF63 		movw	r3, #65279
+ 396 0004 9942     		cmp	r1, r3
+ 397 0006 05D0     		beq	.L43
+ 398 0008 0388     		ldrh	r3, [r0]
+ 399 000a 9BB2     		uxth	r3, r3
+ 400 000c 43F48073 		orr	r3, r3, #256
+ 401 0010 0380     		strh	r3, [r0]	@ movhi
+ 402 0012 7047     		bx	lr
+ 403              	.L43:
+ 404 0014 0388     		ldrh	r3, [r0]
+ 405 0016 9BB2     		uxth	r3, r3
+ 406 0018 23F48073 		bic	r3, r3, #256
+ 407 001c 9BB2     		uxth	r3, r3
+ 408 001e 0380     		strh	r3, [r0]	@ movhi
+ 409 0020 7047     		bx	lr
+ 411              		.section	.text.SPI_SSOutputCmd,"ax",%progbits
+ 412              		.align	1
+ 413              		.global	SPI_SSOutputCmd
+ 414              		.syntax unified
+ 415              		.thumb
+ 416              		.thumb_func
+ 418              	SPI_SSOutputCmd:
+ 419              		@ args = 0, pretend = 0, frame = 0
+ 420              		@ frame_needed = 0, uses_anonymous_args = 0
+ 421              		@ link register save eliminated.
+ 422 0000 29B1     		cbz	r1, .L46
+ 423 0002 8388     		ldrh	r3, [r0, #4]
+ 424 0004 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s 			page 8
 
 
- 425 000c 7047     		bx	lr
- 426              	.L45:
- 427 000e 8388     		ldrh	r3, [r0, #4]
- 428 0010 9BB2     		uxth	r3, r3
- 429 0012 23F00403 		bic	r3, r3, #4
- 430 0016 9BB2     		uxth	r3, r3
- 431 0018 8380     		strh	r3, [r0, #4]	@ movhi
- 432 001a 7047     		bx	lr
- 434              		.section	.text.SPI_DataSizeConfig,"ax",%progbits
- 435              		.align	1
- 436              		.global	SPI_DataSizeConfig
- 437              		.syntax unified
- 438              		.thumb
- 439              		.thumb_func
- 441              	SPI_DataSizeConfig:
- 442              		@ args = 0, pretend = 0, frame = 0
- 443              		@ frame_needed = 0, uses_anonymous_args = 0
- 444              		@ link register save eliminated.
- 445 0000 0388     		ldrh	r3, [r0]
- 446 0002 9BB2     		uxth	r3, r3
- 447 0004 23F40063 		bic	r3, r3, #2048
- 448 0008 9BB2     		uxth	r3, r3
- 449 000a 0380     		strh	r3, [r0]	@ movhi
- 450 000c 0388     		ldrh	r3, [r0]
- 451 000e 9BB2     		uxth	r3, r3
- 452 0010 0B43     		orrs	r3, r3, r1
- 453 0012 0380     		strh	r3, [r0]	@ movhi
- 454 0014 7047     		bx	lr
- 456              		.section	.text.SPI_TransmitCRC,"ax",%progbits
- 457              		.align	1
- 458              		.global	SPI_TransmitCRC
- 459              		.syntax unified
- 460              		.thumb
- 461              		.thumb_func
- 463              	SPI_TransmitCRC:
- 464              		@ args = 0, pretend = 0, frame = 0
- 465              		@ frame_needed = 0, uses_anonymous_args = 0
- 466              		@ link register save eliminated.
- 467 0000 0388     		ldrh	r3, [r0]
- 468 0002 9BB2     		uxth	r3, r3
- 469 0004 43F48053 		orr	r3, r3, #4096
- 470 0008 0380     		strh	r3, [r0]	@ movhi
- 471 000a 7047     		bx	lr
- 473              		.section	.text.SPI_CalculateCRC,"ax",%progbits
- 474              		.align	1
- 475              		.global	SPI_CalculateCRC
- 476              		.syntax unified
- 477              		.thumb
- 478              		.thumb_func
- 480              	SPI_CalculateCRC:
- 481              		@ args = 0, pretend = 0, frame = 0
- 482              		@ frame_needed = 0, uses_anonymous_args = 0
- 483              		@ link register save eliminated.
- 484 0000 29B1     		cbz	r1, .L50
- 485 0002 0388     		ldrh	r3, [r0]
- 486 0004 9BB2     		uxth	r3, r3
- 487 0006 43F40053 		orr	r3, r3, #8192
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 9
+ 425 0006 43F00403 		orr	r3, r3, #4
+ 426 000a 8380     		strh	r3, [r0, #4]	@ movhi
+ 427 000c 7047     		bx	lr
+ 428              	.L46:
+ 429 000e 8388     		ldrh	r3, [r0, #4]
+ 430 0010 9BB2     		uxth	r3, r3
+ 431 0012 23F00403 		bic	r3, r3, #4
+ 432 0016 9BB2     		uxth	r3, r3
+ 433 0018 8380     		strh	r3, [r0, #4]	@ movhi
+ 434 001a 7047     		bx	lr
+ 436              		.section	.text.SPI_DataSizeConfig,"ax",%progbits
+ 437              		.align	1
+ 438              		.global	SPI_DataSizeConfig
+ 439              		.syntax unified
+ 440              		.thumb
+ 441              		.thumb_func
+ 443              	SPI_DataSizeConfig:
+ 444              		@ args = 0, pretend = 0, frame = 0
+ 445              		@ frame_needed = 0, uses_anonymous_args = 0
+ 446              		@ link register save eliminated.
+ 447 0000 0388     		ldrh	r3, [r0]
+ 448 0002 9BB2     		uxth	r3, r3
+ 449 0004 23F40063 		bic	r3, r3, #2048
+ 450 0008 9BB2     		uxth	r3, r3
+ 451 000a 0380     		strh	r3, [r0]	@ movhi
+ 452 000c 0388     		ldrh	r3, [r0]
+ 453 000e 9BB2     		uxth	r3, r3
+ 454 0010 0B43     		orrs	r3, r3, r1
+ 455 0012 0380     		strh	r3, [r0]	@ movhi
+ 456 0014 7047     		bx	lr
+ 458              		.section	.text.SPI_TransmitCRC,"ax",%progbits
+ 459              		.align	1
+ 460              		.global	SPI_TransmitCRC
+ 461              		.syntax unified
+ 462              		.thumb
+ 463              		.thumb_func
+ 465              	SPI_TransmitCRC:
+ 466              		@ args = 0, pretend = 0, frame = 0
+ 467              		@ frame_needed = 0, uses_anonymous_args = 0
+ 468              		@ link register save eliminated.
+ 469 0000 0388     		ldrh	r3, [r0]
+ 470 0002 9BB2     		uxth	r3, r3
+ 471 0004 43F48053 		orr	r3, r3, #4096
+ 472 0008 0380     		strh	r3, [r0]	@ movhi
+ 473 000a 7047     		bx	lr
+ 475              		.section	.text.SPI_CalculateCRC,"ax",%progbits
+ 476              		.align	1
+ 477              		.global	SPI_CalculateCRC
+ 478              		.syntax unified
+ 479              		.thumb
+ 480              		.thumb_func
+ 482              	SPI_CalculateCRC:
+ 483              		@ args = 0, pretend = 0, frame = 0
+ 484              		@ frame_needed = 0, uses_anonymous_args = 0
+ 485              		@ link register save eliminated.
+ 486 0000 29B1     		cbz	r1, .L51
+ 487 0002 0388     		ldrh	r3, [r0]
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s 			page 9
 
 
- 488 000a 0380     		strh	r3, [r0]	@ movhi
- 489 000c 7047     		bx	lr
- 490              	.L50:
- 491 000e 0388     		ldrh	r3, [r0]
- 492 0010 9BB2     		uxth	r3, r3
- 493 0012 23F40053 		bic	r3, r3, #8192
- 494 0016 9BB2     		uxth	r3, r3
- 495 0018 0380     		strh	r3, [r0]	@ movhi
- 496 001a 7047     		bx	lr
- 498              		.section	.text.SPI_GetCRC,"ax",%progbits
- 499              		.align	1
- 500              		.global	SPI_GetCRC
- 501              		.syntax unified
- 502              		.thumb
- 503              		.thumb_func
- 505              	SPI_GetCRC:
- 506              		@ args = 0, pretend = 0, frame = 0
- 507              		@ frame_needed = 0, uses_anonymous_args = 0
- 508              		@ link register save eliminated.
- 509 0000 0129     		cmp	r1, #1
- 510 0002 02D0     		beq	.L53
- 511 0004 008B     		ldrh	r0, [r0, #24]
- 512 0006 80B2     		uxth	r0, r0
- 513 0008 7047     		bx	lr
- 514              	.L53:
- 515 000a 808A     		ldrh	r0, [r0, #20]
- 516 000c 80B2     		uxth	r0, r0
- 517 000e 7047     		bx	lr
- 519              		.section	.text.SPI_GetCRCPolynomial,"ax",%progbits
- 520              		.align	1
- 521              		.global	SPI_GetCRCPolynomial
- 522              		.syntax unified
- 523              		.thumb
- 524              		.thumb_func
- 526              	SPI_GetCRCPolynomial:
- 527              		@ args = 0, pretend = 0, frame = 0
- 528              		@ frame_needed = 0, uses_anonymous_args = 0
- 529              		@ link register save eliminated.
- 530 0000 008A     		ldrh	r0, [r0, #16]
- 531 0002 80B2     		uxth	r0, r0
- 532 0004 7047     		bx	lr
- 534              		.section	.text.SPI_BiDirectionalLineConfig,"ax",%progbits
- 535              		.align	1
- 536              		.global	SPI_BiDirectionalLineConfig
- 537              		.syntax unified
- 538              		.thumb
- 539              		.thumb_func
- 541              	SPI_BiDirectionalLineConfig:
- 542              		@ args = 0, pretend = 0, frame = 0
- 543              		@ frame_needed = 0, uses_anonymous_args = 0
- 544              		@ link register save eliminated.
- 545 0000 B1F5804F 		cmp	r1, #16384
- 546 0004 06D0     		beq	.L59
- 547 0006 0388     		ldrh	r3, [r0]
- 548 0008 9BB2     		uxth	r3, r3
- 549 000a 23F48043 		bic	r3, r3, #16384
- 550 000e 9BB2     		uxth	r3, r3
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 10
+ 488 0004 9BB2     		uxth	r3, r3
+ 489 0006 43F40053 		orr	r3, r3, #8192
+ 490 000a 0380     		strh	r3, [r0]	@ movhi
+ 491 000c 7047     		bx	lr
+ 492              	.L51:
+ 493 000e 0388     		ldrh	r3, [r0]
+ 494 0010 9BB2     		uxth	r3, r3
+ 495 0012 23F40053 		bic	r3, r3, #8192
+ 496 0016 9BB2     		uxth	r3, r3
+ 497 0018 0380     		strh	r3, [r0]	@ movhi
+ 498 001a 7047     		bx	lr
+ 500              		.section	.text.SPI_GetCRC,"ax",%progbits
+ 501              		.align	1
+ 502              		.global	SPI_GetCRC
+ 503              		.syntax unified
+ 504              		.thumb
+ 505              		.thumb_func
+ 507              	SPI_GetCRC:
+ 508              		@ args = 0, pretend = 0, frame = 0
+ 509              		@ frame_needed = 0, uses_anonymous_args = 0
+ 510              		@ link register save eliminated.
+ 511 0000 0129     		cmp	r1, #1
+ 512 0002 02D0     		beq	.L54
+ 513 0004 008B     		ldrh	r0, [r0, #24]
+ 514 0006 80B2     		uxth	r0, r0
+ 515 0008 7047     		bx	lr
+ 516              	.L54:
+ 517 000a 808A     		ldrh	r0, [r0, #20]
+ 518 000c 80B2     		uxth	r0, r0
+ 519 000e 7047     		bx	lr
+ 521              		.section	.text.SPI_GetCRCPolynomial,"ax",%progbits
+ 522              		.align	1
+ 523              		.global	SPI_GetCRCPolynomial
+ 524              		.syntax unified
+ 525              		.thumb
+ 526              		.thumb_func
+ 528              	SPI_GetCRCPolynomial:
+ 529              		@ args = 0, pretend = 0, frame = 0
+ 530              		@ frame_needed = 0, uses_anonymous_args = 0
+ 531              		@ link register save eliminated.
+ 532 0000 008A     		ldrh	r0, [r0, #16]
+ 533 0002 80B2     		uxth	r0, r0
+ 534 0004 7047     		bx	lr
+ 536              		.section	.text.SPI_BiDirectionalLineConfig,"ax",%progbits
+ 537              		.align	1
+ 538              		.global	SPI_BiDirectionalLineConfig
+ 539              		.syntax unified
+ 540              		.thumb
+ 541              		.thumb_func
+ 543              	SPI_BiDirectionalLineConfig:
+ 544              		@ args = 0, pretend = 0, frame = 0
+ 545              		@ frame_needed = 0, uses_anonymous_args = 0
+ 546              		@ link register save eliminated.
+ 547 0000 B1F5804F 		cmp	r1, #16384
+ 548 0004 06D0     		beq	.L60
+ 549 0006 0388     		ldrh	r3, [r0]
+ 550 0008 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s 			page 10
 
 
- 551 0010 0380     		strh	r3, [r0]	@ movhi
- 552 0012 7047     		bx	lr
- 553              	.L59:
- 554 0014 0388     		ldrh	r3, [r0]
- 555 0016 9BB2     		uxth	r3, r3
- 556 0018 43F48043 		orr	r3, r3, #16384
- 557 001c 0380     		strh	r3, [r0]	@ movhi
- 558 001e 7047     		bx	lr
- 560              		.section	.text.SPI_I2S_GetFlagStatus,"ax",%progbits
- 561              		.align	1
- 562              		.global	SPI_I2S_GetFlagStatus
- 563              		.syntax unified
- 564              		.thumb
- 565              		.thumb_func
- 567              	SPI_I2S_GetFlagStatus:
- 568              		@ args = 0, pretend = 0, frame = 0
- 569              		@ frame_needed = 0, uses_anonymous_args = 0
- 570              		@ link register save eliminated.
- 571 0000 0389     		ldrh	r3, [r0, #8]
- 572 0002 1942     		tst	r1, r3
- 573 0004 01D0     		beq	.L62
- 574 0006 0120     		movs	r0, #1
- 575 0008 7047     		bx	lr
- 576              	.L62:
- 577 000a 0020     		movs	r0, #0
- 578 000c 7047     		bx	lr
- 580              		.section	.text.SPI_I2S_ClearFlag,"ax",%progbits
- 581              		.align	1
- 582              		.global	SPI_I2S_ClearFlag
- 583              		.syntax unified
- 584              		.thumb
- 585              		.thumb_func
- 587              	SPI_I2S_ClearFlag:
- 588              		@ args = 0, pretend = 0, frame = 0
- 589              		@ frame_needed = 0, uses_anonymous_args = 0
- 590              		@ link register save eliminated.
- 591 0000 C943     		mvns	r1, r1
- 592 0002 89B2     		uxth	r1, r1
- 593 0004 0181     		strh	r1, [r0, #8]	@ movhi
- 594 0006 7047     		bx	lr
- 596              		.section	.text.SPI_I2S_GetITStatus,"ax",%progbits
- 597              		.align	1
- 598              		.global	SPI_I2S_GetITStatus
- 599              		.syntax unified
- 600              		.thumb
- 601              		.thumb_func
- 603              	SPI_I2S_GetITStatus:
- 604              		@ args = 0, pretend = 0, frame = 0
- 605              		@ frame_needed = 0, uses_anonymous_args = 0
- 606              		@ link register save eliminated.
- 607 0000 01F00F0C 		and	ip, r1, #15
- 608 0004 0123     		movs	r3, #1
- 609 0006 03FA0CFC 		lsl	ip, r3, ip
- 610 000a 0909     		lsrs	r1, r1, #4
- 611 000c 8B40     		lsls	r3, r3, r1
- 612 000e 8288     		ldrh	r2, [r0, #4]
- 613 0010 92B2     		uxth	r2, r2
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 11
+ 551 000a 23F48043 		bic	r3, r3, #16384
+ 552 000e 9BB2     		uxth	r3, r3
+ 553 0010 0380     		strh	r3, [r0]	@ movhi
+ 554 0012 7047     		bx	lr
+ 555              	.L60:
+ 556 0014 0388     		ldrh	r3, [r0]
+ 557 0016 9BB2     		uxth	r3, r3
+ 558 0018 43F48043 		orr	r3, r3, #16384
+ 559 001c 0380     		strh	r3, [r0]	@ movhi
+ 560 001e 7047     		bx	lr
+ 562              		.section	.text.SPI_I2S_GetFlagStatus,"ax",%progbits
+ 563              		.align	1
+ 564              		.global	SPI_I2S_GetFlagStatus
+ 565              		.syntax unified
+ 566              		.thumb
+ 567              		.thumb_func
+ 569              	SPI_I2S_GetFlagStatus:
+ 570              		@ args = 0, pretend = 0, frame = 0
+ 571              		@ frame_needed = 0, uses_anonymous_args = 0
+ 572              		@ link register save eliminated.
+ 573 0000 0389     		ldrh	r3, [r0, #8]
+ 574 0002 1942     		tst	r1, r3
+ 575 0004 01D0     		beq	.L63
+ 576 0006 0120     		movs	r0, #1
+ 577 0008 7047     		bx	lr
+ 578              	.L63:
+ 579 000a 0020     		movs	r0, #0
+ 580 000c 7047     		bx	lr
+ 582              		.section	.text.SPI_I2S_ClearFlag,"ax",%progbits
+ 583              		.align	1
+ 584              		.global	SPI_I2S_ClearFlag
+ 585              		.syntax unified
+ 586              		.thumb
+ 587              		.thumb_func
+ 589              	SPI_I2S_ClearFlag:
+ 590              		@ args = 0, pretend = 0, frame = 0
+ 591              		@ frame_needed = 0, uses_anonymous_args = 0
+ 592              		@ link register save eliminated.
+ 593 0000 C943     		mvns	r1, r1
+ 594 0002 89B2     		uxth	r1, r1
+ 595 0004 0181     		strh	r1, [r0, #8]	@ movhi
+ 596 0006 7047     		bx	lr
+ 598              		.section	.text.SPI_I2S_GetITStatus,"ax",%progbits
+ 599              		.align	1
+ 600              		.global	SPI_I2S_GetITStatus
+ 601              		.syntax unified
+ 602              		.thumb
+ 603              		.thumb_func
+ 605              	SPI_I2S_GetITStatus:
+ 606              		@ args = 0, pretend = 0, frame = 0
+ 607              		@ frame_needed = 0, uses_anonymous_args = 0
+ 608              		@ link register save eliminated.
+ 609 0000 01F00F02 		and	r2, r1, #15
+ 610 0004 0123     		movs	r3, #1
+ 611 0006 03FA02F2 		lsl	r2, r3, r2
+ 612 000a 0909     		lsrs	r1, r1, #4
+ 613 000c 03FA01F1 		lsl	r1, r3, r1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s 			page 11
 
 
- 614 0012 1340     		ands	r3, r3, r2
- 615 0014 0289     		ldrh	r2, [r0, #8]
- 616 0016 92B2     		uxth	r2, r2
- 617 0018 1CEA020F 		tst	ip, r2
- 618 001c 02D0     		beq	.L66
- 619 001e 1BB9     		cbnz	r3, .L67
- 620 0020 0020     		movs	r0, #0
- 621 0022 7047     		bx	lr
- 622              	.L66:
- 623 0024 0020     		movs	r0, #0
- 624 0026 7047     		bx	lr
- 625              	.L67:
- 626 0028 0120     		movs	r0, #1
- 627 002a 7047     		bx	lr
- 629              		.section	.text.SPI_I2S_ClearITPendingBit,"ax",%progbits
- 630              		.align	1
- 631              		.global	SPI_I2S_ClearITPendingBit
- 632              		.syntax unified
- 633              		.thumb
- 634              		.thumb_func
- 636              	SPI_I2S_ClearITPendingBit:
- 637              		@ args = 0, pretend = 0, frame = 0
- 638              		@ frame_needed = 0, uses_anonymous_args = 0
- 639              		@ link register save eliminated.
- 640 0000 01F00F01 		and	r1, r1, #15
- 641 0004 0123     		movs	r3, #1
- 642 0006 8B40     		lsls	r3, r3, r1
- 643 0008 9BB2     		uxth	r3, r3
- 644 000a DB43     		mvns	r3, r3
- 645 000c 9BB2     		uxth	r3, r3
- 646 000e 0381     		strh	r3, [r0, #8]	@ movhi
- 647 0010 7047     		bx	lr
- 649              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s 			page 12
+ 614 0010 8388     		ldrh	r3, [r0, #4]
+ 615 0012 9BB2     		uxth	r3, r3
+ 616 0014 1940     		ands	r1, r1, r3
+ 617 0016 0389     		ldrh	r3, [r0, #8]
+ 618 0018 9BB2     		uxth	r3, r3
+ 619 001a 1A42     		tst	r2, r3
+ 620 001c 02D0     		beq	.L67
+ 621 001e 19B9     		cbnz	r1, .L68
+ 622 0020 0020     		movs	r0, #0
+ 623 0022 7047     		bx	lr
+ 624              	.L67:
+ 625 0024 0020     		movs	r0, #0
+ 626 0026 7047     		bx	lr
+ 627              	.L68:
+ 628 0028 0120     		movs	r0, #1
+ 629 002a 7047     		bx	lr
+ 631              		.section	.text.SPI_I2S_ClearITPendingBit,"ax",%progbits
+ 632              		.align	1
+ 633              		.global	SPI_I2S_ClearITPendingBit
+ 634              		.syntax unified
+ 635              		.thumb
+ 636              		.thumb_func
+ 638              	SPI_I2S_ClearITPendingBit:
+ 639              		@ args = 0, pretend = 0, frame = 0
+ 640              		@ frame_needed = 0, uses_anonymous_args = 0
+ 641              		@ link register save eliminated.
+ 642 0000 01F00F01 		and	r1, r1, #15
+ 643 0004 0123     		movs	r3, #1
+ 644 0006 8B40     		lsls	r3, r3, r1
+ 645 0008 9BB2     		uxth	r3, r3
+ 646 000a DB43     		mvns	r3, r3
+ 647 000c 9BB2     		uxth	r3, r3
+ 648 000e 0381     		strh	r3, [r0, #8]	@ movhi
+ 649 0010 7047     		bx	lr
+ 651              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f10x_spi.c
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:16     .text.SPI_I2S_DeInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:22     .text.SPI_I2S_DeInit:00000000 SPI_I2S_DeInit
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:64     .text.SPI_I2S_DeInit:00000058 $d
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:69     .text.SPI_Init:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:75     .text.SPI_Init:00000000 SPI_Init
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:108    .text.I2S_Init:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:114    .text.I2S_Init:00000000 I2S_Init
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:202    .text.I2S_Init:000000b4 $d
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:205    .text.SPI_StructInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:211    .text.SPI_StructInit:00000000 SPI_StructInit
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:229    .text.I2S_StructInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:235    .text.I2S_StructInit:00000000 I2S_StructInit
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:250    .text.SPI_Cmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:256    .text.SPI_Cmd:00000000 SPI_Cmd
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:275    .text.I2S_Cmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:281    .text.I2S_Cmd:00000000 I2S_Cmd
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:300    .text.SPI_I2S_ITConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:306    .text.SPI_I2S_ITConfig:00000000 SPI_I2S_ITConfig
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:329    .text.SPI_I2S_DMACmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:335    .text.SPI_I2S_DMACmd:00000000 SPI_I2S_DMACmd
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:354    .text.SPI_I2S_SendData:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:360    .text.SPI_I2S_SendData:00000000 SPI_I2S_SendData
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:368    .text.SPI_I2S_ReceiveData:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:374    .text.SPI_I2S_ReceiveData:00000000 SPI_I2S_ReceiveData
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:383    .text.SPI_NSSInternalSoftwareConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:389    .text.SPI_NSSInternalSoftwareConfig:00000000 SPI_NSSInternalSoftwareConfig
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:410    .text.SPI_SSOutputCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:416    .text.SPI_SSOutputCmd:00000000 SPI_SSOutputCmd
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:435    .text.SPI_DataSizeConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:441    .text.SPI_DataSizeConfig:00000000 SPI_DataSizeConfig
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:457    .text.SPI_TransmitCRC:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:463    .text.SPI_TransmitCRC:00000000 SPI_TransmitCRC
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:474    .text.SPI_CalculateCRC:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:480    .text.SPI_CalculateCRC:00000000 SPI_CalculateCRC
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:499    .text.SPI_GetCRC:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:505    .text.SPI_GetCRC:00000000 SPI_GetCRC
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:520    .text.SPI_GetCRCPolynomial:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:526    .text.SPI_GetCRCPolynomial:00000000 SPI_GetCRCPolynomial
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:535    .text.SPI_BiDirectionalLineConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:541    .text.SPI_BiDirectionalLineConfig:00000000 SPI_BiDirectionalLineConfig
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:561    .text.SPI_I2S_GetFlagStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:567    .text.SPI_I2S_GetFlagStatus:00000000 SPI_I2S_GetFlagStatus
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:581    .text.SPI_I2S_ClearFlag:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:587    .text.SPI_I2S_ClearFlag:00000000 SPI_I2S_ClearFlag
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:597    .text.SPI_I2S_GetITStatus:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:603    .text.SPI_I2S_GetITStatus:00000000 SPI_I2S_GetITStatus
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:630    .text.SPI_I2S_ClearITPendingBit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccbEnvnj.s:636    .text.SPI_I2S_ClearITPendingBit:00000000 SPI_I2S_ClearITPendingBit
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:16     .text.SPI_I2S_DeInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:22     .text.SPI_I2S_DeInit:00000000 SPI_I2S_DeInit
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:64     .text.SPI_I2S_DeInit:00000058 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:69     .text.SPI_Init:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:75     .text.SPI_Init:00000000 SPI_Init
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:108    .text.I2S_Init:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:114    .text.I2S_Init:00000000 I2S_Init
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:204    .text.I2S_Init:000000b4 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:207    .text.SPI_StructInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:213    .text.SPI_StructInit:00000000 SPI_StructInit
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:231    .text.I2S_StructInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:237    .text.I2S_StructInit:00000000 I2S_StructInit
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:252    .text.SPI_Cmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:258    .text.SPI_Cmd:00000000 SPI_Cmd
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:277    .text.I2S_Cmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:283    .text.I2S_Cmd:00000000 I2S_Cmd
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:302    .text.SPI_I2S_ITConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:308    .text.SPI_I2S_ITConfig:00000000 SPI_I2S_ITConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:331    .text.SPI_I2S_DMACmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:337    .text.SPI_I2S_DMACmd:00000000 SPI_I2S_DMACmd
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:356    .text.SPI_I2S_SendData:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:362    .text.SPI_I2S_SendData:00000000 SPI_I2S_SendData
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:370    .text.SPI_I2S_ReceiveData:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:376    .text.SPI_I2S_ReceiveData:00000000 SPI_I2S_ReceiveData
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:385    .text.SPI_NSSInternalSoftwareConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:391    .text.SPI_NSSInternalSoftwareConfig:00000000 SPI_NSSInternalSoftwareConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:412    .text.SPI_SSOutputCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:418    .text.SPI_SSOutputCmd:00000000 SPI_SSOutputCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:437    .text.SPI_DataSizeConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:443    .text.SPI_DataSizeConfig:00000000 SPI_DataSizeConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:459    .text.SPI_TransmitCRC:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:465    .text.SPI_TransmitCRC:00000000 SPI_TransmitCRC
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:476    .text.SPI_CalculateCRC:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:482    .text.SPI_CalculateCRC:00000000 SPI_CalculateCRC
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:501    .text.SPI_GetCRC:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:507    .text.SPI_GetCRC:00000000 SPI_GetCRC
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:522    .text.SPI_GetCRCPolynomial:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:528    .text.SPI_GetCRCPolynomial:00000000 SPI_GetCRCPolynomial
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:537    .text.SPI_BiDirectionalLineConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:543    .text.SPI_BiDirectionalLineConfig:00000000 SPI_BiDirectionalLineConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:563    .text.SPI_I2S_GetFlagStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:569    .text.SPI_I2S_GetFlagStatus:00000000 SPI_I2S_GetFlagStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:583    .text.SPI_I2S_ClearFlag:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:589    .text.SPI_I2S_ClearFlag:00000000 SPI_I2S_ClearFlag
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:599    .text.SPI_I2S_GetITStatus:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:605    .text.SPI_I2S_GetITStatus:00000000 SPI_I2S_GetITStatus
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:632    .text.SPI_I2S_ClearITPendingBit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccZH73bd.s:638    .text.SPI_I2S_ClearITPendingBit:00000000 SPI_I2S_ClearITPendingBit
 
 UNDEFINED SYMBOLS
 RCC_APB2PeriphResetCmd

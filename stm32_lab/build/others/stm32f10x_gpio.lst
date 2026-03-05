@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 1
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 1
   56 003e F5E7     		b	.L1
   57              	.L11:
   58 0040 0121     		movs	r1, #1
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 2
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s 			page 2
 
 
   59 0042 0820     		movs	r0, #8
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 1
  113 00c4 001C0140 		.word	1073814528
  114 00c8 00200140 		.word	1073815552
  116              		.section	.text.GPIO_AFIODeInit,"ax",%progbits
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 3
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s 			page 3
 
 
  117              		.align	1
@@ -156,8 +156,8 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 1
  152 0014 4EEA020E 		orr	lr, lr, r2
  153              	.L22:
  154 0018 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 155 001a FBB1     		cbz	r3, .L23
- 156 001c 0568     		ldr	r5, [r0]
+ 155 001a 03B3     		cbz	r3, .L23
+ 156 001c 0468     		ldr	r4, [r0]
  157 001e 0023     		movs	r3, #0
  158 0020 01E0     		b	.L24
  159              	.L35:
@@ -166,70 +166,70 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 1
  162 0024 0133     		adds	r3, r3, #1
  163              	.L24:
  164 0026 072B     		cmp	r3, #7
- 165 0028 17D8     		bhi	.L34
+ 165 0028 18D8     		bhi	.L34
  166 002a 0122     		movs	r2, #1
  167 002c 9A40     		lsls	r2, r2, r3
  168 002e B1F800C0 		ldrh	ip, [r1]
- 169 0032 32EA0C0C 		bics	ip, r2, ip
+ 169 0032 32EA0C05 		bics	r5, r2, ip
  170 0036 F5D1     		bne	.L25
- 171 0038 9C00     		lsls	r4, r3, #2
- 172 003a 4FF00F0C 		mov	ip, #15
- 173 003e 0CFA04FC 		lsl	ip, ip, r4
- 174 0042 25EA0C05 		bic	r5, r5, ip
- 175 0046 0EFA04F4 		lsl	r4, lr, r4
- 176 004a 2543     		orrs	r5, r5, r4
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 4
+ 171 0038 4FEA830C 		lsl	ip, r3, #2
+ 172 003c 0F25     		movs	r5, #15
+ 173 003e 05FA0CF5 		lsl	r5, r5, ip
+ 174 0042 24EA0504 		bic	r4, r4, r5
+ 175 0046 0EFA0CFC 		lsl	ip, lr, ip
+ 176 004a 4CEA0404 		orr	r4, ip, r4
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s 			page 4
 
 
- 177 004c CC78     		ldrb	r4, [r1, #3]	@ zero_extendqisi2
- 178 004e 282C     		cmp	r4, #40
- 179 0050 E7D0     		beq	.L35
- 180 0052 482C     		cmp	r4, #72
- 181 0054 E6D1     		bne	.L25
- 182 0056 0261     		str	r2, [r0, #16]
- 183 0058 E4E7     		b	.L25
+ 177 004e CD78     		ldrb	r5, [r1, #3]	@ zero_extendqisi2
+ 178 0050 282D     		cmp	r5, #40
+ 179 0052 E6D0     		beq	.L35
+ 180 0054 482D     		cmp	r5, #72
+ 181 0056 E5D1     		bne	.L25
+ 182 0058 0261     		str	r2, [r0, #16]
+ 183 005a E3E7     		b	.L25
  184              	.L34:
- 185 005a 0560     		str	r5, [r0]
+ 185 005c 0460     		str	r4, [r0]
  186              	.L23:
- 187 005c 0B88     		ldrh	r3, [r1]
- 188 005e FF2B     		cmp	r3, #255
- 189 0060 25D9     		bls	.L21
- 190 0062 4568     		ldr	r5, [r0, #4]
- 191 0064 0023     		movs	r3, #0
- 192 0066 03E0     		b	.L29
+ 187 005e 0B88     		ldrh	r3, [r1]
+ 188 0060 FF2B     		cmp	r3, #255
+ 189 0062 25D9     		bls	.L21
+ 190 0064 4468     		ldr	r4, [r0, #4]
+ 191 0066 0023     		movs	r3, #0
+ 192 0068 03E0     		b	.L29
  193              	.L31:
- 194 0068 CC78     		ldrb	r4, [r1, #3]	@ zero_extendqisi2
- 195 006a 482C     		cmp	r4, #72
- 196 006c 1CD0     		beq	.L36
+ 194 006a CD78     		ldrb	r5, [r1, #3]	@ zero_extendqisi2
+ 195 006c 482D     		cmp	r5, #72
+ 196 006e 1CD0     		beq	.L36
  197              	.L30:
- 198 006e 0133     		adds	r3, r3, #1
+ 198 0070 0133     		adds	r3, r3, #1
  199              	.L29:
- 200 0070 072B     		cmp	r3, #7
- 201 0072 1BD8     		bhi	.L37
- 202 0074 03F1080C 		add	ip, r3, #8
- 203 0078 0122     		movs	r2, #1
- 204 007a 02FA0CF2 		lsl	r2, r2, ip
- 205 007e B1F800C0 		ldrh	ip, [r1]
- 206 0082 32EA0C0C 		bics	ip, r2, ip
- 207 0086 F2D1     		bne	.L30
- 208 0088 9C00     		lsls	r4, r3, #2
- 209 008a 4FF00F0C 		mov	ip, #15
- 210 008e 0CFA04FC 		lsl	ip, ip, r4
- 211 0092 25EA0C0C 		bic	ip, r5, ip
- 212 0096 0EFA04F4 		lsl	r4, lr, r4
- 213 009a 44EA0C05 		orr	r5, r4, ip
- 214 009e CC78     		ldrb	r4, [r1, #3]	@ zero_extendqisi2
- 215 00a0 282C     		cmp	r4, #40
- 216 00a2 E1D1     		bne	.L31
- 217 00a4 4261     		str	r2, [r0, #20]
- 218 00a6 DFE7     		b	.L31
+ 200 0072 072B     		cmp	r3, #7
+ 201 0074 1BD8     		bhi	.L37
+ 202 0076 03F1080C 		add	ip, r3, #8
+ 203 007a 0122     		movs	r2, #1
+ 204 007c 02FA0CF2 		lsl	r2, r2, ip
+ 205 0080 B1F800C0 		ldrh	ip, [r1]
+ 206 0084 32EA0C05 		bics	r5, r2, ip
+ 207 0088 F2D1     		bne	.L30
+ 208 008a 4FEA830C 		lsl	ip, r3, #2
+ 209 008e 0F25     		movs	r5, #15
+ 210 0090 05FA0CF5 		lsl	r5, r5, ip
+ 211 0094 24EA0504 		bic	r4, r4, r5
+ 212 0098 0EFA0CFC 		lsl	ip, lr, ip
+ 213 009c 4CEA0404 		orr	r4, ip, r4
+ 214 00a0 CD78     		ldrb	r5, [r1, #3]	@ zero_extendqisi2
+ 215 00a2 282D     		cmp	r5, #40
+ 216 00a4 E1D1     		bne	.L31
+ 217 00a6 4261     		str	r2, [r0, #20]
+ 218 00a8 DFE7     		b	.L31
  219              	.L36:
- 220 00a8 0261     		str	r2, [r0, #16]
- 221 00aa E0E7     		b	.L30
+ 220 00aa 0261     		str	r2, [r0, #16]
+ 221 00ac E0E7     		b	.L30
  222              	.L37:
- 223 00ac 4560     		str	r5, [r0, #4]
+ 223 00ae 4460     		str	r4, [r0, #4]
  224              	.L21:
- 225 00ae 30BD     		pop	{r4, r5, pc}
+ 225 00b0 30BD     		pop	{r4, r5, pc}
  227              		.section	.text.GPIO_StructInit,"ax",%progbits
  228              		.align	1
  229              		.global	GPIO_StructInit
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 1
  232              		.thumb_func
  234              	GPIO_StructInit:
  235              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 5
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s 			page 5
 
 
  236              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 1
  296 0008 7047     		bx	lr
  297              	.L45:
  298 000a 0020     		movs	r0, #0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 6
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s 			page 6
 
 
  299 000c 7047     		bx	lr
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 1
  362              		.section	.text.GPIO_Write,"ax",%progbits
  363              		.align	1
  364              		.global	GPIO_Write
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 7
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s 			page 7
 
 
  365              		.syntax unified
@@ -403,8 +403,8 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 1
  409 0008 1B04     		lsls	r3, r3, #16
  410 000a 1B0C     		lsrs	r3, r3, #16
  411 000c 43EA0013 		orr	r3, r3, r0, lsl #4
- 412 0010 1943     		orrs	r1, r1, r3
- 413 0012 1160     		str	r1, [r2]
+ 412 0010 0B43     		orrs	r3, r3, r1
+ 413 0012 1360     		str	r3, [r2]
  414 0014 7047     		bx	lr
  415              	.L56:
  416 0016 00BF     		.align	2
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 1
  425              		.thumb_func
  427              	GPIO_EventOutputCmd:
  428              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 8
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s 			page 8
 
 
  429              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -439,166 +439,164 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 1
  446              	GPIO_PinRemapConfig:
  447              		@ args = 0, pretend = 0, frame = 0
  448              		@ frame_needed = 0, uses_anonymous_args = 0
- 449              		@ link register save eliminated.
- 450 0000 30B4     		push	{r4, r5}
- 451 0002 0028     		cmp	r0, #0
- 452 0004 15DB     		blt	.L70
- 453 0006 1C4B     		ldr	r3, .L73
- 454 0008 5B68     		ldr	r3, [r3, #4]
- 455              	.L62:
- 456 000a C0F30344 		ubfx	r4, r0, #16, #4
- 457 000e 82B2     		uxth	r2, r0
- 458 0010 00F4401C 		and	ip, r0, #3145728
- 459 0014 BCF5401F 		cmp	ip, #3145728
- 460 0018 0ED0     		beq	.L71
- 461 001a 10F4801F 		tst	r0, #1048576
- 462 001e 1DD0     		beq	.L65
- 463 0020 4FF0030C 		mov	ip, #3
- 464 0024 0CFA04F4 		lsl	r4, ip, r4
- 465 0028 23EA0403 		bic	r3, r3, r4
- 466 002c 43F07063 		orr	r3, r3, #251658240
- 467 0030 09E0     		b	.L64
- 468              	.L70:
- 469 0032 114B     		ldr	r3, .L73
- 470 0034 DB69     		ldr	r3, [r3, #28]
- 471 0036 E8E7     		b	.L62
- 472              	.L71:
- 473 0038 23F07063 		bic	r3, r3, #251658240
- 474 003c 0E4D     		ldr	r5, .L73
- 475 003e 6C68     		ldr	r4, [r5, #4]
- 476 0040 24F07064 		bic	r4, r4, #251658240
- 477 0044 6C60     		str	r4, [r5, #4]
- 478              	.L64:
- 479 0046 19B1     		cbz	r1, .L66
- 480 0048 410D     		lsrs	r1, r0, #21
- 481 004a 0901     		lsls	r1, r1, #4
- 482 004c 8A40     		lsls	r2, r2, r1
- 483 004e 1343     		orrs	r3, r3, r2
- 484              	.L66:
- 485 0050 0028     		cmp	r0, #0
- 486 0052 0EDB     		blt	.L72
- 487 0054 084A     		ldr	r2, .L73
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 9
+ 449 0000 10B5     		push	{r4, lr}
+ 450 0002 0028     		cmp	r0, #0
+ 451 0004 16DB     		blt	.L70
+ 452 0006 1C4B     		ldr	r3, .L73
+ 453 0008 5B68     		ldr	r3, [r3, #4]
+ 454              	.L62:
+ 455 000a C0F30342 		ubfx	r2, r0, #16, #4
+ 456 000e 1FFA80FE 		uxth	lr, r0
+ 457 0012 00F4401C 		and	ip, r0, #3145728
+ 458 0016 BCF5401F 		cmp	ip, #3145728
+ 459 001a 0ED0     		beq	.L71
+ 460 001c 10F4801F 		tst	r0, #1048576
+ 461 0020 1DD0     		beq	.L65
+ 462 0022 4FF0030C 		mov	ip, #3
+ 463 0026 0CFA02F2 		lsl	r2, ip, r2
+ 464 002a 23EA0203 		bic	r3, r3, r2
+ 465 002e 43F07063 		orr	r3, r3, #251658240
+ 466 0032 09E0     		b	.L64
+ 467              	.L70:
+ 468 0034 104B     		ldr	r3, .L73
+ 469 0036 DB69     		ldr	r3, [r3, #28]
+ 470 0038 E7E7     		b	.L62
+ 471              	.L71:
+ 472 003a 23F07063 		bic	r3, r3, #251658240
+ 473 003e 0E4C     		ldr	r4, .L73
+ 474 0040 6268     		ldr	r2, [r4, #4]
+ 475 0042 22F07062 		bic	r2, r2, #251658240
+ 476 0046 6260     		str	r2, [r4, #4]
+ 477              	.L64:
+ 478 0048 21B1     		cbz	r1, .L66
+ 479 004a 420D     		lsrs	r2, r0, #21
+ 480 004c 1201     		lsls	r2, r2, #4
+ 481 004e 0EFA02F2 		lsl	r2, lr, r2
+ 482 0052 1343     		orrs	r3, r3, r2
+ 483              	.L66:
+ 484 0054 0028     		cmp	r0, #0
+ 485 0056 0BDB     		blt	.L72
+ 486 0058 074A     		ldr	r2, .L73
+ 487 005a 5360     		str	r3, [r2, #4]
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s 			page 9
 
 
- 488 0056 5360     		str	r3, [r2, #4]
- 489              	.L60:
- 490 0058 30BC     		pop	{r4, r5}
- 491 005a 7047     		bx	lr
- 492              	.L65:
- 493 005c 4FEA505C 		lsr	ip, r0, #21
- 494 0060 4FEA0C1C 		lsl	ip, ip, #4
- 495 0064 02FA0CFC 		lsl	ip, r2, ip
- 496 0068 23EA0C03 		bic	r3, r3, ip
- 497 006c 43F07063 		orr	r3, r3, #251658240
- 498 0070 E9E7     		b	.L64
- 499              	.L72:
- 500 0072 014A     		ldr	r2, .L73
- 501 0074 D361     		str	r3, [r2, #28]
- 502 0076 EFE7     		b	.L60
- 503              	.L74:
- 504              		.align	2
- 505              	.L73:
- 506 0078 00000140 		.word	1073807360
- 508              		.section	.text.GPIO_EXTILineConfig,"ax",%progbits
- 509              		.align	1
- 510              		.global	GPIO_EXTILineConfig
- 511              		.syntax unified
- 512              		.thumb
- 513              		.thumb_func
- 515              	GPIO_EXTILineConfig:
- 516              		@ args = 0, pretend = 0, frame = 0
- 517              		@ frame_needed = 0, uses_anonymous_args = 0
- 518              		@ link register save eliminated.
- 519 0000 10B4     		push	{r4}
- 520 0002 01F00302 		and	r2, r1, #3
- 521 0006 9200     		lsls	r2, r2, #2
- 522 0008 4FF00F0C 		mov	ip, #15
- 523 000c 0CFA02FC 		lsl	ip, ip, r2
- 524 0010 8908     		lsrs	r1, r1, #2
- 525 0012 084B     		ldr	r3, .L77
- 526 0014 0231     		adds	r1, r1, #2
- 527 0016 53F82140 		ldr	r4, [r3, r1, lsl #2]
- 528 001a 24EA0C04 		bic	r4, r4, ip
- 529 001e 43F82140 		str	r4, [r3, r1, lsl #2]
- 530 0022 53F82140 		ldr	r4, [r3, r1, lsl #2]
- 531 0026 9040     		lsls	r0, r0, r2
- 532 0028 0443     		orrs	r4, r4, r0
- 533 002a 43F82140 		str	r4, [r3, r1, lsl #2]
- 534 002e 10BC     		pop	{r4}
- 535 0030 7047     		bx	lr
- 536              	.L78:
- 537 0032 00BF     		.align	2
- 538              	.L77:
- 539 0034 00000140 		.word	1073807360
- 541              		.section	.text.GPIO_ETH_MediaInterfaceConfig,"ax",%progbits
- 542              		.align	1
- 543              		.global	GPIO_ETH_MediaInterfaceConfig
- 544              		.syntax unified
- 545              		.thumb
- 546              		.thumb_func
- 548              	GPIO_ETH_MediaInterfaceConfig:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 10
+ 488              	.L60:
+ 489 005c 10BD     		pop	{r4, pc}
+ 490              	.L65:
+ 491 005e 420D     		lsrs	r2, r0, #21
+ 492 0060 1201     		lsls	r2, r2, #4
+ 493 0062 0EFA02F2 		lsl	r2, lr, r2
+ 494 0066 23EA0203 		bic	r3, r3, r2
+ 495 006a 43F07063 		orr	r3, r3, #251658240
+ 496 006e EBE7     		b	.L64
+ 497              	.L72:
+ 498 0070 014A     		ldr	r2, .L73
+ 499 0072 D361     		str	r3, [r2, #28]
+ 500 0074 F2E7     		b	.L60
+ 501              	.L74:
+ 502 0076 00BF     		.align	2
+ 503              	.L73:
+ 504 0078 00000140 		.word	1073807360
+ 506              		.section	.text.GPIO_EXTILineConfig,"ax",%progbits
+ 507              		.align	1
+ 508              		.global	GPIO_EXTILineConfig
+ 509              		.syntax unified
+ 510              		.thumb
+ 511              		.thumb_func
+ 513              	GPIO_EXTILineConfig:
+ 514              		@ args = 0, pretend = 0, frame = 0
+ 515              		@ frame_needed = 0, uses_anonymous_args = 0
+ 516              		@ link register save eliminated.
+ 517 0000 10B4     		push	{r4}
+ 518 0002 01F00302 		and	r2, r1, #3
+ 519 0006 9200     		lsls	r2, r2, #2
+ 520 0008 0F24     		movs	r4, #15
+ 521 000a 04FA02FC 		lsl	ip, r4, r2
+ 522 000e 8908     		lsrs	r1, r1, #2
+ 523 0010 074B     		ldr	r3, .L77
+ 524 0012 0231     		adds	r1, r1, #2
+ 525 0014 53F82140 		ldr	r4, [r3, r1, lsl #2]
+ 526 0018 24EA0C04 		bic	r4, r4, ip
+ 527 001c 43F82140 		str	r4, [r3, r1, lsl #2]
+ 528 0020 53F82140 		ldr	r4, [r3, r1, lsl #2]
+ 529 0024 9040     		lsls	r0, r0, r2
+ 530 0026 0443     		orrs	r4, r4, r0
+ 531 0028 43F82140 		str	r4, [r3, r1, lsl #2]
+ 532 002c 10BC     		pop	{r4}
+ 533 002e 7047     		bx	lr
+ 534              	.L78:
+ 535              		.align	2
+ 536              	.L77:
+ 537 0030 00000140 		.word	1073807360
+ 539              		.section	.text.GPIO_ETH_MediaInterfaceConfig,"ax",%progbits
+ 540              		.align	1
+ 541              		.global	GPIO_ETH_MediaInterfaceConfig
+ 542              		.syntax unified
+ 543              		.thumb
+ 544              		.thumb_func
+ 546              	GPIO_ETH_MediaInterfaceConfig:
+ 547              		@ args = 0, pretend = 0, frame = 0
+ 548              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s 			page 10
 
 
- 549              		@ args = 0, pretend = 0, frame = 0
- 550              		@ frame_needed = 0, uses_anonymous_args = 0
- 551              		@ link register save eliminated.
- 552 0000 014B     		ldr	r3, .L80
- 553 0002 C3F8DC00 		str	r0, [r3, #220]
- 554 0006 7047     		bx	lr
- 555              	.L81:
- 556              		.align	2
- 557              	.L80:
- 558 0008 00002042 		.word	1109393408
- 560              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s 			page 11
+ 549              		@ link register save eliminated.
+ 550 0000 014B     		ldr	r3, .L80
+ 551 0002 C3F8DC00 		str	r0, [r3, #220]
+ 552 0006 7047     		bx	lr
+ 553              	.L81:
+ 554              		.align	2
+ 555              	.L80:
+ 556 0008 00002042 		.word	1109393408
+ 558              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
+ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f10x_gpio.c
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:16     .text.GPIO_DeInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:22     .text.GPIO_DeInit:00000000 GPIO_DeInit
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:108    .text.GPIO_DeInit:000000b0 $d
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:117    .text.GPIO_AFIODeInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:123    .text.GPIO_AFIODeInit:00000000 GPIO_AFIODeInit
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:136    .text.GPIO_Init:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:142    .text.GPIO_Init:00000000 GPIO_Init
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:228    .text.GPIO_StructInit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:234    .text.GPIO_StructInit:00000000 GPIO_StructInit
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:247    .text.GPIO_ReadInputDataBit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:253    .text.GPIO_ReadInputDataBit:00000000 GPIO_ReadInputDataBit
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:267    .text.GPIO_ReadInputData:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:273    .text.GPIO_ReadInputData:00000000 GPIO_ReadInputData
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:282    .text.GPIO_ReadOutputDataBit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:288    .text.GPIO_ReadOutputDataBit:00000000 GPIO_ReadOutputDataBit
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:302    .text.GPIO_ReadOutputData:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:308    .text.GPIO_ReadOutputData:00000000 GPIO_ReadOutputData
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:317    .text.GPIO_SetBits:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:323    .text.GPIO_SetBits:00000000 GPIO_SetBits
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:331    .text.GPIO_ResetBits:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:337    .text.GPIO_ResetBits:00000000 GPIO_ResetBits
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:345    .text.GPIO_WriteBit:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:351    .text.GPIO_WriteBit:00000000 GPIO_WriteBit
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:363    .text.GPIO_Write:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:369    .text.GPIO_Write:00000000 GPIO_Write
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:377    .text.GPIO_PinLockConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:383    .text.GPIO_PinLockConfig:00000000 GPIO_PinLockConfig
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:396    .text.GPIO_EventOutputConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:402    .text.GPIO_EventOutputConfig:00000000 GPIO_EventOutputConfig
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:418    .text.GPIO_EventOutputConfig:00000018 $d
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:421    .text.GPIO_EventOutputCmd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:427    .text.GPIO_EventOutputCmd:00000000 GPIO_EventOutputCmd
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:437    .text.GPIO_EventOutputCmd:00000008 $d
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:440    .text.GPIO_PinRemapConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:446    .text.GPIO_PinRemapConfig:00000000 GPIO_PinRemapConfig
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:506    .text.GPIO_PinRemapConfig:00000078 $d
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:509    .text.GPIO_EXTILineConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:515    .text.GPIO_EXTILineConfig:00000000 GPIO_EXTILineConfig
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:539    .text.GPIO_EXTILineConfig:00000034 $d
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:542    .text.GPIO_ETH_MediaInterfaceConfig:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:548    .text.GPIO_ETH_MediaInterfaceConfig:00000000 GPIO_ETH_MediaInterfaceConfig
-C:\Users\UXP\AppData\Local\Temp\ccOCSQA5.s:558    .text.GPIO_ETH_MediaInterfaceConfig:00000008 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:16     .text.GPIO_DeInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:22     .text.GPIO_DeInit:00000000 GPIO_DeInit
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:108    .text.GPIO_DeInit:000000b0 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:117    .text.GPIO_AFIODeInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:123    .text.GPIO_AFIODeInit:00000000 GPIO_AFIODeInit
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:136    .text.GPIO_Init:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:142    .text.GPIO_Init:00000000 GPIO_Init
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:228    .text.GPIO_StructInit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:234    .text.GPIO_StructInit:00000000 GPIO_StructInit
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:247    .text.GPIO_ReadInputDataBit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:253    .text.GPIO_ReadInputDataBit:00000000 GPIO_ReadInputDataBit
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:267    .text.GPIO_ReadInputData:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:273    .text.GPIO_ReadInputData:00000000 GPIO_ReadInputData
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:282    .text.GPIO_ReadOutputDataBit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:288    .text.GPIO_ReadOutputDataBit:00000000 GPIO_ReadOutputDataBit
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:302    .text.GPIO_ReadOutputData:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:308    .text.GPIO_ReadOutputData:00000000 GPIO_ReadOutputData
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:317    .text.GPIO_SetBits:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:323    .text.GPIO_SetBits:00000000 GPIO_SetBits
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:331    .text.GPIO_ResetBits:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:337    .text.GPIO_ResetBits:00000000 GPIO_ResetBits
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:345    .text.GPIO_WriteBit:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:351    .text.GPIO_WriteBit:00000000 GPIO_WriteBit
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:363    .text.GPIO_Write:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:369    .text.GPIO_Write:00000000 GPIO_Write
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:377    .text.GPIO_PinLockConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:383    .text.GPIO_PinLockConfig:00000000 GPIO_PinLockConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:396    .text.GPIO_EventOutputConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:402    .text.GPIO_EventOutputConfig:00000000 GPIO_EventOutputConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:418    .text.GPIO_EventOutputConfig:00000018 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:421    .text.GPIO_EventOutputCmd:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:427    .text.GPIO_EventOutputCmd:00000000 GPIO_EventOutputCmd
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:437    .text.GPIO_EventOutputCmd:00000008 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:440    .text.GPIO_PinRemapConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:446    .text.GPIO_PinRemapConfig:00000000 GPIO_PinRemapConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:504    .text.GPIO_PinRemapConfig:00000078 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:507    .text.GPIO_EXTILineConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:513    .text.GPIO_EXTILineConfig:00000000 GPIO_EXTILineConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:537    .text.GPIO_EXTILineConfig:00000030 $d
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:540    .text.GPIO_ETH_MediaInterfaceConfig:00000000 $t
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:546    .text.GPIO_ETH_MediaInterfaceConfig:00000000 GPIO_ETH_MediaInterfaceConfig
+C:\Users\wxpwx\AppData\Local\Temp\ccRLtvqB.s:556    .text.GPIO_ETH_MediaInterfaceConfig:00000008 $d
 
 UNDEFINED SYMBOLS
 RCC_APB2PeriphResetCmd
