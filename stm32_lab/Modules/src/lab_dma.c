@@ -1,6 +1,6 @@
 #include "lab_dma.h"
 
-extern int count;
+// extern int count;
 
 void Dma_m2m_Init(DMA_Channel_TypeDef* DMA_CHx, uint32_t* source, uint32_t* target)
 {
@@ -66,32 +66,7 @@ void Dma_Rework(void)
     DMA_Cmd(DMA_CHANNEL, ENABLE);
 }
 
-// extern int count;
-void DMA1_Channel4_IRQHandler(void)
-{
-    if (DMA_GetITStatus(DMA1_IT_TC4))
-    {
-        DMA_ClearITPendingBit(DMA1_IT_TC4);
-        if(count)
-        {
-            // for(int i=0; i<32; i++)
-            // {
-            //     aSRC_Buffer[i]++;
-            // }
-            count--;
-            Dma_Rework();
-        }
-        else
-        {
-            DMA_Cmd(DMA_CHANNEL, DISABLE);
-        }
-        
-    }
-    else
-    {
-        printf("error\n");
-    }
-}
+
 
 #if LAB_DMA_CODE
 void lab_dma_simple(void)
@@ -143,5 +118,62 @@ void lab_dma_simple(void)
         delay_ms(1000);
     }
     DMA_Cmd(DMA_CHANNEL, DISABLE);
+}
+
+
+
+// DMA+USART
+// -----------------------------------------------------
+
+
+uint8_t aSRC_Buffer[BUFFER_SIZE]= "Hello world\n";
+int count = 10;
+
+int main(void)
+{
+
+    delay_init();
+    delay_ms(300);
+    Uart_Init();
+    LedInit();
+    Dma_m2p_Init(DMA_CHANNEL, (uint32_t*)aSRC_Buffer);
+    Dma_Rework();
+
+    while(1)
+    {
+        // PAout(8) = 0;
+        // delay_ms(500);
+        // PAout(8) = 1;
+        // delay_ms(500);
+    }
+
+    return 0;
+}
+
+extern int count;
+void DMA1_Channel4_IRQHandler(void)
+{
+    if (DMA_GetITStatus(DMA1_IT_TC4))
+    {
+        DMA_ClearITPendingBit(DMA1_IT_TC4);
+        if(count)
+        {
+            // for(int i=0; i<32; i++)
+            // {
+            //     aSRC_Buffer[i]++;
+            // }
+            count--;
+            Dma_Rework();
+        }
+        else
+        {
+            DMA_Cmd(DMA_CHANNEL, DISABLE);
+        }
+        
+    }
+    else
+    {
+        printf("error\n");
+    }
 }
 #endif

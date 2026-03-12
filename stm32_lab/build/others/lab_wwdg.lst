@@ -1,0 +1,102 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccj2rEsN.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lab_wwdg.c"
+  14              		.text
+  15              		.section	.text.WWDG_Init,"ax",%progbits
+  16              		.align	1
+  17              		.global	WWDG_Init
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	WWDG_Init:
+  23              		@ args = 0, pretend = 0, frame = 8
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 70B5     		push	{r4, r5, r6, lr}
+  26 0002 82B0     		sub	sp, sp, #8
+  27 0004 0446     		mov	r4, r0
+  28 0006 0E46     		mov	r6, r1
+  29 0008 1546     		mov	r5, r2
+  30 000a 0121     		movs	r1, #1
+  31 000c 4FF40060 		mov	r0, #2048
+  32 0010 FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
+  33 0014 4FF4C060 		mov	r0, #1536
+  34 0018 FFF7FEFF 		bl	NVIC_PriorityGroupConfig
+  35 001c 0023     		movs	r3, #0
+  36 001e 8DF80430 		strb	r3, [sp, #4]
+  37 0022 8DF80530 		strb	r3, [sp, #5]
+  38 0026 8DF80630 		strb	r3, [sp, #6]
+  39 002a 0123     		movs	r3, #1
+  40 002c 8DF80730 		strb	r3, [sp, #7]
+  41 0030 01A8     		add	r0, sp, #4
+  42 0032 FFF7FEFF 		bl	NVIC_Init
+  43 0036 3046     		mov	r0, r6
+  44 0038 FFF7FEFF 		bl	WWDG_SetCounter
+  45 003c 2846     		mov	r0, r5
+  46 003e FFF7FEFF 		bl	WWDG_SetWindowValue
+  47 0042 2046     		mov	r0, r4
+  48 0044 FFF7FEFF 		bl	WWDG_SetPrescaler
+  49 0048 FFF7FEFF 		bl	WWDG_ClearFlag
+  50 004c FFF7FEFF 		bl	WWDG_EnableIT
+  51 0050 7F20     		movs	r0, #127
+  52 0052 FFF7FEFF 		bl	WWDG_Enable
+  53 0056 02B0     		add	sp, sp, #8
+  54              		@ sp needed
+  55 0058 70BD     		pop	{r4, r5, r6, pc}
+  57              		.section	.text.WWDG_IRQHandler,"ax",%progbits
+  58              		.align	1
+  59              		.global	WWDG_IRQHandler
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccj2rEsN.s 			page 2
+
+
+  60              		.syntax unified
+  61              		.thumb
+  62              		.thumb_func
+  64              	WWDG_IRQHandler:
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67 0000 08B5     		push	{r3, lr}
+  68 0002 FFF7FEFF 		bl	WWDG_ClearFlag
+  69 0006 034A     		ldr	r2, .L5
+  70 0008 D368     		ldr	r3, [r2, #12]
+  71 000a 23F00403 		bic	r3, r3, #4
+  72 000e D360     		str	r3, [r2, #12]
+  73 0010 08BD     		pop	{r3, pc}
+  74              	.L6:
+  75 0012 00BF     		.align	2
+  76              	.L5:
+  77 0014 00140140 		.word	1073812480
+  79              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccj2rEsN.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lab_wwdg.c
+C:\Users\UXP\AppData\Local\Temp\ccj2rEsN.s:16     .text.WWDG_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccj2rEsN.s:22     .text.WWDG_Init:00000000 WWDG_Init
+C:\Users\UXP\AppData\Local\Temp\ccj2rEsN.s:58     .text.WWDG_IRQHandler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccj2rEsN.s:64     .text.WWDG_IRQHandler:00000000 WWDG_IRQHandler
+C:\Users\UXP\AppData\Local\Temp\ccj2rEsN.s:77     .text.WWDG_IRQHandler:00000014 $d
+
+UNDEFINED SYMBOLS
+RCC_APB1PeriphClockCmd
+NVIC_PriorityGroupConfig
+NVIC_Init
+WWDG_SetCounter
+WWDG_SetWindowValue
+WWDG_SetPrescaler
+WWDG_ClearFlag
+WWDG_EnableIT
+WWDG_Enable

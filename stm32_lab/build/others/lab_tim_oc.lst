@@ -1,0 +1,95 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccWbCHfK.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lab_tim_oc.c"
+  14              		.text
+  15              		.section	.text.Pwm_Led_Init,"ax",%progbits
+  16              		.align	1
+  17              		.global	Pwm_Led_Init
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	Pwm_Led_Init:
+  23              		@ args = 0, pretend = 0, frame = 32
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  26 0002 89B0     		sub	sp, sp, #36
+  27 0004 0121     		movs	r1, #1
+  28 0006 40F60400 		movw	r0, #2052
+  29 000a FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+  30 000e 1823     		movs	r3, #24
+  31 0010 8DF81F30 		strb	r3, [sp, #31]
+  32 0014 4FF48073 		mov	r3, #256
+  33 0018 ADF81C30 		strh	r3, [sp, #28]	@ movhi
+  34 001c 0323     		movs	r3, #3
+  35 001e 8DF81E30 		strb	r3, [sp, #30]
+  36 0022 07A9     		add	r1, sp, #28
+  37 0024 1448     		ldr	r0, .L3
+  38 0026 FFF7FEFF 		bl	GPIO_Init
+  39 002a 4723     		movs	r3, #71
+  40 002c ADF81030 		strh	r3, [sp, #16]	@ movhi
+  41 0030 6323     		movs	r3, #99
+  42 0032 ADF81430 		strh	r3, [sp, #20]	@ movhi
+  43 0036 0027     		movs	r7, #0
+  44 0038 ADF81670 		strh	r7, [sp, #22]	@ movhi
+  45 003c 0F4C     		ldr	r4, .L3+4
+  46 003e 04A9     		add	r1, sp, #16
+  47 0040 2046     		mov	r0, r4
+  48 0042 FFF7FEFF 		bl	TIM_TimeBaseInit
+  49 0046 6846     		mov	r0, sp
+  50 0048 FFF7FEFF 		bl	TIM_OCStructInit
+  51 004c 6023     		movs	r3, #96
+  52 004e ADF80030 		strh	r3, [sp]	@ movhi
+  53 0052 0125     		movs	r5, #1
+  54 0054 ADF80250 		strh	r5, [sp, #2]	@ movhi
+  55 0058 ADF80670 		strh	r7, [sp, #6]	@ movhi
+  56 005c 6946     		mov	r1, sp
+  57 005e 2046     		mov	r0, r4
+  58 0060 FFF7FEFF 		bl	TIM_OC1Init
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccWbCHfK.s 			page 2
+
+
+  59 0064 2946     		mov	r1, r5
+  60 0066 2046     		mov	r0, r4
+  61 0068 FFF7FEFF 		bl	TIM_Cmd
+  62 006c 2946     		mov	r1, r5
+  63 006e 2046     		mov	r0, r4
+  64 0070 FFF7FEFF 		bl	TIM_CtrlPWMOutputs
+  65 0074 09B0     		add	sp, sp, #36
+  66              		@ sp needed
+  67 0076 F0BD     		pop	{r4, r5, r6, r7, pc}
+  68              	.L4:
+  69              		.align	2
+  70              	.L3:
+  71 0078 00080140 		.word	1073809408
+  72 007c 002C0140 		.word	1073818624
+  74              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccWbCHfK.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lab_tim_oc.c
+C:\Users\UXP\AppData\Local\Temp\ccWbCHfK.s:16     .text.Pwm_Led_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccWbCHfK.s:22     .text.Pwm_Led_Init:00000000 Pwm_Led_Init
+C:\Users\UXP\AppData\Local\Temp\ccWbCHfK.s:71     .text.Pwm_Led_Init:00000078 $d
+
+UNDEFINED SYMBOLS
+RCC_APB2PeriphClockCmd
+GPIO_Init
+TIM_TimeBaseInit
+TIM_OCStructInit
+TIM_OC1Init
+TIM_Cmd
+TIM_CtrlPWMOutputs

@@ -1,0 +1,67 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmibOfR.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lab_iwdg.c"
+  14              		.text
+  15              		.section	.text.IWDG_Init,"ax",%progbits
+  16              		.align	1
+  17              		.global	IWDG_Init
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	IWDG_Init:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 38B5     		push	{r3, r4, r5, lr}
+  26 0002 0546     		mov	r5, r0
+  27 0004 0C46     		mov	r4, r1
+  28 0006 45F25550 		movw	r0, #21845
+  29 000a FFF7FEFF 		bl	IWDG_WriteAccessCmd
+  30 000e 2846     		mov	r0, r5
+  31 0010 FFF7FEFF 		bl	IWDG_SetPrescaler
+  32 0014 2046     		mov	r0, r4
+  33 0016 FFF7FEFF 		bl	IWDG_SetReload
+  34 001a FFF7FEFF 		bl	IWDG_ReloadCounter
+  35 001e FFF7FEFF 		bl	IWDG_Enable
+  36 0022 38BD     		pop	{r3, r4, r5, pc}
+  38              		.section	.text.IWDG_Feed,"ax",%progbits
+  39              		.align	1
+  40              		.global	IWDG_Feed
+  41              		.syntax unified
+  42              		.thumb
+  43              		.thumb_func
+  45              	IWDG_Feed:
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48 0000 08B5     		push	{r3, lr}
+  49 0002 FFF7FEFF 		bl	IWDG_ReloadCounter
+  50 0006 08BD     		pop	{r3, pc}
+  52              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccmibOfR.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lab_iwdg.c
+C:\Users\UXP\AppData\Local\Temp\ccmibOfR.s:16     .text.IWDG_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmibOfR.s:22     .text.IWDG_Init:00000000 IWDG_Init
+C:\Users\UXP\AppData\Local\Temp\ccmibOfR.s:39     .text.IWDG_Feed:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccmibOfR.s:45     .text.IWDG_Feed:00000000 IWDG_Feed
+
+UNDEFINED SYMBOLS
+IWDG_WriteAccessCmd
+IWDG_SetPrescaler
+IWDG_SetReload
+IWDG_ReloadCounter
+IWDG_Enable

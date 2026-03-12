@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccFaetXb.s 			page 1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccL8mowW.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -26,53 +26,41 @@ ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccFaetXb.s 			page 1
   24              		@ args = 0, pretend = 0, frame = 0
   25              		@ frame_needed = 0, uses_anonymous_args = 0
   26 0000 08B5     		push	{r3, lr}
-  27 0002 FFF7FEFF 		bl	delay_init
-  28 0006 4FF49670 		mov	r0, #300
-  29 000a FFF7FEFF 		bl	delay_ms
-  30 000e FFF7FEFF 		bl	Uart_Init
-  31 0012 FFF7FEFF 		bl	LedInit
-  32 0016 0349     		ldr	r1, .L4
-  33 0018 0348     		ldr	r0, .L4+4
-  34 001a FFF7FEFF 		bl	Dma_m2p_Init
-  35 001e FFF7FEFF 		bl	Dma_Rework
-  36              	.L2:
-  37 0022 FEE7     		b	.L2
-  38              	.L5:
-  39              		.align	2
-  40              	.L4:
-  41 0024 00000000 		.word	.LANCHOR0
-  42 0028 44000240 		.word	1073872964
-  44              		.global	count
-  45              		.global	aSRC_Buffer
-  46              		.section	.data.aSRC_Buffer,"aw"
-  47              		.align	2
-  48              		.set	.LANCHOR0,. + 0
-  51              	aSRC_Buffer:
-  52 0000 48656C6C 		.ascii	"Hello world\012"
-  52      6F20776F 
-  52      726C640A 
-  53              		.section	.data.count,"aw"
-  54              		.align	2
-  57              	count:
-  58 0000 0A000000 		.word	10
-  59              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
-ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccFaetXb.s 			page 2
+  27 0002 4FF4A060 		mov	r0, #1280
+  28 0006 FFF7FEFF 		bl	NVIC_PriorityGroupConfig
+  29 000a FFF7FEFF 		bl	delay_init
+  30 000e 4FF49670 		mov	r0, #300
+  31 0012 FFF7FEFF 		bl	delay_ms
+  32 0016 FFF7FEFF 		bl	Uart_Init
+  33 001a FFF7FEFF 		bl	LedInit
+  34 001e 074C     		ldr	r4, .L4
+  35 0020 E368     		ldr	r3, [r4, #12]
+  36 0022 23F00403 		bic	r3, r3, #4
+  37 0026 E360     		str	r3, [r4, #12]
+  38 0028 4FF47A70 		mov	r0, #1000
+  39 002c FFF7FEFF 		bl	delay_ms
+  40 0030 E368     		ldr	r3, [r4, #12]
+  41 0032 43F00403 		orr	r3, r3, #4
+  42 0036 E360     		str	r3, [r4, #12]
+  43              	.L2:
+  44 0038 FEE7     		b	.L2
+  45              	.L5:
+  46 003a 00BF     		.align	2
+  47              	.L4:
+  48 003c 00140140 		.word	1073812480
+  50              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccL8mowW.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\wxpwx\AppData\Local\Temp\ccFaetXb.s:16     .text.main:00000000 $t
-C:\Users\wxpwx\AppData\Local\Temp\ccFaetXb.s:22     .text.main:00000000 main
-C:\Users\wxpwx\AppData\Local\Temp\ccFaetXb.s:41     .text.main:00000024 $d
-C:\Users\wxpwx\AppData\Local\Temp\ccFaetXb.s:57     .data.count:00000000 count
-C:\Users\wxpwx\AppData\Local\Temp\ccFaetXb.s:51     .data.aSRC_Buffer:00000000 aSRC_Buffer
-C:\Users\wxpwx\AppData\Local\Temp\ccFaetXb.s:47     .data.aSRC_Buffer:00000000 $d
-C:\Users\wxpwx\AppData\Local\Temp\ccFaetXb.s:54     .data.count:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccL8mowW.s:16     .text.main:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccL8mowW.s:22     .text.main:00000000 main
+C:\Users\UXP\AppData\Local\Temp\ccL8mowW.s:48     .text.main:0000003c $d
 
 UNDEFINED SYMBOLS
+NVIC_PriorityGroupConfig
 delay_init
 delay_ms
 Uart_Init
 LedInit
-Dma_m2p_Init
-Dma_Rework

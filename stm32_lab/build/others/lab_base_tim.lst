@@ -1,0 +1,115 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccLUo9VH.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lab_base_tim.c"
+  14              		.text
+  15              		.section	.text.Basic_Tim_Init,"ax",%progbits
+  16              		.align	1
+  17              		.global	Basic_Tim_Init
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	Basic_Tim_Init:
+  23              		@ args = 0, pretend = 0, frame = 16
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 30B5     		push	{r4, r5, lr}
+  26 0002 85B0     		sub	sp, sp, #20
+  27 0004 3623     		movs	r3, #54
+  28 0006 8DF80C30 		strb	r3, [sp, #12]
+  29 000a 0124     		movs	r4, #1
+  30 000c 8DF80D40 		strb	r4, [sp, #13]
+  31 0010 8DF80E40 		strb	r4, [sp, #14]
+  32 0014 8DF80F40 		strb	r4, [sp, #15]
+  33 0018 03A8     		add	r0, sp, #12
+  34 001a FFF7FEFF 		bl	NVIC_Init
+  35 001e 2146     		mov	r1, r4
+  36 0020 1020     		movs	r0, #16
+  37 0022 FFF7FEFF 		bl	RCC_APB1PeriphClockCmd
+  38 0026 41F61F43 		movw	r3, #7199
+  39 002a ADF80030 		strh	r3, [sp]	@ movhi
+  40 002e 42F21073 		movw	r3, #10000
+  41 0032 ADF80430 		strh	r3, [sp, #4]	@ movhi
+  42 0036 0A4D     		ldr	r5, .L3
+  43 0038 6946     		mov	r1, sp
+  44 003a 2846     		mov	r0, r5
+  45 003c FFF7FEFF 		bl	TIM_TimeBaseInit
+  46 0040 2146     		mov	r1, r4
+  47 0042 2846     		mov	r0, r5
+  48 0044 FFF7FEFF 		bl	TIM_ClearFlag
+  49 0048 2246     		mov	r2, r4
+  50 004a 2146     		mov	r1, r4
+  51 004c 2846     		mov	r0, r5
+  52 004e FFF7FEFF 		bl	TIM_ITConfig
+  53 0052 2146     		mov	r1, r4
+  54 0054 2846     		mov	r0, r5
+  55 0056 FFF7FEFF 		bl	TIM_Cmd
+  56 005a 05B0     		add	sp, sp, #20
+  57              		@ sp needed
+  58 005c 30BD     		pop	{r4, r5, pc}
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccLUo9VH.s 			page 2
+
+
+  59              	.L4:
+  60 005e 00BF     		.align	2
+  61              	.L3:
+  62 0060 00100040 		.word	1073745920
+  64              		.section	.text.TIM6_IRQHandler,"ax",%progbits
+  65              		.align	1
+  66              		.global	TIM6_IRQHandler
+  67              		.syntax unified
+  68              		.thumb
+  69              		.thumb_func
+  71              	TIM6_IRQHandler:
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74 0000 08B5     		push	{r3, lr}
+  75 0002 084A     		ldr	r2, .L7
+  76 0004 D368     		ldr	r3, [r2, #12]
+  77 0006 83F48073 		eor	r3, r3, #256
+  78 000a D360     		str	r3, [r2, #12]
+  79 000c 02F54062 		add	r2, r2, #3072
+  80 0010 D368     		ldr	r3, [r2, #12]
+  81 0012 83F00403 		eor	r3, r3, #4
+  82 0016 D360     		str	r3, [r2, #12]
+  83 0018 0121     		movs	r1, #1
+  84 001a 0348     		ldr	r0, .L7+4
+  85 001c FFF7FEFF 		bl	TIM_ClearITPendingBit
+  86 0020 08BD     		pop	{r3, pc}
+  87              	.L8:
+  88 0022 00BF     		.align	2
+  89              	.L7:
+  90 0024 00080140 		.word	1073809408
+  91 0028 00100040 		.word	1073745920
+  93              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccLUo9VH.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lab_base_tim.c
+C:\Users\UXP\AppData\Local\Temp\ccLUo9VH.s:16     .text.Basic_Tim_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccLUo9VH.s:22     .text.Basic_Tim_Init:00000000 Basic_Tim_Init
+C:\Users\UXP\AppData\Local\Temp\ccLUo9VH.s:62     .text.Basic_Tim_Init:00000060 $d
+C:\Users\UXP\AppData\Local\Temp\ccLUo9VH.s:65     .text.TIM6_IRQHandler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccLUo9VH.s:71     .text.TIM6_IRQHandler:00000000 TIM6_IRQHandler
+C:\Users\UXP\AppData\Local\Temp\ccLUo9VH.s:90     .text.TIM6_IRQHandler:00000024 $d
+
+UNDEFINED SYMBOLS
+NVIC_Init
+RCC_APB1PeriphClockCmd
+TIM_TimeBaseInit
+TIM_ClearFlag
+TIM_ITConfig
+TIM_Cmd
+TIM_ClearITPendingBit

@@ -1,0 +1,331 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lab_i2c_gpio.c"
+  14              		.text
+  15              		.section	.text.IIC_GPIO_Init,"ax",%progbits
+  16              		.align	1
+  17              		.global	IIC_GPIO_Init
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	IIC_GPIO_Init:
+  23              		@ args = 0, pretend = 0, frame = 8
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 00B5     		push	{lr}
+  26 0002 83B0     		sub	sp, sp, #12
+  27 0004 0121     		movs	r1, #1
+  28 0006 0820     		movs	r0, #8
+  29 0008 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+  30 000c 1423     		movs	r3, #20
+  31 000e 8DF80730 		strb	r3, [sp, #7]
+  32 0012 C023     		movs	r3, #192
+  33 0014 ADF80430 		strh	r3, [sp, #4]	@ movhi
+  34 0018 0323     		movs	r3, #3
+  35 001a 8DF80630 		strb	r3, [sp, #6]
+  36 001e 01A9     		add	r1, sp, #4
+  37 0020 0248     		ldr	r0, .L3
+  38 0022 FFF7FEFF 		bl	GPIO_Init
+  39 0026 03B0     		add	sp, sp, #12
+  40              		@ sp needed
+  41 0028 5DF804FB 		ldr	pc, [sp], #4
+  42              	.L4:
+  43              		.align	2
+  44              	.L3:
+  45 002c 000C0140 		.word	1073810432
+  47              		.section	.text.IIC_Start,"ax",%progbits
+  48              		.align	1
+  49              		.global	IIC_Start
+  50              		.syntax unified
+  51              		.thumb
+  52              		.thumb_func
+  54              	IIC_Start:
+  55              		@ args = 0, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57 0000 70B5     		push	{r4, r5, r6, lr}
+  58 0002 084C     		ldr	r4, .L7
+  59 0004 8026     		movs	r6, #128
+  60 0006 2661     		str	r6, [r4, #16]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s 			page 2
+
+
+  61 0008 4025     		movs	r5, #64
+  62 000a 2561     		str	r5, [r4, #16]
+  63 000c 0520     		movs	r0, #5
+  64 000e FFF7FEFF 		bl	delay_us
+  65 0012 6661     		str	r6, [r4, #20]
+  66 0014 0520     		movs	r0, #5
+  67 0016 FFF7FEFF 		bl	delay_us
+  68 001a 6561     		str	r5, [r4, #20]
+  69 001c 0520     		movs	r0, #5
+  70 001e FFF7FEFF 		bl	delay_us
+  71 0022 70BD     		pop	{r4, r5, r6, pc}
+  72              	.L8:
+  73              		.align	2
+  74              	.L7:
+  75 0024 000C0140 		.word	1073810432
+  77              		.section	.text.IIC_Stop,"ax",%progbits
+  78              		.align	1
+  79              		.global	IIC_Stop
+  80              		.syntax unified
+  81              		.thumb
+  82              		.thumb_func
+  84              	IIC_Stop:
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87 0000 38B5     		push	{r3, r4, r5, lr}
+  88 0002 054C     		ldr	r4, .L11
+  89 0004 8025     		movs	r5, #128
+  90 0006 6561     		str	r5, [r4, #20]
+  91 0008 4023     		movs	r3, #64
+  92 000a 2361     		str	r3, [r4, #16]
+  93 000c 0520     		movs	r0, #5
+  94 000e FFF7FEFF 		bl	delay_us
+  95 0012 2561     		str	r5, [r4, #16]
+  96 0014 38BD     		pop	{r3, r4, r5, pc}
+  97              	.L12:
+  98 0016 00BF     		.align	2
+  99              	.L11:
+ 100 0018 000C0140 		.word	1073810432
+ 102              		.section	.text.IIC_SendByte,"ax",%progbits
+ 103              		.align	1
+ 104              		.global	IIC_SendByte
+ 105              		.syntax unified
+ 106              		.thumb
+ 107              		.thumb_func
+ 109              	IIC_SendByte:
+ 110              		@ args = 0, pretend = 0, frame = 0
+ 111              		@ frame_needed = 0, uses_anonymous_args = 0
+ 112 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 113 0002 0446     		mov	r4, r0
+ 114 0004 0025     		movs	r5, #0
+ 115 0006 13E0     		b	.L14
+ 116              	.L20:
+ 117 0008 104B     		ldr	r3, .L21
+ 118 000a 8022     		movs	r2, #128
+ 119 000c 1A61     		str	r2, [r3, #16]
+ 120              	.L16:
+ 121 000e 0520     		movs	r0, #5
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s 			page 3
+
+
+ 122 0010 FFF7FEFF 		bl	delay_us
+ 123 0014 0D4E     		ldr	r6, .L21
+ 124 0016 4027     		movs	r7, #64
+ 125 0018 3761     		str	r7, [r6, #16]
+ 126 001a 0520     		movs	r0, #5
+ 127 001c FFF7FEFF 		bl	delay_us
+ 128 0020 7761     		str	r7, [r6, #20]
+ 129 0022 6400     		lsls	r4, r4, #1
+ 130 0024 E4B2     		uxtb	r4, r4
+ 131 0026 0520     		movs	r0, #5
+ 132 0028 FFF7FEFF 		bl	delay_us
+ 133 002c 0135     		adds	r5, r5, #1
+ 134 002e EDB2     		uxtb	r5, r5
+ 135              	.L14:
+ 136 0030 072D     		cmp	r5, #7
+ 137 0032 06D8     		bhi	.L19
+ 138 0034 14F0800F 		tst	r4, #128
+ 139 0038 E6D1     		bne	.L20
+ 140 003a 044B     		ldr	r3, .L21
+ 141 003c 8022     		movs	r2, #128
+ 142 003e 5A61     		str	r2, [r3, #20]
+ 143 0040 E5E7     		b	.L16
+ 144              	.L19:
+ 145 0042 024B     		ldr	r3, .L21
+ 146 0044 8022     		movs	r2, #128
+ 147 0046 1A61     		str	r2, [r3, #16]
+ 148 0048 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 149              	.L22:
+ 150 004a 00BF     		.align	2
+ 151              	.L21:
+ 152 004c 000C0140 		.word	1073810432
+ 154              		.section	.text.IIC_ReadByte,"ax",%progbits
+ 155              		.align	1
+ 156              		.global	IIC_ReadByte
+ 157              		.syntax unified
+ 158              		.thumb
+ 159              		.thumb_func
+ 161              	IIC_ReadByte:
+ 162              		@ args = 0, pretend = 0, frame = 0
+ 163              		@ frame_needed = 0, uses_anonymous_args = 0
+ 164 0000 70B5     		push	{r4, r5, r6, lr}
+ 165 0002 0024     		movs	r4, #0
+ 166 0004 2546     		mov	r5, r4
+ 167 0006 07E0     		b	.L24
+ 168              	.L25:
+ 169 0008 0D4B     		ldr	r3, .L29
+ 170 000a 4022     		movs	r2, #64
+ 171 000c 5A61     		str	r2, [r3, #20]
+ 172 000e 0520     		movs	r0, #5
+ 173 0010 FFF7FEFF 		bl	delay_us
+ 174 0014 0134     		adds	r4, r4, #1
+ 175 0016 E4B2     		uxtb	r4, r4
+ 176              	.L24:
+ 177 0018 072C     		cmp	r4, #7
+ 178 001a 0ED8     		bhi	.L28
+ 179 001c 6D00     		lsls	r5, r5, #1
+ 180 001e EDB2     		uxtb	r5, r5
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s 			page 4
+
+
+ 181 0020 074E     		ldr	r6, .L29
+ 182 0022 4023     		movs	r3, #64
+ 183 0024 3361     		str	r3, [r6, #16]
+ 184 0026 0520     		movs	r0, #5
+ 185 0028 FFF7FEFF 		bl	delay_us
+ 186 002c B368     		ldr	r3, [r6, #8]
+ 187 002e 13F0800F 		tst	r3, #128
+ 188 0032 E9D0     		beq	.L25
+ 189 0034 45F00105 		orr	r5, r5, #1
+ 190 0038 E6E7     		b	.L25
+ 191              	.L28:
+ 192 003a 2846     		mov	r0, r5
+ 193 003c 70BD     		pop	{r4, r5, r6, pc}
+ 194              	.L30:
+ 195 003e 00BF     		.align	2
+ 196              	.L29:
+ 197 0040 000C0140 		.word	1073810432
+ 199              		.section	.text.IIC_WaitAck,"ax",%progbits
+ 200              		.align	1
+ 201              		.global	IIC_WaitAck
+ 202              		.syntax unified
+ 203              		.thumb
+ 204              		.thumb_func
+ 206              	IIC_WaitAck:
+ 207              		@ args = 0, pretend = 0, frame = 0
+ 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209 0000 10B5     		push	{r4, lr}
+ 210 0002 0D4C     		ldr	r4, .L35
+ 211 0004 8023     		movs	r3, #128
+ 212 0006 2361     		str	r3, [r4, #16]
+ 213 0008 0520     		movs	r0, #5
+ 214 000a FFF7FEFF 		bl	delay_us
+ 215 000e 4023     		movs	r3, #64
+ 216 0010 2361     		str	r3, [r4, #16]
+ 217 0012 0520     		movs	r0, #5
+ 218 0014 FFF7FEFF 		bl	delay_us
+ 219 0018 A368     		ldr	r3, [r4, #8]
+ 220 001a 13F0800F 		tst	r3, #128
+ 221 001e 08D0     		beq	.L33
+ 222 0020 0124     		movs	r4, #1
+ 223              	.L32:
+ 224 0022 054B     		ldr	r3, .L35
+ 225 0024 4022     		movs	r2, #64
+ 226 0026 5A61     		str	r2, [r3, #20]
+ 227 0028 0520     		movs	r0, #5
+ 228 002a FFF7FEFF 		bl	delay_us
+ 229 002e 2046     		mov	r0, r4
+ 230 0030 10BD     		pop	{r4, pc}
+ 231              	.L33:
+ 232 0032 0024     		movs	r4, #0
+ 233 0034 F5E7     		b	.L32
+ 234              	.L36:
+ 235 0036 00BF     		.align	2
+ 236              	.L35:
+ 237 0038 000C0140 		.word	1073810432
+ 239              		.section	.text.IIC_Ack,"ax",%progbits
+ 240              		.align	1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s 			page 5
+
+
+ 241              		.global	IIC_Ack
+ 242              		.syntax unified
+ 243              		.thumb
+ 244              		.thumb_func
+ 246              	IIC_Ack:
+ 247              		@ args = 0, pretend = 0, frame = 0
+ 248              		@ frame_needed = 0, uses_anonymous_args = 0
+ 249 0000 70B5     		push	{r4, r5, r6, lr}
+ 250 0002 084C     		ldr	r4, .L39
+ 251 0004 8025     		movs	r5, #128
+ 252 0006 6561     		str	r5, [r4, #20]
+ 253 0008 0520     		movs	r0, #5
+ 254 000a FFF7FEFF 		bl	delay_us
+ 255 000e 4026     		movs	r6, #64
+ 256 0010 2661     		str	r6, [r4, #16]
+ 257 0012 0520     		movs	r0, #5
+ 258 0014 FFF7FEFF 		bl	delay_us
+ 259 0018 6661     		str	r6, [r4, #20]
+ 260 001a 0520     		movs	r0, #5
+ 261 001c FFF7FEFF 		bl	delay_us
+ 262 0020 2561     		str	r5, [r4, #16]
+ 263 0022 70BD     		pop	{r4, r5, r6, pc}
+ 264              	.L40:
+ 265              		.align	2
+ 266              	.L39:
+ 267 0024 000C0140 		.word	1073810432
+ 269              		.section	.text.IIC_NAck,"ax",%progbits
+ 270              		.align	1
+ 271              		.global	IIC_NAck
+ 272              		.syntax unified
+ 273              		.thumb
+ 274              		.thumb_func
+ 276              	IIC_NAck:
+ 277              		@ args = 0, pretend = 0, frame = 0
+ 278              		@ frame_needed = 0, uses_anonymous_args = 0
+ 279 0000 38B5     		push	{r3, r4, r5, lr}
+ 280 0002 084C     		ldr	r4, .L43
+ 281 0004 8023     		movs	r3, #128
+ 282 0006 2361     		str	r3, [r4, #16]
+ 283 0008 0520     		movs	r0, #5
+ 284 000a FFF7FEFF 		bl	delay_us
+ 285 000e 4025     		movs	r5, #64
+ 286 0010 2561     		str	r5, [r4, #16]
+ 287 0012 0520     		movs	r0, #5
+ 288 0014 FFF7FEFF 		bl	delay_us
+ 289 0018 6561     		str	r5, [r4, #20]
+ 290 001a 0520     		movs	r0, #5
+ 291 001c FFF7FEFF 		bl	delay_us
+ 292 0020 38BD     		pop	{r3, r4, r5, pc}
+ 293              	.L44:
+ 294 0022 00BF     		.align	2
+ 295              	.L43:
+ 296 0024 000C0140 		.word	1073810432
+ 298              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lab_i2c_gpio.c
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:16     .text.IIC_GPIO_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:22     .text.IIC_GPIO_Init:00000000 IIC_GPIO_Init
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:45     .text.IIC_GPIO_Init:0000002c $d
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:48     .text.IIC_Start:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:54     .text.IIC_Start:00000000 IIC_Start
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:75     .text.IIC_Start:00000024 $d
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:78     .text.IIC_Stop:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:84     .text.IIC_Stop:00000000 IIC_Stop
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:100    .text.IIC_Stop:00000018 $d
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:103    .text.IIC_SendByte:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:109    .text.IIC_SendByte:00000000 IIC_SendByte
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:152    .text.IIC_SendByte:0000004c $d
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:155    .text.IIC_ReadByte:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:161    .text.IIC_ReadByte:00000000 IIC_ReadByte
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:197    .text.IIC_ReadByte:00000040 $d
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:200    .text.IIC_WaitAck:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:206    .text.IIC_WaitAck:00000000 IIC_WaitAck
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:237    .text.IIC_WaitAck:00000038 $d
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:240    .text.IIC_Ack:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:246    .text.IIC_Ack:00000000 IIC_Ack
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:267    .text.IIC_Ack:00000024 $d
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:270    .text.IIC_NAck:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:276    .text.IIC_NAck:00000000 IIC_NAck
+C:\Users\UXP\AppData\Local\Temp\ccaSTFAX.s:296    .text.IIC_NAck:00000024 $d
+
+UNDEFINED SYMBOLS
+RCC_APB2PeriphClockCmd
+GPIO_Init
+delay_us

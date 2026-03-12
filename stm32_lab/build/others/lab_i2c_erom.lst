@@ -1,0 +1,411 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"lab_i2c_erom.c"
+  14              		.text
+  15              		.section	.text.EE_CheckDevice,"ax",%progbits
+  16              		.align	1
+  17              		.global	EE_CheckDevice
+  18              		.syntax unified
+  19              		.thumb
+  20              		.thumb_func
+  22              	EE_CheckDevice:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 10B5     		push	{r4, lr}
+  26 0002 0446     		mov	r4, r0
+  27 0004 FFF7FEFF 		bl	IIC_Start
+  28 0008 2046     		mov	r0, r4
+  29 000a FFF7FEFF 		bl	IIC_SendByte
+  30 000e FFF7FEFF 		bl	IIC_WaitAck
+  31 0012 0446     		mov	r4, r0
+  32 0014 FFF7FEFF 		bl	IIC_Stop
+  33 0018 2046     		mov	r0, r4
+  34 001a 10BD     		pop	{r4, pc}
+  36              		.section	.text.EE_WaitStandby,"ax",%progbits
+  37              		.align	1
+  38              		.global	EE_WaitStandby
+  39              		.syntax unified
+  40              		.thumb
+  41              		.thumb_func
+  43              	EE_WaitStandby:
+  44              		@ args = 0, pretend = 0, frame = 0
+  45              		@ frame_needed = 0, uses_anonymous_args = 0
+  46 0000 10B5     		push	{r4, lr}
+  47 0002 0024     		movs	r4, #0
+  48              	.L4:
+  49 0004 A020     		movs	r0, #160
+  50 0006 FFF7FEFF 		bl	EE_CheckDevice
+  51 000a 0346     		mov	r3, r0
+  52 000c 30B1     		cbz	r0, .L5
+  53 000e 631C     		adds	r3, r4, #1
+  54 0010 B4F5803F 		cmp	r4, #65536
+  55 0014 01D2     		bcs	.L7
+  56 0016 1C46     		mov	r4, r3
+  57 0018 F4E7     		b	.L4
+  58              	.L7:
+  59 001a 0123     		movs	r3, #1
+  60              	.L5:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s 			page 2
+
+
+  61 001c 1846     		mov	r0, r3
+  62 001e 10BD     		pop	{r4, pc}
+  64              		.section	.text.EE_WriteBytes,"ax",%progbits
+  65              		.align	1
+  66              		.global	EE_WriteBytes
+  67              		.syntax unified
+  68              		.thumb
+  69              		.thumb_func
+  71              	EE_WriteBytes:
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+  75 0004 8046     		mov	r8, r0
+  76 0006 0E46     		mov	r6, r1
+  77 0008 1746     		mov	r7, r2
+  78 000a 0025     		movs	r5, #0
+  79 000c 13E0     		b	.L10
+  80              	.L14:
+  81 000e B4F57A7F 		cmp	r4, #1000
+  82 0012 2BD0     		beq	.L22
+  83 0014 F0B2     		uxtb	r0, r6
+  84 0016 FFF7FEFF 		bl	IIC_SendByte
+  85 001a FFF7FEFF 		bl	IIC_WaitAck
+  86 001e 48BB     		cbnz	r0, .L23
+  87              	.L12:
+  88 0020 18F80500 		ldrb	r0, [r8, r5]	@ zero_extendqisi2
+  89 0024 FFF7FEFF 		bl	IIC_SendByte
+  90 0028 FFF7FEFF 		bl	IIC_WaitAck
+  91 002c 30BB     		cbnz	r0, .L24
+  92 002e 0136     		adds	r6, r6, #1
+  93 0030 B6B2     		uxth	r6, r6
+  94 0032 0135     		adds	r5, r5, #1
+  95 0034 ADB2     		uxth	r5, r5
+  96              	.L10:
+  97 0036 BD42     		cmp	r5, r7
+  98 0038 25D2     		bcs	.L25
+  99 003a 15B1     		cbz	r5, .L11
+ 100 003c 16F0070F 		tst	r6, #7
+ 101 0040 EED1     		bne	.L12
+ 102              	.L11:
+ 103 0042 FFF7FEFF 		bl	IIC_Stop
+ 104 0046 0520     		movs	r0, #5
+ 105 0048 FFF7FEFF 		bl	delay_us
+ 106 004c 0024     		movs	r4, #0
+ 107              	.L13:
+ 108 004e B4F57A7F 		cmp	r4, #1000
+ 109 0052 DCD2     		bcs	.L14
+ 110 0054 FFF7FEFF 		bl	IIC_Start
+ 111 0058 A020     		movs	r0, #160
+ 112 005a FFF7FEFF 		bl	IIC_SendByte
+ 113 005e FFF7FEFF 		bl	IIC_WaitAck
+ 114 0062 0028     		cmp	r0, #0
+ 115 0064 D3D0     		beq	.L14
+ 116 0066 0134     		adds	r4, r4, #1
+ 117 0068 A4B2     		uxth	r4, r4
+ 118 006a F0E7     		b	.L13
+ 119              	.L22:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s 			page 3
+
+
+ 120 006c FFF7FEFF 		bl	IIC_Stop
+ 121 0070 0120     		movs	r0, #1
+ 122 0072 06E0     		b	.L17
+ 123              	.L23:
+ 124 0074 FFF7FEFF 		bl	IIC_Stop
+ 125 0078 0120     		movs	r0, #1
+ 126 007a 02E0     		b	.L17
+ 127              	.L24:
+ 128 007c FFF7FEFF 		bl	IIC_Stop
+ 129 0080 0120     		movs	r0, #1
+ 130              	.L17:
+ 131 0082 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 132              	.L25:
+ 133 0086 FFF7FEFF 		bl	IIC_Stop
+ 134 008a FFF7FEFF 		bl	EE_WaitStandby
+ 135 008e 0028     		cmp	r0, #0
+ 136 0090 F7D0     		beq	.L17
+ 137 0092 0120     		movs	r0, #1
+ 138 0094 F5E7     		b	.L17
+ 140              		.section	.text.EE_ReadBytes,"ax",%progbits
+ 141              		.align	1
+ 142              		.global	EE_ReadBytes
+ 143              		.syntax unified
+ 144              		.thumb
+ 145              		.thumb_func
+ 147              	EE_ReadBytes:
+ 148              		@ args = 0, pretend = 0, frame = 0
+ 149              		@ frame_needed = 0, uses_anonymous_args = 0
+ 150 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 151 0002 0646     		mov	r6, r0
+ 152 0004 0F46     		mov	r7, r1
+ 153 0006 1546     		mov	r5, r2
+ 154 0008 0024     		movs	r4, #0
+ 155              	.L27:
+ 156 000a B4F57A7F 		cmp	r4, #1000
+ 157 000e 0FD2     		bcs	.L28
+ 158 0010 FFF7FEFF 		bl	IIC_Start
+ 159 0014 A020     		movs	r0, #160
+ 160 0016 FFF7FEFF 		bl	IIC_SendByte
+ 161 001a FFF7FEFF 		bl	IIC_WaitAck
+ 162 001e 38B1     		cbz	r0, .L28
+ 163 0020 FFF7FEFF 		bl	IIC_Stop
+ 164 0024 0520     		movs	r0, #5
+ 165 0026 FFF7FEFF 		bl	delay_us
+ 166 002a 0134     		adds	r4, r4, #1
+ 167 002c A4B2     		uxth	r4, r4
+ 168 002e ECE7     		b	.L27
+ 169              	.L28:
+ 170 0030 B4F57A7F 		cmp	r4, #1000
+ 171 0034 10D0     		beq	.L39
+ 172 0036 F8B2     		uxtb	r0, r7
+ 173 0038 FFF7FEFF 		bl	IIC_SendByte
+ 174 003c FFF7FEFF 		bl	IIC_WaitAck
+ 175 0040 70B9     		cbnz	r0, .L40
+ 176 0042 FFF7FEFF 		bl	IIC_Start
+ 177 0046 A120     		movs	r0, #161
+ 178 0048 FFF7FEFF 		bl	IIC_SendByte
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s 			page 4
+
+
+ 179 004c FFF7FEFF 		bl	IIC_WaitAck
+ 180 0050 0746     		mov	r7, r0
+ 181 0052 48B9     		cbnz	r0, .L41
+ 182 0054 0024     		movs	r4, #0
+ 183 0056 0FE0     		b	.L33
+ 184              	.L39:
+ 185 0058 FFF7FEFF 		bl	IIC_Stop
+ 186 005c 0127     		movs	r7, #1
+ 187 005e 18E0     		b	.L31
+ 188              	.L40:
+ 189 0060 FFF7FEFF 		bl	IIC_Stop
+ 190 0064 0127     		movs	r7, #1
+ 191 0066 14E0     		b	.L31
+ 192              	.L41:
+ 193 0068 FFF7FEFF 		bl	IIC_Stop
+ 194 006c 0127     		movs	r7, #1
+ 195 006e 10E0     		b	.L31
+ 196              	.L34:
+ 197 0070 FFF7FEFF 		bl	IIC_NAck
+ 198              	.L35:
+ 199 0074 0134     		adds	r4, r4, #1
+ 200 0076 A4B2     		uxth	r4, r4
+ 201              	.L33:
+ 202 0078 AC42     		cmp	r4, r5
+ 203 007a 08D2     		bcs	.L42
+ 204 007c FFF7FEFF 		bl	IIC_ReadByte
+ 205 0080 3055     		strb	r0, [r6, r4]
+ 206 0082 6B1E     		subs	r3, r5, #1
+ 207 0084 9C42     		cmp	r4, r3
+ 208 0086 F3D0     		beq	.L34
+ 209 0088 FFF7FEFF 		bl	IIC_Ack
+ 210 008c F2E7     		b	.L35
+ 211              	.L42:
+ 212 008e FFF7FEFF 		bl	IIC_Stop
+ 213              	.L31:
+ 214 0092 3846     		mov	r0, r7
+ 215 0094 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 217              		.section	.rodata.lab_i2c_erom.str1.4,"aMS",%progbits,1
+ 218              		.align	2
+ 219              	.LC0:
+ 220 0000 54686572 		.ascii	"There has no EEPROM\000"
+ 220      65206861 
+ 220      73206E6F 
+ 220      20454550 
+ 220      524F4D00 
+ 221              		.align	2
+ 222              	.LC1:
+ 223 0014 57726974 		.ascii	"Write EEPROM error\000"
+ 223      65204545 
+ 223      50524F4D 
+ 223      20657272 
+ 223      6F7200
+ 224 0027 00       		.align	2
+ 225              	.LC2:
+ 226 0028 57726974 		.ascii	"Write EEPROM success\000"
+ 226      65204545 
+ 226      50524F4D 
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s 			page 5
+
+
+ 226      20737563 
+ 226      63657373 
+ 227 003d 000000   		.align	2
+ 228              	.LC3:
+ 229 0040 52656164 		.ascii	"Read EEPROM error\000"
+ 229      20454550 
+ 229      524F4D20 
+ 229      6572726F 
+ 229      7200
+ 230 0052 0000     		.align	2
+ 231              	.LC4:
+ 232 0054 52656164 		.ascii	"Read EEPROM success\000"
+ 232      20454550 
+ 232      524F4D20 
+ 232      73756363 
+ 232      65737300 
+ 233              		.align	2
+ 234              	.LC5:
+ 235 0068 25642000 		.ascii	"%d \000"
+ 236              		.align	2
+ 237              	.LC6:
+ 238 006c 74657374 		.ascii	"test successful\000"
+ 238      20737563 
+ 238      63657373 
+ 238      66756C00 
+ 239              		.section	.text.lab_i2c_erom,"ax",%progbits
+ 240              		.align	1
+ 241              		.global	lab_i2c_erom
+ 242              		.syntax unified
+ 243              		.thumb
+ 244              		.thumb_func
+ 246              	lab_i2c_erom:
+ 247              		@ args = 0, pretend = 0, frame = 16
+ 248              		@ frame_needed = 0, uses_anonymous_args = 0
+ 249 0000 30B5     		push	{r4, r5, lr}
+ 250 0002 85B0     		sub	sp, sp, #20
+ 251 0004 A020     		movs	r0, #160
+ 252 0006 FFF7FEFF 		bl	EE_CheckDevice
+ 253 000a 0128     		cmp	r0, #1
+ 254 000c 01D0     		beq	.L55
+ 255 000e 0023     		movs	r3, #0
+ 256 0010 0BE0     		b	.L44
+ 257              	.L55:
+ 258 0012 2C48     		ldr	r0, .L58
+ 259 0014 FFF7FEFF 		bl	puts
+ 260 0018 0025     		movs	r5, #0
+ 261 001a 4FE0     		b	.L45
+ 262              	.L46:
+ 263 001c 03F11002 		add	r2, r3, #16
+ 264 0020 6A44     		add	r2, sp, r2
+ 265 0022 02F8083C 		strb	r3, [r2, #-8]
+ 266 0026 0133     		adds	r3, r3, #1
+ 267 0028 9BB2     		uxth	r3, r3
+ 268              	.L44:
+ 269 002a 072B     		cmp	r3, #7
+ 270 002c F6D9     		bls	.L46
+ 271 002e 0822     		movs	r2, #8
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s 			page 6
+
+
+ 272 0030 0021     		movs	r1, #0
+ 273 0032 0DEB0200 		add	r0, sp, r2
+ 274 0036 FFF7FEFF 		bl	EE_WriteBytes
+ 275 003a 90B9     		cbnz	r0, .L56
+ 276 003c 2248     		ldr	r0, .L58+4
+ 277 003e FFF7FEFF 		bl	puts
+ 278 0042 4FF47A70 		mov	r0, #1000
+ 279 0046 FFF7FEFF 		bl	delay_ms
+ 280 004a 0822     		movs	r2, #8
+ 281 004c 0021     		movs	r1, #0
+ 282 004e 6846     		mov	r0, sp
+ 283 0050 FFF7FEFF 		bl	EE_ReadBytes
+ 284 0054 0546     		mov	r5, r0
+ 285 0056 48B9     		cbnz	r0, .L57
+ 286 0058 1C48     		ldr	r0, .L58+8
+ 287 005a FFF7FEFF 		bl	puts
+ 288 005e 0024     		movs	r4, #0
+ 289 0060 13E0     		b	.L49
+ 290              	.L56:
+ 291 0062 1B48     		ldr	r0, .L58+12
+ 292 0064 FFF7FEFF 		bl	puts
+ 293 0068 0125     		movs	r5, #1
+ 294 006a 27E0     		b	.L45
+ 295              	.L57:
+ 296 006c 1948     		ldr	r0, .L58+16
+ 297 006e FFF7FEFF 		bl	puts
+ 298 0072 0125     		movs	r5, #1
+ 299 0074 22E0     		b	.L45
+ 300              	.L50:
+ 301 0076 04F11003 		add	r3, r4, #16
+ 302 007a 6B44     		add	r3, sp, r3
+ 303 007c 13F8081C 		ldrb	r1, [r3, #-8]	@ zero_extendqisi2
+ 304 0080 1548     		ldr	r0, .L58+20
+ 305 0082 FFF7FEFF 		bl	printf
+ 306 0086 0134     		adds	r4, r4, #1
+ 307 0088 A4B2     		uxth	r4, r4
+ 308              	.L49:
+ 309 008a 072C     		cmp	r4, #7
+ 310 008c F3D9     		bls	.L50
+ 311 008e 0A20     		movs	r0, #10
+ 312 0090 FFF7FEFF 		bl	putchar
+ 313 0094 0024     		movs	r4, #0
+ 314 0096 09E0     		b	.L51
+ 315              	.L52:
+ 316 0098 04F11003 		add	r3, r4, #16
+ 317 009c 6B44     		add	r3, sp, r3
+ 318 009e 13F8101C 		ldrb	r1, [r3, #-16]	@ zero_extendqisi2
+ 319 00a2 0D48     		ldr	r0, .L58+20
+ 320 00a4 FFF7FEFF 		bl	printf
+ 321 00a8 0134     		adds	r4, r4, #1
+ 322 00aa A4B2     		uxth	r4, r4
+ 323              	.L51:
+ 324 00ac 072C     		cmp	r4, #7
+ 325 00ae F3D9     		bls	.L52
+ 326 00b0 0A20     		movs	r0, #10
+ 327 00b2 FFF7FEFF 		bl	putchar
+ 328 00b6 0948     		ldr	r0, .L58+24
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s 			page 7
+
+
+ 329 00b8 FFF7FEFF 		bl	puts
+ 330              	.L45:
+ 331 00bc 2846     		mov	r0, r5
+ 332 00be 05B0     		add	sp, sp, #20
+ 333              		@ sp needed
+ 334 00c0 30BD     		pop	{r4, r5, pc}
+ 335              	.L59:
+ 336 00c2 00BF     		.align	2
+ 337              	.L58:
+ 338 00c4 00000000 		.word	.LC0
+ 339 00c8 28000000 		.word	.LC2
+ 340 00cc 54000000 		.word	.LC4
+ 341 00d0 14000000 		.word	.LC1
+ 342 00d4 40000000 		.word	.LC3
+ 343 00d8 68000000 		.word	.LC5
+ 344 00dc 6C000000 		.word	.LC6
+ 346              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 lab_i2c_erom.c
+C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s:16     .text.EE_CheckDevice:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s:22     .text.EE_CheckDevice:00000000 EE_CheckDevice
+C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s:37     .text.EE_WaitStandby:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s:43     .text.EE_WaitStandby:00000000 EE_WaitStandby
+C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s:65     .text.EE_WriteBytes:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s:71     .text.EE_WriteBytes:00000000 EE_WriteBytes
+C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s:141    .text.EE_ReadBytes:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s:147    .text.EE_ReadBytes:00000000 EE_ReadBytes
+C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s:218    .rodata.lab_i2c_erom.str1.4:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s:240    .text.lab_i2c_erom:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s:246    .text.lab_i2c_erom:00000000 lab_i2c_erom
+C:\Users\UXP\AppData\Local\Temp\cc15Ugip.s:338    .text.lab_i2c_erom:000000c4 $d
+
+UNDEFINED SYMBOLS
+IIC_Start
+IIC_SendByte
+IIC_WaitAck
+IIC_Stop
+delay_us
+IIC_NAck
+IIC_ReadByte
+IIC_Ack
+puts
+delay_ms
+printf
+putchar

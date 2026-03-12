@@ -1,4 +1,5 @@
-others/lab_dma.o: ..\Modules\src/lab_dma.c ..\Modules\inc/lab_dma.h \
+others/lab_tim_oc.o: ..\Modules\src/lab_tim_oc.c \
+ ..\Modules\inc/lab_tim_oc.h ..\Library\inc/stm32f10x_tim.h \
  ..\Core/stm32f10x.h ..\Core/core_cm3.h ..\Core/system_stm32f10x.h \
  ..\User/stm32f10x_conf.h ..\Library\inc/stm32f10x_adc.h \
  ..\Library\inc/stm32f10x_bkp.h ..\Library\inc/stm32f10x_can.h \
@@ -10,11 +11,10 @@ others/lab_dma.o: ..\Modules\src/lab_dma.c ..\Modules\inc/lab_dma.h \
  ..\Library\inc/stm32f10x_iwdg.h ..\Library\inc/stm32f10x_pwr.h \
  ..\Library\inc/stm32f10x_rcc.h ..\Library\inc/stm32f10x_rtc.h \
  ..\Library\inc/stm32f10x_sdio.h ..\Library\inc/stm32f10x_spi.h \
- ..\Library\inc/stm32f10x_tim.h ..\Library\inc/stm32f10x_usart.h \
- ..\Library\inc/stm32f10x_wwdg.h ..\Library\inc/misc.h \
- ..\Modules\inc/lab_usart_simple.h ..\System\inc/delay.h \
- ..\System\inc/sys.h ..\Modules\inc/led.h
-..\Modules\inc/lab_dma.h:
+ ..\Library\inc/stm32f10x_usart.h ..\Library\inc/stm32f10x_wwdg.h \
+ ..\Library\inc/misc.h ..\System\inc/delay.h ..\System\inc/sys.h
+..\Modules\inc/lab_tim_oc.h:
+..\Library\inc/stm32f10x_tim.h:
 ..\Core/stm32f10x.h:
 ..\Core/core_cm3.h:
 ..\Core/system_stm32f10x.h:
@@ -38,11 +38,8 @@ others/lab_dma.o: ..\Modules\src/lab_dma.c ..\Modules\inc/lab_dma.h \
 ..\Library\inc/stm32f10x_rtc.h:
 ..\Library\inc/stm32f10x_sdio.h:
 ..\Library\inc/stm32f10x_spi.h:
-..\Library\inc/stm32f10x_tim.h:
 ..\Library\inc/stm32f10x_usart.h:
 ..\Library\inc/stm32f10x_wwdg.h:
 ..\Library\inc/misc.h:
-..\Modules\inc/lab_usart_simple.h:
 ..\System\inc/delay.h:
 ..\System\inc/sys.h:
-..\Modules\inc/led.h:

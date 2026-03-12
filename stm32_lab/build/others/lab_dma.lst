@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s 			page 1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s 			page 1
   56 004a 2046     		mov	r0, r4
   57 004c FFF7FEFF 		bl	DMA_Init
   58 0050 0CB0     		add	sp, sp, #48
-ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s 			page 2
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s 			page 2
 
 
   59              		@ sp needed
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s 			page 1
  117 0020 0393     		str	r3, [sp, #12]
  118 0022 0C23     		movs	r3, #12
  119 0024 0493     		str	r3, [sp, #16]
-ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s 			page 3
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s 			page 3
 
 
  120 0026 0023     		movs	r3, #0
@@ -177,74 +177,26 @@ ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s 			page 1
  175 001e 00BF     		.align	2
  176              	.L13:
  177 0020 44000240 		.word	1073872964
- 179              		.section	.rodata.DMA1_Channel4_IRQHandler.str1.4,"aMS",%progbits,1
-ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s 			page 4
+ 179              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s 			page 4
 
 
- 180              		.align	2
- 181              	.LC0:
- 182 0000 6572726F 		.ascii	"error\000"
- 182      7200
- 183              		.section	.text.DMA1_Channel4_IRQHandler,"ax",%progbits
- 184              		.align	1
- 185              		.global	DMA1_Channel4_IRQHandler
- 186              		.syntax unified
- 187              		.thumb
- 188              		.thumb_func
- 190              	DMA1_Channel4_IRQHandler:
- 191              		@ args = 0, pretend = 0, frame = 0
- 192              		@ frame_needed = 0, uses_anonymous_args = 0
- 193 0000 08B5     		push	{r3, lr}
- 194 0002 4FF40050 		mov	r0, #8192
- 195 0006 FFF7FEFF 		bl	DMA_GetITStatus
- 196 000a 88B1     		cbz	r0, .L16
- 197 000c 4FF40050 		mov	r0, #8192
- 198 0010 FFF7FEFF 		bl	DMA_ClearITPendingBit
- 199 0014 084B     		ldr	r3, .L20
- 200 0016 1B68     		ldr	r3, [r3]
- 201 0018 2BB1     		cbz	r3, .L17
- 202 001a 013B     		subs	r3, r3, #1
- 203 001c 064A     		ldr	r2, .L20
- 204 001e 1360     		str	r3, [r2]
- 205 0020 FFF7FEFF 		bl	Dma_Rework
- 206 0024 07E0     		b	.L15
- 207              	.L17:
- 208 0026 0021     		movs	r1, #0
- 209 0028 0448     		ldr	r0, .L20+4
- 210 002a FFF7FEFF 		bl	DMA_Cmd
- 211 002e 02E0     		b	.L15
- 212              	.L16:
- 213 0030 0348     		ldr	r0, .L20+8
- 214 0032 FFF7FEFF 		bl	puts
- 215              	.L15:
- 216 0036 08BD     		pop	{r3, pc}
- 217              	.L21:
- 218              		.align	2
- 219              	.L20:
- 220 0038 00000000 		.word	count
- 221 003c 44000240 		.word	1073872964
- 222 0040 00000000 		.word	.LC0
- 224              		.ident	"GCC: (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)"
-ARM GAS  C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s 			page 5
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lab_dma.c
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:16     .text.Dma_m2m_Init:00000000 $t
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:22     .text.Dma_m2m_Init:00000000 Dma_m2m_Init
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:64     .text.Dma_m2m_Init:00000054 $d
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:67     .text.NVIC_DMA_Configuration:00000000 $t
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:73     .text.NVIC_DMA_Configuration:00000000 NVIC_DMA_Configuration
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:94     .text.Dma_m2p_Init:00000000 $t
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:100    .text.Dma_m2p_Init:00000000 Dma_m2p_Init
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:148    .text.Dma_m2p_Init:00000060 $d
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:153    .text.Dma_Rework:00000000 $t
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:159    .text.Dma_Rework:00000000 Dma_Rework
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:177    .text.Dma_Rework:00000020 $d
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:180    .rodata.DMA1_Channel4_IRQHandler.str1.4:00000000 $d
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:184    .text.DMA1_Channel4_IRQHandler:00000000 $t
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:190    .text.DMA1_Channel4_IRQHandler:00000000 DMA1_Channel4_IRQHandler
-C:\Users\wxpwx\AppData\Local\Temp\ccVgH2rn.s:220    .text.DMA1_Channel4_IRQHandler:00000038 $d
+C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s:16     .text.Dma_m2m_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s:22     .text.Dma_m2m_Init:00000000 Dma_m2m_Init
+C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s:64     .text.Dma_m2m_Init:00000054 $d
+C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s:67     .text.NVIC_DMA_Configuration:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s:73     .text.NVIC_DMA_Configuration:00000000 NVIC_DMA_Configuration
+C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s:94     .text.Dma_m2p_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s:100    .text.Dma_m2p_Init:00000000 Dma_m2p_Init
+C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s:148    .text.Dma_m2p_Init:00000060 $d
+C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s:153    .text.Dma_Rework:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s:159    .text.Dma_Rework:00000000 Dma_Rework
+C:\Users\UXP\AppData\Local\Temp\ccR5AT1b.s:177    .text.Dma_Rework:00000020 $d
 
 UNDEFINED SYMBOLS
 RCC_AHBPeriphClockCmd
@@ -256,7 +208,3 @@ DMA_ITConfig
 USART_DMACmd
 DMA_Cmd
 DMA_SetCurrDataCounter
-DMA_GetITStatus
-DMA_ClearITPendingBit
-puts
-count
