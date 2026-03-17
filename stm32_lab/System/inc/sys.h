@@ -3,11 +3,10 @@
 
 #include "stm32f10x.h"
 
-//0,不支持ucos
-//1,支持ucos
-// #define SYSTEM_SUPPORT_OS		0		//定义系统文件夹是否支持UCOS
+//0,不支持OS
+//1,支持OS
+#define SYSTEM_SUPPORT_OS		0		//定义系统文件夹是否支持UCOS
 
-//IO口操作宏定义 
 /**
  * @brief 位带操作,实现51类似的GPIO控制功能, 具体实现思想,参考<<CM3权威指南>>第五章(87页~92页).
  * @brief IO口操作宏定义
@@ -17,15 +16,6 @@
  */
 #define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2))
 #define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-
-//IO口操作宏定义 
-/**
- * @brief 位带操作,实现51类似的GPIO控制功能, 具体实现思想,参考<<CM3权威指南>>第五章(87页~92页).
- * @brief IO口操作宏定义
- * @param addr 位带地址
- * @param bitnum 位序号
- * @retval 位带别名
- */
 #define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
 //IO口地址映射
@@ -69,9 +59,9 @@
 #define PGin(n)    BIT_ADDR(GPIOG_IDR_Addr,n)  //输入
 
 //以下为汇编函数
-void WFI_SET(void);		//执行WFI指令
-void INTX_DISABLE(void);//关闭所有中断
-void INTX_ENABLE(void);	//开启所有中断
+void WFI_SET(void);		        //执行WFI指令
+void INTX_DISABLE(void);        //关闭所有中断
+void INTX_ENABLE(void);	        //开启所有中断
 void MSR_MSP(uint32_t addr);	//设置堆栈地址
 
 #endif
