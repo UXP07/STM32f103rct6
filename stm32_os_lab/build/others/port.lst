@@ -1,0 +1,65 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"port.c"
+  14              		.text
+  15              		.section	.text.prvTaskExitError,"ax",%progbits
+  16              		.align	1
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  21              	prvTaskExitError:
+  22              		@ Volatile: function does not return.
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25              		@ link register save eliminated.
+  26              	.L2:
+  27 0000 FEE7     		b	.L2
+  29              		.section	.text.pxPortInitialiseStack,"ax",%progbits
+  30              		.align	1
+  31              		.global	pxPortInitialiseStack
+  32              		.syntax unified
+  33              		.thumb
+  34              		.thumb_func
+  36              	pxPortInitialiseStack:
+  37              		@ args = 0, pretend = 0, frame = 0
+  38              		@ frame_needed = 0, uses_anonymous_args = 0
+  39              		@ link register save eliminated.
+  40 0000 4FF08071 		mov	r1, #16777216
+  41 0004 40F8041C 		str	r1, [r0, #-4]
+  42 0008 22F00102 		bic	r2, r2, #1
+  43 000c 40F8082C 		str	r2, [r0, #-8]
+  44 0010 034A     		ldr	r2, .L4
+  45 0012 40F80C2C 		str	r2, [r0, #-12]
+  46 0016 40F8203C 		str	r3, [r0, #-32]
+  47 001a 4038     		subs	r0, r0, #64
+  48 001c 7047     		bx	lr
+  49              	.L5:
+  50 001e 00BF     		.align	2
+  51              	.L4:
+  52 0020 00000000 		.word	prvTaskExitError
+  54              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 port.c
+C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s:16     .text.prvTaskExitError:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s:21     .text.prvTaskExitError:00000000 prvTaskExitError
+C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s:30     .text.pxPortInitialiseStack:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s:36     .text.pxPortInitialiseStack:00000000 pxPortInitialiseStack
+C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s:52     .text.pxPortInitialiseStack:00000020 $d
+
+NO UNDEFINED SYMBOLS
