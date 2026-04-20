@@ -56,7 +56,7 @@ extern void vPortExitCritical(void);
     {                                                                   \
         portNVIC_INT_CTRL_REG = portNVIC_PENDSVSET_BIT;                 \
         __asm volatile("dsb" ::: "memory");                             \
-        __asm volatile("isb");                                          \     
+        __asm volatile("isb");                                          \
     }
 
 

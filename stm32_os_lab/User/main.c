@@ -5,10 +5,9 @@ extern List_t pxReadyTasksLists[configMAX_PRIORITIES];
 void delay_circu(uint32_t count);
 void Task1_Entry(void *p_arg);
 void Task2_Entry(void *p_arg);
+void prvIdleTask(void *p_arg);
 
 
-uint8_t flag1 = 0;
-uint8_t flag2 = 0;
 
 #define configMINIMAL_STACK_SIZE    128
 #define TASK1_STACK_SIZE        128
@@ -31,8 +30,16 @@ int main(void)
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
     Uart_Init();
     LedInit();
-
-
+    
+    TaskHandle_t xTask1Handle = xTaskCreateStatic(Task1_Entry, "Task1", TASK1_STACK_SIZE, (void*)NULL, 3, Task1Stack, (TCB_t*)&Task1TCB);
+    // vListInsertEnd(&(pxReadyTasksLists[0]), &(task1->xStateListItem));
+    TaskHandle_t xTask2Handle = xTaskCreateStatic(Task2_Entry, "Task2", TASK2_STACK_SIZE, (void*)NULL, 2, Task2Stack, (TCB_t*)&Task2TCB);
+    // vListInsertEnd(&(pxReadyTasksLists[0]), &(task2->xStateListItem));
+    TaskHandle_t xIdleTaskHandle = xTaskCreateStatic(prvIdleTask, "Idle", configMINIMAL_STACK_SIZE, (void*)NULL, 0, IdleTaskStack, (TCB_t*)&IdleTaskTCB);
+    
+    pxCurrentTCB = xTask1Handle;
+    // printf("Hello\n");
+    vTaskStartScheduler();
 
     // for(uint8_t i=0; i<100; i++)
     // {
@@ -40,11 +47,6 @@ int main(void)
     //     delay_ms(500);
     // }
 
-    TaskHandle_t task1 = xTaskCreateStatic(Task1_Entry, "Task1", TASK1_STACK_SIZE, (void*)NULL, 0, Task1Stack, (TCB_t*)&Task1TCB);
-    // vListInsertEnd(&(pxReadyTasksLists[0]), &(task1->xStateListItem));
-    TaskHandle_t task2 = xTaskCreateStatic(Task2_Entry, "Task2", TASK2_STACK_SIZE, (void*)NULL, 0, Task2Stack, (TCB_t*)&Task2TCB);
-    // vListInsertEnd(&(pxReadyTasksLists[0]), &(task2->xStateListItem));
-    
     while(1)
     {
         
@@ -63,10 +65,8 @@ void Task1_Entry(void *p_arg)
 {
     while(1)
     {
-        flag1 = 1;
-        delay_circu(100);
-        flag1 = 0;
-        delay_circu(100);
+        LED2_TOGGLE;
+        vTaskDelay(500);
     }
 }
 
@@ -74,9 +74,15 @@ void Task2_Entry(void *p_arg)
 {
     while(1)
     {
-        flag2 = 1;
-        delay_circu(100);
-        flag2 = 0;
-        delay_circu(100);
+        LED1_TOGGLE;
+        vTaskDelay(500);
+    }
+}
+
+void prvIdleTask(void *p_arg)
+{
+    while(1)
+    {
+
     }
 }

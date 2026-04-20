@@ -1,0 +1,1181 @@
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"task.c"
+  14              		.text
+  15              		.section	.text.prvCreateIdleTasks,"ax",%progbits
+  16              		.align	1
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  21              	prvCreateIdleTasks:
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24              		@ link register save eliminated.
+  25 0000 0120     		movs	r0, #1
+  26 0002 7047     		bx	lr
+  28              		.section	.text.prvResetNextTaskUnblockTime,"ax",%progbits
+  29              		.align	1
+  30              		.syntax unified
+  31              		.thumb
+  32              		.thumb_func
+  34              	prvResetNextTaskUnblockTime:
+  35              		@ args = 0, pretend = 0, frame = 0
+  36              		@ frame_needed = 0, uses_anonymous_args = 0
+  37              		@ link register save eliminated.
+  38 0000 074B     		ldr	r3, .L5
+  39 0002 1B68     		ldr	r3, [r3]
+  40 0004 1B68     		ldr	r3, [r3]
+  41 0006 23B9     		cbnz	r3, .L3
+  42 0008 064B     		ldr	r3, .L5+4
+  43 000a 4FF0FF32 		mov	r2, #-1
+  44 000e 1A60     		str	r2, [r3]
+  45 0010 7047     		bx	lr
+  46              	.L3:
+  47 0012 034B     		ldr	r3, .L5
+  48 0014 1B68     		ldr	r3, [r3]
+  49 0016 DB68     		ldr	r3, [r3, #12]
+  50 0018 1A68     		ldr	r2, [r3]
+  51 001a 024B     		ldr	r3, .L5+4
+  52 001c 1A60     		str	r2, [r3]
+  53 001e 7047     		bx	lr
+  54              	.L6:
+  55              		.align	2
+  56              	.L5:
+  57 0020 00000000 		.word	pxDelayedTaskList
+  58 0024 00000000 		.word	xNextTaskUnblockTime
+  60              		.section	.text.prvInitialiseNewTask,"ax",%progbits
+  61              		.align	1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 2
+
+
+  62              		.syntax unified
+  63              		.thumb
+  64              		.thumb_func
+  66              	prvInitialiseNewTask:
+  67              		@ args = 16, pretend = 0, frame = 0
+  68              		@ frame_needed = 0, uses_anonymous_args = 0
+  69 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+  70 0004 0646     		mov	r6, r0
+  71 0006 1F46     		mov	r7, r3
+  72 0008 0698     		ldr	r0, [sp, #24]
+  73 000a DDF81C80 		ldr	r8, [sp, #28]
+  74 000e 089C     		ldr	r4, [sp, #32]
+  75 0010 256B     		ldr	r5, [r4, #48]
+  76 0012 02F18042 		add	r2, r2, #1073741824
+  77 0016 013A     		subs	r2, r2, #1
+  78 0018 05EB8205 		add	r5, r5, r2, lsl #2
+  79 001c 25F00705 		bic	r5, r5, #7
+  80 0020 71B1     		cbz	r1, .L9
+  81 0022 0B46     		mov	r3, r1
+  82 0024 0021     		movs	r1, #0
+  83              	.L8:
+  84 0026 0F29     		cmp	r1, #15
+  85 0028 07D8     		bhi	.L10
+  86 002a 5A5C     		ldrb	r2, [r3, r1]	@ zero_extendqisi2
+  87 002c 04EB010C 		add	ip, r4, r1
+  88 0030 8CF83420 		strb	r2, [ip, #52]
+  89 0034 0AB1     		cbz	r2, .L10
+  90 0036 0131     		adds	r1, r1, #1
+  91 0038 F5E7     		b	.L8
+  92              	.L10:
+  93 003a 0023     		movs	r3, #0
+  94 003c 84F84330 		strb	r3, [r4, #67]
+  95              	.L9:
+  96 0040 1F28     		cmp	r0, #31
+  97 0042 00D9     		bls	.L12
+  98 0044 1F20     		movs	r0, #31
+  99              	.L12:
+ 100 0046 E062     		str	r0, [r4, #44]
+ 101 0048 201D     		adds	r0, r4, #4
+ 102 004a FFF7FEFF 		bl	vListInitialiseItem
+ 103 004e 04F11800 		add	r0, r4, #24
+ 104 0052 FFF7FEFF 		bl	vListInitialiseItem
+ 105 0056 2461     		str	r4, [r4, #16]
+ 106 0058 6462     		str	r4, [r4, #36]
+ 107 005a E36A     		ldr	r3, [r4, #44]
+ 108 005c C3F12003 		rsb	r3, r3, #32
+ 109 0060 A361     		str	r3, [r4, #24]
+ 110 0062 3B46     		mov	r3, r7
+ 111 0064 3246     		mov	r2, r6
+ 112 0066 216B     		ldr	r1, [r4, #48]
+ 113 0068 2846     		mov	r0, r5
+ 114 006a FFF7FEFF 		bl	pxPortInitialiseStack
+ 115 006e 2060     		str	r0, [r4]
+ 116 0070 B8F1000F 		cmp	r8, #0
+ 117 0074 01D0     		beq	.L7
+ 118 0076 C8F80040 		str	r4, [r8]
+ 119              	.L7:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 3
+
+
+ 120 007a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 122              		.section	.text.prvAddCurrentTaskToDelayedList,"ax",%progbits
+ 123              		.align	1
+ 124              		.syntax unified
+ 125              		.thumb
+ 126              		.thumb_func
+ 128              	prvAddCurrentTaskToDelayedList:
+ 129              		@ args = 0, pretend = 0, frame = 0
+ 130              		@ frame_needed = 0, uses_anonymous_args = 0
+ 131 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 132 0004 0446     		mov	r4, r0
+ 133 0006 0D46     		mov	r5, r1
+ 134 0008 1B4B     		ldr	r3, .L23
+ 135 000a 1E68     		ldr	r6, [r3]
+ 136 000c 1B4B     		ldr	r3, .L23+4
+ 137 000e 1F68     		ldr	r7, [r3]
+ 138 0010 1B4B     		ldr	r3, .L23+8
+ 139 0012 D3F80080 		ldr	r8, [r3]
+ 140 0016 1B4B     		ldr	r3, .L23+12
+ 141 0018 1868     		ldr	r0, [r3]
+ 142 001a 0430     		adds	r0, r0, #4
+ 143 001c FFF7FEFF 		bl	uxListRemove
+ 144 0020 B4F1FF3F 		cmp	r4, #-1
+ 145 0024 0BD0     		beq	.L22
+ 146              	.L18:
+ 147 0026 3444     		add	r4, r4, r6
+ 148 0028 164B     		ldr	r3, .L23+12
+ 149 002a 1968     		ldr	r1, [r3]
+ 150 002c 4C60     		str	r4, [r1, #4]
+ 151 002e A642     		cmp	r6, r4
+ 152 0030 16D9     		bls	.L20
+ 153 0032 0431     		adds	r1, r1, #4
+ 154 0034 4046     		mov	r0, r8
+ 155 0036 FFF7FEFF 		bl	vListInsert
+ 156              	.L17:
+ 157 003a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 158              	.L22:
+ 159 003e 002D     		cmp	r5, #0
+ 160 0040 F1D0     		beq	.L18
+ 161 0042 114B     		ldr	r3, .L23+16
+ 162 0044 5968     		ldr	r1, [r3, #4]
+ 163 0046 0F4A     		ldr	r2, .L23+12
+ 164 0048 1268     		ldr	r2, [r2]
+ 165 004a 9160     		str	r1, [r2, #8]
+ 166 004c 8C68     		ldr	r4, [r1, #8]
+ 167 004e D460     		str	r4, [r2, #12]
+ 168 0050 101D     		adds	r0, r2, #4
+ 169 0052 6060     		str	r0, [r4, #4]
+ 170 0054 8860     		str	r0, [r1, #8]
+ 171 0056 5361     		str	r3, [r2, #20]
+ 172 0058 1A68     		ldr	r2, [r3]
+ 173 005a 0132     		adds	r2, r2, #1
+ 174 005c 1A60     		str	r2, [r3]
+ 175 005e ECE7     		b	.L17
+ 176              	.L20:
+ 177 0060 0431     		adds	r1, r1, #4
+ 178 0062 3846     		mov	r0, r7
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 4
+
+
+ 179 0064 FFF7FEFF 		bl	vListInsert
+ 180 0068 084B     		ldr	r3, .L23+20
+ 181 006a 1B68     		ldr	r3, [r3]
+ 182 006c A342     		cmp	r3, r4
+ 183 006e E4D9     		bls	.L17
+ 184 0070 064B     		ldr	r3, .L23+20
+ 185 0072 1C60     		str	r4, [r3]
+ 186 0074 E1E7     		b	.L17
+ 187              	.L24:
+ 188 0076 00BF     		.align	2
+ 189              	.L23:
+ 190 0078 00000000 		.word	xTickCount
+ 191 007c 00000000 		.word	pxDelayedTaskList
+ 192 0080 00000000 		.word	pxOverflowDelayedTaskList
+ 193 0084 00000000 		.word	pxCurrentTCB
+ 194 0088 00000000 		.word	xSuspendedTaskList
+ 195 008c 00000000 		.word	xNextTaskUnblockTime
+ 197              		.section	.text.prvInitaliseTaskLists,"ax",%progbits
+ 198              		.align	1
+ 199              		.global	prvInitaliseTaskLists
+ 200              		.syntax unified
+ 201              		.thumb
+ 202              		.thumb_func
+ 204              	prvInitaliseTaskLists:
+ 205              		@ args = 0, pretend = 0, frame = 0
+ 206              		@ frame_needed = 0, uses_anonymous_args = 0
+ 207 0000 38B5     		push	{r3, r4, r5, lr}
+ 208 0002 0024     		movs	r4, #0
+ 209 0004 07E0     		b	.L26
+ 210              	.L27:
+ 211 0006 C4EBC402 		rsb	r2, r4, r4, lsl #3
+ 212 000a 9300     		lsls	r3, r2, #2
+ 213 000c 0B48     		ldr	r0, .L29
+ 214 000e 1844     		add	r0, r0, r3
+ 215 0010 FFF7FEFF 		bl	vListInitalise
+ 216 0014 0134     		adds	r4, r4, #1
+ 217              	.L26:
+ 218 0016 1F2C     		cmp	r4, #31
+ 219 0018 F5D9     		bls	.L27
+ 220 001a 094D     		ldr	r5, .L29+4
+ 221 001c 2846     		mov	r0, r5
+ 222 001e FFF7FEFF 		bl	vListInitalise
+ 223 0022 084C     		ldr	r4, .L29+8
+ 224 0024 2046     		mov	r0, r4
+ 225 0026 FFF7FEFF 		bl	vListInitalise
+ 226 002a 0748     		ldr	r0, .L29+12
+ 227 002c FFF7FEFF 		bl	vListInitalise
+ 228 0030 064B     		ldr	r3, .L29+16
+ 229 0032 1D60     		str	r5, [r3]
+ 230 0034 064B     		ldr	r3, .L29+20
+ 231 0036 1C60     		str	r4, [r3]
+ 232 0038 38BD     		pop	{r3, r4, r5, pc}
+ 233              	.L30:
+ 234 003a 00BF     		.align	2
+ 235              	.L29:
+ 236 003c 00000000 		.word	pxReadyTasksLists
+ 237 0040 00000000 		.word	xDelayedTaskList1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 5
+
+
+ 238 0044 00000000 		.word	xDelayedTaskList2
+ 239 0048 00000000 		.word	xPendingReadyList
+ 240 004c 00000000 		.word	pxDelayedTaskList
+ 241 0050 00000000 		.word	pxOverflowDelayedTaskList
+ 243              		.section	.text.prvAddNewTaskToReadyList,"ax",%progbits
+ 244              		.align	1
+ 245              		.syntax unified
+ 246              		.thumb
+ 247              		.thumb_func
+ 249              	prvAddNewTaskToReadyList:
+ 250              		@ args = 0, pretend = 0, frame = 0
+ 251              		@ frame_needed = 0, uses_anonymous_args = 0
+ 252 0000 10B5     		push	{r4, lr}
+ 253 0002 0446     		mov	r4, r0
+ 254 0004 FFF7FEFF 		bl	vPortEnterCritical
+ 255 0008 294A     		ldr	r2, .L39
+ 256 000a 1368     		ldr	r3, [r2]
+ 257 000c 0133     		adds	r3, r3, #1
+ 258 000e 1360     		str	r3, [r2]
+ 259 0010 284B     		ldr	r3, .L39+4
+ 260 0012 1B68     		ldr	r3, [r3]
+ 261 0014 4BB1     		cbz	r3, .L37
+ 262 0016 284A     		ldr	r2, .L39+8
+ 263 0018 1268     		ldr	r2, [r2]
+ 264 001a 5AB9     		cbnz	r2, .L33
+ 265 001c DA6A     		ldr	r2, [r3, #44]
+ 266 001e E36A     		ldr	r3, [r4, #44]
+ 267 0020 9A42     		cmp	r2, r3
+ 268 0022 07D8     		bhi	.L33
+ 269 0024 234B     		ldr	r3, .L39+4
+ 270 0026 1C60     		str	r4, [r3]
+ 271 0028 04E0     		b	.L33
+ 272              	.L37:
+ 273 002a 224B     		ldr	r3, .L39+4
+ 274 002c 1C60     		str	r4, [r3]
+ 275 002e 1368     		ldr	r3, [r2]
+ 276 0030 012B     		cmp	r3, #1
+ 277 0032 39D0     		beq	.L38
+ 278              	.L33:
+ 279 0034 214A     		ldr	r2, .L39+12
+ 280 0036 1368     		ldr	r3, [r2]
+ 281 0038 0133     		adds	r3, r3, #1
+ 282 003a 1360     		str	r3, [r2]
+ 283 003c E36A     		ldr	r3, [r4, #44]
+ 284 003e 204A     		ldr	r2, .L39+16
+ 285 0040 1268     		ldr	r2, [r2]
+ 286 0042 9342     		cmp	r3, r2
+ 287 0044 01D9     		bls	.L34
+ 288 0046 1E4A     		ldr	r2, .L39+16
+ 289 0048 1360     		str	r3, [r2]
+ 290              	.L34:
+ 291 004a 1E4A     		ldr	r2, .L39+20
+ 292 004c C3EBC303 		rsb	r3, r3, r3, lsl #3
+ 293 0050 02EB8303 		add	r3, r2, r3, lsl #2
+ 294 0054 5B68     		ldr	r3, [r3, #4]
+ 295 0056 A360     		str	r3, [r4, #8]
+ 296 0058 9868     		ldr	r0, [r3, #8]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 6
+
+
+ 297 005a E060     		str	r0, [r4, #12]
+ 298 005c 211D     		adds	r1, r4, #4
+ 299 005e 4160     		str	r1, [r0, #4]
+ 300 0060 9960     		str	r1, [r3, #8]
+ 301 0062 E36A     		ldr	r3, [r4, #44]
+ 302 0064 C3EBC301 		rsb	r1, r3, r3, lsl #3
+ 303 0068 02EB8100 		add	r0, r2, r1, lsl #2
+ 304 006c 6061     		str	r0, [r4, #20]
+ 305 006e 52F82110 		ldr	r1, [r2, r1, lsl #2]
+ 306 0072 0131     		adds	r1, r1, #1
+ 307 0074 C3EBC303 		rsb	r3, r3, r3, lsl #3
+ 308 0078 42F82310 		str	r1, [r2, r3, lsl #2]
+ 309 007c FFF7FEFF 		bl	vPortExitCritical
+ 310 0080 0D4B     		ldr	r3, .L39+8
+ 311 0082 1B68     		ldr	r3, [r3]
+ 312 0084 7BB1     		cbz	r3, .L31
+ 313 0086 0B4B     		ldr	r3, .L39+4
+ 314 0088 1B68     		ldr	r3, [r3]
+ 315 008a DA6A     		ldr	r2, [r3, #44]
+ 316 008c E36A     		ldr	r3, [r4, #44]
+ 317 008e 9A42     		cmp	r2, r3
+ 318 0090 09D2     		bcs	.L31
+ 319 0092 4FF0E023 		mov	r3, #-536813568
+ 320 0096 4FF08052 		mov	r2, #268435456
+ 321 009a C3F8042D 		str	r2, [r3, #3332]
+ 322              		.syntax unified
+ 323              	@ 190 "../RTOS/src/task.c" 1
+ 324 009e BFF34F8F 		dsb
+ 325              	@ 0 "" 2
+ 326              	@ 190 "../RTOS/src/task.c" 1
+ 327 00a2 BFF36F8F 		isb
+ 328              	@ 0 "" 2
+ 329              		.thumb
+ 330              		.syntax unified
+ 331              	.L31:
+ 332 00a6 10BD     		pop	{r4, pc}
+ 333              	.L38:
+ 334 00a8 FFF7FEFF 		bl	prvInitaliseTaskLists
+ 335 00ac C2E7     		b	.L33
+ 336              	.L40:
+ 337 00ae 00BF     		.align	2
+ 338              	.L39:
+ 339 00b0 00000000 		.word	uxCurrentNumberOfTasks
+ 340 00b4 00000000 		.word	pxCurrentTCB
+ 341 00b8 00000000 		.word	xSchedulerRunning
+ 342 00bc 00000000 		.word	uxTaskNumber
+ 343 00c0 00000000 		.word	uxTopReadyPriority
+ 344 00c4 00000000 		.word	pxReadyTasksLists
+ 346              		.section	.text.xTaskCreateStatic,"ax",%progbits
+ 347              		.align	1
+ 348              		.global	xTaskCreateStatic
+ 349              		.syntax unified
+ 350              		.thumb
+ 351              		.thumb_func
+ 353              	xTaskCreateStatic:
+ 354              		@ args = 12, pretend = 0, frame = 8
+ 355              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 7
+
+
+ 356 0000 30B5     		push	{r4, r5, lr}
+ 357 0002 87B0     		sub	sp, sp, #28
+ 358 0004 0B9D     		ldr	r5, [sp, #44]
+ 359 0006 0C9C     		ldr	r4, [sp, #48]
+ 360 0008 74B1     		cbz	r4, .L42
+ 361 000a 6DB1     		cbz	r5, .L42
+ 362 000c 2563     		str	r5, [r4, #48]
+ 363 000e 0025     		movs	r5, #0
+ 364 0010 0395     		str	r5, [sp, #12]
+ 365 0012 0294     		str	r4, [sp, #8]
+ 366 0014 05AD     		add	r5, sp, #20
+ 367 0016 0195     		str	r5, [sp, #4]
+ 368 0018 0A9D     		ldr	r5, [sp, #40]
+ 369 001a 0095     		str	r5, [sp]
+ 370 001c FFF7FEFF 		bl	prvInitialiseNewTask
+ 371 0020 2046     		mov	r0, r4
+ 372 0022 FFF7FEFF 		bl	prvAddNewTaskToReadyList
+ 373 0026 01E0     		b	.L43
+ 374              	.L42:
+ 375 0028 0023     		movs	r3, #0
+ 376 002a 0593     		str	r3, [sp, #20]
+ 377              	.L43:
+ 378 002c 0598     		ldr	r0, [sp, #20]
+ 379 002e 07B0     		add	sp, sp, #28
+ 380              		@ sp needed
+ 381 0030 30BD     		pop	{r4, r5, pc}
+ 383              		.section	.text.vTaskDelete,"ax",%progbits
+ 384              		.align	1
+ 385              		.global	vTaskDelete
+ 386              		.syntax unified
+ 387              		.thumb
+ 388              		.thumb_func
+ 390              	vTaskDelete:
+ 391              		@ args = 0, pretend = 0, frame = 0
+ 392              		@ frame_needed = 0, uses_anonymous_args = 0
+ 393              		@ link register save eliminated.
+ 394 0000 7047     		bx	lr
+ 396              		.section	.text.vTaskStartScheduler,"ax",%progbits
+ 397              		.align	1
+ 398              		.global	vTaskStartScheduler
+ 399              		.syntax unified
+ 400              		.thumb
+ 401              		.thumb_func
+ 403              	vTaskStartScheduler:
+ 404              		@ args = 0, pretend = 0, frame = 0
+ 405              		@ frame_needed = 0, uses_anonymous_args = 0
+ 406 0000 08B5     		push	{r3, lr}
+ 407 0002 FFF7FEFF 		bl	prvCreateIdleTasks
+ 408 0006 0128     		cmp	r0, #1
+ 409 0008 09D0     		beq	.L51
+ 410 000a E0B9     		cbnz	r0, .L46
+ 411              		.syntax unified
+ 412              	@ 66 "..\RTOS\inc/portmacro.h" 1
+ 413 000c 4FF05003 		mov r3, #80         
+ 414 0010 83F31188 	msr basepri, r3    
+ 415 0014 BFF36F8F 	isb                
+ 416 0018 BFF34F8F 	dsb                
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 8
+
+
+ 417              	
+ 418              	@ 0 "" 2
+ 419              		.thumb
+ 420              		.syntax unified
+ 421              	.L49:
+ 422 001c FEE7     		b	.L49
+ 423              	.L51:
+ 424              		.syntax unified
+ 425              	@ 66 "..\RTOS\inc/portmacro.h" 1
+ 426 001e 4FF05003 		mov r3, #80         
+ 427 0022 83F31188 	msr basepri, r3    
+ 428 0026 BFF36F8F 	isb                
+ 429 002a BFF34F8F 	dsb                
+ 430              	
+ 431              	@ 0 "" 2
+ 432              		.thumb
+ 433              		.syntax unified
+ 434 002e 064B     		ldr	r3, .L52
+ 435 0030 4FF0FF32 		mov	r2, #-1
+ 436 0034 1A60     		str	r2, [r3]
+ 437 0036 054B     		ldr	r3, .L52+4
+ 438 0038 0122     		movs	r2, #1
+ 439 003a 1A60     		str	r2, [r3]
+ 440 003c 044B     		ldr	r3, .L52+8
+ 441 003e 0022     		movs	r2, #0
+ 442 0040 1A60     		str	r2, [r3]
+ 443 0042 FFF7FEFF 		bl	xPortStartScheduler
+ 444              	.L46:
+ 445 0046 08BD     		pop	{r3, pc}
+ 446              	.L53:
+ 447              		.align	2
+ 448              	.L52:
+ 449 0048 00000000 		.word	xNextTaskUnblockTime
+ 450 004c 00000000 		.word	xSchedulerRunning
+ 451 0050 00000000 		.word	xTickCount
+ 453              		.section	.text.xTaskIncrementTick,"ax",%progbits
+ 454              		.align	1
+ 455              		.global	xTaskIncrementTick
+ 456              		.syntax unified
+ 457              		.thumb
+ 458              		.thumb_func
+ 460              	xTaskIncrementTick:
+ 461              		@ args = 0, pretend = 0, frame = 0
+ 462              		@ frame_needed = 0, uses_anonymous_args = 0
+ 463 0000 4C4B     		ldr	r3, .L81
+ 464 0002 1B68     		ldr	r3, [r3]
+ 465 0004 002B     		cmp	r3, #0
+ 466 0006 40F08C80 		bne	.L55
+ 467 000a 70B5     		push	{r4, r5, r6, lr}
+ 468 000c 4A4B     		ldr	r3, .L81+4
+ 469 000e 1C68     		ldr	r4, [r3]
+ 470 0010 0134     		adds	r4, r4, #1
+ 471 0012 1C60     		str	r4, [r3]
+ 472 0014 A4B1     		cbz	r4, .L77
+ 473              	.L56:
+ 474 0016 494B     		ldr	r3, .L81+8
+ 475 0018 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 9
+
+
+ 476 001a A342     		cmp	r3, r4
+ 477 001c 1DD9     		bls	.L69
+ 478 001e 0020     		movs	r0, #0
+ 479              	.L58:
+ 480 0020 474B     		ldr	r3, .L81+12
+ 481 0022 1B68     		ldr	r3, [r3]
+ 482 0024 DB6A     		ldr	r3, [r3, #44]
+ 483 0026 C3EBC303 		rsb	r3, r3, r3, lsl #3
+ 484 002a 9A00     		lsls	r2, r3, #2
+ 485 002c 454B     		ldr	r3, .L81+16
+ 486 002e 9B58     		ldr	r3, [r3, r2]
+ 487 0030 012B     		cmp	r3, #1
+ 488 0032 00D9     		bls	.L67
+ 489 0034 0120     		movs	r0, #1
+ 490              	.L67:
+ 491 0036 444B     		ldr	r3, .L81+20
+ 492 0038 1B68     		ldr	r3, [r3]
+ 493 003a 002B     		cmp	r3, #0
+ 494 003c 77D1     		bne	.L72
+ 495              	.L54:
+ 496 003e 70BD     		pop	{r4, r5, r6, pc}
+ 497              	.L77:
+ 498 0040 424A     		ldr	r2, .L81+24
+ 499 0042 1168     		ldr	r1, [r2]
+ 500 0044 424B     		ldr	r3, .L81+28
+ 501 0046 1868     		ldr	r0, [r3]
+ 502 0048 1060     		str	r0, [r2]
+ 503 004a 1960     		str	r1, [r3]
+ 504 004c 414A     		ldr	r2, .L81+32
+ 505 004e 1368     		ldr	r3, [r2]
+ 506 0050 0133     		adds	r3, r3, #1
+ 507 0052 1360     		str	r3, [r2]
+ 508 0054 FFF7FEFF 		bl	prvResetNextTaskUnblockTime
+ 509 0058 DDE7     		b	.L56
+ 510              	.L69:
+ 511 005a 0020     		movs	r0, #0
+ 512 005c 36E0     		b	.L57
+ 513              	.L78:
+ 514 005e 374B     		ldr	r3, .L81+8
+ 515 0060 4FF0FF32 		mov	r2, #-1
+ 516 0064 1A60     		str	r2, [r3]
+ 517 0066 DBE7     		b	.L58
+ 518              	.L79:
+ 519 0068 344B     		ldr	r3, .L81+8
+ 520 006a 1A60     		str	r2, [r3]
+ 521 006c D8E7     		b	.L58
+ 522              	.L80:
+ 523 006e 5660     		str	r6, [r2, #4]
+ 524 0070 42E0     		b	.L61
+ 525              	.L63:
+ 526 0072 0021     		movs	r1, #0
+ 527 0074 9962     		str	r1, [r3, #40]
+ 528 0076 1168     		ldr	r1, [r2]
+ 529 0078 0139     		subs	r1, r1, #1
+ 530 007a 1160     		str	r1, [r2]
+ 531              	.L62:
+ 532 007c DA6A     		ldr	r2, [r3, #44]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 10
+
+
+ 533 007e 3649     		ldr	r1, .L81+36
+ 534 0080 0968     		ldr	r1, [r1]
+ 535 0082 8A42     		cmp	r2, r1
+ 536 0084 01D9     		bls	.L64
+ 537 0086 3449     		ldr	r1, .L81+36
+ 538 0088 0A60     		str	r2, [r1]
+ 539              	.L64:
+ 540 008a 2E49     		ldr	r1, .L81+16
+ 541 008c C2EBC202 		rsb	r2, r2, r2, lsl #3
+ 542 0090 4FEA820C 		lsl	ip, r2, #2
+ 543 0094 8C44     		add	ip, ip, r1
+ 544 0096 DCF80420 		ldr	r2, [ip, #4]
+ 545 009a 9A60     		str	r2, [r3, #8]
+ 546 009c 9668     		ldr	r6, [r2, #8]
+ 547 009e DE60     		str	r6, [r3, #12]
+ 548 00a0 7560     		str	r5, [r6, #4]
+ 549 00a2 9560     		str	r5, [r2, #8]
+ 550 00a4 DA6A     		ldr	r2, [r3, #44]
+ 551 00a6 C2EBC20C 		rsb	ip, r2, r2, lsl #3
+ 552 00aa 4FEA8C05 		lsl	r5, ip, #2
+ 553 00ae 6E18     		adds	r6, r5, r1
+ 554 00b0 5E61     		str	r6, [r3, #20]
+ 555 00b2 4D59     		ldr	r5, [r1, r5]
+ 556 00b4 0135     		adds	r5, r5, #1
+ 557 00b6 4FEA8C0C 		lsl	ip, ip, #2
+ 558 00ba 41F80C50 		str	r5, [r1, ip]
+ 559 00be DA6A     		ldr	r2, [r3, #44]
+ 560 00c0 1F4B     		ldr	r3, .L81+12
+ 561 00c2 1B68     		ldr	r3, [r3]
+ 562 00c4 DB6A     		ldr	r3, [r3, #44]
+ 563 00c6 9A42     		cmp	r2, r3
+ 564 00c8 00D9     		bls	.L57
+ 565 00ca 0120     		movs	r0, #1
+ 566              	.L57:
+ 567 00cc 1F4B     		ldr	r3, .L81+24
+ 568 00ce 1B68     		ldr	r3, [r3]
+ 569 00d0 1B68     		ldr	r3, [r3]
+ 570 00d2 002B     		cmp	r3, #0
+ 571 00d4 C3D0     		beq	.L78
+ 572 00d6 1D4B     		ldr	r3, .L81+24
+ 573 00d8 1B68     		ldr	r3, [r3]
+ 574 00da DB68     		ldr	r3, [r3, #12]
+ 575 00dc DB68     		ldr	r3, [r3, #12]
+ 576 00de 5A68     		ldr	r2, [r3, #4]
+ 577 00e0 9442     		cmp	r4, r2
+ 578 00e2 C1D3     		bcc	.L79
+ 579 00e4 5A69     		ldr	r2, [r3, #20]
+ 580 00e6 DD68     		ldr	r5, [r3, #12]
+ 581 00e8 9968     		ldr	r1, [r3, #8]
+ 582 00ea 6960     		str	r1, [r5, #4]
+ 583 00ec DE68     		ldr	r6, [r3, #12]
+ 584 00ee 8E60     		str	r6, [r1, #8]
+ 585 00f0 5168     		ldr	r1, [r2, #4]
+ 586 00f2 1D1D     		adds	r5, r3, #4
+ 587 00f4 A942     		cmp	r1, r5
+ 588 00f6 BAD0     		beq	.L80
+ 589              	.L61:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 11
+
+
+ 590 00f8 0021     		movs	r1, #0
+ 591 00fa 5961     		str	r1, [r3, #20]
+ 592 00fc 1168     		ldr	r1, [r2]
+ 593 00fe 0139     		subs	r1, r1, #1
+ 594 0100 1160     		str	r1, [r2]
+ 595 0102 9A6A     		ldr	r2, [r3, #40]
+ 596 0104 002A     		cmp	r2, #0
+ 597 0106 B9D0     		beq	.L62
+ 598 0108 1E6A     		ldr	r6, [r3, #32]
+ 599 010a D969     		ldr	r1, [r3, #28]
+ 600 010c 7160     		str	r1, [r6, #4]
+ 601 010e 1E6A     		ldr	r6, [r3, #32]
+ 602 0110 8E60     		str	r6, [r1, #8]
+ 603 0112 03F11801 		add	r1, r3, #24
+ 604 0116 D2F804C0 		ldr	ip, [r2, #4]
+ 605 011a 8C45     		cmp	ip, r1
+ 606 011c A9D1     		bne	.L63
+ 607 011e 5660     		str	r6, [r2, #4]
+ 608 0120 A7E7     		b	.L63
+ 609              	.L55:
+ 610 0122 0E4A     		ldr	r2, .L81+40
+ 611 0124 1368     		ldr	r3, [r2]
+ 612 0126 0133     		adds	r3, r3, #1
+ 613 0128 1360     		str	r3, [r2]
+ 614 012a 0020     		movs	r0, #0
+ 615 012c 7047     		bx	lr
+ 616              	.L72:
+ 617 012e 0120     		movs	r0, #1
+ 618 0130 85E7     		b	.L54
+ 619              	.L82:
+ 620 0132 00BF     		.align	2
+ 621              	.L81:
+ 622 0134 00000000 		.word	uxSchedulerSuspended
+ 623 0138 00000000 		.word	xTickCount
+ 624 013c 00000000 		.word	xNextTaskUnblockTime
+ 625 0140 00000000 		.word	pxCurrentTCB
+ 626 0144 00000000 		.word	pxReadyTasksLists
+ 627 0148 00000000 		.word	xYieldPendings
+ 628 014c 00000000 		.word	pxDelayedTaskList
+ 629 0150 00000000 		.word	pxOverflowDelayedTaskList
+ 630 0154 00000000 		.word	xNumOfOverflows
+ 631 0158 00000000 		.word	uxTopReadyPriority
+ 632 015c 00000000 		.word	xPendedTicks
+ 634              		.section	.text.vTaskSuspendAll,"ax",%progbits
+ 635              		.align	1
+ 636              		.global	vTaskSuspendAll
+ 637              		.syntax unified
+ 638              		.thumb
+ 639              		.thumb_func
+ 641              	vTaskSuspendAll:
+ 642              		@ args = 0, pretend = 0, frame = 0
+ 643              		@ frame_needed = 0, uses_anonymous_args = 0
+ 644              		@ link register save eliminated.
+ 645 0000 024A     		ldr	r2, .L84
+ 646 0002 1368     		ldr	r3, [r2]
+ 647 0004 0133     		adds	r3, r3, #1
+ 648 0006 1360     		str	r3, [r2]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 12
+
+
+ 649 0008 7047     		bx	lr
+ 650              	.L85:
+ 651 000a 00BF     		.align	2
+ 652              	.L84:
+ 653 000c 00000000 		.word	uxSchedulerSuspended
+ 655              		.section	.text.xTaskResumeAll,"ax",%progbits
+ 656              		.align	1
+ 657              		.global	xTaskResumeAll
+ 658              		.syntax unified
+ 659              		.thumb
+ 660              		.thumb_func
+ 662              	xTaskResumeAll:
+ 663              		@ args = 0, pretend = 0, frame = 0
+ 664              		@ frame_needed = 0, uses_anonymous_args = 0
+ 665 0000 10B5     		push	{r4, lr}
+ 666 0002 FFF7FEFF 		bl	vPortEnterCritical
+ 667 0006 4B4B     		ldr	r3, .L109
+ 668 0008 1B68     		ldr	r3, [r3]
+ 669 000a 43B9     		cbnz	r3, .L87
+ 670              		.syntax unified
+ 671              	@ 66 "..\RTOS\inc/portmacro.h" 1
+ 672 000c 4FF05003 		mov r3, #80         
+ 673 0010 83F31188 	msr basepri, r3    
+ 674 0014 BFF36F8F 	isb                
+ 675 0018 BFF34F8F 	dsb                
+ 676              	
+ 677              	@ 0 "" 2
+ 678              		.thumb
+ 679              		.syntax unified
+ 680              	.L88:
+ 681 001c FEE7     		b	.L88
+ 682              	.L87:
+ 683 001e 454B     		ldr	r3, .L109
+ 684 0020 1A68     		ldr	r2, [r3]
+ 685 0022 013A     		subs	r2, r2, #1
+ 686 0024 1A60     		str	r2, [r3]
+ 687 0026 1B68     		ldr	r3, [r3]
+ 688 0028 002B     		cmp	r3, #0
+ 689 002a 7DD1     		bne	.L100
+ 690 002c 424B     		ldr	r3, .L109+4
+ 691 002e 1B68     		ldr	r3, [r3]
+ 692 0030 2BB9     		cbnz	r3, .L101
+ 693 0032 0024     		movs	r4, #0
+ 694 0034 79E0     		b	.L89
+ 695              	.L105:
+ 696 0036 5060     		str	r0, [r2, #4]
+ 697 0038 14E0     		b	.L91
+ 698              	.L106:
+ 699 003a 5460     		str	r4, [r2, #4]
+ 700 003c 21E0     		b	.L92
+ 701              	.L101:
+ 702 003e 0023     		movs	r3, #0
+ 703              	.L90:
+ 704 0040 3E4A     		ldr	r2, .L109+8
+ 705 0042 1268     		ldr	r2, [r2]
+ 706 0044 002A     		cmp	r2, #0
+ 707 0046 4AD0     		beq	.L104
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 13
+
+
+ 708 0048 3C4B     		ldr	r3, .L109+8
+ 709 004a DB68     		ldr	r3, [r3, #12]
+ 710 004c DB68     		ldr	r3, [r3, #12]
+ 711 004e 9A6A     		ldr	r2, [r3, #40]
+ 712 0050 186A     		ldr	r0, [r3, #32]
+ 713 0052 D969     		ldr	r1, [r3, #28]
+ 714 0054 4160     		str	r1, [r0, #4]
+ 715 0056 186A     		ldr	r0, [r3, #32]
+ 716 0058 8860     		str	r0, [r1, #8]
+ 717 005a 5468     		ldr	r4, [r2, #4]
+ 718 005c 03F11801 		add	r1, r3, #24
+ 719 0060 8C42     		cmp	r4, r1
+ 720 0062 E8D0     		beq	.L105
+ 721              	.L91:
+ 722 0064 0021     		movs	r1, #0
+ 723 0066 9962     		str	r1, [r3, #40]
+ 724 0068 1168     		ldr	r1, [r2]
+ 725 006a 0139     		subs	r1, r1, #1
+ 726 006c 1160     		str	r1, [r2]
+ 727 006e 5A69     		ldr	r2, [r3, #20]
+ 728 0070 D868     		ldr	r0, [r3, #12]
+ 729 0072 9968     		ldr	r1, [r3, #8]
+ 730 0074 4160     		str	r1, [r0, #4]
+ 731 0076 DC68     		ldr	r4, [r3, #12]
+ 732 0078 8C60     		str	r4, [r1, #8]
+ 733 007a 5168     		ldr	r1, [r2, #4]
+ 734 007c 181D     		adds	r0, r3, #4
+ 735 007e 8142     		cmp	r1, r0
+ 736 0080 DBD0     		beq	.L106
+ 737              	.L92:
+ 738 0082 0021     		movs	r1, #0
+ 739 0084 5961     		str	r1, [r3, #20]
+ 740 0086 1168     		ldr	r1, [r2]
+ 741 0088 0139     		subs	r1, r1, #1
+ 742 008a 1160     		str	r1, [r2]
+ 743 008c DA6A     		ldr	r2, [r3, #44]
+ 744 008e 2C49     		ldr	r1, .L109+12
+ 745 0090 0968     		ldr	r1, [r1]
+ 746 0092 8A42     		cmp	r2, r1
+ 747 0094 01D9     		bls	.L93
+ 748 0096 2A49     		ldr	r1, .L109+12
+ 749 0098 0A60     		str	r2, [r1]
+ 750              	.L93:
+ 751 009a 2A49     		ldr	r1, .L109+16
+ 752 009c C2EBC202 		rsb	r2, r2, r2, lsl #3
+ 753 00a0 01EB8202 		add	r2, r1, r2, lsl #2
+ 754 00a4 5268     		ldr	r2, [r2, #4]
+ 755 00a6 9A60     		str	r2, [r3, #8]
+ 756 00a8 9468     		ldr	r4, [r2, #8]
+ 757 00aa DC60     		str	r4, [r3, #12]
+ 758 00ac 6060     		str	r0, [r4, #4]
+ 759 00ae 9060     		str	r0, [r2, #8]
+ 760 00b0 DA6A     		ldr	r2, [r3, #44]
+ 761 00b2 C2EBC200 		rsb	r0, r2, r2, lsl #3
+ 762 00b6 01EB8004 		add	r4, r1, r0, lsl #2
+ 763 00ba 5C61     		str	r4, [r3, #20]
+ 764 00bc 51F82000 		ldr	r0, [r1, r0, lsl #2]
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 14
+
+
+ 765 00c0 0130     		adds	r0, r0, #1
+ 766 00c2 C2EBC202 		rsb	r2, r2, r2, lsl #3
+ 767 00c6 41F82200 		str	r0, [r1, r2, lsl #2]
+ 768 00ca D96A     		ldr	r1, [r3, #44]
+ 769 00cc 1E4A     		ldr	r2, .L109+20
+ 770 00ce 1268     		ldr	r2, [r2]
+ 771 00d0 D26A     		ldr	r2, [r2, #44]
+ 772 00d2 9142     		cmp	r1, r2
+ 773 00d4 B4D9     		bls	.L90
+ 774 00d6 1D4A     		ldr	r2, .L109+24
+ 775 00d8 0121     		movs	r1, #1
+ 776 00da 1160     		str	r1, [r2]
+ 777 00dc B0E7     		b	.L90
+ 778              	.L104:
+ 779 00de 0BB1     		cbz	r3, .L96
+ 780 00e0 FFF7FEFF 		bl	prvResetNextTaskUnblockTime
+ 781              	.L96:
+ 782 00e4 1A4B     		ldr	r3, .L109+28
+ 783 00e6 1C68     		ldr	r4, [r3]
+ 784 00e8 3CB9     		cbnz	r4, .L99
+ 785              	.L97:
+ 786 00ea 184B     		ldr	r3, .L109+24
+ 787 00ec 1C68     		ldr	r4, [r3]
+ 788 00ee 012C     		cmp	r4, #1
+ 789 00f0 0FD0     		beq	.L107
+ 790 00f2 0024     		movs	r4, #0
+ 791 00f4 19E0     		b	.L89
+ 792              	.L98:
+ 793 00f6 013C     		subs	r4, r4, #1
+ 794 00f8 07D0     		beq	.L108
+ 795              	.L99:
+ 796 00fa FFF7FEFF 		bl	xTaskIncrementTick
+ 797 00fe 0028     		cmp	r0, #0
+ 798 0100 F9D0     		beq	.L98
+ 799 0102 124B     		ldr	r3, .L109+24
+ 800 0104 0122     		movs	r2, #1
+ 801 0106 1A60     		str	r2, [r3]
+ 802 0108 F5E7     		b	.L98
+ 803              	.L108:
+ 804 010a 114B     		ldr	r3, .L109+28
+ 805 010c 0022     		movs	r2, #0
+ 806 010e 1A60     		str	r2, [r3]
+ 807 0110 EBE7     		b	.L97
+ 808              	.L107:
+ 809 0112 4FF0E023 		mov	r3, #-536813568
+ 810 0116 4FF08052 		mov	r2, #268435456
+ 811 011a C3F8042D 		str	r2, [r3, #3332]
+ 812              		.syntax unified
+ 813              	@ 493 "../RTOS/src/task.c" 1
+ 814 011e BFF34F8F 		dsb
+ 815              	@ 0 "" 2
+ 816              	@ 493 "../RTOS/src/task.c" 1
+ 817 0122 BFF36F8F 		isb
+ 818              	@ 0 "" 2
+ 819              		.thumb
+ 820              		.syntax unified
+ 821 0126 00E0     		b	.L89
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 15
+
+
+ 822              	.L100:
+ 823 0128 0024     		movs	r4, #0
+ 824              	.L89:
+ 825 012a FFF7FEFF 		bl	vPortExitCritical
+ 826 012e 2046     		mov	r0, r4
+ 827 0130 10BD     		pop	{r4, pc}
+ 828              	.L110:
+ 829 0132 00BF     		.align	2
+ 830              	.L109:
+ 831 0134 00000000 		.word	uxSchedulerSuspended
+ 832 0138 00000000 		.word	uxCurrentNumberOfTasks
+ 833 013c 00000000 		.word	xPendingReadyList
+ 834 0140 00000000 		.word	uxTopReadyPriority
+ 835 0144 00000000 		.word	pxReadyTasksLists
+ 836 0148 00000000 		.word	pxCurrentTCB
+ 837 014c 00000000 		.word	xYieldPendings
+ 838 0150 00000000 		.word	xPendedTicks
+ 840              		.section	.text.vTaskDelay,"ax",%progbits
+ 841              		.align	1
+ 842              		.global	vTaskDelay
+ 843              		.syntax unified
+ 844              		.thumb
+ 845              		.thumb_func
+ 847              	vTaskDelay:
+ 848              		@ args = 0, pretend = 0, frame = 0
+ 849              		@ frame_needed = 0, uses_anonymous_args = 0
+ 850 0000 10B5     		push	{r4, lr}
+ 851 0002 50B9     		cbnz	r0, .L115
+ 852              	.L112:
+ 853 0004 4FF0E023 		mov	r3, #-536813568
+ 854 0008 4FF08052 		mov	r2, #268435456
+ 855 000c C3F8042D 		str	r2, [r3, #3332]
+ 856              		.syntax unified
+ 857              	@ 532 "../RTOS/src/task.c" 1
+ 858 0010 BFF34F8F 		dsb
+ 859              	@ 0 "" 2
+ 860              	@ 532 "../RTOS/src/task.c" 1
+ 861 0014 BFF36F8F 		isb
+ 862              	@ 0 "" 2
+ 863              		.thumb
+ 864              		.syntax unified
+ 865              	.L111:
+ 866 0018 10BD     		pop	{r4, pc}
+ 867              	.L115:
+ 868 001a 0446     		mov	r4, r0
+ 869 001c FFF7FEFF 		bl	vTaskSuspendAll
+ 870 0020 0021     		movs	r1, #0
+ 871 0022 2046     		mov	r0, r4
+ 872 0024 FFF7FEFF 		bl	prvAddCurrentTaskToDelayedList
+ 873 0028 FFF7FEFF 		bl	xTaskResumeAll
+ 874 002c 0028     		cmp	r0, #0
+ 875 002e F3D1     		bne	.L111
+ 876 0030 E8E7     		b	.L112
+ 878              		.section	.text.vTaskSwitchContext,"ax",%progbits
+ 879              		.align	1
+ 880              		.global	vTaskSwitchContext
+ 881              		.syntax unified
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 16
+
+
+ 882              		.thumb
+ 883              		.thumb_func
+ 885              	vTaskSwitchContext:
+ 886              		@ args = 0, pretend = 0, frame = 0
+ 887              		@ frame_needed = 0, uses_anonymous_args = 0
+ 888              		@ link register save eliminated.
+ 889 0000 204B     		ldr	r3, .L127
+ 890 0002 1B68     		ldr	r3, [r3]
+ 891 0004 1BB1     		cbz	r3, .L117
+ 892 0006 204B     		ldr	r3, .L127+4
+ 893 0008 0122     		movs	r2, #1
+ 894 000a 1A60     		str	r2, [r3]
+ 895 000c 7047     		bx	lr
+ 896              	.L117:
+ 897 000e 1E4B     		ldr	r3, .L127+4
+ 898 0010 0022     		movs	r2, #0
+ 899 0012 1A60     		str	r2, [r3]
+ 900 0014 1D4B     		ldr	r3, .L127+8
+ 901 0016 1B68     		ldr	r3, [r3]
+ 902              	.L119:
+ 903 0018 C3EBC301 		rsb	r1, r3, r3, lsl #3
+ 904 001c 8A00     		lsls	r2, r1, #2
+ 905 001e 1C49     		ldr	r1, .L127+12
+ 906 0020 8A58     		ldr	r2, [r1, r2]
+ 907 0022 5AB9     		cbnz	r2, .L124
+ 908 0024 0BB1     		cbz	r3, .L125
+ 909 0026 013B     		subs	r3, r3, #1
+ 910 0028 F6E7     		b	.L119
+ 911              	.L125:
+ 912              		.syntax unified
+ 913              	@ 66 "..\RTOS\inc/portmacro.h" 1
+ 914 002a 4FF05003 		mov r3, #80         
+ 915 002e 83F31188 	msr basepri, r3    
+ 916 0032 BFF36F8F 	isb                
+ 917 0036 BFF34F8F 	dsb                
+ 918              	
+ 919              	@ 0 "" 2
+ 920              		.thumb
+ 921              		.syntax unified
+ 922              	.L121:
+ 923 003a FEE7     		b	.L121
+ 924              	.L124:
+ 925 003c 0846     		mov	r0, r1
+ 926 003e C3EBC301 		rsb	r1, r3, r3, lsl #3
+ 927 0042 8A00     		lsls	r2, r1, #2
+ 928 0044 0244     		add	r2, r2, r0
+ 929 0046 5168     		ldr	r1, [r2, #4]
+ 930 0048 4968     		ldr	r1, [r1, #4]
+ 931 004a 5160     		str	r1, [r2, #4]
+ 932 004c C3EBC30C 		rsb	ip, r3, r3, lsl #3
+ 933 0050 4FEA8C02 		lsl	r2, ip, #2
+ 934 0054 0832     		adds	r2, r2, #8
+ 935 0056 0244     		add	r2, r2, r0
+ 936 0058 9142     		cmp	r1, r2
+ 937 005a 0BD0     		beq	.L126
+ 938              	.L123:
+ 939 005c C3EBC302 		rsb	r2, r3, r3, lsl #3
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 17
+
+
+ 940 0060 9100     		lsls	r1, r2, #2
+ 941 0062 0B4A     		ldr	r2, .L127+12
+ 942 0064 0A44     		add	r2, r2, r1
+ 943 0066 5268     		ldr	r2, [r2, #4]
+ 944 0068 D168     		ldr	r1, [r2, #12]
+ 945 006a 0A4A     		ldr	r2, .L127+16
+ 946 006c 1160     		str	r1, [r2]
+ 947 006e 074A     		ldr	r2, .L127+8
+ 948 0070 1360     		str	r3, [r2]
+ 949 0072 7047     		bx	lr
+ 950              	.L126:
+ 951 0074 6246     		mov	r2, ip
+ 952 0076 9100     		lsls	r1, r2, #2
+ 953 0078 0246     		mov	r2, r0
+ 954 007a 0A44     		add	r2, r2, r1
+ 955 007c D168     		ldr	r1, [r2, #12]
+ 956 007e 5160     		str	r1, [r2, #4]
+ 957 0080 ECE7     		b	.L123
+ 958              	.L128:
+ 959 0082 00BF     		.align	2
+ 960              	.L127:
+ 961 0084 00000000 		.word	uxSchedulerSuspended
+ 962 0088 00000000 		.word	xYieldPendings
+ 963 008c 00000000 		.word	uxTopReadyPriority
+ 964 0090 00000000 		.word	pxReadyTasksLists
+ 965 0094 00000000 		.word	pxCurrentTCB
+ 967              		.section	.bss.uxSchedulerSuspended,"aw",%nobits
+ 968              		.align	2
+ 971              	uxSchedulerSuspended:
+ 972 0000 00000000 		.space	4
+ 973              		.section	.bss.xYieldPendings,"aw",%nobits
+ 974              		.align	2
+ 977              	xYieldPendings:
+ 978 0000 00000000 		.space	4
+ 979              		.section	.bss.xNextTaskUnblockTime,"aw",%nobits
+ 980              		.align	2
+ 983              	xNextTaskUnblockTime:
+ 984 0000 00000000 		.space	4
+ 985              		.section	.bss.xNumOfOverflows,"aw",%nobits
+ 986              		.align	2
+ 989              	xNumOfOverflows:
+ 990 0000 00000000 		.space	4
+ 991              		.section	.bss.xTickCount,"aw",%nobits
+ 992              		.align	2
+ 995              	xTickCount:
+ 996 0000 00000000 		.space	4
+ 997              		.section	.bss.xPendedTicks,"aw",%nobits
+ 998              		.align	2
+ 1001              	xPendedTicks:
+ 1002 0000 00000000 		.space	4
+ 1003              		.section	.bss.uxTopReadyPriority,"aw",%nobits
+ 1004              		.align	2
+ 1007              	uxTopReadyPriority:
+ 1008 0000 00000000 		.space	4
+ 1009              		.section	.bss.uxTaskNumber,"aw",%nobits
+ 1010              		.align	2
+ 1013              	uxTaskNumber:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 18
+
+
+ 1014 0000 00000000 		.space	4
+ 1015              		.section	.bss.xSchedulerRunning,"aw",%nobits
+ 1016              		.align	2
+ 1019              	xSchedulerRunning:
+ 1020 0000 00000000 		.space	4
+ 1021              		.section	.bss.uxCurrentNumberOfTasks,"aw",%nobits
+ 1022              		.align	2
+ 1025              	uxCurrentNumberOfTasks:
+ 1026 0000 00000000 		.space	4
+ 1027              		.global	pxOverflowDelayedTaskList
+ 1028              		.section	.bss.pxOverflowDelayedTaskList,"aw",%nobits
+ 1029              		.align	2
+ 1032              	pxOverflowDelayedTaskList:
+ 1033 0000 00000000 		.space	4
+ 1034              		.global	pxDelayedTaskList
+ 1035              		.section	.bss.pxDelayedTaskList,"aw",%nobits
+ 1036              		.align	2
+ 1039              	pxDelayedTaskList:
+ 1040 0000 00000000 		.space	4
+ 1041              		.global	xPendingReadyList
+ 1042              		.section	.bss.xPendingReadyList,"aw",%nobits
+ 1043              		.align	2
+ 1046              	xPendingReadyList:
+ 1047 0000 00000000 		.space	28
+ 1047      00000000 
+ 1047      00000000 
+ 1047      00000000 
+ 1047      00000000 
+ 1048              		.global	xSuspendedTaskList
+ 1049              		.section	.bss.xSuspendedTaskList,"aw",%nobits
+ 1050              		.align	2
+ 1053              	xSuspendedTaskList:
+ 1054 0000 00000000 		.space	28
+ 1054      00000000 
+ 1054      00000000 
+ 1054      00000000 
+ 1054      00000000 
+ 1055              		.global	xDelayedTaskList2
+ 1056              		.section	.bss.xDelayedTaskList2,"aw",%nobits
+ 1057              		.align	2
+ 1060              	xDelayedTaskList2:
+ 1061 0000 00000000 		.space	28
+ 1061      00000000 
+ 1061      00000000 
+ 1061      00000000 
+ 1061      00000000 
+ 1062              		.global	xDelayedTaskList1
+ 1063              		.section	.bss.xDelayedTaskList1,"aw",%nobits
+ 1064              		.align	2
+ 1067              	xDelayedTaskList1:
+ 1068 0000 00000000 		.space	28
+ 1068      00000000 
+ 1068      00000000 
+ 1068      00000000 
+ 1068      00000000 
+ 1069              		.global	pxReadyTasksLists
+ 1070              		.section	.bss.pxReadyTasksLists,"aw",%nobits
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 19
+
+
+ 1071              		.align	2
+ 1074              	pxReadyTasksLists:
+ 1075 0000 00000000 		.space	896
+ 1075      00000000 
+ 1075      00000000 
+ 1075      00000000 
+ 1075      00000000 
+ 1076              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 20
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 task.c
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:16     .text.prvCreateIdleTasks:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:21     .text.prvCreateIdleTasks:00000000 prvCreateIdleTasks
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:29     .text.prvResetNextTaskUnblockTime:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:34     .text.prvResetNextTaskUnblockTime:00000000 prvResetNextTaskUnblockTime
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:57     .text.prvResetNextTaskUnblockTime:00000020 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1039   .bss.pxDelayedTaskList:00000000 pxDelayedTaskList
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:983    .bss.xNextTaskUnblockTime:00000000 xNextTaskUnblockTime
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:61     .text.prvInitialiseNewTask:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:66     .text.prvInitialiseNewTask:00000000 prvInitialiseNewTask
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:123    .text.prvAddCurrentTaskToDelayedList:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:128    .text.prvAddCurrentTaskToDelayedList:00000000 prvAddCurrentTaskToDelayedList
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:190    .text.prvAddCurrentTaskToDelayedList:00000078 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:995    .bss.xTickCount:00000000 xTickCount
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1032   .bss.pxOverflowDelayedTaskList:00000000 pxOverflowDelayedTaskList
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1053   .bss.xSuspendedTaskList:00000000 xSuspendedTaskList
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:198    .text.prvInitaliseTaskLists:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:204    .text.prvInitaliseTaskLists:00000000 prvInitaliseTaskLists
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:236    .text.prvInitaliseTaskLists:0000003c $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1074   .bss.pxReadyTasksLists:00000000 pxReadyTasksLists
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1067   .bss.xDelayedTaskList1:00000000 xDelayedTaskList1
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1060   .bss.xDelayedTaskList2:00000000 xDelayedTaskList2
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1046   .bss.xPendingReadyList:00000000 xPendingReadyList
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:244    .text.prvAddNewTaskToReadyList:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:249    .text.prvAddNewTaskToReadyList:00000000 prvAddNewTaskToReadyList
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:339    .text.prvAddNewTaskToReadyList:000000b0 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1025   .bss.uxCurrentNumberOfTasks:00000000 uxCurrentNumberOfTasks
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1019   .bss.xSchedulerRunning:00000000 xSchedulerRunning
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1013   .bss.uxTaskNumber:00000000 uxTaskNumber
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1007   .bss.uxTopReadyPriority:00000000 uxTopReadyPriority
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:347    .text.xTaskCreateStatic:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:353    .text.xTaskCreateStatic:00000000 xTaskCreateStatic
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:384    .text.vTaskDelete:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:390    .text.vTaskDelete:00000000 vTaskDelete
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:397    .text.vTaskStartScheduler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:403    .text.vTaskStartScheduler:00000000 vTaskStartScheduler
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:449    .text.vTaskStartScheduler:00000048 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:454    .text.xTaskIncrementTick:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:460    .text.xTaskIncrementTick:00000000 xTaskIncrementTick
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:622    .text.xTaskIncrementTick:00000134 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:971    .bss.uxSchedulerSuspended:00000000 uxSchedulerSuspended
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:977    .bss.xYieldPendings:00000000 xYieldPendings
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:989    .bss.xNumOfOverflows:00000000 xNumOfOverflows
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1001   .bss.xPendedTicks:00000000 xPendedTicks
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:635    .text.vTaskSuspendAll:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:641    .text.vTaskSuspendAll:00000000 vTaskSuspendAll
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:653    .text.vTaskSuspendAll:0000000c $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:656    .text.xTaskResumeAll:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:662    .text.xTaskResumeAll:00000000 xTaskResumeAll
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:831    .text.xTaskResumeAll:00000134 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:841    .text.vTaskDelay:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:847    .text.vTaskDelay:00000000 vTaskDelay
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:879    .text.vTaskSwitchContext:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:885    .text.vTaskSwitchContext:00000000 vTaskSwitchContext
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:961    .text.vTaskSwitchContext:00000084 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:968    .bss.uxSchedulerSuspended:00000000 $d
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s 			page 21
+
+
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:974    .bss.xYieldPendings:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:980    .bss.xNextTaskUnblockTime:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:986    .bss.xNumOfOverflows:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:992    .bss.xTickCount:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:998    .bss.xPendedTicks:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1004   .bss.uxTopReadyPriority:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1010   .bss.uxTaskNumber:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1016   .bss.xSchedulerRunning:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1022   .bss.uxCurrentNumberOfTasks:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1029   .bss.pxOverflowDelayedTaskList:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1036   .bss.pxDelayedTaskList:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1043   .bss.xPendingReadyList:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1050   .bss.xSuspendedTaskList:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1057   .bss.xDelayedTaskList2:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1064   .bss.xDelayedTaskList1:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJnr9U6.s:1071   .bss.pxReadyTasksLists:00000000 $d
+
+UNDEFINED SYMBOLS
+vListInitialiseItem
+pxPortInitialiseStack
+uxListRemove
+vListInsert
+pxCurrentTCB
+vListInitalise
+vPortEnterCritical
+vPortExitCritical
+xPortStartScheduler

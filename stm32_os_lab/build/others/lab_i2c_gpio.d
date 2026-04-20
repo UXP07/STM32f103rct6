@@ -12,7 +12,7 @@ others/lab_i2c_gpio.o: ..\Modules\src/lab_i2c_gpio.c \
  ..\Library\inc/stm32f10x_rtc.h ..\Library\inc/stm32f10x_sdio.h \
  ..\Library\inc/stm32f10x_spi.h ..\Library\inc/stm32f10x_tim.h \
  ..\Library\inc/stm32f10x_usart.h ..\Library\inc/stm32f10x_wwdg.h \
- ..\Library\inc/misc.h ..\System\inc/delay.h ..\System\inc/sys.h
+ ..\Library\inc/misc.h ..\System\inc/delay.h
 ..\Modules\inc/lab_i2c_gpio.h:
 ..\Core/stm32f10x.h:
 ..\Core/core_cm3.h:
@@ -42,4 +42,3 @@ others/lab_i2c_gpio.o: ..\Modules\src/lab_i2c_gpio.c \
 ..\Library\inc/stm32f10x_wwdg.h:
 ..\Library\inc/misc.h:
 ..\System\inc/delay.h:
-..\System\inc/sys.h:

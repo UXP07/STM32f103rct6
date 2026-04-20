@@ -12,7 +12,7 @@ others/lab_tim_oc.o: ..\Modules\src/lab_tim_oc.c \
  ..\Library\inc/stm32f10x_rcc.h ..\Library\inc/stm32f10x_rtc.h \
  ..\Library\inc/stm32f10x_sdio.h ..\Library\inc/stm32f10x_spi.h \
  ..\Library\inc/stm32f10x_usart.h ..\Library\inc/stm32f10x_wwdg.h \
- ..\Library\inc/misc.h ..\System\inc/delay.h ..\System\inc/sys.h
+ ..\Library\inc/misc.h ..\System\inc/delay.h
 ..\Modules\inc/lab_tim_oc.h:
 ..\Library\inc/stm32f10x_tim.h:
 ..\Core/stm32f10x.h:
@@ -42,4 +42,3 @@ others/lab_tim_oc.o: ..\Modules\src/lab_tim_oc.c \
 ..\Library\inc/stm32f10x_wwdg.h:
 ..\Library\inc/misc.h:
 ..\System\inc/delay.h:
-..\System\inc/sys.h:

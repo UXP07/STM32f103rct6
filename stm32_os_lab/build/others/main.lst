@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s 			page 1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -15,247 +15,275 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s 			page 1
   12              		.eabi_attribute 18, 4
   13              		.file	"main.c"
   14              		.text
-  15              		.section	.text.Task1_Entry,"ax",%progbits
+  15              		.section	.text.prvIdleTask,"ax",%progbits
   16              		.align	1
-  17              		.global	Task1_Entry
+  17              		.global	prvIdleTask
   18              		.syntax unified
   19              		.thumb
   20              		.thumb_func
-  22              	Task1_Entry:
+  22              	prvIdleTask:
   23              		@ Volatile: function does not return.
   24              		@ args = 0, pretend = 0, frame = 0
   25              		@ frame_needed = 0, uses_anonymous_args = 0
   26              		@ link register save eliminated.
   27              	.L2:
-  28 0000 024B     		ldr	r3, .L3
-  29 0002 0122     		movs	r2, #1
-  30 0004 1A70     		strb	r2, [r3]
-  31 0006 0022     		movs	r2, #0
-  32 0008 1A70     		strb	r2, [r3]
-  33 000a F9E7     		b	.L2
-  34              	.L4:
-  35              		.align	2
-  36              	.L3:
-  37 000c 00000000 		.word	flag1
-  39              		.section	.text.vTaskStartScheduler,"ax",%progbits
-  40              		.align	1
-  41              		.global	vTaskStartScheduler
-  42              		.syntax unified
-  43              		.thumb
-  44              		.thumb_func
-  46              	vTaskStartScheduler:
-  47              		@ args = 0, pretend = 0, frame = 0
-  48              		@ frame_needed = 0, uses_anonymous_args = 0
-  49 0000 08B5     		push	{r3, lr}
-  50 0002 034B     		ldr	r3, .L7
-  51 0004 034A     		ldr	r2, .L7+4
-  52 0006 1A60     		str	r2, [r3]
-  53 0008 FFF7FEFF 		bl	xPortStartScheduler
-  54 000c 08BD     		pop	{r3, pc}
-  55              	.L8:
-  56 000e 00BF     		.align	2
-  57              	.L7:
-  58 0010 00000000 		.word	pxCurrentTCB
-  59 0014 00000000 		.word	Task1TCB
-  61              		.section	.rodata.main.str1.4,"aMS",%progbits,1
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s 			page 2
+  28 0000 FEE7     		b	.L2
+  30              		.section	.text.Task1_Entry,"ax",%progbits
+  31              		.align	1
+  32              		.global	Task1_Entry
+  33              		.syntax unified
+  34              		.thumb
+  35              		.thumb_func
+  37              	Task1_Entry:
+  38              		@ Volatile: function does not return.
+  39              		@ args = 0, pretend = 0, frame = 0
+  40              		@ frame_needed = 0, uses_anonymous_args = 0
+  41 0000 08B5     		push	{r3, lr}
+  42              	.L4:
+  43 0002 054A     		ldr	r2, .L6
+  44 0004 D368     		ldr	r3, [r2, #12]
+  45 0006 83F00403 		eor	r3, r3, #4
+  46 000a D360     		str	r3, [r2, #12]
+  47 000c 4FF4FA70 		mov	r0, #500
+  48 0010 FFF7FEFF 		bl	vTaskDelay
+  49 0014 F5E7     		b	.L4
+  50              	.L7:
+  51 0016 00BF     		.align	2
+  52              	.L6:
+  53 0018 00140140 		.word	1073812480
+  55              		.section	.text.Task2_Entry,"ax",%progbits
+  56              		.align	1
+  57              		.global	Task2_Entry
+  58              		.syntax unified
+  59              		.thumb
+  60              		.thumb_func
+  62              	Task2_Entry:
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s 			page 2
 
 
-  62              		.align	2
-  63              	.LC0:
-  64 0000 5461736B 		.ascii	"Task1\000"
-  64      3100
-  65              		.section	.text.main,"ax",%progbits
-  66              		.align	1
-  67              		.global	main
-  68              		.syntax unified
-  69              		.thumb
-  70              		.thumb_func
-  72              	main:
-  73              		@ args = 0, pretend = 0, frame = 0
-  74              		@ frame_needed = 0, uses_anonymous_args = 0
-  75 0000 10B5     		push	{r4, lr}
-  76 0002 84B0     		sub	sp, sp, #16
-  77 0004 4FF4A060 		mov	r0, #1280
-  78 0008 FFF7FEFF 		bl	NVIC_PriorityGroupConfig
-  79 000c FFF7FEFF 		bl	delay_init
-  80 0010 4FF49670 		mov	r0, #300
-  81 0014 FFF7FEFF 		bl	delay_ms
-  82 0018 FFF7FEFF 		bl	Uart_Init
-  83 001c FFF7FEFF 		bl	LedInit
-  84 0020 0F4C     		ldr	r4, .L12
-  85 0022 E368     		ldr	r3, [r4, #12]
-  86 0024 23F00403 		bic	r3, r3, #4
-  87 0028 E360     		str	r3, [r4, #12]
-  88 002a 4FF47A70 		mov	r0, #1000
-  89 002e FFF7FEFF 		bl	delay_ms
-  90 0032 E368     		ldr	r3, [r4, #12]
-  91 0034 43F00403 		orr	r3, r3, #4
-  92 0038 E360     		str	r3, [r4, #12]
-  93 003a FFF7FEFF 		bl	prvInitaliseTaskLists
-  94 003e 094B     		ldr	r3, .L12+4
-  95 0040 0293     		str	r3, [sp, #8]
-  96 0042 094B     		ldr	r3, .L12+8
-  97 0044 0193     		str	r3, [sp, #4]
-  98 0046 0023     		movs	r3, #0
-  99 0048 0093     		str	r3, [sp]
- 100 004a 8022     		movs	r2, #128
- 101 004c 0749     		ldr	r1, .L12+12
- 102 004e 0848     		ldr	r0, .L12+16
- 103 0050 FFF7FEFF 		bl	xTaskCreateStatic
- 104 0054 011D     		adds	r1, r0, #4
- 105 0056 0748     		ldr	r0, .L12+20
- 106 0058 FFF7FEFF 		bl	vListInsertEnd
- 107              	.L10:
- 108 005c FEE7     		b	.L10
- 109              	.L13:
- 110 005e 00BF     		.align	2
- 111              	.L12:
- 112 0060 00140140 		.word	1073812480
- 113 0064 00000000 		.word	Task1TCB
- 114 0068 00000000 		.word	Task1Stack
- 115 006c 00000000 		.word	.LC0
- 116 0070 00000000 		.word	Task1_Entry
- 117 0074 00000000 		.word	pxReadyTasksLists
- 119              		.section	.text.delay_circu,"ax",%progbits
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s 			page 3
+  63              		@ Volatile: function does not return.
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66 0000 08B5     		push	{r3, lr}
+  67              	.L9:
+  68 0002 054A     		ldr	r2, .L11
+  69 0004 D368     		ldr	r3, [r2, #12]
+  70 0006 83F48073 		eor	r3, r3, #256
+  71 000a D360     		str	r3, [r2, #12]
+  72 000c 4FF4FA70 		mov	r0, #500
+  73 0010 FFF7FEFF 		bl	vTaskDelay
+  74 0014 F5E7     		b	.L9
+  75              	.L12:
+  76 0016 00BF     		.align	2
+  77              	.L11:
+  78 0018 00080140 		.word	1073809408
+  80              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+  81              		.align	2
+  82              	.LC0:
+  83 0000 5461736B 		.ascii	"Task1\000"
+  83      3100
+  84 0006 0000     		.align	2
+  85              	.LC1:
+  86 0008 5461736B 		.ascii	"Task2\000"
+  86      3200
+  87 000e 0000     		.align	2
+  88              	.LC2:
+  89 0010 49646C65 		.ascii	"Idle\000"
+  89      00
+  90              		.section	.text.main,"ax",%progbits
+  91              		.align	1
+  92              		.global	main
+  93              		.syntax unified
+  94              		.thumb
+  95              		.thumb_func
+  97              	main:
+  98              		@ args = 0, pretend = 0, frame = 0
+  99              		@ frame_needed = 0, uses_anonymous_args = 0
+ 100 0000 10B5     		push	{r4, lr}
+ 101 0002 84B0     		sub	sp, sp, #16
+ 102 0004 4FF44070 		mov	r0, #768
+ 103 0008 FFF7FEFF 		bl	NVIC_PriorityGroupConfig
+ 104 000c FFF7FEFF 		bl	Uart_Init
+ 105 0010 FFF7FEFF 		bl	LedInit
+ 106 0014 144B     		ldr	r3, .L16
+ 107 0016 0293     		str	r3, [sp, #8]
+ 108 0018 144B     		ldr	r3, .L16+4
+ 109 001a 0193     		str	r3, [sp, #4]
+ 110 001c 0323     		movs	r3, #3
+ 111 001e 0093     		str	r3, [sp]
+ 112 0020 0023     		movs	r3, #0
+ 113 0022 8022     		movs	r2, #128
+ 114 0024 1249     		ldr	r1, .L16+8
+ 115 0026 1348     		ldr	r0, .L16+12
+ 116 0028 FFF7FEFF 		bl	xTaskCreateStatic
+ 117 002c 0446     		mov	r4, r0
+ 118 002e 124B     		ldr	r3, .L16+16
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s 			page 3
 
 
- 120              		.align	1
- 121              		.global	delay_circu
- 122              		.syntax unified
- 123              		.thumb
- 124              		.thumb_func
- 126              	delay_circu:
- 127              		@ args = 0, pretend = 0, frame = 0
- 128              		@ frame_needed = 0, uses_anonymous_args = 0
- 129              		@ link register save eliminated.
- 130 0000 0023     		movs	r3, #0
- 131 0002 00E0     		b	.L15
- 132              	.L16:
- 133 0004 0133     		adds	r3, r3, #1
- 134              	.L15:
- 135 0006 8342     		cmp	r3, r0
- 136 0008 FCD3     		bcc	.L16
- 137 000a 7047     		bx	lr
- 139              		.section	.text.Task2_Entry,"ax",%progbits
- 140              		.align	1
- 141              		.global	Task2_Entry
- 142              		.syntax unified
- 143              		.thumb
- 144              		.thumb_func
- 146              	Task2_Entry:
- 147              		@ Volatile: function does not return.
- 148              		@ args = 0, pretend = 0, frame = 0
- 149              		@ frame_needed = 0, uses_anonymous_args = 0
- 150              		@ link register save eliminated.
- 151              	.L18:
- 152 0000 024B     		ldr	r3, .L19
- 153 0002 0122     		movs	r2, #1
- 154 0004 1A70     		strb	r2, [r3]
- 155 0006 0022     		movs	r2, #0
- 156 0008 1A70     		strb	r2, [r3]
- 157 000a F9E7     		b	.L18
- 158              	.L20:
- 159              		.align	2
- 160              	.L19:
- 161 000c 00000000 		.word	flag2
- 163              		.global	pxCurrentTCB
- 164              		.section	.bss.pxCurrentTCB,"aw",%nobits
- 165              		.align	2
- 168              	pxCurrentTCB:
- 169 0000 00000000 		.space	4
- 170              		.global	Task2TCB
- 171              		.section	.bss.Task2TCB,"aw",%nobits
- 172              		.align	2
- 175              	Task2TCB:
- 176 0000 00000000 		.space	48
- 176      00000000 
- 176      00000000 
- 176      00000000 
- 176      00000000 
- 177              		.global	Task1TCB
- 178              		.section	.bss.Task1TCB,"aw",%nobits
- 179              		.align	2
- 182              	Task1TCB:
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s 			page 4
+ 119 0030 0293     		str	r3, [sp, #8]
+ 120 0032 124B     		ldr	r3, .L16+20
+ 121 0034 0193     		str	r3, [sp, #4]
+ 122 0036 0223     		movs	r3, #2
+ 123 0038 0093     		str	r3, [sp]
+ 124 003a 0023     		movs	r3, #0
+ 125 003c 8022     		movs	r2, #128
+ 126 003e 1049     		ldr	r1, .L16+24
+ 127 0040 1048     		ldr	r0, .L16+28
+ 128 0042 FFF7FEFF 		bl	xTaskCreateStatic
+ 129 0046 104B     		ldr	r3, .L16+32
+ 130 0048 0293     		str	r3, [sp, #8]
+ 131 004a 104B     		ldr	r3, .L16+36
+ 132 004c 0193     		str	r3, [sp, #4]
+ 133 004e 0023     		movs	r3, #0
+ 134 0050 0093     		str	r3, [sp]
+ 135 0052 8022     		movs	r2, #128
+ 136 0054 0E49     		ldr	r1, .L16+40
+ 137 0056 0F48     		ldr	r0, .L16+44
+ 138 0058 FFF7FEFF 		bl	xTaskCreateStatic
+ 139 005c 0E4B     		ldr	r3, .L16+48
+ 140 005e 1C60     		str	r4, [r3]
+ 141 0060 FFF7FEFF 		bl	vTaskStartScheduler
+ 142              	.L14:
+ 143 0064 FEE7     		b	.L14
+ 144              	.L17:
+ 145 0066 00BF     		.align	2
+ 146              	.L16:
+ 147 0068 00000000 		.word	Task1TCB
+ 148 006c 00000000 		.word	Task1Stack
+ 149 0070 00000000 		.word	.LC0
+ 150 0074 00000000 		.word	Task1_Entry
+ 151 0078 00000000 		.word	Task2TCB
+ 152 007c 00000000 		.word	Task2Stack
+ 153 0080 08000000 		.word	.LC1
+ 154 0084 00000000 		.word	Task2_Entry
+ 155 0088 00000000 		.word	IdleTaskTCB
+ 156 008c 00000000 		.word	IdleTaskStack
+ 157 0090 10000000 		.word	.LC2
+ 158 0094 00000000 		.word	prvIdleTask
+ 159 0098 00000000 		.word	pxCurrentTCB
+ 161              		.section	.text.delay_circu,"ax",%progbits
+ 162              		.align	1
+ 163              		.global	delay_circu
+ 164              		.syntax unified
+ 165              		.thumb
+ 166              		.thumb_func
+ 168              	delay_circu:
+ 169              		@ args = 0, pretend = 0, frame = 0
+ 170              		@ frame_needed = 0, uses_anonymous_args = 0
+ 171              		@ link register save eliminated.
+ 172 0000 0023     		movs	r3, #0
+ 173 0002 00E0     		b	.L19
+ 174              	.L20:
+ 175 0004 0133     		adds	r3, r3, #1
+ 176              	.L19:
+ 177 0006 8342     		cmp	r3, r0
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s 			page 4
 
 
- 183 0000 00000000 		.space	48
- 183      00000000 
- 183      00000000 
- 183      00000000 
- 183      00000000 
- 184              		.global	Task2Stack
- 185              		.section	.bss.Task2Stack,"aw",%nobits
- 186              		.align	2
- 189              	Task2Stack:
- 190 0000 00000000 		.space	512
- 190      00000000 
- 190      00000000 
- 190      00000000 
- 190      00000000 
- 191              		.global	Task1Stack
- 192              		.section	.bss.Task1Stack,"aw",%nobits
- 193              		.align	2
- 196              	Task1Stack:
- 197 0000 00000000 		.space	512
- 197      00000000 
- 197      00000000 
- 197      00000000 
- 197      00000000 
- 198              		.global	flag2
- 199              		.section	.bss.flag2,"aw",%nobits
- 202              	flag2:
- 203 0000 00       		.space	1
- 204              		.global	flag1
- 205              		.section	.bss.flag1,"aw",%nobits
- 208              	flag1:
- 209 0000 00       		.space	1
- 210              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s 			page 5
+ 178 0008 FCD3     		bcc	.L20
+ 179 000a 7047     		bx	lr
+ 181              		.global	pxCurrentTCB
+ 182              		.section	.bss.pxCurrentTCB,"aw",%nobits
+ 183              		.align	2
+ 186              	pxCurrentTCB:
+ 187 0000 00000000 		.space	4
+ 188              		.global	Task2TCB
+ 189              		.section	.bss.Task2TCB,"aw",%nobits
+ 190              		.align	2
+ 193              	Task2TCB:
+ 194 0000 00000000 		.space	68
+ 194      00000000 
+ 194      00000000 
+ 194      00000000 
+ 194      00000000 
+ 195              		.global	Task1TCB
+ 196              		.section	.bss.Task1TCB,"aw",%nobits
+ 197              		.align	2
+ 200              	Task1TCB:
+ 201 0000 00000000 		.space	68
+ 201      00000000 
+ 201      00000000 
+ 201      00000000 
+ 201      00000000 
+ 202              		.global	IdleTaskTCB
+ 203              		.section	.bss.IdleTaskTCB,"aw",%nobits
+ 204              		.align	2
+ 207              	IdleTaskTCB:
+ 208 0000 00000000 		.space	68
+ 208      00000000 
+ 208      00000000 
+ 208      00000000 
+ 208      00000000 
+ 209              		.global	Task2Stack
+ 210              		.section	.bss.Task2Stack,"aw",%nobits
+ 211              		.align	2
+ 214              	Task2Stack:
+ 215 0000 00000000 		.space	512
+ 215      00000000 
+ 215      00000000 
+ 215      00000000 
+ 215      00000000 
+ 216              		.global	Task1Stack
+ 217              		.section	.bss.Task1Stack,"aw",%nobits
+ 218              		.align	2
+ 221              	Task1Stack:
+ 222 0000 00000000 		.space	512
+ 222      00000000 
+ 222      00000000 
+ 222      00000000 
+ 222      00000000 
+ 223              		.global	IdleTaskStack
+ 224              		.section	.bss.IdleTaskStack,"aw",%nobits
+ 225              		.align	2
+ 228              	IdleTaskStack:
+ 229 0000 00000000 		.space	512
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s 			page 5
+
+
+ 229      00000000 
+ 229      00000000 
+ 229      00000000 
+ 229      00000000 
+ 230              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:16     .text.Task1_Entry:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:22     .text.Task1_Entry:00000000 Task1_Entry
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:37     .text.Task1_Entry:0000000c $d
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:208    .bss.flag1:00000000 flag1
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:40     .text.vTaskStartScheduler:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:46     .text.vTaskStartScheduler:00000000 vTaskStartScheduler
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:58     .text.vTaskStartScheduler:00000010 $d
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:168    .bss.pxCurrentTCB:00000000 pxCurrentTCB
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:182    .bss.Task1TCB:00000000 Task1TCB
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:62     .rodata.main.str1.4:00000000 $d
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:66     .text.main:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:72     .text.main:00000000 main
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:112    .text.main:00000060 $d
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:196    .bss.Task1Stack:00000000 Task1Stack
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:120    .text.delay_circu:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:126    .text.delay_circu:00000000 delay_circu
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:140    .text.Task2_Entry:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:146    .text.Task2_Entry:00000000 Task2_Entry
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:161    .text.Task2_Entry:0000000c $d
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:202    .bss.flag2:00000000 flag2
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:165    .bss.pxCurrentTCB:00000000 $d
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:175    .bss.Task2TCB:00000000 Task2TCB
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:172    .bss.Task2TCB:00000000 $d
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:179    .bss.Task1TCB:00000000 $d
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:189    .bss.Task2Stack:00000000 Task2Stack
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:186    .bss.Task2Stack:00000000 $d
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:193    .bss.Task1Stack:00000000 $d
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:203    .bss.flag2:00000000 $d
-C:\Users\UXP\AppData\Local\Temp\ccIpOWuP.s:209    .bss.flag1:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:16     .text.prvIdleTask:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:22     .text.prvIdleTask:00000000 prvIdleTask
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:31     .text.Task1_Entry:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:37     .text.Task1_Entry:00000000 Task1_Entry
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:53     .text.Task1_Entry:00000018 $d
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:56     .text.Task2_Entry:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:62     .text.Task2_Entry:00000000 Task2_Entry
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:78     .text.Task2_Entry:00000018 $d
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:81     .rodata.main.str1.4:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:91     .text.main:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:97     .text.main:00000000 main
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:147    .text.main:00000068 $d
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:200    .bss.Task1TCB:00000000 Task1TCB
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:221    .bss.Task1Stack:00000000 Task1Stack
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:193    .bss.Task2TCB:00000000 Task2TCB
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:214    .bss.Task2Stack:00000000 Task2Stack
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:207    .bss.IdleTaskTCB:00000000 IdleTaskTCB
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:228    .bss.IdleTaskStack:00000000 IdleTaskStack
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:186    .bss.pxCurrentTCB:00000000 pxCurrentTCB
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:162    .text.delay_circu:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:168    .text.delay_circu:00000000 delay_circu
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:183    .bss.pxCurrentTCB:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:190    .bss.Task2TCB:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:197    .bss.Task1TCB:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:204    .bss.IdleTaskTCB:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:211    .bss.Task2Stack:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:218    .bss.Task1Stack:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccsIJFk1.s:225    .bss.IdleTaskStack:00000000 $d
 
 UNDEFINED SYMBOLS
-xPortStartScheduler
+vTaskDelay
 NVIC_PriorityGroupConfig
-delay_init
-delay_ms
 Uart_Init
 LedInit
-prvInitaliseTaskLists
 xTaskCreateStatic
-vListInsertEnd
-pxReadyTasksLists
+vTaskStartScheduler

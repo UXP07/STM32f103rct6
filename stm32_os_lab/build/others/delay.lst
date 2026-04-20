@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s 			page 1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccyCxjIR.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -15,161 +15,11 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s 			page 1
   12              		.eabi_attribute 18, 4
   13              		.file	"delay.c"
   14              		.text
-  15              		.section	.text.SysTick_Handler,"ax",%progbits
-  16              		.align	1
-  17              		.global	SysTick_Handler
-  18              		.syntax unified
-  19              		.thumb
-  20              		.thumb_func
-  22              	SysTick_Handler:
-  23              		@ args = 0, pretend = 0, frame = 0
-  24              		@ frame_needed = 0, uses_anonymous_args = 0
-  25              		@ link register save eliminated.
-  26 0000 7047     		bx	lr
-  28              		.section	.text.delay_init,"ax",%progbits
-  29              		.align	1
-  30              		.global	delay_init
-  31              		.syntax unified
-  32              		.thumb
-  33              		.thumb_func
-  35              	delay_init:
-  36              		@ args = 0, pretend = 0, frame = 0
-  37              		@ frame_needed = 0, uses_anonymous_args = 0
-  38 0000 08B5     		push	{r3, lr}
-  39 0002 4FF0E023 		mov	r3, #-536813568
-  40 0006 0022     		movs	r2, #0
-  41 0008 1A61     		str	r2, [r3, #16]
-  42 000a 6FF00400 		mvn	r0, #4
-  43 000e FFF7FEFF 		bl	SysTick_CLKSourceConfig
-  44 0012 084B     		ldr	r3, .L4
-  45 0014 1B68     		ldr	r3, [r3]
-  46 0016 084A     		ldr	r2, .L4+4
-  47 0018 A2FB0323 		umull	r2, r3, r2, r3
-  48 001c C3F34753 		ubfx	r3, r3, #21, #8
-  49 0020 064A     		ldr	r2, .L4+8
-  50 0022 1370     		strb	r3, [r2]
-  51 0024 C3EB4312 		rsb	r2, r3, r3, lsl #5
-  52 0028 03EB8203 		add	r3, r3, r2, lsl #2
-  53 002c DA00     		lsls	r2, r3, #3
-  54 002e 044B     		ldr	r3, .L4+12
-  55 0030 1A80     		strh	r2, [r3]	@ movhi
-  56 0032 08BD     		pop	{r3, pc}
-  57              	.L5:
-  58              		.align	2
-  59              	.L4:
-  60 0034 00000000 		.word	SystemCoreClock
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s 			page 2
-
-
-  61 0038 83DE1B43 		.word	1125899907
-  62 003c 00000000 		.word	fac_us
-  63 0040 00000000 		.word	fac_ms
-  65              		.section	.text.delay_us,"ax",%progbits
-  66              		.align	1
-  67              		.global	delay_us
-  68              		.syntax unified
-  69              		.thumb
-  70              		.thumb_func
-  72              	delay_us:
-  73              		@ args = 0, pretend = 0, frame = 0
-  74              		@ frame_needed = 0, uses_anonymous_args = 0
-  75              		@ link register save eliminated.
-  76 0000 0E4B     		ldr	r3, .L8
-  77 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  78 0004 03FB00F0 		mul	r0, r3, r0
-  79 0008 4FF0E023 		mov	r3, #-536813568
-  80 000c 5861     		str	r0, [r3, #20]
-  81 000e 0022     		movs	r2, #0
-  82 0010 9A61     		str	r2, [r3, #24]
-  83 0012 1A69     		ldr	r2, [r3, #16]
-  84 0014 42F00102 		orr	r2, r2, #1
-  85 0018 1A61     		str	r2, [r3, #16]
-  86              	.L7:
-  87 001a 4FF0E023 		mov	r3, #-536813568
-  88 001e 1B69     		ldr	r3, [r3, #16]
-  89 0020 03F00113 		and	r3, r3, #65537
-  90 0024 012B     		cmp	r3, #1
-  91 0026 F8D0     		beq	.L7
-  92 0028 4FF0E023 		mov	r3, #-536813568
-  93 002c 1A69     		ldr	r2, [r3, #16]
-  94 002e 22F00102 		bic	r2, r2, #1
-  95 0032 1A61     		str	r2, [r3, #16]
-  96 0034 0022     		movs	r2, #0
-  97 0036 9A61     		str	r2, [r3, #24]
-  98 0038 7047     		bx	lr
-  99              	.L9:
- 100 003a 00BF     		.align	2
- 101              	.L8:
- 102 003c 00000000 		.word	fac_us
- 104              		.section	.text.delay_ms,"ax",%progbits
- 105              		.align	1
- 106              		.global	delay_ms
- 107              		.syntax unified
- 108              		.thumb
- 109              		.thumb_func
- 111              	delay_ms:
- 112              		@ args = 0, pretend = 0, frame = 0
- 113              		@ frame_needed = 0, uses_anonymous_args = 0
- 114              		@ link register save eliminated.
- 115 0000 0E4B     		ldr	r3, .L12
- 116 0002 1B88     		ldrh	r3, [r3]
- 117 0004 03FB00F0 		mul	r0, r3, r0
- 118 0008 4FF0E023 		mov	r3, #-536813568
- 119 000c 5861     		str	r0, [r3, #20]
- 120 000e 0022     		movs	r2, #0
- 121 0010 9A61     		str	r2, [r3, #24]
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s 			page 3
-
-
- 122 0012 1A69     		ldr	r2, [r3, #16]
- 123 0014 42F00102 		orr	r2, r2, #1
- 124 0018 1A61     		str	r2, [r3, #16]
- 125              	.L11:
- 126 001a 4FF0E023 		mov	r3, #-536813568
- 127 001e 1B69     		ldr	r3, [r3, #16]
- 128 0020 03F00113 		and	r3, r3, #65537
- 129 0024 012B     		cmp	r3, #1
- 130 0026 F8D0     		beq	.L11
- 131 0028 4FF0E023 		mov	r3, #-536813568
- 132 002c 1A69     		ldr	r2, [r3, #16]
- 133 002e 22F00102 		bic	r2, r2, #1
- 134 0032 1A61     		str	r2, [r3, #16]
- 135 0034 0022     		movs	r2, #0
- 136 0036 9A61     		str	r2, [r3, #24]
- 137 0038 7047     		bx	lr
- 138              	.L13:
- 139 003a 00BF     		.align	2
- 140              	.L12:
- 141 003c 00000000 		.word	fac_ms
- 143              		.section	.bss.fac_ms,"aw",%nobits
- 144              		.align	1
- 147              	fac_ms:
- 148 0000 0000     		.space	2
- 149              		.section	.bss.fac_us,"aw",%nobits
- 152              	fac_us:
- 153 0000 00       		.space	1
- 154              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s 			page 4
+  15              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccyCxjIR.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 delay.c
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:16     .text.SysTick_Handler:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:22     .text.SysTick_Handler:00000000 SysTick_Handler
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:29     .text.delay_init:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:35     .text.delay_init:00000000 delay_init
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:60     .text.delay_init:00000034 $d
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:152    .bss.fac_us:00000000 fac_us
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:147    .bss.fac_ms:00000000 fac_ms
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:66     .text.delay_us:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:72     .text.delay_us:00000000 delay_us
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:102    .text.delay_us:0000003c $d
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:105    .text.delay_ms:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:111    .text.delay_ms:00000000 delay_ms
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:141    .text.delay_ms:0000003c $d
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:144    .bss.fac_ms:00000000 $d
-C:\Users\UXP\AppData\Local\Temp\ccuO40yb.s:153    .bss.fac_us:00000000 $d
 
-UNDEFINED SYMBOLS
-SysTick_CLKSourceConfig
-SystemCoreClock
+NO UNDEFINED SYMBOLS

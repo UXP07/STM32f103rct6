@@ -13,7 +13,7 @@ others/lab_dma.o: ..\Modules\src/lab_dma.c ..\Modules\inc/lab_dma.h \
  ..\Library\inc/stm32f10x_tim.h ..\Library\inc/stm32f10x_usart.h \
  ..\Library\inc/stm32f10x_wwdg.h ..\Library\inc/misc.h \
  ..\Modules\inc/lab_usart_simple.h ..\System\inc/delay.h \
- ..\System\inc/sys.h ..\Modules\inc/led.h
+ ..\Modules\inc/led.h
 ..\Modules\inc/lab_dma.h:
 ..\Core/stm32f10x.h:
 ..\Core/core_cm3.h:
@@ -44,5 +44,4 @@ others/lab_dma.o: ..\Modules\src/lab_dma.c ..\Modules\inc/lab_dma.h \
 ..\Library\inc/misc.h:
 ..\Modules\inc/lab_usart_simple.h:
 ..\System\inc/delay.h:
-..\System\inc/sys.h:
 ..\Modules\inc/led.h:

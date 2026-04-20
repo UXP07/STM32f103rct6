@@ -11,11 +11,12 @@ others/syscalls.o: ../User/syscalls.c ../User/main.h ..\Core/stm32f10x.h \
  ..\Library\inc/stm32f10x_rtc.h ..\Library\inc/stm32f10x_sdio.h \
  ..\Library\inc/stm32f10x_spi.h ..\Library\inc/stm32f10x_tim.h \
  ..\Library\inc/stm32f10x_usart.h ..\Library\inc/stm32f10x_wwdg.h \
- ..\Library\inc/misc.h ..\System\inc/delay.h ..\System\inc/sys.h \
- ..\Modules\inc/led.h ..\Modules\inc/lab_usart_simple.h \
+ ..\Library\inc/misc.h ..\Modules\inc/led.h \
+ ..\Modules\inc/lab_usart_simple.h ..\System\inc/delay.h \
  ..\Modules\inc/led.h ..\RTOS\inc/test.h ..\RTOS\inc/list.h \
- ..\RTOS\inc/portmacro.h ..\RTOS\inc/task.h ..\RTOS\inc/projdefs.h \
- ..\RTOS\inc/list.h ..\RTOS\inc/port.h ..\RTOS\inc/FreeRTOSConfig.h
+ ..\RTOS\inc/portmacro.h ..\RTOS\inc/FreeRTOSConfig.h ..\RTOS\inc/task.h \
+ ..\RTOS\inc/projdefs.h ..\RTOS\inc/list.h ..\RTOS\inc/portable.h \
+ ..\RTOS\inc/task.h ..\RTOS\inc/FreeRTOS.h
 ../User/main.h:
 ..\Core/stm32f10x.h:
 ..\Core/core_cm3.h:
@@ -44,16 +45,17 @@ others/syscalls.o: ../User/syscalls.c ../User/main.h ..\Core/stm32f10x.h \
 ..\Library\inc/stm32f10x_usart.h:
 ..\Library\inc/stm32f10x_wwdg.h:
 ..\Library\inc/misc.h:
-..\System\inc/delay.h:
-..\System\inc/sys.h:
 ..\Modules\inc/led.h:
 ..\Modules\inc/lab_usart_simple.h:
+..\System\inc/delay.h:
 ..\Modules\inc/led.h:
 ..\RTOS\inc/test.h:
 ..\RTOS\inc/list.h:
 ..\RTOS\inc/portmacro.h:
+..\RTOS\inc/FreeRTOSConfig.h:
 ..\RTOS\inc/task.h:
 ..\RTOS\inc/projdefs.h:
 ..\RTOS\inc/list.h:
-..\RTOS\inc/port.h:
-..\RTOS\inc/FreeRTOSConfig.h:
+..\RTOS\inc/portable.h:
+..\RTOS\inc/task.h:
+..\RTOS\inc/FreeRTOS.h:

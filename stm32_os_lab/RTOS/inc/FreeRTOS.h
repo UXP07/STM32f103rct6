@@ -9,3 +9,7 @@
 #ifndef traceISR_EXIT
     #define traceISR_EXIT()
 #endif
+
+#ifndef portGET_CORE_ID
+    #define portGET_CORE_ID()   0
+#endif

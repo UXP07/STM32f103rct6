@@ -12,7 +12,7 @@ static UBaseType_t uxCriticalNesting = 0xaaaaaaaa;
 #define portNVIC_SYSTICK_PRI                    (((uint32_t) portMIN_INTERRUPT_PRIORITY ) << 24UL )
 
 #define configSYSTICK_CLOCK_HZ                  (configCPU_CLOCK_HZ)
-#define configTICK_RATE_HZ                      100
+#define configTICK_RATE_HZ                      1000
 
 #define portNVIC_SYSTICK_CLK_BIT_CONFIG         (1UL << 2UL)
 #define portNVIC_SYSTICK_INT_BIT                (1UL << 1UL)
@@ -61,7 +61,7 @@ __attribute__((weak)) void vPortSetupTimerInterrupt(void)
 void xPortSysTickHandler(void)
 {
     portDISABLE_INTERRUPTS();
-    traceISR_ENTER();
+    // traceISR_ENTER();
     {
         if(xTaskIncrementTick() != pdFALSE)
         {
@@ -69,7 +69,8 @@ void xPortSysTickHandler(void)
         }
         else
         {
-            traceISR_EXIT();
+            // traceISR_EXIT();
+            mtCOVERAGE_TEST_MARKER();
         }
     }
 

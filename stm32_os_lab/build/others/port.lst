@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s 			page 1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -25,41 +25,385 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s 			page 1
   23              		@ args = 0, pretend = 0, frame = 0
   24              		@ frame_needed = 0, uses_anonymous_args = 0
   25              		@ link register save eliminated.
-  26              	.L2:
-  27 0000 FEE7     		b	.L2
-  29              		.section	.text.pxPortInitialiseStack,"ax",%progbits
-  30              		.align	1
-  31              		.global	pxPortInitialiseStack
-  32              		.syntax unified
-  33              		.thumb
-  34              		.thumb_func
-  36              	pxPortInitialiseStack:
-  37              		@ args = 0, pretend = 0, frame = 0
-  38              		@ frame_needed = 0, uses_anonymous_args = 0
-  39              		@ link register save eliminated.
-  40 0000 4FF08071 		mov	r1, #16777216
-  41 0004 40F8041C 		str	r1, [r0, #-4]
-  42 0008 22F00102 		bic	r2, r2, #1
-  43 000c 40F8082C 		str	r2, [r0, #-8]
-  44 0010 034A     		ldr	r2, .L4
-  45 0012 40F80C2C 		str	r2, [r0, #-12]
-  46 0016 40F8203C 		str	r3, [r0, #-32]
-  47 001a 4038     		subs	r0, r0, #64
-  48 001c 7047     		bx	lr
-  49              	.L5:
-  50 001e 00BF     		.align	2
-  51              	.L4:
-  52 0020 00000000 		.word	prvTaskExitError
-  54              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s 			page 2
+  26              		.syntax unified
+  27              	@ 66 "..\RTOS\inc/portmacro.h" 1
+  28 0000 4FF05003 		mov r3, #80         
+  29 0004 83F31188 	msr basepri, r3    
+  30 0008 BFF36F8F 	isb                
+  31 000c BFF34F8F 	dsb                
+  32              	
+  33              	@ 0 "" 2
+  34              		.thumb
+  35              		.syntax unified
+  36              	.L2:
+  37 0010 FEE7     		b	.L2
+  39              		.section	.text.prvPortStartFirstTask,"ax",%progbits
+  40              		.align	1
+  41              		.syntax unified
+  42              		.thumb
+  43              		.thumb_func
+  45              	prvPortStartFirstTask:
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48              		@ link register save eliminated.
+  49              		.syntax unified
+  50              	@ 91 "../RTOS/src/port.c" 1
+  51 0000 0648     		ldr r0, =0xE000ED08    
+  52 0002 0068     	ldr r0, [r0]           
+  53 0004 0068     	ldr r0, [r0]           
+  54 0006 80F30888 	msr msp, r0            
+  55 000a 62B6     	cpsie i                
+  56 000c 61B6     	cpsie f                
+  57 000e BFF34F8F 	dsb                    
+  58 0012 BFF36F8F 	isb                    
+  59 0016 00DF     	svc 0                  
+  60 0018 00BF     	nop                    
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s 			page 2
+
+
+  61 001a 000008ED 	.ltorg                 
+  61      00E0
+  62              	
+  63              	@ 0 "" 2
+  64              		.thumb
+  65              		.syntax unified
+  66 0020 7047     		bx	lr
+  68 0022 00BF     		.section	.text.pxPortInitialiseStack,"ax",%progbits
+  69              		.align	1
+  70              		.global	pxPortInitialiseStack
+  71              		.syntax unified
+  72              		.thumb
+  73              		.thumb_func
+  75              	pxPortInitialiseStack:
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78              		@ link register save eliminated.
+  79 0000 4FF08071 		mov	r1, #16777216
+  80 0004 40F8041C 		str	r1, [r0, #-4]
+  81 0008 22F00102 		bic	r2, r2, #1
+  82 000c 40F8082C 		str	r2, [r0, #-8]
+  83 0010 034A     		ldr	r2, .L5
+  84 0012 40F80C2C 		str	r2, [r0, #-12]
+  85 0016 40F8203C 		str	r3, [r0, #-32]
+  86 001a 4038     		subs	r0, r0, #64
+  87 001c 7047     		bx	lr
+  88              	.L6:
+  89 001e 00BF     		.align	2
+  90              	.L5:
+  91 0020 00000000 		.word	prvTaskExitError
+  93              		.section	.text.vPortSetupTimerInterrupt,"ax",%progbits
+  94              		.align	1
+  95              		.weak	vPortSetupTimerInterrupt
+  96              		.syntax unified
+  97              		.thumb
+  98              		.thumb_func
+ 100              	vPortSetupTimerInterrupt:
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              		@ link register save eliminated.
+ 104 0000 4FF0E023 		mov	r3, #-536813568
+ 105 0004 0022     		movs	r2, #0
+ 106 0006 1A61     		str	r2, [r3, #16]
+ 107 0008 9A61     		str	r2, [r3, #24]
+ 108 000a 024A     		ldr	r2, .L8
+ 109 000c 5A61     		str	r2, [r3, #20]
+ 110 000e 0722     		movs	r2, #7
+ 111 0010 1A61     		str	r2, [r3, #16]
+ 112 0012 7047     		bx	lr
+ 113              	.L9:
+ 114              		.align	2
+ 115              	.L8:
+ 116 0014 3F190100 		.word	71999
+ 118              		.section	.text.SysTick_Handler,"ax",%progbits
+ 119              		.align	1
+ 120              		.global	SysTick_Handler
+ 121              		.syntax unified
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s 			page 3
+
+
+ 122              		.thumb
+ 123              		.thumb_func
+ 125              	SysTick_Handler:
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128 0000 08B5     		push	{r3, lr}
+ 129              		.syntax unified
+ 130              	@ 66 "..\RTOS\inc/portmacro.h" 1
+ 131 0002 4FF05003 		mov r3, #80         
+ 132 0006 83F31188 	msr basepri, r3    
+ 133 000a BFF36F8F 	isb                
+ 134 000e BFF34F8F 	dsb                
+ 135              	
+ 136              	@ 0 "" 2
+ 137              		.thumb
+ 138              		.syntax unified
+ 139 0012 FFF7FEFF 		bl	xTaskIncrementTick
+ 140 0016 28B1     		cbz	r0, .L11
+ 141 0018 4FF0E023 		mov	r3, #-536813568
+ 142 001c 4FF08052 		mov	r2, #268435456
+ 143 0020 C3F8042D 		str	r2, [r3, #3332]
+ 144              	.L11:
+ 145 0024 0023     		movs	r3, #0
+ 146              		.syntax unified
+ 147              	@ 96 "..\RTOS\inc/portmacro.h" 1
+ 148 0026 83F31188 		msr basepri, r3
+ 149              	@ 0 "" 2
+ 150              		.thumb
+ 151              		.syntax unified
+ 152 002a 08BD     		pop	{r3, pc}
+ 154              		.section	.text.SVC_Handler,"ax",%progbits
+ 155              		.align	1
+ 156              		.global	SVC_Handler
+ 157              		.syntax unified
+ 158              		.thumb
+ 159              		.thumb_func
+ 161              	SVC_Handler:
+ 162              		@ args = 0, pretend = 0, frame = 0
+ 163              		@ frame_needed = 0, uses_anonymous_args = 0
+ 164              		@ link register save eliminated.
+ 165              		.syntax unified
+ 166              	@ 112 "../RTOS/src/port.c" 1
+ 167 0000 074B     		ldr r3, pxCurrentTCBConst2     
+ 168 0002 1968     	ldr r1, [r3]                   
+ 169 0004 0868     	ldr r0, [r1]                   
+ 170 0006 B0E8F00F 	ldmia r0!, {r4-r11}            
+ 171 000a 80F30988 	msr psp, r0                    
+ 172 000e BFF36F8F 	isb                            
+ 173 0012 4FF00000 	mov r0, #0                     
+ 174 0016 80F31188 	msr basepri, r0                
+ 175 001a 4EF00D0E 	orr r14, #0xd                  
+ 176 001e 7047     	bx r14                         
+ 177              	                               
+ 178              	.align 4                       
+ 179 0020 00000000 	pxCurrentTCBConst2: .word pxCurrentTCB     
+ 180              	
+ 181              	@ 0 "" 2
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s 			page 4
+
+
+ 182              		.thumb
+ 183              		.syntax unified
+ 184 0024 7047     		bx	lr
+ 186 0026 00BF     		.section	.text.xPortStartScheduler,"ax",%progbits
+ 187              		.align	1
+ 188              		.global	xPortStartScheduler
+ 189              		.syntax unified
+ 190              		.thumb
+ 191              		.thumb_func
+ 193              	xPortStartScheduler:
+ 194              		@ Volatile: function does not return.
+ 195              		@ args = 0, pretend = 0, frame = 0
+ 196              		@ frame_needed = 0, uses_anonymous_args = 0
+ 197 0000 08B5     		push	{r3, lr}
+ 198 0002 4FF0E023 		mov	r3, #-536813568
+ 199 0006 D3F8202D 		ldr	r2, [r3, #3360]
+ 200 000a 42F47F02 		orr	r2, r2, #16711680
+ 201 000e C3F8202D 		str	r2, [r3, #3360]
+ 202 0012 D3F8202D 		ldr	r2, [r3, #3360]
+ 203 0016 42F07F42 		orr	r2, r2, #-16777216
+ 204 001a C3F8202D 		str	r2, [r3, #3360]
+ 205 001e 0024     		movs	r4, #0
+ 206 0020 C3F81C4D 		str	r4, [r3, #3356]
+ 207 0024 FFF7FEFF 		bl	vPortSetupTimerInterrupt
+ 208 0028 024B     		ldr	r3, .L16
+ 209 002a 1C60     		str	r4, [r3]
+ 210 002c FFF7FEFF 		bl	prvPortStartFirstTask
+ 211 0030 FFF7FEFF 		bl	prvTaskExitError
+ 212              	.L17:
+ 213              		.align	2
+ 214              	.L16:
+ 215 0034 00000000 		.word	uxCriticalNesting
+ 217              		.section	.text.PendSV_Handler,"ax",%progbits
+ 218              		.align	1
+ 219              		.global	PendSV_Handler
+ 220              		.syntax unified
+ 221              		.thumb
+ 222              		.thumb_func
+ 224              	PendSV_Handler:
+ 225              		@ args = 0, pretend = 0, frame = 0
+ 226              		@ frame_needed = 0, uses_anonymous_args = 0
+ 227              		@ link register save eliminated.
+ 228              		.syntax unified
+ 229              	@ 154 "../RTOS/src/port.c" 1
+ 230 0000 EFF30980 		mrs r0, psp                    
+ 231 0004 BFF36F8F 	isb                            
+ 232              	                               
+ 233 0008 0D4B     	ldr r3, pxCurrentTCBConst      
+ 234 000a 1A68     	ldr r2, [r3]                   
+ 235              	                               
+ 236 000c 20E9F00F 	stmdb r0!, {r4-r11}            
+ 237 0010 1060     	str r0, [r2]                   
+ 238              	                               
+ 239 0012 08B5     	stmdb sp!, {r3, r14}           
+ 240 0014 4FF05000 	mov r0, #80                     
+ 241 0018 80F31188 	msr basepri, r0                
+ 242 001c FFF7FEFF 	bl vTaskSwitchContext          
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s 			page 5
+
+
+ 243 0020 4FF00000 	mov r0, #0                     
+ 244 0024 80F31188 	msr basepri, r0                
+ 245 0028 BDE80840 	ldmia sp!, {r3, r14}           
+ 246              	                               
+ 247 002c 1968     	ldr r1, [r3]                   
+ 248 002e 0868     	ldr r0, [r1]                   
+ 249 0030 B0E8F00F 	ldmia r0!, {r4-r11}            
+ 250 0034 80F30988 	msr psp, r0                    
+ 251 0038 BFF36F8F 	isb                            
+ 252 003c 7047     	bx r14                         
+ 253              	                               
+ 254 003e 00BF     	.align 4                       
+ 255 0040 00000000 	pxCurrentTCBConst: .word pxCurrentTCB 
+ 256              	
+ 257              	@ 0 "" 2
+ 258              		.thumb
+ 259              		.syntax unified
+ 260 0044 7047     		bx	lr
+ 262 0046 00BF     		.section	.text.vPortEnterCritical,"ax",%progbits
+ 263              		.align	1
+ 264              		.global	vPortEnterCritical
+ 265              		.syntax unified
+ 266              		.thumb
+ 267              		.thumb_func
+ 269              	vPortEnterCritical:
+ 270              		@ args = 0, pretend = 0, frame = 0
+ 271              		@ frame_needed = 0, uses_anonymous_args = 0
+ 272              		@ link register save eliminated.
+ 273              		.syntax unified
+ 274              	@ 66 "..\RTOS\inc/portmacro.h" 1
+ 275 0000 4FF05003 		mov r3, #80         
+ 276 0004 83F31188 	msr basepri, r3    
+ 277 0008 BFF36F8F 	isb                
+ 278 000c BFF34F8F 	dsb                
+ 279              	
+ 280              	@ 0 "" 2
+ 281              		.thumb
+ 282              		.syntax unified
+ 283 0010 0B4A     		ldr	r2, .L23
+ 284 0012 1368     		ldr	r3, [r2]
+ 285 0014 0133     		adds	r3, r3, #1
+ 286 0016 1360     		str	r3, [r2]
+ 287 0018 012B     		cmp	r3, #1
+ 288 001a 00D0     		beq	.L22
+ 289              	.L19:
+ 290 001c 7047     		bx	lr
+ 291              	.L22:
+ 292 001e 4FF0E023 		mov	r3, #-536813568
+ 293 0022 D3F8043D 		ldr	r3, [r3, #3332]
+ 294 0026 13F0FF0F 		tst	r3, #255
+ 295 002a F7D0     		beq	.L19
+ 296              		.syntax unified
+ 297              	@ 66 "..\RTOS\inc/portmacro.h" 1
+ 298 002c 4FF05003 		mov r3, #80         
+ 299 0030 83F31188 	msr basepri, r3    
+ 300 0034 BFF36F8F 	isb                
+ 301 0038 BFF34F8F 	dsb                
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s 			page 6
+
+
+ 302              	
+ 303              	@ 0 "" 2
+ 304              		.thumb
+ 305              		.syntax unified
+ 306              	.L21:
+ 307 003c FEE7     		b	.L21
+ 308              	.L24:
+ 309 003e 00BF     		.align	2
+ 310              	.L23:
+ 311 0040 00000000 		.word	uxCriticalNesting
+ 313              		.section	.text.vPortExitCritical,"ax",%progbits
+ 314              		.align	1
+ 315              		.global	vPortExitCritical
+ 316              		.syntax unified
+ 317              		.thumb
+ 318              		.thumb_func
+ 320              	vPortExitCritical:
+ 321              		@ args = 0, pretend = 0, frame = 0
+ 322              		@ frame_needed = 0, uses_anonymous_args = 0
+ 323              		@ link register save eliminated.
+ 324 0000 094B     		ldr	r3, .L29
+ 325 0002 1B68     		ldr	r3, [r3]
+ 326 0004 43B9     		cbnz	r3, .L26
+ 327              		.syntax unified
+ 328              	@ 66 "..\RTOS\inc/portmacro.h" 1
+ 329 0006 4FF05003 		mov r3, #80         
+ 330 000a 83F31188 	msr basepri, r3    
+ 331 000e BFF36F8F 	isb                
+ 332 0012 BFF34F8F 	dsb                
+ 333              	
+ 334              	@ 0 "" 2
+ 335              		.thumb
+ 336              		.syntax unified
+ 337              	.L27:
+ 338 0016 FEE7     		b	.L27
+ 339              	.L26:
+ 340 0018 013B     		subs	r3, r3, #1
+ 341 001a 034A     		ldr	r2, .L29
+ 342 001c 1360     		str	r3, [r2]
+ 343 001e 0BB9     		cbnz	r3, .L25
+ 344              		.syntax unified
+ 345              	@ 96 "..\RTOS\inc/portmacro.h" 1
+ 346 0020 83F31188 		msr basepri, r3
+ 347              	@ 0 "" 2
+ 348              		.thumb
+ 349              		.syntax unified
+ 350              	.L25:
+ 351 0024 7047     		bx	lr
+ 352              	.L30:
+ 353 0026 00BF     		.align	2
+ 354              	.L29:
+ 355 0028 00000000 		.word	uxCriticalNesting
+ 357              		.section	.data.uxCriticalNesting,"aw"
+ 358              		.align	2
+ 361              	uxCriticalNesting:
+ 362 0000 AAAAAAAA 		.word	-1431655766
+ 363              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s 			page 7
+
+
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 port.c
-C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s:16     .text.prvTaskExitError:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s:21     .text.prvTaskExitError:00000000 prvTaskExitError
-C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s:30     .text.pxPortInitialiseStack:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s:36     .text.pxPortInitialiseStack:00000000 pxPortInitialiseStack
-C:\Users\UXP\AppData\Local\Temp\ccC0eiPV.s:52     .text.pxPortInitialiseStack:00000020 $d
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:16     .text.prvTaskExitError:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:21     .text.prvTaskExitError:00000000 prvTaskExitError
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:40     .text.prvPortStartFirstTask:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:45     .text.prvPortStartFirstTask:00000000 prvPortStartFirstTask
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:61     .text.prvPortStartFirstTask:0000001a $d
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:61     .text.prvPortStartFirstTask:0000001c $d
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:66     .text.prvPortStartFirstTask:00000020 $t
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:69     .text.pxPortInitialiseStack:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:75     .text.pxPortInitialiseStack:00000000 pxPortInitialiseStack
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:91     .text.pxPortInitialiseStack:00000020 $d
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:94     .text.vPortSetupTimerInterrupt:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:100    .text.vPortSetupTimerInterrupt:00000000 vPortSetupTimerInterrupt
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:116    .text.vPortSetupTimerInterrupt:00000014 $d
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:119    .text.SysTick_Handler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:125    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:155    .text.SVC_Handler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:161    .text.SVC_Handler:00000000 SVC_Handler
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:179    .text.SVC_Handler:00000020 pxCurrentTCBConst2
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:179    .text.SVC_Handler:00000020 $d
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:184    .text.SVC_Handler:00000024 $t
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:187    .text.xPortStartScheduler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:193    .text.xPortStartScheduler:00000000 xPortStartScheduler
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:215    .text.xPortStartScheduler:00000034 $d
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:361    .data.uxCriticalNesting:00000000 uxCriticalNesting
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:218    .text.PendSV_Handler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:224    .text.PendSV_Handler:00000000 PendSV_Handler
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:255    .text.PendSV_Handler:00000040 pxCurrentTCBConst
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:255    .text.PendSV_Handler:00000040 $d
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:260    .text.PendSV_Handler:00000044 $t
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:263    .text.vPortEnterCritical:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:269    .text.vPortEnterCritical:00000000 vPortEnterCritical
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:311    .text.vPortEnterCritical:00000040 $d
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:314    .text.vPortExitCritical:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:320    .text.vPortExitCritical:00000000 vPortExitCritical
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:355    .text.vPortExitCritical:00000028 $d
+C:\Users\UXP\AppData\Local\Temp\ccGXNutM.s:358    .data.uxCriticalNesting:00000000 $d
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+xTaskIncrementTick
+pxCurrentTCB
+vTaskSwitchContext

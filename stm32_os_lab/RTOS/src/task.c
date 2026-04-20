@@ -6,6 +6,8 @@ extern TCB_t IdleTaskTCB;
 List_t pxReadyTasksLists[configMAX_PRIORITIES];
 List_t xDelayedTaskList1;
 List_t xDelayedTaskList2;
+List_t xSuspendedTaskList;
+List_t xPendingReadyList;
 List_t * volatile pxDelayedTaskList;
 List_t * volatile pxOverflowDelayedTaskList;
 
@@ -59,6 +61,19 @@ static volatile UBaseType_t uxSchedulerSuspended = (UBaseType_t) 0U;
         xNumOfOverflows = (BaseType_t)(xNumOfOverflows + 1);            \
         prvResetNextTaskUnblockTime();                                  \
     }while(0)
+
+#define taskSELECT_HIGHEST_PRIORITY_TASK()                                               \
+    do {                                                                                 \
+        UBaseType_t uxTopPriority = uxTopReadyPriority;                                  \
+        while( listLIST_IS_EMPTY( &( pxReadyTasksLists[ uxTopPriority ] ) ) != pdFALSE ) \
+        {                                                                                \
+            configASSERT( uxTopPriority );                                               \
+            --uxTopPriority;                                                             \
+        }                                                                                \
+        listGET_OWNER_OF_NEXT_ENTRY( pxCurrentTCB, &( pxReadyTasksLists[ uxTopPriority ] ) ); \
+        uxTopReadyPriority = uxTopPriority;                                                   \
+    } while( 0 ) 
+
 
 
 static void prvInitialiseNewTask( TaskFunction_t pxTaskCode,
@@ -121,7 +136,7 @@ void prvInitaliseTaskLists(void)
     }
     vListInitalise(&xDelayedTaskList1);
     vListInitalise(&xDelayedTaskList2);
-    // vListInitalise(&xPendingReadyList);
+    vListInitalise(&xPendingReadyList);
 
     pxDelayedTaskList = &xDelayedTaskList1;
     pxOverflowDelayedTaskList = &xDelayedTaskList2;
@@ -181,9 +196,53 @@ static void prvAddNewTaskToReadyList(TCB_t * pxNewTCB)
 
 }
 
+static BaseType_t prvCreateIdleTasks(void)
+{
+    // xTaskCreateStatic()
+    //这里目前简单的在main.c中定义
+    return pdPASS;
+}
+
+static void prvAddCurrentTaskToDelayedList(TickType_t xTicksToWait, const BaseType_t xCanBlockIndefinitely)
+{
+    TickType_t xTimeToWake;
+    const TickType_t xConstTickCount = xTickCount;
+    List_t * const pxDelayedList = pxDelayedTaskList;
+    List_t * const pxOverflowDelayedList = pxOverflowDelayedTaskList;
+
+    uxListRemove(&(pxCurrentTCB->xStateListItem));
+
+    if((xTicksToWait == portMAX_DELAY) && (xCanBlockIndefinitely != pdFALSE))
+    {
+        listINSERT_END(&xSuspendedTaskList, &(pxCurrentTCB->xStateListItem));
+    }
+    else
+    {
+        xTimeToWake = xConstTickCount + xTicksToWait;
+        listSET_LIST_ITEM_VALUE(&(pxCurrentTCB->xStateListItem), xTimeToWake);
+        if(xTimeToWake < xConstTickCount)
+        {
+            vListInsert(pxOverflowDelayedList, &(pxCurrentTCB->xStateListItem));
+        }
+        else
+        {
+            vListInsert(pxDelayedList, &(pxCurrentTCB->xStateListItem));
+            if(xTimeToWake < xNextTaskUnblockTime)
+            {
+                xNextTaskUnblockTime = xTimeToWake;
+            }
+            else
+            {
+                mtCOVERAGE_TEST_MARKER();
+            }
+        }
+    }
+
+}
+
 static void prvResetNextTaskUnblockTime(void)
 {
-    if(listLIST_IS_EMPTY(pxDelayedTaskList) != pdFALSE)
+    if(listLIST_IS_EMPTY(pxDelayedTaskList) == pdTRUE)
     {
         xNextTaskUnblockTime = portMAX_DELAY;
     }
@@ -191,11 +250,6 @@ static void prvResetNextTaskUnblockTime(void)
     {
         xNextTaskUnblockTime = listGET_ITEM_VALUE_OF_HEAD_ENTRY(pxDelayedTaskList);
     }
-}
-
-static BaseType_t prvCreateIdleTasks(void)
-{
-    这里还没有完成
 }
 
 
@@ -228,8 +282,9 @@ TaskHandle_t xTaskCreateStatic( TaskFunction_t pxTaskCode,
 
 void vTaskDelete(TaskHandle_t xTaskToDelete)
 {
-    TCB_t* pxTCB;
-    这里任务删除
+    // TCB_t* pxTCB;
+    // 这里任务删除
+    return ;
 }
 
 void vTaskStartScheduler(void)
@@ -374,12 +429,129 @@ BaseType_t xTaskIncrementTick(void)
     return xSwitchRequired;
 }
 
+void vTaskSuspendAll(void)
+{
+    uxSchedulerSuspended = uxSchedulerSuspended + (UBaseType_t) 1U;
+}
 
+
+BaseType_t xTaskResumeAll(void)
+{
+    TCB_t * pxTCB = NULL;
+    BaseType_t xAlreadyYielded = pdFALSE;
+    taskENTER_CRITICAL();
+    {
+        BaseType_t xCoreID = (BaseType_t) portGET_CORE_ID();
+        configASSERT(uxSchedulerSuspended);
+
+        uxSchedulerSuspended = (UBaseType_t)(uxSchedulerSuspended - 1U);
+        if(uxSchedulerSuspended == (UBaseType_t)0U)
+        {
+            if(uxCurrentNumberOfTasks > (UBaseType_t)0U)
+            {
+                while(listLIST_IS_EMPTY(&xPendingReadyList) == pdFALSE)
+                {
+                    pxTCB = listGET_OWNER_OF_HEAD_ENTRY((&xPendingReadyList));
+                    listREMOVE_ITEM(&(pxTCB->xEventListItem));
+                    listREMOVE_ITEM(&(pxTCB->xStateListItem));
+                    prvAddTaskToReadyList(pxTCB);
+                    if(pxTCB->uxPriority > pxCurrentTCB->uxPriority)
+                    {
+                        xYieldPendings[xCoreID] = pdTRUE;
+                    }
+                    else
+                    {
+                        mtCOVERAGE_TEST_MARKER();
+                    }
+                }
+                if(pxTCB != NULL)
+                {
+                    prvResetNextTaskUnblockTime();
+                }
+                else mtCOVERAGE_TEST_MARKER();
+
+                TickType_t xPendedCounts = xPendedTicks;
+                if(xPendedCounts > (TickType_t) 0U)
+                {
+                    do{
+                        if(xTaskIncrementTick() != pdFALSE)
+                        {
+                            xYieldPendings[xCoreID] = pdTRUE;
+                        }
+                        else mtCOVERAGE_TEST_MARKER();
+
+                        xPendedCounts--;
+                    }while(xPendedCounts > (TickType_t) 0U);
+
+                    xPendedTicks = 0;
+                }
+                else mtCOVERAGE_TEST_MARKER();
+
+                if(xYieldPendings[xCoreID] == pdTRUE)
+                {
+                    xAlreadyYielded = pdTRUE;
+                    portYIELD();
+                }
+                else mtCOVERAGE_TEST_MARKER();
+            }
+            else
+            {
+                mtCOVERAGE_TEST_MARKER();
+            }
+        }
+        else
+        {
+            mtCOVERAGE_TEST_MARKER();
+        }
+    }
+    taskEXIT_CRITICAL();
+
+    return xAlreadyYielded;
+
+}
+
+
+void vTaskDelay(const TickType_t xTicksToDelay)
+{
+    BaseType_t xAlreadyYielded = pdFALSE;
+    if(xTicksToDelay > 0U)
+    {
+        vTaskSuspendAll();
+        {
+            prvAddCurrentTaskToDelayedList(xTicksToDelay, pdFALSE);
+        }
+        xAlreadyYielded = xTaskResumeAll();
+    }
+    else
+    {
+        mtCOVERAGE_TEST_MARKER();
+    }
+
+    if(xAlreadyYielded == pdFALSE)
+    {
+        portYIELD();
+    }
+    else
+    {
+        mtCOVERAGE_TEST_MARKER();
+    }
+}
 
 
 
 void vTaskSwitchContext(void)
 {
-    这里需要写
+    if(uxSchedulerSuspended != (UBaseType_t) 0U)
+    {
+        xYieldPendings[0] = pdTRUE;
+    }
+    else
+    {
+        xYieldPendings[0] = pdFALSE;
+        // taskCHECK_FOR_STACK_OVERFLOW();
+
+        taskSELECT_HIGHEST_PRIORITY_TASK();
+    }
+    // 这里需要写
 }
 

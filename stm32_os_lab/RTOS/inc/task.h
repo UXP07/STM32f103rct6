@@ -50,8 +50,10 @@ TaskHandle_t xTaskCreateStatic( TaskFunction_t pxTaskCode,
 
 void prvInitaliseTaskLists(void);
 void vTaskStartScheduler(void);
-void vTaskSwitchContext(void);
 void vTaskDelete(TaskHandle_t xTaskToDelete);
 BaseType_t xTaskIncrementTick(void);
+void vTaskSuspendAll(void);
+void vTaskDelay(const TickType_t xTicksToDelay);
+void vTaskSwitchContext(void);
 
 #endif
