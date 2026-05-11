@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s 			page 1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s 			page 1
   60              		@ args = 0, pretend = 0, frame = 0
   61              		@ frame_needed = 0, uses_anonymous_args = 0
   62              		@ link register save eliminated.
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s 			page 2
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s 			page 2
 
 
   63 0000 4368     		ldr	r3, [r0, #4]
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s 			page 1
  121              	uxListRemove:
  122              		@ args = 0, pretend = 0, frame = 0
  123              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s 			page 3
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s 			page 3
 
 
  124              		@ link register save eliminated.
@@ -142,20 +142,20 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s 			page 1
  142 001e 5960     		str	r1, [r3, #4]
  143 0020 F7E7     		b	.L11
  145              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s 			page 4
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 list.c
-C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s:16     .text.vListInitialiseItem:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s:22     .text.vListInitialiseItem:00000000 vListInitialiseItem
-C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s:31     .text.vListInitalise:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s:37     .text.vListInitalise:00000000 vListInitalise
-C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s:53     .text.vListInsertEnd:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s:59     .text.vListInsertEnd:00000000 vListInsertEnd
-C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s:76     .text.vListInsert:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s:82     .text.vListInsert:00000000 vListInsert
-C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s:115    .text.uxListRemove:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccy28kSH.s:121    .text.uxListRemove:00000000 uxListRemove
+C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s:16     .text.vListInitialiseItem:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s:22     .text.vListInitialiseItem:00000000 vListInitialiseItem
+C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s:31     .text.vListInitalise:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s:37     .text.vListInitalise:00000000 vListInitalise
+C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s:53     .text.vListInsertEnd:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s:59     .text.vListInsertEnd:00000000 vListInsertEnd
+C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s:76     .text.vListInsert:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s:82     .text.vListInsert:00000000 vListInsert
+C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s:115    .text.uxListRemove:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccZIk3rh.s:121    .text.uxListRemove:00000000 uxListRemove
 
 NO UNDEFINED SYMBOLS

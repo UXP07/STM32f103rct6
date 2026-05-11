@@ -47,12 +47,22 @@ TaskHandle_t xTaskCreateStatic( TaskFunction_t pxTaskCode,
                                 StackType_t * const puxStackBuffer,
                                 TCB_t * const pxTaskBuffer);
 
+BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
+                        const char * const pcName,
+                        const configSTACK_DEPTH_TYPE uxStackDepth,
+                        void * const pvParameters,
+                        UBaseType_t uxPriority,
+                        TaskHandle_t * const pxCreatedTask );
 
 void prvInitaliseTaskLists(void);
 void vTaskStartScheduler(void);
 void vTaskDelete(TaskHandle_t xTaskToDelete);
 BaseType_t xTaskIncrementTick(void);
+void vTaskSuspend(TaskHandle_t xTaskToSuspend);
+void vTaskResume(TaskHandle_t xTaskToResume);
+BaseType_t vTaskResumeFromISR(TaskHandle_t xTaskToResume);
 void vTaskSuspendAll(void);
+BaseType_t xTaskResumeAll(void);
 void vTaskDelay(const TickType_t xTicksToDelay);
 void vTaskSwitchContext(void);
 

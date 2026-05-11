@@ -44,6 +44,11 @@ extern void vPortExitCritical(void);
         ;                         \
     }
 
+
+#define portBYTE_ALIGNMENT          8
+
+
+
 #ifndef portFORCE_INLINE
     #define portFORCE_INLINE    inline __attribute__((always_inline))
 #endif

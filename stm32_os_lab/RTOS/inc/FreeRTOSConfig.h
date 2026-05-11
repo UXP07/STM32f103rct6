@@ -15,11 +15,15 @@
 #define configUSE_TIME_SLICING                  1
 #define configUSE_TIMERS                        0
 #define configINITIAL_TICK_COUNT                0
+#define configTOTAL_HEAP_SIZE                   4096U
+#define configAPPLICATION_ALLOCATED_HEAP        0
+#define configSUPPORT_DYNAMIC_ALLOCATION        1
+#define configSUPPORT_STATIC_ALLOCATION         1
 
 #define xPortPendSVHandler                      PendSV_Handler
 #define xPortSysTickHandler                     SysTick_Handler
 #define vPortSVCHandler                         SVC_Handler
 
-
+#define INCLUDE_vTaskDelete                     0
 
 #endif/* FREERTOS_CONFIG_H */

@@ -72,6 +72,8 @@ typedef struct xLIST List_t;
 #define listGET_OWNER_OF_HEAD_ENTRY(pxList) \
         ((&((pxList)->xListEnd))->pxNext->pvOwner)
 
+#define listIS_CONTAINED_WITHIN(pxList, pxListItem)     (((pxListItem)->pvContainer == (pxList)) ? pdTRUE : pdFALSE)
+
 /* 获取链表第一个节点的OWNER，即TCB */
 #define listGET_OWNER_OF_NEXT_ENTRY( pxTCB, pxList )                                       \
 do{                                                                                        \

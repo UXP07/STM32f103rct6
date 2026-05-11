@@ -13,3 +13,7 @@
 #ifndef portGET_CORE_ID
     #define portGET_CORE_ID()   0
 #endif
+
+#ifndef portPOINTER_SIZE_TYPE
+    #define portPOINTER_SIZE_TYPE uint32_t
+#endif

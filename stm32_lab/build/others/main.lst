@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccVl2Q4H.s 			page 1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc1OR6Fy.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -15,48 +15,61 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccVl2Q4H.s 			page 1
   12              		.eabi_attribute 18, 4
   13              		.file	"main.c"
   14              		.text
-  15              		.section	.text.main,"ax",%progbits
-  16              		.align	1
-  17              		.global	main
-  18              		.syntax unified
-  19              		.thumb
-  20              		.thumb_func
-  22              	main:
-  23              		@ Volatile: function does not return.
-  24              		@ args = 0, pretend = 0, frame = 0
-  25              		@ frame_needed = 0, uses_anonymous_args = 0
-  26 0000 08B5     		push	{r3, lr}
-  27 0002 4FF4A060 		mov	r0, #1280
-  28 0006 FFF7FEFF 		bl	NVIC_PriorityGroupConfig
-  29 000a FFF7FEFF 		bl	delay_init
-  30 000e 4FF49670 		mov	r0, #300
-  31 0012 FFF7FEFF 		bl	delay_ms
-  32 0016 FFF7FEFF 		bl	Uart_Init
-  33 001a FFF7FEFF 		bl	LedInit
-  34 001e 074C     		ldr	r4, .L4
-  35 0020 E368     		ldr	r3, [r4, #12]
-  36 0022 23F00403 		bic	r3, r3, #4
-  37 0026 E360     		str	r3, [r4, #12]
-  38 0028 4FF47A70 		mov	r0, #1000
-  39 002c FFF7FEFF 		bl	delay_ms
-  40 0030 E368     		ldr	r3, [r4, #12]
-  41 0032 43F00403 		orr	r3, r3, #4
-  42 0036 E360     		str	r3, [r4, #12]
-  43              	.L2:
-  44 0038 FEE7     		b	.L2
-  45              	.L5:
-  46 003a 00BF     		.align	2
-  47              	.L4:
-  48 003c 00140140 		.word	1073812480
-  50              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccVl2Q4H.s 			page 2
+  15              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+  16              		.align	2
+  17              	.LC0:
+  18 0000 48656C6C 		.ascii	"Hello World\000"
+  18      6F20576F 
+  18      726C6400 
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	1
+  21              		.global	main
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	main:
+  27              		@ Volatile: function does not return.
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30 0000 08B5     		push	{r3, lr}
+  31 0002 4FF4A060 		mov	r0, #1280
+  32 0006 FFF7FEFF 		bl	NVIC_PriorityGroupConfig
+  33 000a FFF7FEFF 		bl	delay_init
+  34 000e 4FF49670 		mov	r0, #300
+  35 0012 FFF7FEFF 		bl	delay_ms
+  36 0016 FFF7FEFF 		bl	Uart_Init
+  37 001a FFF7FEFF 		bl	LedInit
+  38 001e 0848     		ldr	r0, .L4
+  39 0020 FFF7FEFF 		bl	puts
+  40 0024 074C     		ldr	r4, .L4+4
+  41 0026 E368     		ldr	r3, [r4, #12]
+  42 0028 23F00403 		bic	r3, r3, #4
+  43 002c E360     		str	r3, [r4, #12]
+  44 002e 4FF47A70 		mov	r0, #1000
+  45 0032 FFF7FEFF 		bl	delay_ms
+  46 0036 E368     		ldr	r3, [r4, #12]
+  47 0038 43F00403 		orr	r3, r3, #4
+  48 003c E360     		str	r3, [r4, #12]
+  49              	.L2:
+  50 003e FEE7     		b	.L2
+  51              	.L5:
+  52              		.align	2
+  53              	.L4:
+  54 0040 00000000 		.word	.LC0
+  55 0044 00140140 		.word	1073812480
+  57              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc1OR6Fy.s 			page 2
+
+
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc1OR6Fy.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\UXP\AppData\Local\Temp\ccVl2Q4H.s:16     .text.main:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\ccVl2Q4H.s:22     .text.main:00000000 main
-C:\Users\UXP\AppData\Local\Temp\ccVl2Q4H.s:48     .text.main:0000003c $d
+C:\Users\UXP\AppData\Local\Temp\cc1OR6Fy.s:16     .rodata.main.str1.4:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\cc1OR6Fy.s:20     .text.main:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\cc1OR6Fy.s:26     .text.main:00000000 main
+C:\Users\UXP\AppData\Local\Temp\cc1OR6Fy.s:54     .text.main:00000040 $d
 
 UNDEFINED SYMBOLS
 NVIC_PriorityGroupConfig
@@ -64,3 +77,4 @@ delay_init
 delay_ms
 Uart_Init
 LedInit
+puts

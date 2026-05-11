@@ -25,6 +25,12 @@ static volatile BaseType_t xYieldPendings[configNUMBER_OF_CORES] = {pdFALSE};
 
 static volatile UBaseType_t uxSchedulerSuspended = (UBaseType_t) 0U;
 
+#if INCLUDE_vTaskDelete
+    List_t xTasksWaitingTermination;
+    UBaseType_t uxDeleteTasksWaitingCleanUp = (UBaseType_t)0;
+#endif
+
+
 #define taskRECORD_READY_PRIORITY(uxPriority)                           \
     do{                                                                 \
         if((uxPriority) > uxTopReadyPriority)                           \
@@ -73,6 +79,9 @@ static volatile UBaseType_t uxSchedulerSuspended = (UBaseType_t) 0U;
         listGET_OWNER_OF_NEXT_ENTRY( pxCurrentTCB, &( pxReadyTasksLists[ uxTopPriority ] ) ); \
         uxTopReadyPriority = uxTopPriority;                                                   \
     } while( 0 ) 
+
+
+#define prvGetTCBFromHandle(pxHandle)      (((pxHandle) == NULL) ? pxCurrentTCB : (pxHandle))
 
 
 
@@ -252,40 +261,179 @@ static void prvResetNextTaskUnblockTime(void)
     }
 }
 
-
-#if (configSUPPORT_STATIC_ALLOCATION == 1)
-TaskHandle_t xTaskCreateStatic( TaskFunction_t pxTaskCode,
-                                const char * const pcName,
-                                const configSTACK_DEPTH_TYPE uxStackDepth,
-                                void * const pvParameters,
-                                UBaseType_t uxPriority,
-                                StackType_t * const puxStackBuffer,
-                                TCB_t * const pxTaskBuffer)
+static BaseType_t prvTaskIsTaskSuspended(const TaskHandle_t xTask)
 {
-    TCB_t * pxNewTCB;
-    TaskHandle_t xReturn;
-    if((pxTaskBuffer != NULL) && (puxStackBuffer != NULL))
+    BaseType_t xReturn = pdFALSE;
+    const TCB_t * const pxTCB = xTask;
+    if(listIS_CONTAINED_WITHIN(&xSuspendedTaskList, &(pxTCB->xStateListItem)) == pdTRUE)
     {
-        pxNewTCB = (TCB_t *)pxTaskBuffer;
-        // (void)memset((void *)pxNewTCB, 0x00, sizeof(TCB_t));
-        pxNewTCB->pxStack = puxStackBuffer;
-        prvInitialiseNewTask(pxTaskCode, pcName, uxStackDepth, pvParameters, uxPriority, &xReturn, pxNewTCB, NULL);
-        prvAddNewTaskToReadyList(pxNewTCB);
+        if(listIS_CONTAINED_WITHIN(&xPendingReadyList, &(pxTCB->xStateListItem)) == pdFALSE)
+        {
+            if(listIS_CONTAINED_WITHIN(NULL, &(pxTCB->xStateListItem)) == pdTRUE)
+            {
+                xReturn = pdTRUE;
+            }
+            else mtCOVERAGE_TEST_MARKER();
+        }
+        else mtCOVERAGE_TEST_MARKER();
     }
-    else
-    {
-        xReturn = NULL;
-    }
+    else mtCOVERAGE_TEST_MARKER();
+
     return xReturn;
 }
+
+
+
+#if (configSUPPORT_STATIC_ALLOCATION == 1)
+    TaskHandle_t xTaskCreateStatic( TaskFunction_t pxTaskCode,
+                                    const char * const pcName,
+                                    const configSTACK_DEPTH_TYPE uxStackDepth,
+                                    void * const pvParameters,
+                                    UBaseType_t uxPriority,
+                                    StackType_t * const puxStackBuffer,
+                                    TCB_t * const pxTaskBuffer)
+    {
+        TCB_t * pxNewTCB;
+        TaskHandle_t xReturn;
+        if((pxTaskBuffer != NULL) && (puxStackBuffer != NULL))
+        {
+            pxNewTCB = (TCB_t *)pxTaskBuffer;
+            // (void)memset((void *)pxNewTCB, 0x00, sizeof(TCB_t));
+            pxNewTCB->pxStack = puxStackBuffer;
+            prvInitialiseNewTask(pxTaskCode, pcName, uxStackDepth, pvParameters, uxPriority, &xReturn, pxNewTCB, NULL);
+            prvAddNewTaskToReadyList(pxNewTCB);
+        }
+        else
+        {
+            xReturn = NULL;
+        }
+        return xReturn;
+    }
 #endif
 
-void vTaskDelete(TaskHandle_t xTaskToDelete)
-{
-    // TCB_t* pxTCB;
-    // 这里任务删除
-    return ;
-}
+
+#if (configSUPPORT_DYNAMIC_ALLOCATION == 1)
+    static TCB_t * prvCreateTask( TaskFunction_t pxTaskCode,
+                            const char * const pcName,
+                            const configSTACK_DEPTH_TYPE uxStackDepth,
+                            void * const pvParameters,
+                            UBaseType_t uxPriority,
+                            TaskHandle_t * const pxCreatedTask )
+    {
+        TCB_t * pxNewTCB;
+        StackType_t * pxStack;
+        pxStack = pvPortMallocStack((((size_t)uxStackDepth) * sizeof(StackType_t)));
+        if(pxStack != NULL)
+        {
+            pxNewTCB = (TCB_t *)pvPortMalloc(sizeof(TCB_t));
+            if(pxNewTCB != NULL)
+            {
+                (void) memset((void*)pxNewTCB, 0x00, sizeof(TCB_t));
+                pxNewTCB->pxStack = pxStack;
+            }
+            else
+            {
+                vPortFreeStack(pxStack);
+            }
+        }
+        else
+        {
+            pxNewTCB = NULL;
+        }
+
+        return pxNewTCB;
+    }
+
+    BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
+                            const char * const pcName,
+                            const configSTACK_DEPTH_TYPE uxStackDepth,
+                            void * const pvParameters,
+                            UBaseType_t uxPriority,
+                            TaskHandle_t * const pxCreatedTask )
+    {
+        TCB_t * pxNewTCB;
+        BaseType_t xReturn;
+
+        pxNewTCB = prvCreateTask(pxTaskCode, pcName, uxStackDepth, pvParameters, uxPriority, pxCreatedTask);
+
+        if(pxNewTCB != NULL)
+        {
+            prvAddNewTaskToReadyList(pxNewTCB);
+            xReturn = pdPASS;
+        }
+        else
+        {
+            xReturn = -1;
+        }
+
+        return xReturn;
+        
+    }
+#endif
+#if INCLUDE_vTaskDelete
+    
+    static void prvDeleteTCB(TCB_t * pxTCB)
+    {
+        vPortFree((void *)pxTCB);
+    }
+
+
+
+    void vTaskDelete(TaskHandle_t xTaskToDelete)
+    {
+        
+        TCB_t * pxTCB;
+        BaseType_t xDeleteTCBInIdleTask = pdFALSE;
+        BaseType_t xTaskIsRunningOrYielding;
+        taskENTER_CRITICAL();
+        {
+            pxTCB = (xTaskToDelete == NULL ? pxCurrentTCB : xTaskToDelete);
+            
+            uxListRemove(&(pxTCB->xStateListItem));
+
+            if(listLIST_ITEM_CONTAINER(&(pxTCB->xEventListItem)) != NULL)
+            {
+                uxListRemove(&(pxTCB->xEventListItem));
+            }
+            else mtCOVERAGE_TEST_MARKER();
+
+            uxTaskNumber++; // debug
+
+            xTaskIsRunningOrYielding = (pxTCB == pxCurrentTCB ? pdTRUE : pdFALSE);
+
+            if((xSchedulerRunning==pdTRUE) && (xTaskIsRunningOrYielding==pdTRUE))
+            {
+                vListInsertEnd(&xTasksWaitingTermination, &(pxTCB->xStateListItem));
+                uxDeleteTasksWaitingCleanUp++;
+                xDeleteTCBInIdleTask = pdTRUE;
+            }
+            else
+            {
+                uxCurrentNumberOfTasks--;
+                prvResetNextTaskUnblockTime();
+            }
+
+        }
+        taskEXIT_CRITICAL();
+
+        if(xDeleteTCBInIdleTask != pdTRUE)
+        {
+            prvDeleteTCB(pxTCB);
+        }
+        else mtCOVERAGE_TEST_MARKER();
+
+        if(xSchedulerRunning != pdFALSE)
+        {
+            if(pxTCB == pxCurrentTCB)
+            {
+                portYIELD();
+            }
+            else mtCOVERAGE_TEST_MARKER();
+        }
+        else mtCOVERAGE_TEST_MARKER();
+
+    }
+#endif
 
 void vTaskStartScheduler(void)
 {
@@ -427,6 +575,132 @@ BaseType_t xTaskIncrementTick(void)
     }
 
     return xSwitchRequired;
+}
+
+void vTaskSuspend(TaskHandle_t xTaskToSuspend)
+{
+    TCB_t * pxTCB;
+    taskENTER_CRITICAL();
+    {
+        pxTCB = prvGetTCBFromHandle(xTaskToSuspend);
+
+        uxListRemove(&(pxTCB->xStateListItem));
+
+        if(listLIST_ITEM_CONTAINER(&(pxTCB->xEventListItem)) != NULL)
+        {
+            uxListRemove(&(pxTCB->xEventListItem));
+        }
+        else
+        {
+            mtCOVERAGE_TEST_MARKER();
+        }
+
+        vListInsertEnd(&xSuspendedTaskList, &(pxTCB->xStateListItem));
+        
+    }
+    taskEXIT_CRITICAL();
+
+    UBaseType_t uxCurrentListLength;
+    if(xSchedulerRunning != pdFALSE)
+    {
+        taskENTER_CRITICAL();
+        {
+            prvResetNextTaskUnblockTime();
+        }
+        taskEXIT_CRITICAL();
+    }
+    else
+    {
+        mtCOVERAGE_TEST_MARKER();
+    }
+
+    if(pxTCB == pxCurrentTCB)
+    {
+        if(xSchedulerRunning != pdFALSE)
+        {
+            configASSERT(uxSchedulerSuspended == 0);
+            portYIELD();
+        }
+        else
+        {
+            uxCurrentListLength = listCURRENT_LIST_LENGTH(&xSuspendedTaskList);
+            if(uxCurrentListLength == uxCurrentNumberOfTasks)
+            {
+                pxCurrentTCB = NULL;
+            }
+            else
+            {
+                vTaskSwitchContext();
+            }
+        }
+    }
+    else
+    {
+        mtCOVERAGE_TEST_MARKER();
+    }
+}
+
+void vTaskResume(TaskHandle_t xTaskToResume)
+{
+    TCB_t * pxTCB = xTaskToResume;
+
+    if((pxTCB != pxCurrentTCB) && pxTCB != NULL)
+    {
+        taskENTER_CRITICAL();
+        {
+            if(prvTaskIsTaskSuspended(pxTCB) != pdFALSE)
+            {
+                uxListRemove(&(pxTCB->xStateListItem));
+                prvAddTaskToReadyList(pxTCB);
+                taskYIELD_ANY_CORE_IF_USING_PREEMPTION(pxTCB);
+            }
+            else
+            {
+                mtCOVERAGE_TEST_MARKER();
+            }
+        }
+        taskEXIT_CRITICAL();
+
+    }
+    else
+    {
+        mtCOVERAGE_TEST_MARKER();
+    }
+}
+
+
+BaseType_t vTaskResumeFromISR(TaskHandle_t xTaskToResume)
+{
+    TCB_t * pxTCB = xTaskToResume;
+    BaseType_t xYieldRequired = pdFALSE;
+    UBaseType_t uxSavedInterruptStatus;
+
+    uxSavedInterruptStatus = taskENTER_CRITICAL_FROM_ISR();
+    {
+        if(prvTaskIsTaskSuspended(pxTCB) == pdTRUE)
+        {
+            if(uxSchedulerSuspended == (UBaseType_t)0U)
+            {
+                if(pxTCB->uxPriority > pxCurrentTCB->uxPriority)
+                {
+                    xYieldRequired = pdTRUE;
+                    xYieldPendings[0] = pdTRUE;
+                }
+                else mtCOVERAGE_TEST_MARKER();
+
+                uxListRemove(&(pxTCB->xStateListItem));
+                prvAddTaskToReadyList(pxTCB);
+            }
+            else
+            {
+                vListInsertEnd(&(xPendingReadyList), &(pxTCB->xEventListItem));
+            }
+        }
+        else mtCOVERAGE_TEST_MARKER();
+    }
+    taskEXIT_CRITICAL_FROM_ISR(uxSavedInterruptStatus);
+
+    return xYieldRequired;
 }
 
 void vTaskSuspendAll(void)

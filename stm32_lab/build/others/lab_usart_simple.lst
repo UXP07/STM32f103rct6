@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s 			page 1
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s 			page 1
   58 0018 8DF80730 		strb	r3, [sp, #7]
   59 001c 0323     		movs	r3, #3
   60 001e 8DF80630 		strb	r3, [sp, #6]
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s 			page 2
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s 			page 2
 
 
   61 0022 01AD     		add	r5, sp, #4
@@ -73,7 +73,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s 			page 1
   70 003c 2946     		mov	r1, r5
   71 003e 2046     		mov	r0, r4
   72 0040 FFF7FEFF 		bl	GPIO_Init
-  73 0044 4FF4E133 		mov	r3, #115200
+  73 0044 4FF41653 		mov	r3, #9600
   74 0048 0293     		str	r3, [sp, #8]
   75 004a 0023     		movs	r3, #0
   76 004c ADF80C30 		strh	r3, [sp, #12]	@ movhi
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s 			page 1
  117 000a 2046     		mov	r0, r4
  118 000c FFF7FEFF 		bl	USART_GetFlagStatus
  119 0010 0028     		cmp	r0, #0
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s 			page 3
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s 			page 3
 
 
  120 0012 F9D0     		beq	.L8
@@ -151,61 +151,68 @@ ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s 			page 1
  149 001e 0028     		cmp	r0, #0
  150 0020 F9D0     		beq	.L13
  151 0022 38BD     		pop	{r3, r4, r5, pc}
- 153              		.section	.text.USART1_IRQHandler,"ax",%progbits
- 154              		.align	1
- 155              		.global	USART1_IRQHandler
- 156              		.syntax unified
- 157              		.thumb
- 158              		.thumb_func
- 160              	USART1_IRQHandler:
- 161              		@ args = 0, pretend = 0, frame = 0
- 162              		@ frame_needed = 0, uses_anonymous_args = 0
- 163 0000 08B5     		push	{r3, lr}
- 164 0002 40F22551 		movw	r1, #1317
- 165 0006 0B48     		ldr	r0, .L19
- 166 0008 FFF7FEFF 		bl	USART_GetITStatus
- 167 000c 00B9     		cbnz	r0, .L18
- 168              	.L15:
- 169 000e 08BD     		pop	{r3, pc}
- 170              	.L18:
- 171 0010 094A     		ldr	r2, .L19+4
- 172 0012 D368     		ldr	r3, [r2, #12]
- 173 0014 83F48073 		eor	r3, r3, #256
- 174 0018 D360     		str	r3, [r2, #12]
- 175 001a 02F54062 		add	r2, r2, #3072
- 176 001e D368     		ldr	r3, [r2, #12]
- 177 0020 83F00403 		eor	r3, r3, #4
- 178 0024 D360     		str	r3, [r2, #12]
- 179 0026 40F22551 		movw	r1, #1317
- 180 002a 0248     		ldr	r0, .L19
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s 			page 4
+ 153              		.section	.rodata.USART1_IRQHandler.str1.4,"aMS",%progbits,1
+ 154              		.align	2
+ 155              	.LC0:
+ 156 0000 56696577 		.ascii	"View Back %d\012\000"
+ 156      20426163 
+ 156      6B202564 
+ 156      0A00
+ 157              		.section	.text.USART1_IRQHandler,"ax",%progbits
+ 158              		.align	1
+ 159              		.global	USART1_IRQHandler
+ 160              		.syntax unified
+ 161              		.thumb
+ 162              		.thumb_func
+ 164              	USART1_IRQHandler:
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 0, uses_anonymous_args = 0
+ 167 0000 08B5     		push	{r3, lr}
+ 168 0002 0A4A     		ldr	r2, .L19
+ 169 0004 D368     		ldr	r3, [r2, #12]
+ 170 0006 83F48073 		eor	r3, r3, #256
+ 171 000a D360     		str	r3, [r2, #12]
+ 172 000c 40F22551 		movw	r1, #1317
+ 173 0010 0748     		ldr	r0, .L19+4
+ 174 0012 FFF7FEFF 		bl	USART_GetITStatus
+ 175 0016 00B9     		cbnz	r0, .L18
+ 176              	.L15:
+ 177 0018 08BD     		pop	{r3, pc}
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s 			page 4
 
 
- 181 002c FFF7FEFF 		bl	USART_ClearITPendingBit
- 182 0030 EDE7     		b	.L15
- 183              	.L20:
- 184 0032 00BF     		.align	2
- 185              	.L19:
- 186 0034 00380140 		.word	1073821696
- 187 0038 00080140 		.word	1073809408
- 189              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
-ARM GAS  C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s 			page 5
+ 178              	.L18:
+ 179 001a 0548     		ldr	r0, .L19+4
+ 180 001c FFF7FEFF 		bl	USART_ReceiveData
+ 181 0020 C1B2     		uxtb	r1, r0
+ 182 0022 0448     		ldr	r0, .L19+8
+ 183 0024 FFF7FEFF 		bl	printf
+ 184 0028 F6E7     		b	.L15
+ 185              	.L20:
+ 186 002a 00BF     		.align	2
+ 187              	.L19:
+ 188 002c 00080140 		.word	1073809408
+ 189 0030 00380140 		.word	1073821696
+ 190 0034 00000000 		.word	.LC0
+ 192              		.ident	"GCC: (Arm GNU Toolchain 14.3.Rel1 (Build arm-14.174)) 14.3.1 20250623"
+ARM GAS  C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 lab_usart_simple.c
-C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s:16     .text.NVIC_USART_Configuration:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s:22     .text.NVIC_USART_Configuration:00000000 NVIC_USART_Configuration
-C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s:41     .text.Uart_Init:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s:47     .text.Uart_Init:00000000 Uart_Init
-C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s:100    .text.Uart_Init:0000008c $d
-C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s:103    .text.Usart_SendByte:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s:109    .text.Usart_SendByte:00000000 Usart_SendByte
-C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s:124    .text.Usart_SendString:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s:130    .text.Usart_SendString:00000000 Usart_SendString
-C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s:154    .text.USART1_IRQHandler:00000000 $t
-C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s:160    .text.USART1_IRQHandler:00000000 USART1_IRQHandler
-C:\Users\UXP\AppData\Local\Temp\cc3LlFZS.s:186    .text.USART1_IRQHandler:00000034 $d
+C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s:16     .text.NVIC_USART_Configuration:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s:22     .text.NVIC_USART_Configuration:00000000 NVIC_USART_Configuration
+C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s:41     .text.Uart_Init:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s:47     .text.Uart_Init:00000000 Uart_Init
+C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s:100    .text.Uart_Init:0000008c $d
+C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s:103    .text.Usart_SendByte:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s:109    .text.Usart_SendByte:00000000 Usart_SendByte
+C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s:124    .text.Usart_SendString:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s:130    .text.Usart_SendString:00000000 Usart_SendString
+C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s:154    .rodata.USART1_IRQHandler.str1.4:00000000 $d
+C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s:158    .text.USART1_IRQHandler:00000000 $t
+C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s:164    .text.USART1_IRQHandler:00000000 USART1_IRQHandler
+C:\Users\UXP\AppData\Local\Temp\ccJXWPDd.s:188    .text.USART1_IRQHandler:0000002c $d
 
 UNDEFINED SYMBOLS
 NVIC_Init
@@ -217,4 +224,5 @@ USART_Cmd
 USART_SendData
 USART_GetFlagStatus
 USART_GetITStatus
-USART_ClearITPendingBit
+USART_ReceiveData
+printf

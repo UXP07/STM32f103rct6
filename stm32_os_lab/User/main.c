@@ -24,7 +24,6 @@ TCB_t Task2TCB;
 TaskHandle_t pxCurrentTCB = NULL;
 
 
-
 int main(void)
 {
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
@@ -66,6 +65,7 @@ void Task1_Entry(void *p_arg)
     while(1)
     {
         LED2_TOGGLE;
+        // printf("Hello I'm 1\n");
         vTaskDelay(500);
     }
 }
@@ -75,6 +75,7 @@ void Task2_Entry(void *p_arg)
     while(1)
     {
         LED1_TOGGLE;
+        // printf("Hello I'm 2\n");
         vTaskDelay(500);
     }
 }

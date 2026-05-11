@@ -15,15 +15,15 @@ int _close(int file) {
 int _write(int file, char *ptr, int len) {
     
     // 这里的逻辑是：标准库把数据交给 _write
-    // 我们在 _write 里把数据通过 USART1 发出去
+    // 我们在 _write 里把数据通过 DEBUG_USART 发出去
     
     // 遍历数据缓冲区，一个字节一个字节发
     for (int i = 0; i < len; i++) {
         // 等待发送寄存器为空
-        while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+        while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TC) == RESET);
         
         // 发送数据
-        USART_SendData(USART1, ptr[i]);
+        USART_SendData(DEBUG_USART, ptr[i]);
     }
     
     return len; // 返回发送的长度
@@ -36,10 +36,10 @@ int _read(int file, char *ptr, int len) {
     
     for (n = 0; n < len; n++) {
         // 等待接收到数据
-        while (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET);
+        while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_RXNE) == RESET);
         
         // 读取数据
-        c = USART_ReceiveData(USART1);
+        c = USART_ReceiveData(DEBUG_USART);
         
         // 遇到回车符则停止
         if (c == '\n') {
