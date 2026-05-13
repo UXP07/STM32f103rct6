@@ -4,7 +4,7 @@
 #include "stm32f10x.h"
 #include "stm32f10x_dma.h"
 #include "stm32f10x_rcc.h"
-#include "lab_usart_simple.h"
+#include "lab_usart.h"
 
 #define DMA_INT_CLK         RCC_AHBPeriph_DMA1
 #define DMA_CHANNEL         DMA1_Channel4

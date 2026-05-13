@@ -1,15 +1,16 @@
-#ifndef _LAB_USART_SIMPLE__H_
-#define _LAB_USART_SIMPLE__H_
+#ifndef _LAB_USART__H_
+#define _LAB_USART__H_
 
 #include "stm32f10x.h"
 #include "stm32f10x_usart.h"
 #include "stm32f10x_rcc.h"
 #include "stm32f10x_gpio.h"
+#include "stm32f10x_dma.h"
 #include "misc.h"
 #include "delay.h"
 #include "led.h"
 #include <stdio.h>
-#include "lab_usart_ringbuffer.h"
+#include <string.h>
 
 #define DEBUG_USART             USART1
 #define DUBUG_USART_CLK         RCC_APB2Periph_USART1
@@ -24,12 +25,20 @@
 #define DEBUG_USART_IRQ         USART1_IRQn
 #define DEBUG_USART_IRQHandler  USART1_IRQHandler
 
+#define USART_DMA_CLK           RCC_AHBPeriph_DMA1
+#define USART_DMA_TX_CHANNEL    DMA1_Channel4
+#define USART_DMA_RX_CHANNEL    DMA1_Channel5
+#define USART_TX_BUF_LEN        128
+#define USART_RX_BUF_LEN        128
+
 #define LAB_USART_CODE          0
 
 void NVIC_USART_Configuration(void);
 void Uart_Init(void);
+void Uart_DMA_Init(void);
 void Usart_SendByte(USART_TypeDef* USARTx, uint16_t Data);
 void Usart_SendString(USART_TypeDef* USARTx, char* str);
+void Usart_Send_DMA(uint8_t * data, uint16_t len);
 void DEBUG_USART_IRQHandler(void);
 #if LAB_USART_CODE
 void lab_usart_send(void);

@@ -18,13 +18,14 @@ int _write(int file, char *ptr, int len) {
     // 我们在 _write 里把数据通过 DEBUG_USART 发出去
     
     // 遍历数据缓冲区，一个字节一个字节发
-    for (int i = 0; i < len; i++) {
-        // 等待发送寄存器为空
-        while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TC) == RESET);
+    // for (int i = 0; i < len; i++) {
+    //     // 等待发送寄存器为空
+    //     while (USART_GetFlagStatus(DEBUG_USART, USART_FLAG_TXE) == RESET);
         
-        // 发送数据
-        USART_SendData(DEBUG_USART, ptr[i]);
-    }
+    //     // 发送数据
+    //     USART_SendData(DEBUG_USART, ptr[i]);
+    // }
+    Usart_Send_DMA((uint8_t*)ptr, len);
     
     return len; // 返回发送的长度
 }

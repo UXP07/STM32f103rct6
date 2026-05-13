@@ -1,4 +1,5 @@
-others/syscalls.o: ../User/syscalls.c ../User/main.h ..\Core/stm32f10x.h \
+others/lab_usart_complex.o: ..\Modules\src/lab_usart_complex.c \
+ ..\Modules\inc/lab_usart_complex.h ..\Core/stm32f10x.h \
  ..\Core/core_cm3.h ..\Core/system_stm32f10x.h ..\User/stm32f10x_conf.h \
  ..\Library\inc/stm32f10x_adc.h ..\Library\inc/stm32f10x_bkp.h \
  ..\Library\inc/stm32f10x_can.h ..\Library\inc/stm32f10x_cec.h \
@@ -12,8 +13,8 @@ others/syscalls.o: ../User/syscalls.c ../User/main.h ..\Core/stm32f10x.h \
  ..\Library\inc/stm32f10x_spi.h ..\Library\inc/stm32f10x_tim.h \
  ..\Library\inc/stm32f10x_usart.h ..\Library\inc/stm32f10x_wwdg.h \
  ..\Library\inc/misc.h ..\System\inc/delay.h ..\System\inc/sys.h \
- ..\Modules\inc/led.h ..\Modules\inc/lab_usart.h ..\Modules\inc/led.h
-../User/main.h:
+ ..\Modules\inc/led.h
+..\Modules\inc/lab_usart_complex.h:
 ..\Core/stm32f10x.h:
 ..\Core/core_cm3.h:
 ..\Core/system_stm32f10x.h:
@@ -43,6 +44,4 @@ others/syscalls.o: ../User/syscalls.c ../User/main.h ..\Core/stm32f10x.h \
 ..\Library\inc/misc.h:
 ..\System\inc/delay.h:
 ..\System\inc/sys.h:
-..\Modules\inc/led.h:
-..\Modules\inc/lab_usart.h:
 ..\Modules\inc/led.h:
